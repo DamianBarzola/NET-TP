@@ -14,7 +14,7 @@ using Business.Entities;
 namespace UI.Desktop
 {
    
-    public partial class UsuarioDesktop : UI.Desktop.ApplicationForm
+    public partial class UsuarioDesktop : ApplicationForm
     {
         public UsuarioDesktop()
         {
