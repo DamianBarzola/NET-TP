@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Business.Logic;
 using Business.Entities;
 
-
+//Esto es un comentario
 namespace UI.Desktop
 {
    
