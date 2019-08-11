@@ -186,7 +186,7 @@
             // tsbNuevo
             // 
             this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbNuevo.Image = ((System.Drawing.Image)(resources.GetObject("tsbNuevo.Image")));
+            //this.tsbNuevo.Image = ((System.Drawing.Image)(resources.GetObject("tsbNuevo.Image")));
             this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNuevo.Name = "tsbNuevo";
             this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
@@ -196,7 +196,7 @@
             // stbEditar
             // 
             this.stbEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.stbEditar.Image = ((System.Drawing.Image)(resources.GetObject("stbEditar.Image")));
+          //  this.stbEditar.Image = ((System.Drawing.Image)(resources.GetObject("stbEditar.Image")));
             this.stbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.stbEditar.Name = "stbEditar";
             this.stbEditar.Size = new System.Drawing.Size(23, 22);
@@ -206,7 +206,7 @@
             // stbEliminar
             // 
             this.stbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.stbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("stbEliminar.Image")));
+            //this.stbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("stbEliminar.Image")));
             this.stbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.stbEliminar.Name = "stbEliminar";
             this.stbEliminar.Size = new System.Drawing.Size(23, 22);
