@@ -12,9 +12,14 @@ namespace Data.Database
         /*
         Si estamos trabajando con un MS Sql Server con una instancia sin nombre
         instalado en la misma PC en la que estamos desarrollando usaremos
-        ConnStringLocal, en caso que hayamos instalado un Sql Express sin   
-        modificar el nombre de instancia usaremos ConnStringExpress y si
-        estamos usando el serverisi usaremos ConnStringServerISI.Estos los
+        ConnStringLocal, 
+        en caso que hayamos instalado un Sql Express sin   
+        modificar el nombre de instancia usaremos
+        ConnStringExpress 
+        y si
+        estamos usando el serverisi usaremos 
+        ConnStringServerISI
+        Estos los
         iremos cambiando en la medida que estemos trabajando en otros entornos
         */
 
