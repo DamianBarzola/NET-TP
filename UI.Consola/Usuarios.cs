@@ -21,8 +21,7 @@ namespace UI.Consola
         public void Menu()
         {
 
-            int op;
-            op = 0;
+            int op=0;
 
 
             Console.WriteLine("---Menu de Opciones---");
@@ -151,7 +150,7 @@ namespace UI.Consola
             catch (FormatException fe)
             {
                 Console.WriteLine();
-                Console.WriteLine("La ID ingresada debe ser u número entero");
+                Console.WriteLine("La ID ingresada debe ser un número entero");
 
             }
 
@@ -173,7 +172,7 @@ namespace UI.Consola
             try
             {
                 Console.Clear();
-                Write("Ingrese el ID del usurio a eliminar: ");
+                Write("Ingrese el ID del usuario a eliminar: ");
                 int ID = int.Parse(Console.ReadLine());
                 UsuarioNegocio.Delete(ID);
             }
