@@ -5,47 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Business.Entities
+
 {
     class ModuloUsuario : BusinessEntity
     {
         private int _IdUsuario;
-        public int IdUsuario
-        {
-            get { return _IdUsuario; }
-            set { _IdUsuario = value; }
-        }
-
         private int _IdModulo;
-        public int IdModulo
-        {
-            get { return _IdModulo; }
-            set { _IdModulo = value; }
-        }
-
         private bool _PermiteAlta;
-        public bool PermiteAlta
-        {
-            get { return _PermiteAlta; }
-            set { _PermiteAlta = value; }
-        }
         private bool _PermiteBaja;
-        public bool PermiteBaja
-        {
-            get { return _PermiteBaja; }
-            set { _PermiteBaja = value; }
-        }
         private bool _PermiteModificacion;
-        public bool PermiteModificacion
-        {
-            get { return _PermiteModificacion; }
-            set { _PermiteModificacion = value; }
-        }
         private bool _PermiteConsulta;
-        public bool PermiteConsulta
-        {
-            get { return _PermiteConsulta; }
-            set { _PermiteConsulta = value; }
-        }
+
+        public int IdUsuario { get => _IdUsuario; set => _IdUsuario = value; }
+        public int IdModulo { get => _IdModulo; set => _IdModulo = value; }
+        public bool PermiteAlta { get => _PermiteAlta; set => _PermiteAlta = value; }
+        public bool PermiteBaja { get => _PermiteBaja; set => _PermiteBaja = value; }
+        public bool PermiteModificacion { get => _PermiteModificacion; set => _PermiteModificacion = value; }
+        public bool PermiteConsulta { get => _PermiteConsulta; set => _PermiteConsulta = value; }
 
 
     }

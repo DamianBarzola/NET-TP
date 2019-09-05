@@ -8,7 +8,7 @@ namespace Business.Entities
 {
     public class BusinessEntity
     {
-        public BusinessEntity()
+        public BusinessEntity() //esto va ?
         {
         this.State = States.New;
         }
@@ -16,19 +16,13 @@ namespace Business.Entities
         public enum States { Deleted, New, Modified, Unmodified }
 
         private int _ID;
-        public int ID
-        {
-            get { return _ID; }
-            set { _ID = value; }
-        }
-
         private States _State;
-        public States State
-        {
-            get { return _State; }
-            set { _State = value; }
-        }
 
+        // falta _habilitado
+
+        public int ID { get => _ID; set => _ID = value; }
+        public States State { get => _State; set => _State = value; }
+        
     }
 }
 
