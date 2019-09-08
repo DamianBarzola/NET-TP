@@ -25,11 +25,8 @@ namespace UI.Desktop
 
         Usuario _UsuarioActual;
 
-        public Usuario UsuarioActual
-        {
-            get { return _UsuarioActual; }
-            set { _UsuarioActual = value; }
-        }
+        public Usuario UsuarioActual { get => _UsuarioActual; set => _UsuarioActual=value; }
+        
 
         //Constructor Setea ModoForm en el modo enviado
         public UsuarioDesktop(ModoForm modo) : this()

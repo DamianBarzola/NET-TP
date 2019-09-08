@@ -10,7 +10,8 @@ namespace Business.Logic
 {
     public class UsuarioLogic : BusinessLogic
     {
-        public UsuarioAdapter UsuarioData { get; set; }
+        private UsuarioAdapter _UsuarioData;
+        public UsuarioAdapter UsuarioData { get=> _UsuarioData; set=> _UsuarioData = value; }
 
         public UsuarioLogic() {
             UsuarioData = new UsuarioAdapter();
@@ -22,6 +23,17 @@ namespace Business.Logic
 
         public Business.Entities.Usuario GetOne(int ID) {
             return UsuarioData.GetOne(ID);
+        }
+        public Usuario GetOne (string username)
+        {
+            try
+            {
+                return UsuarioData.GetOne(username);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void Delete(int ID) {

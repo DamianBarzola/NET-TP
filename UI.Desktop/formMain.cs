@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class formMain : Form
+    public partial class FormMain : Form
     {
-        public formMain()
+        public FormMain()
         {
             InitializeComponent();
         }
 
         private void formMain_Shown(object sender, EventArgs e)
         {
-            formLogin appLogin = new formLogin();
+            Login appLogin = new Login();
             if (appLogin.ShowDialog() != DialogResult.OK)
             {
                 this.Dispose();

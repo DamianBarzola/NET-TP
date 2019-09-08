@@ -240,7 +240,8 @@
             this.ClientSize = new System.Drawing.Size(544, 126);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UsuarioDesktop";
-            this.Text = "Form1";
+            this.RightToLeftLayout = true;
+            this.Text = "Datos Usuario";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

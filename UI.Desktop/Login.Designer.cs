@@ -1,6 +1,6 @@
 ﻿namespace UI.Desktop
 {
-    partial class formLogin
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,7 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.lnkOlvidaPass = new System.Windows.Forms.LinkLabel();
             this.btnIngresar = new System.Windows.Forms.Button();
+            this.Boton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -68,6 +69,7 @@
             // txtPass
             // 
             this.txtPass.Location = new System.Drawing.Point(154, 150);
+            this.txtPass.MaxLength = 15;
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(100, 20);
@@ -76,10 +78,11 @@
             // txtUsuario
             // 
             this.txtUsuario.Location = new System.Drawing.Point(154, 106);
+            this.txtUsuario.MaxLength = 15;
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.PasswordChar = '*';
             this.txtUsuario.Size = new System.Drawing.Size(100, 20);
             this.txtUsuario.TabIndex = 5;
+            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             // 
             // lnkOlvidaPass
             // 
@@ -90,6 +93,7 @@
             this.lnkOlvidaPass.TabIndex = 6;
             this.lnkOlvidaPass.TabStop = true;
             this.lnkOlvidaPass.Text = "Olvidé mi contraseña";
+            this.lnkOlvidaPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LnkOlvidaPass_LinkClicked);
             // 
             // btnIngresar
             // 
@@ -99,12 +103,24 @@
             this.btnIngresar.TabIndex = 7;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.Click += new System.EventHandler(this.BtnIngresar_Click);
             // 
-            // login
+            // Boton
+            // 
+            this.Boton.Location = new System.Drawing.Point(56, 188);
+            this.Boton.Name = "Boton";
+            this.Boton.Size = new System.Drawing.Size(75, 23);
+            this.Boton.TabIndex = 8;
+            this.Boton.Text = "Salir";
+            this.Boton.UseVisualStyleBackColor = true;
+            this.Boton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(298, 268);
+            this.Controls.Add(this.Boton);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.lnkOlvidaPass);
             this.Controls.Add(this.txtUsuario);
@@ -112,7 +128,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "login";
+            this.Name = "FormLogin";
             this.Text = "login";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -128,5 +144,6 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.LinkLabel lnkOlvidaPass;
         private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.Button Boton;
     }
 }

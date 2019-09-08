@@ -11,11 +11,12 @@ namespace UI.Consola
 {
     public class Usuarios
     {
-        public UsuarioLogic UsuarioNegocio { get; set; }
+        private UsuarioLogic _UsuarioNegocio ;
+        public UsuarioLogic UsuarioNegocio { get => _UsuarioNegocio; set=> _UsuarioNegocio = value; }
 
         public Usuarios()
         {
-            UsuarioNegocio = new UsuarioLogic();
+           UsuarioLogic UsuarioNegocio = new UsuarioLogic();
         }
 
         public void Menu()
@@ -72,7 +73,7 @@ namespace UI.Consola
         public void ListadoGeneral()
         {
             Console.Clear();
-            foreach (Usuario usr in UsuarioNegocio.GetAll())
+            foreach (Business.Entities.Usuario usr in UsuarioNegocio.GetAll())
             {
                 MostrarDatos(usr);
             }

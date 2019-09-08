@@ -98,7 +98,7 @@ namespace Data.Database
         }
 
 
-
+        //Get one x id
         public Business.Entities.Usuario GetOne(int ID)
         {
             Usuario usr = new Usuario();
@@ -132,6 +132,43 @@ namespace Data.Database
             }
             return usr;
         }
+
+        //GetOne x Nombre de usuario
+
+        public Business.Entities.Usuario GetOne(string username)
+        {
+            Usuario usr = new Usuario();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetOne = new SqlCommand("select * from usuarios where nombre_usuario=@username ", SqlConn);
+                cmdGetOne.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+                SqlDataReader drUsuarios = cmdGetOne.ExecuteReader();
+                if (drUsuarios.Read())
+                {
+                    usr.ID = (int)drUsuarios["id_usuario"];
+                    usr.NombreUsuario = (string)drUsuarios["nombre_usuario"];
+                    usr.Clave = (string)drUsuarios["clave"];
+                    usr.Habilitado = (bool)drUsuarios["habilitado"];
+                    usr.Nombre = (string)drUsuarios["nombre"];
+                    usr.Apellido = (string)drUsuarios["apellido"];
+                    usr.Email = (string)drUsuarios["email"];
+                }
+
+                drUsuarios.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de usuarios", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return usr;
+        }
+
 
 
         public void Delete(int ID)
