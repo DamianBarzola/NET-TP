@@ -21,7 +21,7 @@ namespace Business.Logic
             return UsuarioData.GetAll();
         }
 
-        public Business.Entities.Usuario GetOne(int ID) {
+        public Usuario GetOne(int ID) {
             return UsuarioData.GetOne(ID);
         }
         public Usuario GetOne (string username)

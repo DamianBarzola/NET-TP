@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
-using Business.Logic
+using Business.Logic;
 
 namespace UI.Desktop
 {
@@ -22,22 +22,18 @@ namespace UI.Desktop
         //Falta conexion bd
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
-            // usuarioLo
-            
-            
+            this.Enabled = false;
+
             try
             {
                 UsuarioLogic ul = new UsuarioLogic();
                 Usuario user = ul.GetOne(txtUsuario.Text);
-                if (this.txtUsuario.Text == "Admin" && this.txtPass.Text == "admin")
+                if (txtUsuario.Text.Equals(user.NombreUsuario) && txtPass.Text.Equals(user.Clave))
                 {
-                     
-                    this.Enabled = false;
-                    //this.Close(); //Cuando pongo el close no me funciona el messageBox
-                    //Hay q agregar parametro y constructor para pasar el usuario.
-                    FormMain Main = new FormMain();
-                    MessageBox.Show("Le pegaste bro");
-               
+                    this.Visible = false;
+                    Main Menu = new Main();
+                    Menu.ShowDialog();
+                    this.Visible = true;
                 }
                 else
                 {
@@ -45,10 +41,13 @@ namespace UI.Desktop
                         , MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch //esto lo hago cuando conecto a la bd
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Error del servidor. /n" + ex.Message);
             }
+
+            txtPass.Text = string.Empty;
+            this.Enabled = true;
         }
 
         

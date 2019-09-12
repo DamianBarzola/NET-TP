@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class FormMain : Form
+    public partial class Main : Form
     {
-        public FormMain()
+        public Main()
         {
             InitializeComponent();
         }
@@ -30,6 +30,21 @@ namespace UI.Desktop
         private void mnuSalir_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void especialidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

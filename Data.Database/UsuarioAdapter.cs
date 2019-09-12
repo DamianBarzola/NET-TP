@@ -4,63 +4,11 @@ using System.Text;
 using Business.Entities;
 using System.Data;
 using System.Data.SqlClient;
-
+// FALTARIA : UPDATEPASSWORD,SAVE PASSWORD, (GETMAXLEGAJO).
 namespace Data.Database
 {
-    public class UsuarioAdapter:Adapter
+    public class UsuarioAdapter : Adapter
     {
-        #region DatosEnMemoria
-        // Esta región solo se usa en esta etapa donde los datos se mantienen en memoria.
-        // Al modificar este proyecto para que acceda a la base de datos esta será eliminada
-        private static List<Usuario> _Usuarios;
-
-        private static List<Usuario> Usuarios
-        {
-            get
-            {
-                if (_Usuarios == null)
-                {
-                    _Usuarios = new List<Business.Entities.Usuario>();
-                    Business.Entities.Usuario usr;
-                    usr = new Business.Entities.Usuario();
-                    usr.ID = 1;
-                    usr.State = Business.Entities.BusinessEntity.States.Unmodified;
-                    usr.Nombre = "Casimiro";
-                    usr.Apellido = "Cegado";
-                    usr.NombreUsuario = "casicegado";
-                    usr.Clave = "miro";
-                    usr.Email = "casimirocegado@gmail.com";
-                    usr.Habilitado = true;
-                    _Usuarios.Add(usr);
-
-                    usr = new Business.Entities.Usuario();
-                    usr.ID = 2;
-                    usr.State = Business.Entities.BusinessEntity.States.Unmodified;
-                    usr.Nombre = "Armando Esteban";
-                    usr.Apellido = "Quito";
-                    usr.NombreUsuario = "aequito";
-                    usr.Clave = "carpintero";
-                    usr.Email = "armandoquito@gmail.com";
-                    usr.Habilitado = true;
-                    _Usuarios.Add(usr);
-
-                    usr = new Business.Entities.Usuario();
-                    usr.ID = 3;
-                    usr.State = Business.Entities.BusinessEntity.States.Unmodified;
-                    usr.Nombre = "Alan";
-                    usr.Apellido = "Brado";
-                    usr.NombreUsuario = "alanbrado";
-                    usr.Clave = "abrete sesamo";
-                    usr.Email = "alanbrado@gmail.com";
-                    usr.Habilitado = true;
-                    _Usuarios.Add(usr);
-
-                }
-                return _Usuarios;
-            }
-        }
-        #endregion
-
         public List<Usuario> GetAll()
         {
             List<Usuario> usuarios = new List<Usuario>();
@@ -81,13 +29,14 @@ namespace Data.Database
                     usr.Apellido = (string)drUsuarios["apellido"];
                     usr.Email = (string)drUsuarios["email"];
 
+
                     usuarios.Add(usr);
                 }
                 drUsuarios.Close();
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada =  new Exception("Error al recuperar lista de usuarios", Ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de usuarios", Ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -97,8 +46,6 @@ namespace Data.Database
             return usuarios;
         }
 
-
-        //Get one x id
         public Business.Entities.Usuario GetOne(int ID)
         {
             Usuario usr = new Usuario();
@@ -132,8 +79,6 @@ namespace Data.Database
             }
             return usr;
         }
-
-        //GetOne x Nombre de usuario
 
         public Business.Entities.Usuario GetOne(string username)
         {
@@ -169,15 +114,14 @@ namespace Data.Database
             return usr;
         }
 
-
-
         public void Delete(int ID)
         {
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdDelete = new SqlCommand("delete usuarios where id_usuario = @id", SqlConn);
+                SqlCommand cmdDelete = new SqlCommand("UPDATE usuarios SET user_hab=@false where id_usuario = @id", SqlConn);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+                cmdDelete.Parameters.Add("@false", SqlDbType.Bit).Value = false;
                 cmdDelete.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -220,7 +164,6 @@ namespace Data.Database
             }
         }
 
-
         protected void Insert(Usuario usuario)
         {
             try
@@ -250,21 +193,22 @@ namespace Data.Database
         }
 
 
-          public void Save(Usuario usuario)
-          {
-                if (usuario.State == BusinessEntity.States.Deleted)
-                {
-                    this.Delete(usuario.ID);
-                }
-                else if (usuario.State == BusinessEntity.States.New)
-                {
-                    this.Insert(usuario);
-                }
-                else if (usuario.State == BusinessEntity.States.Modified)
-                {
-                    this.Update(usuario);
-                }
-                usuario.State = BusinessEntity.States.Unmodified;
-          }
+        public void Save(Usuario usuario)
+        {
+            if (usuario.State == BusinessEntity.States.Deleted)
+            {
+                this.Delete(usuario.ID);
+            }
+            else if (usuario.State == BusinessEntity.States.New)
+            {
+                this.Insert(usuario);
+            }
+            else if (usuario.State == BusinessEntity.States.Modified)
+            {
+                this.Update(usuario);
+            }
+            usuario.State = BusinessEntity.States.Unmodified;
+        }
     }
+
 }
