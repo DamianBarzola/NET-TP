@@ -38,9 +38,10 @@ namespace UI.Desktop
         //Constructor: Recibe ID Usuario y modo de formulario.
         public UsuarioDesktop(int ID, ModoForm modo) : this()
         {
-            this._Modo = modo;
-            UsuarioLogic UsuarioNegocio = new UsuarioLogic();
-            this.MapearDeDatos();
+            _Modo = modo;
+            UsuarioLogic auxUsuarioNegocio = new UsuarioLogic();
+            UsuarioActual = auxUsuarioNegocio.GetOne(ID);
+            MapearDeDatos();
         }
 
 
