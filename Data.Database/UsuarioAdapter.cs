@@ -164,6 +164,9 @@ namespace Data.Database
             }
         }
 
+        // falta updatepass
+
+
         protected void Insert(Usuario usuario)
         {
             try

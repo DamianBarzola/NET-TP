@@ -73,6 +73,18 @@
     <Compile Include="CambiarPass.Designer.cs">
       <DependentUpon>CambiarPass.cs</DependentUpon>
     </Compile>
+    <Compile Include="CargarNotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CargarNotas.Designer.cs">
+      <DependentUpon>CargarNotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InscribirCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InscribirCurso.Designer.cs">
+      <DependentUpon>InscribirCurso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,17 +97,29 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="UsuarioDesktop.cs">
+    <Compile Include="ABMs\UsuarioDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UsuarioDesktop.Designer.cs">
+    <Compile Include="ABMs\UsuarioDesktop.Designer.cs">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios.cs">
+    <Compile Include="ABMs\Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuarios.Designer.cs">
+    <Compile Include="ABMs\Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MisCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MisCursos.Designer.cs">
+      <DependentUpon>MisCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MisInscripciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MisInscripciones.Designer.cs">
+      <DependentUpon>MisInscripciones.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,14 +129,26 @@
     <EmbeddedResource Include="CambiarPass.resx">
       <DependentUpon>CambiarPass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CargarNotas.resx">
+      <DependentUpon>CargarNotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InscribirCurso.resx">
+      <DependentUpon>InscribirCurso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UsuarioDesktop.resx">
+    <EmbeddedResource Include="ABMs\UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MisCursos.resx">
+      <DependentUpon>MisCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MisInscripciones.resx">
+      <DependentUpon>MisInscripciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
