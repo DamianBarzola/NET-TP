@@ -61,6 +61,84 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABMs\AlumnoInscripcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMs\AlumnoInscripcion.Designer.cs">
+      <DependentUpon>AlumnoInscripcion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABMs\Comision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMs\Comision.Designer.cs">
+      <DependentUpon>Comision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABMs\ComisionDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMs\ComisionDesktop.Designer.cs">
+      <DependentUpon>ComisionDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABMs\Cursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMs\Cursos.Designer.cs">
+      <DependentUpon>Cursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABMs\CursosDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMs\CursosDesktop.Designer.cs">
+      <DependentUpon>CursosDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABMs\DocenteCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMs\DocenteCurso.Designer.cs">
+      <DependentUpon>DocenteCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABMs\DoncentesCursosDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMs\DoncentesCursosDesktop.Designer.cs">
+      <DependentUpon>DoncentesCursosDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABMs\EspecialidadDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMs\EspecialidadDesktop.Designer.cs">
+      <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABMs\Especialidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMs\Especialidades.Designer.cs">
+      <DependentUpon>Especialidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABMs\MateriaDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMs\MateriaDesktop.Designer.cs">
+      <DependentUpon>MateriaDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABMs\Materias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMs\Materias.Designer.cs">
+      <DependentUpon>Materias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABMs\Planes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMs\Planes.Designer.cs">
+      <DependentUpon>Planes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABMs\PlanesDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMs\PlanesDesktop.Designer.cs">
+      <DependentUpon>PlanesDesktop.cs</DependentUpon>
+    </Compile>
     <Compile Include="ApplicationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +201,48 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ABMs\AlumnoInscripcion.resx">
+      <DependentUpon>AlumnoInscripcion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABMs\Comision.resx">
+      <DependentUpon>Comision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABMs\ComisionDesktop.resx">
+      <DependentUpon>ComisionDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABMs\Cursos.resx">
+      <DependentUpon>Cursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABMs\CursosDesktop.resx">
+      <DependentUpon>CursosDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABMs\DocenteCurso.resx">
+      <DependentUpon>DocenteCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABMs\DoncentesCursosDesktop.resx">
+      <DependentUpon>DoncentesCursosDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABMs\EspecialidadDesktop.resx">
+      <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABMs\Especialidades.resx">
+      <DependentUpon>Especialidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABMs\MateriaDesktop.resx">
+      <DependentUpon>MateriaDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABMs\Materias.resx">
+      <DependentUpon>Materias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABMs\Planes.resx">
+      <DependentUpon>Planes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABMs\PlanesDesktop.resx">
+      <DependentUpon>PlanesDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABMs\Usuarios.resx">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ApplicationForm.resx">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
