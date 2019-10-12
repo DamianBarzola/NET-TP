@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Business.Entities
 
 {
-    class ModuloUsuario : BusinessEntity
+    public  class ModuloUsuario : BusinessEntity
     {
         private int _IdUsuario;
         private int _IdModulo;

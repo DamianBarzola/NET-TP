@@ -28,40 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgwCursos = new System.Windows.Forms.DataGridView();
+            this.dgvCursos = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AnioCalendario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwCursos)).BeginInit();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnInscribir = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgwCursos
+            // dgvCursos
             // 
-            this.dgwCursos.AllowUserToAddRows = false;
-            this.dgwCursos.AllowUserToDeleteRows = false;
-            this.dgwCursos.AllowUserToResizeRows = false;
-            this.dgwCursos.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgwCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCursos.AllowUserToAddRows = false;
+            this.dgvCursos.AllowUserToDeleteRows = false;
+            this.dgvCursos.AllowUserToResizeRows = false;
+            this.dgvCursos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Curso,
             this.AnioCalendario,
             this.Cupo});
-            this.dgwCursos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgwCursos.Location = new System.Drawing.Point(0, 0);
-            this.dgwCursos.MultiSelect = false;
-            this.dgwCursos.Name = "dgwCursos";
-            this.dgwCursos.RowHeadersVisible = false;
-            this.dgwCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwCursos.Size = new System.Drawing.Size(635, 304);
-            this.dgwCursos.TabIndex = 0;
+            this.tableLayoutPanel1.SetColumnSpan(this.dgvCursos, 2);
+            this.dgvCursos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCursos.Location = new System.Drawing.Point(13, 18);
+            this.dgvCursos.MultiSelect = false;
+            this.dgvCursos.Name = "dgvCursos";
+            this.dgvCursos.RowHeadersVisible = false;
+            this.dgvCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCursos.Size = new System.Drawing.Size(609, 253);
+            this.dgvCursos.TabIndex = 33;
             // 
             // ID
             // 
             this.ID.DataPropertyName = "ID";
-            this.ID.Frozen = true;
             this.ID.HeaderText = "ID Curso";
             this.ID.MinimumWidth = 80;
             this.ID.Name = "ID";
@@ -98,40 +101,71 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel1.Controls.Add(this.dgvCursos, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnSalir, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnInscribir, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(635, 304);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.TabIndex = 5;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSalir.Location = new System.Drawing.Point(548, 277);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(74, 24);
+            this.btnSalir.TabIndex = 34;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            // 
+            // btnInscribir
+            // 
+            this.btnInscribir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInscribir.Location = new System.Drawing.Point(468, 277);
+            this.btnInscribir.Name = "btnInscribir";
+            this.btnInscribir.Size = new System.Drawing.Size(74, 24);
+            this.btnInscribir.TabIndex = 9;
+            this.btnInscribir.Text = "Inscribirse";
+            this.btnInscribir.UseVisualStyleBackColor = true;
             // 
             // InscribirCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(635, 304);
-            this.Controls.Add(this.dgwCursos);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "InscribirCurso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InscribirCurso";
-            ((System.ComponentModel.ISupportInitialize)(this.dgwCursos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgwCursos;
+        private System.Windows.Forms.DataGridView dgvCursos;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Curso;
         private System.Windows.Forms.DataGridViewTextBoxColumn AnioCalendario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cupo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnInscribir;
     }
 }

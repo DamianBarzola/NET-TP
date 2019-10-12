@@ -29,50 +29,130 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Especialidades));
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.tsEspecialidad = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.dgvEspecialidades = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStripContainer1.ContentPanel.SuspendLayout();
-            this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
-            this.toolStripContainer1.SuspendLayout();
-            this.tsEspecialidad.SuspendLayout();
+            this.tcUsuarios = new System.Windows.Forms.ToolStripContainer();
+            this.tlEspecialidades = new System.Windows.Forms.TableLayoutPanel();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.tsEspecialidades = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).BeginInit();
+            this.tcUsuarios.ContentPanel.SuspendLayout();
+            this.tcUsuarios.TopToolStripPanel.SuspendLayout();
+            this.tcUsuarios.SuspendLayout();
+            this.tlEspecialidades.SuspendLayout();
+            this.tsEspecialidades.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolStripContainer1
+            // dgvEspecialidades
+            // 
+            this.dgvEspecialidades.AllowUserToAddRows = false;
+            this.dgvEspecialidades.AllowUserToDeleteRows = false;
+            this.dgvEspecialidades.AllowUserToResizeColumns = false;
+            this.dgvEspecialidades.AllowUserToResizeRows = false;
+            this.dgvEspecialidades.BackgroundColor = System.Drawing.Color.White;
+            this.dgvEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEspecialidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.descripcion});
+            this.tlEspecialidades.SetColumnSpan(this.dgvEspecialidades, 2);
+            this.dgvEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvEspecialidades.Location = new System.Drawing.Point(3, 3);
+            this.dgvEspecialidades.MultiSelect = false;
+            this.dgvEspecialidades.Name = "dgvEspecialidades";
+            this.dgvEspecialidades.ReadOnly = true;
+            this.dgvEspecialidades.RowHeadersVisible = false;
+            this.dgvEspecialidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEspecialidades.Size = new System.Drawing.Size(794, 390);
+            this.dgvEspecialidades.TabIndex = 0;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "ID";
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 65;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.id.Width = 65;
+            // 
+            // descripcion
+            // 
+            this.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.descripcion.DataPropertyName = "Descripcion";
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
+            // tcUsuarios
             // 
             // 
-            // toolStripContainer1.ContentPanel
+            // tcUsuarios.ContentPanel
             // 
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.dgvEspecialidades);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 425);
-            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
-            this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(800, 450);
-            this.toolStripContainer1.TabIndex = 0;
-            this.toolStripContainer1.Text = "toolStripContainer1";
+            this.tcUsuarios.ContentPanel.Controls.Add(this.tlEspecialidades);
+            this.tcUsuarios.ContentPanel.Size = new System.Drawing.Size(800, 425);
+            this.tcUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcUsuarios.Location = new System.Drawing.Point(0, 0);
+            this.tcUsuarios.Name = "tcUsuarios";
+            this.tcUsuarios.Size = new System.Drawing.Size(800, 450);
+            this.tcUsuarios.TabIndex = 2;
+            this.tcUsuarios.Text = "toolStripContainer1";
             // 
-            // toolStripContainer1.TopToolStripPanel
+            // tcUsuarios.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.tsEspecialidad);
+            this.tcUsuarios.TopToolStripPanel.Controls.Add(this.tsEspecialidades);
             // 
-            // tsEspecialidad
+            // tlEspecialidades
             // 
-            this.tsEspecialidad.Dock = System.Windows.Forms.DockStyle.None;
-            this.tsEspecialidad.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tlEspecialidades.ColumnCount = 2;
+            this.tlEspecialidades.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlEspecialidades.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlEspecialidades.Controls.Add(this.dgvEspecialidades, 0, 0);
+            this.tlEspecialidades.Controls.Add(this.btnActualizar, 0, 1);
+            this.tlEspecialidades.Controls.Add(this.btnSalir, 1, 1);
+            this.tlEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlEspecialidades.Location = new System.Drawing.Point(0, 0);
+            this.tlEspecialidades.Name = "tlEspecialidades";
+            this.tlEspecialidades.RowCount = 2;
+            this.tlEspecialidades.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlEspecialidades.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlEspecialidades.Size = new System.Drawing.Size(800, 425);
+            this.tlEspecialidades.TabIndex = 0;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualizar.Location = new System.Drawing.Point(641, 399);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar.TabIndex = 1;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(722, 399);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 2;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            // 
+            // tsEspecialidades
+            // 
+            this.tsEspecialidades.Dock = System.Windows.Forms.DockStyle.None;
+            this.tsEspecialidades.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripButton2,
             this.toolStripButton3});
-            this.tsEspecialidad.Location = new System.Drawing.Point(3, 0);
-            this.tsEspecialidad.Name = "tsEspecialidad";
-            this.tsEspecialidad.Size = new System.Drawing.Size(81, 25);
-            this.tsEspecialidad.TabIndex = 0;
+            this.tsEspecialidades.Location = new System.Drawing.Point(3, 0);
+            this.tsEspecialidades.Name = "tsEspecialidades";
+            this.tsEspecialidades.Size = new System.Drawing.Size(81, 25);
+            this.tsEspecialidades.TabIndex = 0;
             // 
             // toolStripButton1
             // 
@@ -101,61 +181,37 @@
             this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton3.Text = "toolStripButton3";
             // 
-            // dgvEspecialidades
-            // 
-            this.dgvEspecialidades.AllowUserToAddRows = false;
-            this.dgvEspecialidades.AllowUserToDeleteRows = false;
-            this.dgvEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEspecialidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.descripcion});
-            this.dgvEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvEspecialidades.Location = new System.Drawing.Point(0, 0);
-            this.dgvEspecialidades.Name = "dgvEspecialidades";
-            this.dgvEspecialidades.Size = new System.Drawing.Size(800, 425);
-            this.dgvEspecialidades.TabIndex = 0;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "ID";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // descripcion
-            // 
-            this.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.descripcion.DataPropertyName = "Descripcion";
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.Name = "descripcion";
-            // 
             // Especialidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.toolStripContainer1);
+            this.Controls.Add(this.tcUsuarios);
             this.Name = "Especialidades";
             this.Text = "Especialidades";
-            this.toolStripContainer1.ContentPanel.ResumeLayout(false);
-            this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
-            this.toolStripContainer1.TopToolStripPanel.PerformLayout();
-            this.toolStripContainer1.ResumeLayout(false);
-            this.toolStripContainer1.PerformLayout();
-            this.tsEspecialidad.ResumeLayout(false);
-            this.tsEspecialidad.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).EndInit();
+            this.tcUsuarios.ContentPanel.ResumeLayout(false);
+            this.tcUsuarios.TopToolStripPanel.ResumeLayout(false);
+            this.tcUsuarios.TopToolStripPanel.PerformLayout();
+            this.tcUsuarios.ResumeLayout(false);
+            this.tcUsuarios.PerformLayout();
+            this.tlEspecialidades.ResumeLayout(false);
+            this.tsEspecialidades.ResumeLayout(false);
+            this.tsEspecialidades.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ToolStripContainer toolStripContainer1;
         private System.Windows.Forms.DataGridView dgvEspecialidades;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
-        private System.Windows.Forms.ToolStrip tsEspecialidad;
+        private System.Windows.Forms.TableLayoutPanel tlEspecialidades;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.ToolStripContainer tcUsuarios;
+        private System.Windows.Forms.ToolStrip tsEspecialidades;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
