@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Business.Entities;
 using Data.Database;
+using Business.Entities;
 
 namespace Business.Logic
 {
@@ -36,14 +36,24 @@ namespace Business.Logic
             }
         }
 
-        public void Delete(int ID) {
-            UsuarioData.Delete(ID);
+        public void Delete(Usuario a) {
+            UsuarioData.Delete(a);
         }
 
         public void Save(Usuario usuario) {
             UsuarioData.Save(usuario);
         }
         //falta rnuevo usuario
-        
+
+        public void SavePassword(Usuario user)
+        {
+            UsuarioData.UpdatePassword(user);
+        }
+        public int getNewLegajo()
+        {
+            int legajo = UsuarioData.getMaxLegajo();
+            legajo++;
+            return legajo;
+        }
     }
 }
