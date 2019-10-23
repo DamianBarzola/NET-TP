@@ -40,11 +40,11 @@ namespace Business.Logic
             CursoA.Save(crs);
         }
 
-        public DataTable GetListado(Usuario user)
+        public DataTable GetListado(Persona user)
         {
 
             List<Curso> cursos = new List<Curso>();
-            if ((int)user.TipoPersona == 2)
+            if ((int)user.Tipo == 2)
             {
                 DocenteCursoLogic dcl = new DocenteCursoLogic();
                 List<DocenteCurso> dclist = dcl.GetAllFromUser(user.ID);

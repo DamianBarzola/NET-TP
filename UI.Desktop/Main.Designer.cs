@@ -28,13 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.mnsPrincipal = new System.Windows.Forms.MenuStrip();
-            this.mnuArchivo = new System.Windows.Forms.ToolStripMenuItem();
-            this.especialidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.planToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.materiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inscripcionesAlumnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LabelBienvenido = new System.Windows.Forms.Label();
             this.labelLegajo = new System.Windows.Forms.Label();
             this.gb1 = new System.Windows.Forms.GroupBox();
@@ -57,62 +50,24 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.mnsPrincipal.SuspendLayout();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.TSMIabms = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMIusuario = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMIespecialidades = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMIplanes = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMImaterias = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMIcomisiones = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMIcursos = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMIinscripciones = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMIdocentes = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMIMisCursos = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMIMisInscripciones = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMImateriasInscripto = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMIinscribirseACursado = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMIreportes = new System.Windows.Forms.ToolStripMenuItem();
             this.gb1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // mnsPrincipal
-            // 
-            this.mnsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuArchivo});
-            this.mnsPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.mnsPrincipal.Name = "mnsPrincipal";
-            this.mnsPrincipal.Size = new System.Drawing.Size(594, 24);
-            this.mnsPrincipal.TabIndex = 2;
-            this.mnsPrincipal.Text = "menuStrip1";
-            // 
-            // mnuArchivo
-            // 
-            this.mnuArchivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.especialidadToolStripMenuItem,
-            this.planToolStripMenuItem,
-            this.materiasToolStripMenuItem,
-            this.cursosToolStripMenuItem,
-            this.inscripcionesAlumnosToolStripMenuItem});
-            this.mnuArchivo.Name = "mnuArchivo";
-            this.mnuArchivo.Size = new System.Drawing.Size(50, 20);
-            this.mnuArchivo.Text = "ABMs";
-            // 
-            // especialidadToolStripMenuItem
-            // 
-            this.especialidadToolStripMenuItem.Name = "especialidadToolStripMenuItem";
-            this.especialidadToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.especialidadToolStripMenuItem.Text = "Especialidades";
-            this.especialidadToolStripMenuItem.Click += new System.EventHandler(this.especialidadToolStripMenuItem_Click);
-            // 
-            // planToolStripMenuItem
-            // 
-            this.planToolStripMenuItem.Name = "planToolStripMenuItem";
-            this.planToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.planToolStripMenuItem.Text = "Planes";
-            // 
-            // materiasToolStripMenuItem
-            // 
-            this.materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
-            this.materiasToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.materiasToolStripMenuItem.Text = "Materias";
-            // 
-            // cursosToolStripMenuItem
-            // 
-            this.cursosToolStripMenuItem.Name = "cursosToolStripMenuItem";
-            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.cursosToolStripMenuItem.Text = "Cursos";
-            // 
-            // inscripcionesAlumnosToolStripMenuItem
-            // 
-            this.inscripcionesAlumnosToolStripMenuItem.Name = "inscripcionesAlumnosToolStripMenuItem";
-            this.inscripcionesAlumnosToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.inscripcionesAlumnosToolStripMenuItem.Text = "Inscripciones Alumnos";
             // 
             // LabelBienvenido
             // 
@@ -340,38 +295,139 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Datos Usuario";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMIabms,
+            this.TSMIMisCursos,
+            this.TSMIMisInscripciones,
+            this.TSMIreportes});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(594, 24);
+            this.menuStrip1.TabIndex = 10;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // TSMIabms
+            // 
+            this.TSMIabms.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMIusuario,
+            this.TSMIespecialidades,
+            this.TSMIplanes,
+            this.TSMImaterias,
+            this.TSMIcomisiones,
+            this.TSMIcursos,
+            this.TSMIinscripciones,
+            this.TSMIdocentes});
+            this.TSMIabms.Name = "TSMIabms";
+            this.TSMIabms.Size = new System.Drawing.Size(50, 20);
+            this.TSMIabms.Text = "ABMs";
+            // 
+            // TSMIusuario
+            // 
+            this.TSMIusuario.Name = "TSMIusuario";
+            this.TSMIusuario.Size = new System.Drawing.Size(194, 22);
+            this.TSMIusuario.Text = "Usuarios";
+            // 
+            // TSMIespecialidades
+            // 
+            this.TSMIespecialidades.Name = "TSMIespecialidades";
+            this.TSMIespecialidades.Size = new System.Drawing.Size(194, 22);
+            this.TSMIespecialidades.Text = "Especialidades";
+            // 
+            // TSMIplanes
+            // 
+            this.TSMIplanes.Name = "TSMIplanes";
+            this.TSMIplanes.Size = new System.Drawing.Size(194, 22);
+            this.TSMIplanes.Text = "Planes";
+            // 
+            // TSMImaterias
+            // 
+            this.TSMImaterias.Name = "TSMImaterias";
+            this.TSMImaterias.Size = new System.Drawing.Size(194, 22);
+            this.TSMImaterias.Text = "Materias";
+            // 
+            // TSMIcomisiones
+            // 
+            this.TSMIcomisiones.Name = "TSMIcomisiones";
+            this.TSMIcomisiones.Size = new System.Drawing.Size(194, 22);
+            this.TSMIcomisiones.Text = "Comisiones";
+            // 
+            // TSMIcursos
+            // 
+            this.TSMIcursos.Name = "TSMIcursos";
+            this.TSMIcursos.Size = new System.Drawing.Size(194, 22);
+            this.TSMIcursos.Text = "Cursos";
+            // 
+            // TSMIinscripciones
+            // 
+            this.TSMIinscripciones.Name = "TSMIinscripciones";
+            this.TSMIinscripciones.Size = new System.Drawing.Size(194, 22);
+            this.TSMIinscripciones.Text = "Inscripciones Alumnos";
+            // 
+            // TSMIdocentes
+            // 
+            this.TSMIdocentes.Name = "TSMIdocentes";
+            this.TSMIdocentes.Size = new System.Drawing.Size(194, 22);
+            this.TSMIdocentes.Text = "Docentes - Cursos";
+            // 
+            // TSMIMisCursos
+            // 
+            this.TSMIMisCursos.Name = "TSMIMisCursos";
+            this.TSMIMisCursos.Size = new System.Drawing.Size(55, 20);
+            this.TSMIMisCursos.Text = "Cursos";
+            // 
+            // TSMIMisInscripciones
+            // 
+            this.TSMIMisInscripciones.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMImateriasInscripto,
+            this.TSMIinscribirseACursado});
+            this.TSMIMisInscripciones.Name = "TSMIMisInscripciones";
+            this.TSMIMisInscripciones.Size = new System.Drawing.Size(64, 20);
+            this.TSMIMisInscripciones.Text = "Materias";
+            // 
+            // TSMImateriasInscripto
+            // 
+            this.TSMImateriasInscripto.Name = "TSMImateriasInscripto";
+            this.TSMImateriasInscripto.Size = new System.Drawing.Size(181, 22);
+            this.TSMImateriasInscripto.Text = "Materias inscripto";
+            // 
+            // TSMIinscribirseACursado
+            // 
+            this.TSMIinscribirseACursado.Name = "TSMIinscribirseACursado";
+            this.TSMIinscribirseACursado.Size = new System.Drawing.Size(181, 22);
+            this.TSMIinscribirseACursado.Text = "Inscribirse a cursado";
+            // 
+            // TSMIreportes
+            // 
+            this.TSMIreportes.Name = "TSMIreportes";
+            this.TSMIreportes.Size = new System.Drawing.Size(65, 20);
+            this.TSMIreportes.Text = "Reportes";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 460);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gb1);
             this.Controls.Add(this.labelLegajo);
             this.Controls.Add(this.LabelBienvenido);
-            this.Controls.Add(this.mnsPrincipal);
             this.IsMdiContainer = true;
             this.Name = "Main";
             this.Text = "Academia";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.mnsPrincipal.ResumeLayout(false);
-            this.mnsPrincipal.PerformLayout();
             this.gb1.ResumeLayout(false);
             this.gb1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip mnsPrincipal;
-        private System.Windows.Forms.ToolStripMenuItem mnuArchivo;
-        private System.Windows.Forms.ToolStripMenuItem especialidadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem planToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem materiasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem inscripcionesAlumnosToolStripMenuItem;
         private System.Windows.Forms.Label LabelBienvenido;
         private System.Windows.Forms.Label labelLegajo;
         private System.Windows.Forms.GroupBox gb1;
@@ -394,5 +450,20 @@
         private System.Windows.Forms.TextBox tbUsuario;
         private System.Windows.Forms.TextBox tbApellido;
         private System.Windows.Forms.TextBox tbNombre;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem TSMIabms;
+        private System.Windows.Forms.ToolStripMenuItem TSMIusuario;
+        private System.Windows.Forms.ToolStripMenuItem TSMIespecialidades;
+        private System.Windows.Forms.ToolStripMenuItem TSMIplanes;
+        private System.Windows.Forms.ToolStripMenuItem TSMImaterias;
+        private System.Windows.Forms.ToolStripMenuItem TSMIcomisiones;
+        private System.Windows.Forms.ToolStripMenuItem TSMIcursos;
+        private System.Windows.Forms.ToolStripMenuItem TSMIinscripciones;
+        private System.Windows.Forms.ToolStripMenuItem TSMIdocentes;
+        private System.Windows.Forms.ToolStripMenuItem TSMIMisCursos;
+        private System.Windows.Forms.ToolStripMenuItem TSMIMisInscripciones;
+        private System.Windows.Forms.ToolStripMenuItem TSMImateriasInscripto;
+        private System.Windows.Forms.ToolStripMenuItem TSMIinscribirseACursado;
+        private System.Windows.Forms.ToolStripMenuItem TSMIreportes;
     }
 }

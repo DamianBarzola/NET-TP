@@ -41,11 +41,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validaciones.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">
       <Project>{cd5d18fa-2c78-474b-a920-270ce89e18be}</Project>
       <Name>Business.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Business.Logic\Business.Logic.csproj">
+      <Project>{a46f9465-b832-45df-8c57-80ef55f82427}</Project>
+      <Name>Business.Logic</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
