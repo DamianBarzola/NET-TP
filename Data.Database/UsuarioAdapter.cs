@@ -96,12 +96,10 @@ namespace Data.Database
         }
         public Usuario GetOne(String username)
         {
-            try
-            {
-
-           
             Usuario user = new Usuario();
 
+            try
+            { 
             this.OpenConnection();
             SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM usuarios WHERE nombre_usuario=@username", SqlConn);
             cmdUsuarios.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
@@ -127,7 +125,7 @@ namespace Data.Database
                 // user.FechaNacimiento = (DateTime)drUsuarios["fecha_nac"];
                 }
             drUsuarios.Close();
-           }
+                }
     
             catch (Exception Ex)
             {
@@ -140,8 +138,6 @@ namespace Data.Database
             {
                 this.CloseConnection();
             }
-                
-            
             return user;
         }
 
