@@ -9,8 +9,8 @@ namespace Data.Database
 {
     public class Adapter
     { 
-        //Clave por defecto a utlizar para la cadena de conexion
-        const string consKeyDefaultCnnString = "ConnStringLocal";
+        //Yo puse express vos lo vas a tener que cambiar a local
+        const string consKeyDefaultCnnString = "ConnStringExpress";
 
         private SqlConnection sqlConn;
           public SqlConnection SqlConn { get => sqlConn; set => sqlConn = value; }

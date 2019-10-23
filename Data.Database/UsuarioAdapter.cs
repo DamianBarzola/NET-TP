@@ -96,44 +96,52 @@ namespace Data.Database
         }
         public Usuario GetOne(String username)
         {
-
-            Usuario user = new Usuario();
             try
             {
-                this.OpenConnection();
-                SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM usuarios WHERE nombre_usuario=@username", SqlConn);
-                cmdUsuarios.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
-                SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
+
+           
+            Usuario user = new Usuario();
+
+            this.OpenConnection();
+            SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM usuarios WHERE nombre_usuario=@username", SqlConn);
+            cmdUsuarios.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
+            SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
 
                 if (drUsuarios.Read())
                 {
-                    user.ID = (int)drUsuarios["id_usuario"];
-                    user.NombreUsuario = (string)drUsuarios["nombre_usuario"];
-                    user.Clave = (string)drUsuarios["clave"];
-                    user.Nombre = (string)drUsuarios["nombre"];
-                    user.Apellido = (string)drUsuarios["apellido"];
-                    user.Email = (string)drUsuarios["email"];
-                    user.Direccion = (string)drUsuarios["direccion"];
-                    user.Telefono = (string)drUsuarios["telefono"];
-                    user.FechaNacimiento = (DateTime)drUsuarios["fecha_nac"];
-                    user.Habilitado = (bool)drUsuarios["user_hab"];
-                    user.CambiaClave = (bool)drUsuarios["cambia_clave"];
-                    user.Legajo = (int)drUsuarios["legajo"];
-                    user.TipoPersona = (Usuario.TiposPersona)drUsuarios["tipo_persona"];
-                    user.IDPlan = (int)drUsuarios["id_plan"];
+                user.ID = (int)drUsuarios["id_usuario"];
+                user.NombreUsuario = (string)drUsuarios["nombre_usuario"];
+                user.Clave = (string)drUsuarios["clave"];
+                user.Nombre = (string)drUsuarios["nombre"];
+                user.Apellido = (string)drUsuarios["apellido"];
+                user.Email = (string)drUsuarios["email"];
+                user.Habilitado = (bool)drUsuarios["habilitado"];
+                user.CambiaClave = (bool)drUsuarios["cambia_clave"];
+                //Dami por ahora los dejo comentados, depues si los necesitamos hago el inner join con la tabla personas.
+                //Me parece que los vamos a necesitar cuando hagamos el  formulario de modificacion
+                //  user.Legajo = (int)drUsuarios["legajo"];
+                // user.TipoPersona = (Usuario.TiposPersona)drUsuarios["tipo_persona"];
+                // user.IDPlan = (int)drUsuarios["id_plan"];
+                //  user.Direccion = (string)drUsuarios["direccion"];
+                // user.Telefono = (string)drUsuarios["telefono"];
+                // user.FechaNacimiento = (DateTime)drUsuarios["fecha_nac"];
                 }
-                drUsuarios.Close();
-            }
+            drUsuarios.Close();
+           }
+    
             catch (Exception Ex)
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al recuperar usuario", Ex);
                 throw ExcepcionManejada;
             }
+
             finally
             {
                 this.CloseConnection();
             }
+                
+            
             return user;
         }
 
