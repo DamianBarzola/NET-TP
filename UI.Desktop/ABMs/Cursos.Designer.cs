@@ -39,12 +39,17 @@
             this.tlUsuario = new System.Windows.Forms.TableLayoutPanel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.tsUsuarios = new System.Windows.Forms.ToolStrip();
+            this.msCurso = new System.Windows.Forms.MenuStrip();
+            this.tsOpciones = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsEditar = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsNuevo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsEliminar = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).BeginInit();
             this.tcCursos.ContentPanel.SuspendLayout();
             this.tcCursos.TopToolStripPanel.SuspendLayout();
             this.tcCursos.SuspendLayout();
             this.tlUsuario.SuspendLayout();
+            this.msCurso.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvCursos
@@ -69,7 +74,7 @@
             this.dgvCursos.ReadOnly = true;
             this.dgvCursos.RowHeadersVisible = false;
             this.dgvCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCursos.Size = new System.Drawing.Size(794, 390);
+            this.dgvCursos.Size = new System.Drawing.Size(794, 391);
             this.dgvCursos.TabIndex = 0;
             // 
             // id
@@ -127,7 +132,7 @@
             // tcCursos.ContentPanel
             // 
             this.tcCursos.ContentPanel.Controls.Add(this.tlUsuario);
-            this.tcCursos.ContentPanel.Size = new System.Drawing.Size(800, 425);
+            this.tcCursos.ContentPanel.Size = new System.Drawing.Size(800, 426);
             this.tcCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcCursos.LeftToolStripPanelVisible = false;
             this.tcCursos.Location = new System.Drawing.Point(0, 0);
@@ -138,7 +143,7 @@
             // 
             // tcCursos.TopToolStripPanel
             // 
-            this.tcCursos.TopToolStripPanel.Controls.Add(this.tsUsuarios);
+            this.tcCursos.TopToolStripPanel.Controls.Add(this.msCurso);
             // 
             // tlUsuario
             // 
@@ -154,12 +159,12 @@
             this.tlUsuario.RowCount = 2;
             this.tlUsuario.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlUsuario.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlUsuario.Size = new System.Drawing.Size(800, 425);
+            this.tlUsuario.Size = new System.Drawing.Size(800, 426);
             this.tlUsuario.TabIndex = 0;
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(722, 399);
+            this.btnSalir.Location = new System.Drawing.Point(722, 400);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 1;
@@ -169,20 +174,51 @@
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(641, 399);
+            this.btnActualizar.Location = new System.Drawing.Point(641, 400);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 2;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
             // 
-            // tsUsuarios
+            // msCurso
             // 
-            this.tsUsuarios.Dock = System.Windows.Forms.DockStyle.None;
-            this.tsUsuarios.Location = new System.Drawing.Point(3, 0);
-            this.tsUsuarios.Name = "tsUsuarios";
-            this.tsUsuarios.Size = new System.Drawing.Size(43, 25);
-            this.tsUsuarios.TabIndex = 0;
+            this.msCurso.Dock = System.Windows.Forms.DockStyle.None;
+            this.msCurso.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsOpciones});
+            this.msCurso.Location = new System.Drawing.Point(0, 0);
+            this.msCurso.Name = "msCurso";
+            this.msCurso.Size = new System.Drawing.Size(800, 24);
+            this.msCurso.TabIndex = 1;
+            this.msCurso.Text = "menuStrip1";
+            // 
+            // tsOpciones
+            // 
+            this.tsOpciones.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsEditar,
+            this.tsNuevo,
+            this.tsEliminar});
+            this.tsOpciones.Name = "tsOpciones";
+            this.tsOpciones.Size = new System.Drawing.Size(69, 20);
+            this.tsOpciones.Text = "Opciones";
+            // 
+            // tsEditar
+            // 
+            this.tsEditar.Name = "tsEditar";
+            this.tsEditar.Size = new System.Drawing.Size(117, 22);
+            this.tsEditar.Text = "Editar";
+            // 
+            // tsNuevo
+            // 
+            this.tsNuevo.Name = "tsNuevo";
+            this.tsNuevo.Size = new System.Drawing.Size(117, 22);
+            this.tsNuevo.Text = "Nuevo";
+            // 
+            // tsEliminar
+            // 
+            this.tsEliminar.Name = "tsEliminar";
+            this.tsEliminar.Size = new System.Drawing.Size(117, 22);
+            this.tsEliminar.Text = "Eliminar";
             // 
             // Cursos
             // 
@@ -199,6 +235,8 @@
             this.tcCursos.ResumeLayout(false);
             this.tcCursos.PerformLayout();
             this.tlUsuario.ResumeLayout(false);
+            this.msCurso.ResumeLayout(false);
+            this.msCurso.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -216,6 +254,10 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.ToolStripContainer tcCursos;
-        private System.Windows.Forms.ToolStrip tsUsuarios;
+        private System.Windows.Forms.MenuStrip msCurso;
+        private System.Windows.Forms.ToolStripMenuItem tsOpciones;
+        private System.Windows.Forms.ToolStripMenuItem tsEditar;
+        private System.Windows.Forms.ToolStripMenuItem tsNuevo;
+        private System.Windows.Forms.ToolStripMenuItem tsEliminar;
     }
 }

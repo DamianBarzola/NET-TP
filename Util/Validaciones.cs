@@ -20,79 +20,89 @@ namespace Util
             private static string[] _formatosFecha = { "d/M/yyyy", "dd/MM/yyyy", "d-M-yyyy", "dd-MM-yyyy", "ddMMyyyy", "dMyyyy" };
             public static string[] FormatosFecha { get => _formatosFecha; set => _formatosFecha = value; }
 
-            public static bool ValTexto(string desc)
-            {
-                bool valid = true;
+        public static bool ValTexto(string desc)
+        {
+          if (string.IsNullOrEmpty(desc)==false && string.IsNullOrWhiteSpace(desc)==false) { return true; } else { return false; }
 
-                valid = (string.IsNullOrEmpty(desc)) ? false : true;
-                valid = (string.IsNullOrWhiteSpace(desc)) ? false : true;
-
-                return valid;
             }
-            public static bool ValAnio(int anio)
+
+        public static bool ValAnio(int anio)
             {
                 if (anio > 1900 && anio < 3000) return true;
                 else return false;
             }
-            public static bool ValHSSem(int hr)
+
+        public static bool ValHSSem(int hr)
             {
                 if (hr >= 1 && hr <= 40) return true;
                 else return false;
             }
-            public static bool ValHSTot(int hr)
+
+        public static bool ValHSTot(int hr)
             {
                 if (hr >= 1 && hr <= 300) return true;
                 else return false;
             }
-            public static bool ValCupo(int cupo)
+
+        public static bool ValCupo(int cupo)
             {
                 if (cupo >= 1 && cupo <= 200) return true;
                 else return false;
             }
-            public static bool ValCargo(int cargo)
+
+        public static bool ValCargo(int cargo)
             {
                 return Enum.IsDefined(typeof(DocenteCurso.TipoCargos), cargo);
             }
-            public static bool ValCondicion(int cond)
+
+        public static bool ValCondicion(int cond)
             {
                 return Enum.IsDefined(typeof(AlumnoInscripcion.Condiciones), cond);
             }
-            public static bool ValNota(int nota)
+
+        public static bool ValNota(int nota)
             {
                 if (nota >= 0 && nota <= 10) return true;
                 else return false;
             }
-            public static bool ValEmail(string email)
+
+        public static bool ValEmail(string email)
             {
                 return Regex.Match(email, RegExEmail).Success;
             }
-            public static bool ValTel(string tel)
+
+        public static bool ValTel(string tel)
             {
                 return Regex.Match(tel, RegExTel).Success;
             }
-            public static bool ValFecha(string fecha)
+
+        public static bool ValFecha(string fecha)
             {
                 DateTime dt;
                 return DateTime.TryParseExact(fecha, FormatosFecha, null, DateTimeStyles.None, out dt);
             }
-            public static bool ValTipo(int tipo)
+
+        public static bool ValTipo(int tipo)
             {
                 return Enum.IsDefined(typeof(Persona.TipoPersona), tipo);
             }
-            public static bool ValUsername(string username)
+
+        public static bool ValUsername(string username)
             {
                 return Regex.Match(username, RegExUsername).Success;
             }
-            public static bool ValUsernameExists(string username)
+
+        public static bool ValUsernameExists(string username)
             {
                 UsuarioLogic ul = new UsuarioLogic();
                 Usuario user = ul.GetOne(username);
-
-                return (user.ID != 0) ? true : false;
+            if (user.ID != 0) return true;
+            else return false;
             }
-            public static bool ValClave(string clave)
+
+        public static bool ValClave(string clave)
             {
-                return (clave.Length >= 3 && clave.Length <= 32) ? true : false;
+            if (clave.Length >= 3 && clave.Length <= 32) return true; else return false;
             }
         }
     }

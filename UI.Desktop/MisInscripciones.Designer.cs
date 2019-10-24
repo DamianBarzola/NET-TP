@@ -38,16 +38,17 @@
             this.tlAlumnoInscripciones = new System.Windows.Forms.TableLayoutPanel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.tsAlumnoInscripciones = new System.Windows.Forms.ToolStrip();
-            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
-            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
-            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
+            this.msMisInscrip = new System.Windows.Forms.MenuStrip();
+            this.tsOpciones = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsEditar = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsNuevo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsEliminar = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnoInscripciones)).BeginInit();
             this.tcAlumnoInscripciones.ContentPanel.SuspendLayout();
             this.tcAlumnoInscripciones.TopToolStripPanel.SuspendLayout();
             this.tcAlumnoInscripciones.SuspendLayout();
             this.tlAlumnoInscripciones.SuspendLayout();
-            this.tsAlumnoInscripciones.SuspendLayout();
+            this.msMisInscrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvAlumnoInscripciones
@@ -72,7 +73,7 @@
             this.dgvAlumnoInscripciones.ReadOnly = true;
             this.dgvAlumnoInscripciones.RowHeadersVisible = false;
             this.dgvAlumnoInscripciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAlumnoInscripciones.Size = new System.Drawing.Size(794, 390);
+            this.dgvAlumnoInscripciones.Size = new System.Drawing.Size(794, 391);
             this.dgvAlumnoInscripciones.TabIndex = 0;
             // 
             // id
@@ -126,7 +127,7 @@
             // tcAlumnoInscripciones.ContentPanel
             // 
             this.tcAlumnoInscripciones.ContentPanel.Controls.Add(this.tlAlumnoInscripciones);
-            this.tcAlumnoInscripciones.ContentPanel.Size = new System.Drawing.Size(800, 425);
+            this.tcAlumnoInscripciones.ContentPanel.Size = new System.Drawing.Size(800, 426);
             this.tcAlumnoInscripciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcAlumnoInscripciones.Location = new System.Drawing.Point(0, 0);
             this.tcAlumnoInscripciones.Name = "tcAlumnoInscripciones";
@@ -136,7 +137,7 @@
             // 
             // tcAlumnoInscripciones.TopToolStripPanel
             // 
-            this.tcAlumnoInscripciones.TopToolStripPanel.Controls.Add(this.tsAlumnoInscripciones);
+            this.tcAlumnoInscripciones.TopToolStripPanel.Controls.Add(this.msMisInscrip);
             // 
             // tlAlumnoInscripciones
             // 
@@ -152,12 +153,12 @@
             this.tlAlumnoInscripciones.RowCount = 2;
             this.tlAlumnoInscripciones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlAlumnoInscripciones.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlAlumnoInscripciones.Size = new System.Drawing.Size(800, 425);
+            this.tlAlumnoInscripciones.Size = new System.Drawing.Size(800, 426);
             this.tlAlumnoInscripciones.TabIndex = 0;
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(722, 399);
+            this.btnSalir.Location = new System.Drawing.Point(722, 400);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 1;
@@ -167,51 +168,51 @@
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(641, 399);
+            this.btnActualizar.Location = new System.Drawing.Point(641, 400);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 2;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
             // 
-            // tsAlumnoInscripciones
+            // msMisInscrip
             // 
-            this.tsAlumnoInscripciones.Dock = System.Windows.Forms.DockStyle.None;
-            this.tsAlumnoInscripciones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbNuevo,
-            this.tsbEditar,
-            this.tsbEliminar});
-            this.tsAlumnoInscripciones.Location = new System.Drawing.Point(3, 0);
-            this.tsAlumnoInscripciones.Name = "tsAlumnoInscripciones";
-            this.tsAlumnoInscripciones.Size = new System.Drawing.Size(81, 25);
-            this.tsAlumnoInscripciones.TabIndex = 0;
+            this.msMisInscrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.msMisInscrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsOpciones});
+            this.msMisInscrip.Location = new System.Drawing.Point(0, 0);
+            this.msMisInscrip.Name = "msMisInscrip";
+            this.msMisInscrip.Size = new System.Drawing.Size(800, 24);
+            this.msMisInscrip.TabIndex = 0;
+            this.msMisInscrip.Text = "menuStrip1";
             // 
-            // tsbNuevo
+            // tsOpciones
             // 
-            this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbNuevo.Name = "tsbNuevo";
-            this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
-            this.tsbNuevo.Text = "toolStripButton1";
-            this.tsbNuevo.ToolTipText = "Nuevo";
+            this.tsOpciones.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsEditar,
+            this.tsNuevo,
+            this.tsEliminar});
+            this.tsOpciones.Name = "tsOpciones";
+            this.tsOpciones.Size = new System.Drawing.Size(69, 20);
+            this.tsOpciones.Text = "Opciones";
             // 
-            // tsbEditar
+            // tsEditar
             // 
-            this.tsbEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEditar.Name = "tsbEditar";
-            this.tsbEditar.Size = new System.Drawing.Size(23, 22);
-            this.tsbEditar.Text = "toolStripButton1";
-            this.tsbEditar.ToolTipText = "Editar";
+            this.tsEditar.Name = "tsEditar";
+            this.tsEditar.Size = new System.Drawing.Size(180, 22);
+            this.tsEditar.Text = "Editar";
             // 
-            // tsbEliminar
+            // tsNuevo
             // 
-            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEliminar.Name = "tsbEliminar";
-            this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
-            this.tsbEliminar.Text = "toolStripButton1";
-            this.tsbEliminar.ToolTipText = "Eliminar";
+            this.tsNuevo.Name = "tsNuevo";
+            this.tsNuevo.Size = new System.Drawing.Size(180, 22);
+            this.tsNuevo.Text = "Nuevo";
+            // 
+            // tsEliminar
+            // 
+            this.tsEliminar.Name = "tsEliminar";
+            this.tsEliminar.Size = new System.Drawing.Size(180, 22);
+            this.tsEliminar.Text = "Eliminar";
             // 
             // MisInscripciones
             // 
@@ -219,6 +220,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tcAlumnoInscripciones);
+            this.MainMenuStrip = this.msMisInscrip;
             this.Name = "MisInscripciones";
             this.Text = "MisInscripciones";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnoInscripciones)).EndInit();
@@ -228,8 +230,8 @@
             this.tcAlumnoInscripciones.ResumeLayout(false);
             this.tcAlumnoInscripciones.PerformLayout();
             this.tlAlumnoInscripciones.ResumeLayout(false);
-            this.tsAlumnoInscripciones.ResumeLayout(false);
-            this.tsAlumnoInscripciones.PerformLayout();
+            this.msMisInscrip.ResumeLayout(false);
+            this.msMisInscrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -246,9 +248,10 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.ToolStripContainer tcAlumnoInscripciones;
-        private System.Windows.Forms.ToolStrip tsAlumnoInscripciones;
-        private System.Windows.Forms.ToolStripButton tsbNuevo;
-        private System.Windows.Forms.ToolStripButton tsbEditar;
-        private System.Windows.Forms.ToolStripButton tsbEliminar;
+        private System.Windows.Forms.MenuStrip msMisInscrip;
+        private System.Windows.Forms.ToolStripMenuItem tsOpciones;
+        private System.Windows.Forms.ToolStripMenuItem tsEditar;
+        private System.Windows.Forms.ToolStripMenuItem tsNuevo;
+        private System.Windows.Forms.ToolStripMenuItem tsEliminar;
     }
 }

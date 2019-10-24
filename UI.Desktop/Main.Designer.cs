@@ -65,6 +65,7 @@
             this.TSMImateriasInscripto = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMIinscribirseACursado = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMIreportes = new System.Windows.Forms.ToolStripMenuItem();
+            this.personasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gb1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -318,7 +319,8 @@
             this.TSMIcomisiones,
             this.TSMIcursos,
             this.TSMIinscripciones,
-            this.TSMIdocentes});
+            this.TSMIdocentes,
+            this.personasToolStripMenuItem});
             this.TSMIabms.Name = "TSMIabms";
             this.TSMIabms.Size = new System.Drawing.Size(50, 20);
             this.TSMIabms.Text = "ABMs";
@@ -404,6 +406,12 @@
             this.TSMIreportes.Size = new System.Drawing.Size(65, 20);
             this.TSMIreportes.Text = "Reportes";
             // 
+            // personasToolStripMenuItem
+            // 
+            this.personasToolStripMenuItem.Name = "personasToolStripMenuItem";
+            this.personasToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.personasToolStripMenuItem.Text = "Personas";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -465,5 +473,6 @@
         private System.Windows.Forms.ToolStripMenuItem TSMImateriasInscripto;
         private System.Windows.Forms.ToolStripMenuItem TSMIinscribirseACursado;
         private System.Windows.Forms.ToolStripMenuItem TSMIreportes;
+        private System.Windows.Forms.ToolStripMenuItem personasToolStripMenuItem;
     }
 }

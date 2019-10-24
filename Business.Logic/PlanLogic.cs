@@ -25,7 +25,7 @@ namespace Business.Logic
             PlanA = new PlanAdapter();
         }
 
-        public List<Plan> GetAll()
+        public  List<Plan> GetAll()
         {
             return PlanA.GetAll();
 
