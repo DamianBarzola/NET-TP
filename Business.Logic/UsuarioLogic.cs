@@ -49,11 +49,6 @@ namespace Business.Logic
         {
             UsuarioData.UpdatePassword(user);
         }
-        public int getNewLegajo()
-        {
-            int legajo = UsuarioData.getMaxLegajo();
-            legajo++;
-            return legajo;
-        }
+        
     }
 }

@@ -7,22 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business.Logic;
-using Business.Entities;
 
 namespace UI.Desktop.ABMs
 {
-    public partial class AlumnoInscripcion : Form
+    public partial class PersonaDesktop : Form
     {
-        public AlumnoInscripcion()
+        public PersonaDesktop()
         {
             InitializeComponent();
         }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-       
     }
 }

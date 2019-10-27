@@ -1,6 +1,6 @@
 ﻿namespace UI.Desktop
 {
-    partial class CargarNotas
+    partial class CargaNotas
     {
         /// <summary>
         /// Required designer variable.
@@ -49,7 +49,7 @@
             this.labelID.Size = new System.Drawing.Size(18, 13);
             this.labelID.TabIndex = 0;
             this.labelID.Text = "ID";
-          
+
             // 
             // labelAlumno
             // 
@@ -125,7 +125,7 @@
             this.lblAlumno.Size = new System.Drawing.Size(52, 13);
             this.lblAlumno.TabIndex = 8;
             this.lblAlumno.Text = "lblAlumno";
-           
+
             // 
             // lblID
             // 
@@ -135,7 +135,7 @@
             this.lblID.Size = new System.Drawing.Size(28, 13);
             this.lblID.TabIndex = 9;
             this.lblID.Text = "lblID";
-           
+
             // 
             // CargarNotas
             // 

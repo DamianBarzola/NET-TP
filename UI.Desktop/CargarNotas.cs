@@ -7,15 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business.Logic;
+using Business.Entities;
+using Util;
 
 namespace UI.Desktop
 {
-    public partial class CargarNotas : ApplicationForm
+    public partial class CargaNotas : ApplicationForm
     {
-        public CargarNotas()
-        {
-            InitializeComponent();
-        }
+        
 
     }
 }

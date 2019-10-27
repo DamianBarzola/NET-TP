@@ -36,12 +36,17 @@
             this.tlPlanes = new System.Windows.Forms.TableLayoutPanel();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.tsPlanes = new System.Windows.Forms.ToolStrip();
+            this.msPlanes = new System.Windows.Forms.MenuStrip();
+            this.opciones = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsEditar = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsNuevo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsEliminar = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlanes)).BeginInit();
             this.tcUsuarios.ContentPanel.SuspendLayout();
             this.tcUsuarios.TopToolStripPanel.SuspendLayout();
             this.tcUsuarios.SuspendLayout();
             this.tlPlanes.SuspendLayout();
+            this.msPlanes.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvPlanes
@@ -64,7 +69,7 @@
             this.dgvPlanes.ReadOnly = true;
             this.dgvPlanes.RowHeadersVisible = false;
             this.dgvPlanes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPlanes.Size = new System.Drawing.Size(794, 237);
+            this.dgvPlanes.Size = new System.Drawing.Size(794, 238);
             this.dgvPlanes.TabIndex = 0;
             // 
             // id
@@ -98,7 +103,7 @@
             // tcUsuarios.ContentPanel
             // 
             this.tcUsuarios.ContentPanel.Controls.Add(this.tlPlanes);
-            this.tcUsuarios.ContentPanel.Size = new System.Drawing.Size(800, 272);
+            this.tcUsuarios.ContentPanel.Size = new System.Drawing.Size(800, 273);
             this.tcUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcUsuarios.Location = new System.Drawing.Point(0, 0);
             this.tcUsuarios.Name = "tcUsuarios";
@@ -108,7 +113,7 @@
             // 
             // tcUsuarios.TopToolStripPanel
             // 
-            this.tcUsuarios.TopToolStripPanel.Controls.Add(this.tsPlanes);
+            this.tcUsuarios.TopToolStripPanel.Controls.Add(this.msPlanes);
             // 
             // tlPlanes
             // 
@@ -124,13 +129,13 @@
             this.tlPlanes.RowCount = 2;
             this.tlPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlPlanes.Size = new System.Drawing.Size(800, 272);
+            this.tlPlanes.Size = new System.Drawing.Size(800, 273);
             this.tlPlanes.TabIndex = 0;
             // 
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(641, 246);
+            this.btnActualizar.Location = new System.Drawing.Point(641, 247);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 1;
@@ -139,20 +144,55 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(722, 246);
+            this.btnSalir.Location = new System.Drawing.Point(722, 247);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // tsPlanes
+            // msPlanes
             // 
-            this.tsPlanes.Dock = System.Windows.Forms.DockStyle.None;
-            this.tsPlanes.Location = new System.Drawing.Point(3, 0);
-            this.tsPlanes.Name = "tsPlanes";
-            this.tsPlanes.Size = new System.Drawing.Size(111, 25);
-            this.tsPlanes.TabIndex = 0;
+            this.msPlanes.Dock = System.Windows.Forms.DockStyle.None;
+            this.msPlanes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.opciones});
+            this.msPlanes.Location = new System.Drawing.Point(0, 0);
+            this.msPlanes.Name = "msPlanes";
+            this.msPlanes.Size = new System.Drawing.Size(800, 24);
+            this.msPlanes.TabIndex = 1;
+            this.msPlanes.Text = "menuStrip1";
+            // 
+            // opciones
+            // 
+            this.opciones.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsEditar,
+            this.tsNuevo,
+            this.tsEliminar});
+            this.opciones.Name = "opciones";
+            this.opciones.Size = new System.Drawing.Size(69, 20);
+            this.opciones.Text = "Opciones";
+            // 
+            // tsEditar
+            // 
+            this.tsEditar.Name = "tsEditar";
+            this.tsEditar.Size = new System.Drawing.Size(180, 22);
+            this.tsEditar.Text = "Editar";
+            this.tsEditar.Click += new System.EventHandler(this.tsEditar_Click);
+            // 
+            // tsNuevo
+            // 
+            this.tsNuevo.Name = "tsNuevo";
+            this.tsNuevo.Size = new System.Drawing.Size(180, 22);
+            this.tsNuevo.Text = "Nuevo";
+            this.tsNuevo.Click += new System.EventHandler(this.tsNuevo_Click);
+            // 
+            // tsEliminar
+            // 
+            this.tsEliminar.Name = "tsEliminar";
+            this.tsEliminar.Size = new System.Drawing.Size(180, 22);
+            this.tsEliminar.Text = "Eliminar";
+            this.tsEliminar.Click += new System.EventHandler(this.tsEliminar_Click);
             // 
             // Planes
             // 
@@ -169,6 +209,8 @@
             this.tcUsuarios.ResumeLayout(false);
             this.tcUsuarios.PerformLayout();
             this.tlPlanes.ResumeLayout(false);
+            this.msPlanes.ResumeLayout(false);
+            this.msPlanes.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -183,6 +225,10 @@
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ToolStripContainer tcUsuarios;
-        private System.Windows.Forms.ToolStrip tsPlanes;
+        private System.Windows.Forms.MenuStrip msPlanes;
+        private System.Windows.Forms.ToolStripMenuItem opciones;
+        private System.Windows.Forms.ToolStripMenuItem tsEditar;
+        private System.Windows.Forms.ToolStripMenuItem tsNuevo;
+        private System.Windows.Forms.ToolStripMenuItem tsEliminar;
     }
 }

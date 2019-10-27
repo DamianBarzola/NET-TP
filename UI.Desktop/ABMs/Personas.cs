@@ -7,14 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business.Logic;
-using Business.Entities;
 
 namespace UI.Desktop.ABMs
 {
-    public partial class AlumnoInscripcion : Form
+    public partial class Personas : Form
     {
-        public AlumnoInscripcion()
+        public Personas()
         {
             InitializeComponent();
         }
@@ -23,6 +21,5 @@ namespace UI.Desktop.ABMs
         {
             this.Close();
         }
-       
     }
 }

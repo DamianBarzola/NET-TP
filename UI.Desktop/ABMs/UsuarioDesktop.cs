@@ -128,7 +128,15 @@ namespace UI.Desktop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-
+            if (Validar() == true)
+            {
+                GuardarCambios();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Compruebe los datos ingresados.");
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

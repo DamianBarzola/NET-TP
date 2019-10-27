@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Comision));
             this.dgvComisiones = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,16 +37,17 @@
             this.tlComisiones = new System.Windows.Forms.TableLayoutPanel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.tsComisiones = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.msComision = new System.Windows.Forms.MenuStrip();
+            this.tsOpciones = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsEditar = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsNuevo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsEliminar = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComisiones)).BeginInit();
             this.tcUsuarios.ContentPanel.SuspendLayout();
             this.tcUsuarios.TopToolStripPanel.SuspendLayout();
             this.tcUsuarios.SuspendLayout();
             this.tlComisiones.SuspendLayout();
-            this.tsComisiones.SuspendLayout();
+            this.msComision.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvComisiones
@@ -71,7 +71,7 @@
             this.dgvComisiones.ReadOnly = true;
             this.dgvComisiones.RowHeadersVisible = false;
             this.dgvComisiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvComisiones.Size = new System.Drawing.Size(794, 390);
+            this.dgvComisiones.Size = new System.Drawing.Size(794, 391);
             this.dgvComisiones.TabIndex = 0;
             // 
             // id
@@ -120,7 +120,7 @@
             // tcUsuarios.ContentPanel
             // 
             this.tcUsuarios.ContentPanel.Controls.Add(this.tlComisiones);
-            this.tcUsuarios.ContentPanel.Size = new System.Drawing.Size(800, 425);
+            this.tcUsuarios.ContentPanel.Size = new System.Drawing.Size(800, 426);
             this.tcUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcUsuarios.Location = new System.Drawing.Point(0, 0);
             this.tcUsuarios.Name = "tcUsuarios";
@@ -130,7 +130,7 @@
             // 
             // tcUsuarios.TopToolStripPanel
             // 
-            this.tcUsuarios.TopToolStripPanel.Controls.Add(this.tsComisiones);
+            this.tcUsuarios.TopToolStripPanel.Controls.Add(this.msComision);
             // 
             // tlComisiones
             // 
@@ -146,12 +146,12 @@
             this.tlComisiones.RowCount = 2;
             this.tlComisiones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlComisiones.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlComisiones.Size = new System.Drawing.Size(800, 425);
+            this.tlComisiones.Size = new System.Drawing.Size(800, 426);
             this.tlComisiones.TabIndex = 0;
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(722, 399);
+            this.btnSalir.Location = new System.Drawing.Point(722, 400);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 2;
@@ -161,51 +161,51 @@
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(641, 399);
+            this.btnActualizar.Location = new System.Drawing.Point(641, 400);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 1;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
             // 
-            // tsComisiones
+            // msComision
             // 
-            this.tsComisiones.Dock = System.Windows.Forms.DockStyle.None;
-            this.tsComisiones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3});
-            this.tsComisiones.Location = new System.Drawing.Point(3, 0);
-            this.tsComisiones.Name = "tsComisiones";
-            this.tsComisiones.Size = new System.Drawing.Size(81, 25);
-            this.tsComisiones.TabIndex = 0;
+            this.msComision.Dock = System.Windows.Forms.DockStyle.None;
+            this.msComision.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsOpciones});
+            this.msComision.Location = new System.Drawing.Point(0, 0);
+            this.msComision.Name = "msComision";
+            this.msComision.Size = new System.Drawing.Size(800, 24);
+            this.msComision.TabIndex = 1;
+            this.msComision.Text = "menuStrip1";
             // 
-            // toolStripButton1
+            // tsOpciones
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.tsOpciones.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsEditar,
+            this.tsNuevo,
+            this.tsEliminar});
+            this.tsOpciones.Name = "tsOpciones";
+            this.tsOpciones.Size = new System.Drawing.Size(69, 20);
+            this.tsOpciones.Text = "Opciones";
             // 
-            // toolStripButton2
+            // tsEditar
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.tsEditar.Name = "tsEditar";
+            this.tsEditar.Size = new System.Drawing.Size(117, 22);
+            this.tsEditar.Text = "Editar";
             // 
-            // toolStripButton3
+            // tsNuevo
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "toolStripButton3";
+            this.tsNuevo.Name = "tsNuevo";
+            this.tsNuevo.Size = new System.Drawing.Size(117, 22);
+            this.tsNuevo.Text = "Nuevo";
+            // 
+            // tsEliminar
+            // 
+            this.tsEliminar.Name = "tsEliminar";
+            this.tsEliminar.Size = new System.Drawing.Size(117, 22);
+            this.tsEliminar.Text = "Eliminar";
             // 
             // Comision
             // 
@@ -222,8 +222,8 @@
             this.tcUsuarios.ResumeLayout(false);
             this.tcUsuarios.PerformLayout();
             this.tlComisiones.ResumeLayout(false);
-            this.tsComisiones.ResumeLayout(false);
-            this.tsComisiones.PerformLayout();
+            this.msComision.ResumeLayout(false);
+            this.msComision.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -239,9 +239,10 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.ToolStripContainer tcUsuarios;
-        private System.Windows.Forms.ToolStrip tsComisiones;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.MenuStrip msComision;
+        private System.Windows.Forms.ToolStripMenuItem tsOpciones;
+        private System.Windows.Forms.ToolStripMenuItem tsEditar;
+        private System.Windows.Forms.ToolStripMenuItem tsNuevo;
+        private System.Windows.Forms.ToolStripMenuItem tsEliminar;
     }
 }
