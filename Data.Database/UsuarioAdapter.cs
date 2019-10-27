@@ -27,17 +27,18 @@ namespace Data.Database
                     user.Nombre = (string)drUsuarios["nombre"];
                     user.Apellido = (string)drUsuarios["apellido"];
                     user.Email = (string)drUsuarios["email"];
-                    user.Direccion = (string)drUsuarios["direccion"];
-                    user.Telefono = (string)drUsuarios["telefono"];
-                    user.FechaNacimiento = (DateTime)drUsuarios["fecha_nac"];
-                    user.Habilitado = (bool)drUsuarios["user_hab"];
-                    user.CambiaClave = (bool)drUsuarios["cambia_clave"];
-                    user.Legajo = (int)drUsuarios["legajo"];
-                    user.TipoPersona = (Usuario.TiposPersona)drUsuarios["tipo_persona"];
-                    user.IDPlan = (int)drUsuarios["id_plan"];
+                   // user.Direccion = (string)drUsuarios["direccion"];
+                   // user.Telefono = (string)drUsuarios["telefono"];
+                   // user.FechaNacimiento = (DateTime)drUsuarios["fecha_nac"];
+                   // user.Habilitado = (bool)drUsuarios["user_hab"];
+                   // user.CambiaClave = (bool)drUsuarios["cambia_clave"];
+                  //  user.Legajo = (int)drUsuarios["legajo"];
+                   // user.TipoPersona = (Usuario.TiposPersona)drUsuarios["tipo_persona"];
+                   // user.IDPlan = (int)drUsuarios["id_plan"];
                     usuarios.Add(user);
                 }
                 drUsuarios.Close();
+                return usuarios;
             }
             catch (Exception Ex)
             {
@@ -49,7 +50,7 @@ namespace Data.Database
             {
                 this.CloseConnection();
             }
-            return usuarios;
+            
         }
 
         public Usuario GetOne(int ID)
@@ -71,14 +72,14 @@ namespace Data.Database
                     user.Nombre = (string)drUsuarios["nombre"];
                     user.Apellido = (string)drUsuarios["apellido"];
                     user.Email = (string)drUsuarios["email"];
-                    user.Direccion = (string)drUsuarios["direccion"];
-                    user.Telefono = (string)drUsuarios["telefono"];
-                    user.FechaNacimiento = (DateTime)drUsuarios["fecha_nac"];
-                    user.Habilitado = (bool)drUsuarios["user_hab"];
-                    user.CambiaClave = (bool)drUsuarios["cambia_clave"];
-                    user.Legajo = (int)drUsuarios["legajo"];
-                    user.TipoPersona = (Usuario.TiposPersona)drUsuarios["tipo_persona"];
-                    user.IDPlan = (int)drUsuarios["id_plan"];
+                  //  user.Direccion = (string)drUsuarios["direccion"];
+                  //  user.Telefono = (string)drUsuarios["telefono"];
+                  //  user.FechaNacimiento = (DateTime)drUsuarios["fecha_nac"];
+                  //  user.Habilitado = (bool)drUsuarios["user_hab"];
+                  //  user.CambiaClave = (bool)drUsuarios["cambia_clave"];
+                  //  user.Legajo = (int)drUsuarios["legajo"];
+                  //  user.TipoPersona = (Usuario.TiposPersona)drUsuarios["tipo_persona"];
+                  //  user.IDPlan = (int)drUsuarios["id_plan"];
                 }
                 drUsuarios.Close();
             }
