@@ -31,7 +31,7 @@ namespace UI.Desktop
                 if (txtUsuario.Text.Equals(user.NombreUsuario) && txtPass.Text.Equals(user.Clave))
                 {
                     this.Visible = false;
-                    DatosUsuario Menu = new DatosUsuario();
+                    Principal Menu = new Principal();
                     Menu.ShowDialog();
                     this.Visible = true;
                 }
