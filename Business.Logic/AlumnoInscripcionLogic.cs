@@ -75,8 +75,8 @@ namespace Business.Logic
                 Linea["Condicion"] = ai.Condicion.ToString();
 
                 Usuario user = usuarios.FirstOrDefault(x => x.ID == ai.IDAlumno);
-                Linea["Alumno"] = user.ID + " - " + user.Apellido + ", " + user.Nombre;
-
+                Linea["Alumno"] = user.ID + " - " + user.Persona.Apellido + ", " + user.Persona.Nombre;
+                
                 Curso curso = cursos.FirstOrDefault(x => x.ID == ai.IDCurso);
                 Materia materia = materias.FirstOrDefault(x => x.ID == curso.IDMateria);
                 Comision comision = comisiones.FirstOrDefault(x => x.ID == curso.IDComision);

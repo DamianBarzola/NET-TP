@@ -29,16 +29,11 @@ namespace UI.Desktop
 
         private void MapearDeDatos()
         {
-            tbNombre.Text = UsuarioActual.Nombre;
-            tbApellido.Text = UsuarioActual.Apellido;
+            tbNombre.Text = UsuarioActual.Persona.Nombre;
+            tbApellido.Text = UsuarioActual.Persona.Nombre;
             tbUsuario.Text = UsuarioActual.NombreUsuario;
             tbEmail.Text = UsuarioActual.Email;
-            //falta conexion con bd
-            //tbFechaNacimiento.Text = UsuarioActual.FechaNacimiento.ToString("dd/MM/yyyy");
-            //tbDireccion.Text = UsuarioActual.Direccion;
-            //tbTelefono.Text = UsuarioActual.Telefono;
-           
-
+        
 
         }
 

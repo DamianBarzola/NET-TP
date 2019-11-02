@@ -18,5 +18,7 @@ namespace Business.Entities
         public int IDCurso { get => _IDCurso; set => _IDCurso = value; }
         public int IDDocente { get => _IDDocente; set => _IDDocente = value; }
 
+        public virtual Persona Persona { get; set; }
+
     }
 }

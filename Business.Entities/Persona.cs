@@ -13,11 +13,10 @@ namespace Business.Entities
         private TipoPersona tipo;
         private int legajo;
         private string apellido;
-        private string nombre,email;
+        private string nombre;
         private string direccion;
         private string telefono;
         private DateTime fechaNacimiento;
-        private int _IDPlan;
 
         public enum TipoPersona
         {
@@ -27,14 +26,12 @@ namespace Business.Entities
         }
 
         public TipoPersona Tipo { get => tipo; set => tipo = value; }
-        public int Legajo { get => legajo; set => legajo = value; }
+        public int Legajo { get => legajo; set => legajo = value; } 
         public string Apellido { get => apellido; set => apellido = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Direccion { get => direccion; set => direccion = value; }
         public DateTime FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
-        public int IDPlan { get => _IDPlan; set => _IDPlan = value; }
         public string Telefono { get => telefono; set => telefono = value; }
-        public string Email { get => email; set => email = value; }
     }
 
     }

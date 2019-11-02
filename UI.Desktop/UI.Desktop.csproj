@@ -169,22 +169,28 @@
     <Compile Include="CargarNotas.Designer.cs">
       <DependentUpon>CargarNotas.cs</DependentUpon>
     </Compile>
+    <Compile Include="echenotocar\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="echenotocar\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
     <Compile Include="InscribirCurso.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="InscribirCurso.Designer.cs">
       <DependentUpon>InscribirCurso.cs</DependentUpon>
     </Compile>
-    <Compile Include="DatosUsuario.cs">
+    <Compile Include="borrar\DatosUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DatosUsuario.Designer.cs">
+    <Compile Include="borrar\DatosUsuario.Designer.cs">
       <DependentUpon>DatosUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="echenotocar\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="echenotocar\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="ABMs\UsuarioDesktop.cs">
@@ -270,13 +276,16 @@
     <EmbeddedResource Include="CargarNotas.resx">
       <DependentUpon>CargarNotas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="echenotocar\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InscribirCurso.resx">
       <DependentUpon>InscribirCurso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DatosUsuario.resx">
+    <EmbeddedResource Include="borrar\DatosUsuario.resx">
       <DependentUpon>DatosUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="echenotocar\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABMs\UsuarioDesktop.resx">

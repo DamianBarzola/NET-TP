@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using Business.Logic;
 using Business.Entities;
 
-//Esto es un comentario
 namespace UI.Desktop
 {
    
@@ -48,8 +47,8 @@ namespace UI.Desktop
         public override void MapearDeDatos()
         {
             this.txtID.Text = _UsuarioActual.ID.ToString();
-            this.txtNombre.Text = _UsuarioActual.Nombre;
-            this.txtApellido.Text = _UsuarioActual.Apellido;
+            this.txtNombre.Text = _UsuarioActual.Persona.Nombre;
+            this.txtApellido.Text = _UsuarioActual.Persona.Apellido;
             this.txtEmail.Text = _UsuarioActual.Email;
             this.txtUsuario.Text = _UsuarioActual.NombreUsuario;
             this.txtClave.Text = _UsuarioActual.Clave;
@@ -92,8 +91,8 @@ namespace UI.Desktop
             {
                 if (_Modo == ModoForm.Modificacion)
                     _UsuarioActual.ID = Convert.ToInt32(this.txtID.Text);
-                _UsuarioActual.Nombre = this.txtNombre.Text;
-                _UsuarioActual.Apellido = this.txtApellido.Text;
+                _UsuarioActual.Persona.Nombre = this.txtNombre.Text;
+                _UsuarioActual.Persona.Apellido = this.txtApellido.Text;
                 _UsuarioActual.Email = this.txtEmail.Text;
                 _UsuarioActual.NombreUsuario = this.txtUsuario.Text;
                 _UsuarioActual.Clave = this.txtClave.Text;

@@ -24,12 +24,8 @@ namespace Data.Database
                     user.ID = (int)drUsuarios["id_usuario"];
                     user.NombreUsuario = (string)drUsuarios["nombre_usuario"];
                     user.Clave = (string)drUsuarios["clave"];
-                    user.Nombre = (string)drUsuarios["nombre"];
-                    user.Apellido = (string)drUsuarios["apellido"];
                     user.Email = (string)drUsuarios["email"];
                     user.Habilitado = (bool)drUsuarios["habilitado"];
-                    user.CambiaClave = (bool)drUsuarios["cambia_clave"];
-                    user.IDPersona = (int)drUsuarios["id_persona"];
                     usuarios.Add(user);
                 }
                 drUsuarios.Close();
@@ -64,12 +60,8 @@ namespace Data.Database
                     user.ID = (int)drUsuarios["id_usuario"];
                     user.NombreUsuario = (string)drUsuarios["nombre_usuario"];
                     user.Clave = (string)drUsuarios["clave"];
-                    user.Nombre = (string)drUsuarios["nombre"];
-                    user.Apellido = (string)drUsuarios["apellido"];
                     user.Email = (string)drUsuarios["email"];
                     user.Habilitado = (bool)drUsuarios["habilitado"];
-                    user.CambiaClave = (bool)drUsuarios["cambia_clave"];
-                    user.IDPersona = (int)drUsuarios["id_persona"];
                 }
                 drUsuarios.Close();
             }
@@ -92,7 +84,7 @@ namespace Data.Database
             try
             { 
             this.OpenConnection();
-            SqlCommand cmdUsuarios = new SqlCommand(" select * from usuarios where u.nombre_usuario = @username ", SqlConn);
+            SqlCommand cmdUsuarios = new SqlCommand(" select * from usuarios where nombre_usuario = @username ", SqlConn);
             cmdUsuarios.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
             SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
 
@@ -101,12 +93,8 @@ namespace Data.Database
                 user.ID = (int)drUsuarios["id_usuario"];
                 user.NombreUsuario = (string)drUsuarios["nombre_usuario"];
                 user.Clave = (string)drUsuarios["clave"];
-                user.Nombre = (string)drUsuarios["nombre"];
-                user.Apellido = (string)drUsuarios["apellido"];
                 user.Email = (string)drUsuarios["email"];
                 user.Habilitado = (bool)drUsuarios["habilitado"];
-                user.CambiaClave = (bool)drUsuarios["cambia_clave"];
-                user.IDPersona = (int)drUsuarios["id_persona"];
                 }
             drUsuarios.Close();
                 }
@@ -132,9 +120,8 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdDelete = new SqlCommand("UPDATE usuarios SET habilitado=@false WHERE id_usuario=@id", SqlConn);
+                SqlCommand cmdDelete = new SqlCommand("DELETE from usuarios WHERE id_usuario=@id", SqlConn);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = usuario.ID;
-                cmdDelete.Parameters.Add("@false", SqlDbType.Bit).Value = false;
                 cmdDelete.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -153,17 +140,13 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmUpd = new SqlCommand("UPDATE usuarios SET nombre=@nombre,apellido=@apellido,email=@email," +
+                SqlCommand cmUpd = new SqlCommand("UPDATE usuarios SET email=@email," +
                     "nombre_usuario=@nombre_usuario," +
-                    "habilitado=@habilitado,cambia_clave=@cambia_clave,id_plan=@id_plan WHERE id_usuario=@id", SqlConn);
+                    "habilitado=@habilitado WHERE id_usuario=@id", SqlConn);
 
-                cmUpd.Parameters.Add("@id", SqlDbType.Int).Value = usuario.ID;
-                cmUpd.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = usuario.Nombre;
-                cmUpd.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
                 cmUpd.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.Email;
                 cmUpd.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmUpd.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
-                cmUpd.Parameters.Add("@cambia_clave", SqlDbType.Bit).Value = false;
                 cmUpd.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -184,18 +167,15 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmIns = new SqlCommand("INSERT INTO usuarios(nombre,apellido,email," +
-                    "nombre_usuario,clave,habilitado,cambia_clave) " +
-                    "values(@nombre,@apellido,@email,@nombre_usuario," +
-                    "@clave,@habilitado,@cambia_clave) SELECT @@identity", SqlConn);
+                SqlCommand cmIns = new SqlCommand("INSERT INTO usuarios(email," +
+                    "nombre_usuario,habilitado) " +
+                    "values(@email,@nombre_usuario," +
+                    "@clave,@habilitado) SELECT @@identity", SqlConn);
 
-                cmIns.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = usuario.Nombre;
-                cmIns.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
                 cmIns.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.Email;
                 cmIns.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmIns.Parameters.Add("@clave", SqlDbType.Char, 60).Value = usuario.Clave;
                 cmIns.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
-                cmIns.Parameters.Add("@cambia_clave", SqlDbType.Bit).Value = false;
                 usuario.ID = Decimal.ToInt32((decimal)cmIns.ExecuteScalar());
             }
             catch (Exception Ex)

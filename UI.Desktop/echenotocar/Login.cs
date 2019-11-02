@@ -14,12 +14,16 @@ namespace UI.Desktop
 {
     public partial class Login : Form
     {
+        #region constructor
         public Login()
         {
             InitializeComponent();
         }
+        #endregion
 
-        //Falta conexion bd
+        public Boolean logueado = false;
+        public Usuario usuariologueado;
+
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
             this.Enabled = false;
@@ -31,7 +35,7 @@ namespace UI.Desktop
                 if (txtUsuario.Text.Equals(user.NombreUsuario) && txtPass.Text.Equals(user.Clave))
                 {
                     this.Visible = false;
-                    DatosUsuario Menu = new DatosUsuario();
+                    Main Menu = new Main(user);
                     Menu.ShowDialog();
                     this.Visible = true;
                 }
