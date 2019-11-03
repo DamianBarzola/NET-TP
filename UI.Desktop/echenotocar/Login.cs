@@ -44,11 +44,12 @@ namespace UI.Desktop
                     MessageBox.Show("Usuario y/o contraseña incorrectos", "Login"
                         , MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error del servidor. /n" + ex.Message);
-            }
+              }
+              catch (Exception ex)
+              {
+                  MessageBox.Show("Error del servidor. /n" + ex.Message);
+             }
+
 
             txtPass.Text = string.Empty;
             this.Enabled = true;
@@ -68,6 +69,11 @@ namespace UI.Desktop
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

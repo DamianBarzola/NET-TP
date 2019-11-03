@@ -36,8 +36,8 @@ namespace Business.Logic
             }
         }
 
-        public void Delete(Usuario a) {
-            UsuarioData.Delete(a);
+        public void Delete(int id) {
+            UsuarioData.Delete(id);
         }
 
         public void Save(Usuario usuario) {

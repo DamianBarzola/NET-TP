@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
+using UI.Desktop.ABMs;
 
 namespace UI.Desktop
 {//Como extra podriamos actualizar las vistas dependiendo si esta logueado o no
@@ -18,7 +19,7 @@ namespace UI.Desktop
         private Usuario _UsuarioLogueado;
         public Usuario UsuarioLogueado { get => _UsuarioLogueado; set => _UsuarioLogueado = value; }
 
-        #region constructor
+        #region constructores
         public Main()
         {
             InitializeComponent();
@@ -37,11 +38,14 @@ namespace UI.Desktop
         {
             if(UsuarioLogueado ==null)
             {
-                this.tsmAdministrar.Visible = false;
+                
                 this.tsmAlumnos.Visible = false;
                 this.tsmDocentes.Visible = false;
                 this.tsmCerrarSesion.Visible = false;
                 this.tsmIniciarSesion.Visible = true;
+
+                this.tsmAdministrar.Visible = false;
+                this.tsmAdministrarDocentes.Visible = false;
             }
             else
             {
@@ -49,7 +53,21 @@ namespace UI.Desktop
                 this.tsmCerrarSesion.Visible = true;
                 if (UsuarioLogueado != null)
                 {
-                    
+                    /*
+                   switch (UsuarioLogueado.Persona.Tipo)
+                    {
+                        case Persona.TipoPersona.Alumno:
+                            MenuAlumno();
+                            break;
+                        case Persona.TipoPersona.Docente:
+                            MenuAlumno();
+                            break;
+                        case Persona.TipoPersona.Administrador:
+                            MenuAlumno();
+                            break;
+
+                    }*/
+
                 }
 
             }
@@ -59,6 +77,25 @@ namespace UI.Desktop
 
         }
 
+
+        #region Menu
+        private void MenuAlumno()
+        {
+            tsmAlumnos.Visible = true;
+        }
+        private void MenuPersona()
+        {
+            tsmDocentes.Visible = true;
+            tsmAdministrar.Visible = true;
+        }
+
+        private void MenuAdministrador()
+        {
+            tsmAdministrar.Visible = true;
+            tsmAdministrarDocentes.Visible = true;
+                
+        }
+        #endregion
 
         public void Login()
         {
@@ -79,6 +116,32 @@ namespace UI.Desktop
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Logout();
+        }
+
+        private void tsmMateriasInscripto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsmInscribirseAMateria_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+        #region No usado
+    private void tsmUsuarios_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+        private void tsmAdministrarPersonas_Click(object sender, EventArgs e)
+        {
+            PersonasList personasList = new PersonasList();
+            personasList.ShowDialog();
         }
     }
 }

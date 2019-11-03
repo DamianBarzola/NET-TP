@@ -30,17 +30,18 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmIniciarSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmCerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAdministrar = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmPersonas = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmUsuarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAdministrarPersonas = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAdministrarUsuarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAdministrarDocentes = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmDocentes = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmReportesDocentes = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAlumnos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmMateriasInscripto = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmInscribirseAMateria = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmIniciarSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,40 +68,55 @@
             this.tsmMenu.Size = new System.Drawing.Size(50, 20);
             this.tsmMenu.Text = "Menu";
             // 
+            // tsmIniciarSesion
+            // 
+            this.tsmIniciarSesion.Name = "tsmIniciarSesion";
+            this.tsmIniciarSesion.Size = new System.Drawing.Size(143, 22);
+            this.tsmIniciarSesion.Text = "Iniciar Sesion";
+            // 
             // tsmCerrarSesion
             // 
             this.tsmCerrarSesion.Name = "tsmCerrarSesion";
-            this.tsmCerrarSesion.Size = new System.Drawing.Size(180, 22);
+            this.tsmCerrarSesion.Size = new System.Drawing.Size(143, 22);
             this.tsmCerrarSesion.Text = "Cerrar Sesion";
             this.tsmCerrarSesion.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
             // tsmSalir
             // 
             this.tsmSalir.Name = "tsmSalir";
-            this.tsmSalir.Size = new System.Drawing.Size(180, 22);
+            this.tsmSalir.Size = new System.Drawing.Size(143, 22);
             this.tsmSalir.Text = "Salir";
             this.tsmSalir.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // tsmAdministrar
             // 
             this.tsmAdministrar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmPersonas,
-            this.tsmUsuarios});
+            this.tsmAdministrarPersonas,
+            this.tsmAdministrarUsuarios,
+            this.tsmAdministrarDocentes});
             this.tsmAdministrar.Name = "tsmAdministrar";
             this.tsmAdministrar.Size = new System.Drawing.Size(81, 20);
             this.tsmAdministrar.Text = "Administrar";
             // 
-            // tsmPersonas
+            // tsmAdministrarPersonas
             // 
-            this.tsmPersonas.Name = "tsmPersonas";
-            this.tsmPersonas.Size = new System.Drawing.Size(180, 22);
-            this.tsmPersonas.Text = "Personas";
+            this.tsmAdministrarPersonas.Name = "tsmAdministrarPersonas";
+            this.tsmAdministrarPersonas.Size = new System.Drawing.Size(188, 22);
+            this.tsmAdministrarPersonas.Text = "Administrar Personas";
+            this.tsmAdministrarPersonas.Click += new System.EventHandler(this.tsmAdministrarPersonas_Click);
             // 
-            // tsmUsuarios
+            // tsmAdministrarUsuarios
             // 
-            this.tsmUsuarios.Name = "tsmUsuarios";
-            this.tsmUsuarios.Size = new System.Drawing.Size(180, 22);
-            this.tsmUsuarios.Text = "Usuarios";
+            this.tsmAdministrarUsuarios.Name = "tsmAdministrarUsuarios";
+            this.tsmAdministrarUsuarios.Size = new System.Drawing.Size(188, 22);
+            this.tsmAdministrarUsuarios.Text = "Administrar Usuarios";
+            this.tsmAdministrarUsuarios.Click += new System.EventHandler(this.tsmUsuarios_Click);
+            // 
+            // tsmAdministrarDocentes
+            // 
+            this.tsmAdministrarDocentes.Name = "tsmAdministrarDocentes";
+            this.tsmAdministrarDocentes.Size = new System.Drawing.Size(188, 22);
+            this.tsmAdministrarDocentes.Text = "Administrar Docentes";
             // 
             // tsmDocentes
             // 
@@ -113,7 +129,7 @@
             // tsmReportesDocentes
             // 
             this.tsmReportesDocentes.Name = "tsmReportesDocentes";
-            this.tsmReportesDocentes.Size = new System.Drawing.Size(180, 22);
+            this.tsmReportesDocentes.Size = new System.Drawing.Size(172, 22);
             this.tsmReportesDocentes.Text = "Reportes Docentes";
             // 
             // tsmAlumnos
@@ -128,20 +144,16 @@
             // tsmMateriasInscripto
             // 
             this.tsmMateriasInscripto.Name = "tsmMateriasInscripto";
-            this.tsmMateriasInscripto.Size = new System.Drawing.Size(180, 22);
+            this.tsmMateriasInscripto.Size = new System.Drawing.Size(179, 22);
             this.tsmMateriasInscripto.Text = "Materias Inscripto";
+            this.tsmMateriasInscripto.Click += new System.EventHandler(this.tsmMateriasInscripto_Click);
             // 
             // tsmInscribirseAMateria
             // 
             this.tsmInscribirseAMateria.Name = "tsmInscribirseAMateria";
-            this.tsmInscribirseAMateria.Size = new System.Drawing.Size(180, 22);
+            this.tsmInscribirseAMateria.Size = new System.Drawing.Size(179, 22);
             this.tsmInscribirseAMateria.Text = "Inscribirse a materia";
-            // 
-            // tsmIniciarSesion
-            // 
-            this.tsmIniciarSesion.Name = "tsmIniciarSesion";
-            this.tsmIniciarSesion.Size = new System.Drawing.Size(180, 22);
-            this.tsmIniciarSesion.Text = "Iniciar Sesion";
+            this.tsmInscribirseAMateria.Click += new System.EventHandler(this.tsmInscribirseAMateria_Click);
             // 
             // Main
             // 
@@ -166,13 +178,14 @@
         private System.Windows.Forms.ToolStripMenuItem tsmCerrarSesion;
         private System.Windows.Forms.ToolStripMenuItem tsmSalir;
         private System.Windows.Forms.ToolStripMenuItem tsmAdministrar;
-        private System.Windows.Forms.ToolStripMenuItem tsmPersonas;
-        private System.Windows.Forms.ToolStripMenuItem tsmUsuarios;
+        private System.Windows.Forms.ToolStripMenuItem tsmAdministrarPersonas;
+        private System.Windows.Forms.ToolStripMenuItem tsmAdministrarUsuarios;
         private System.Windows.Forms.ToolStripMenuItem tsmDocentes;
         private System.Windows.Forms.ToolStripMenuItem tsmReportesDocentes;
         private System.Windows.Forms.ToolStripMenuItem tsmAlumnos;
         private System.Windows.Forms.ToolStripMenuItem tsmMateriasInscripto;
         private System.Windows.Forms.ToolStripMenuItem tsmInscribirseAMateria;
         private System.Windows.Forms.ToolStripMenuItem tsmIniciarSesion;
+        private System.Windows.Forms.ToolStripMenuItem tsmAdministrarDocentes;
     }
 }

@@ -56,7 +56,7 @@
             this.label2.Location = new System.Drawing.Point(30, 109);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 13);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 6;
             this.label2.Text = "Nombre de Usuario:";
             // 
             // label3
@@ -65,8 +65,9 @@
             this.label3.Location = new System.Drawing.Point(30, 153);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 13);
-            this.label3.TabIndex = 3;
+            this.label3.TabIndex = 7;
             this.label3.Text = "Contraseña:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtPass
             // 
@@ -75,7 +76,7 @@
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(100, 20);
-            this.txtPass.TabIndex = 4;
+            this.txtPass.TabIndex = 2;
             // 
             // txtUsuario
             // 
@@ -83,7 +84,7 @@
             this.txtUsuario.MaxLength = 15;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(100, 20);
-            this.txtUsuario.TabIndex = 5;
+            this.txtUsuario.TabIndex = 1;
             this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             // 
             // lnkOlvidaPass
@@ -92,7 +93,7 @@
             this.lnkOlvidaPass.Location = new System.Drawing.Point(12, 246);
             this.lnkOlvidaPass.Name = "lnkOlvidaPass";
             this.lnkOlvidaPass.Size = new System.Drawing.Size(106, 13);
-            this.lnkOlvidaPass.TabIndex = 6;
+            this.lnkOlvidaPass.TabIndex = 5;
             this.lnkOlvidaPass.TabStop = true;
             this.lnkOlvidaPass.Text = "Olvidé mi contraseña";
             this.lnkOlvidaPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LnkOlvidaPass_LinkClicked);
@@ -102,7 +103,7 @@
             this.btnIngresar.Location = new System.Drawing.Point(167, 188);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(75, 23);
-            this.btnIngresar.TabIndex = 7;
+            this.btnIngresar.TabIndex = 3;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.BtnIngresar_Click);
@@ -112,7 +113,7 @@
             this.Boton.Location = new System.Drawing.Point(56, 188);
             this.Boton.Name = "Boton";
             this.Boton.Size = new System.Drawing.Size(75, 23);
-            this.Boton.TabIndex = 8;
+            this.Boton.TabIndex = 4;
             this.Boton.Text = "Salir";
             this.Boton.UseVisualStyleBackColor = true;
             this.Boton.Click += new System.EventHandler(this.button1_Click);
@@ -120,7 +121,7 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // Login
             // 

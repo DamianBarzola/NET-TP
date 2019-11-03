@@ -83,7 +83,7 @@ namespace UI.Web
 
         private void LoadForm(int id)
             {
-            this.usuarioActual = this.Logic.GetOne(id);
+          //  this.usuarioActual = this.Logic.GetOne(id);
 
         }
 

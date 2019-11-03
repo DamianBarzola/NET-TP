@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbemail = new System.Windows.Forms.TextBox();
             this.txtTelef = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.mail = new System.Windows.Forms.Label();
             this.tb = new System.Windows.Forms.Label();
             this.Email = new System.Windows.Forms.Label();
             this.Tasd = new System.Windows.Forms.Label();
@@ -43,19 +41,12 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbLegajo = new System.Windows.Forms.TextBox();
-            this.txtFechaNac = new System.Windows.Forms.TextBox();
             this.cbxTipo = new System.Windows.Forms.ComboBox();
+            this.txtLegajo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tbemail
-            // 
-            this.tbemail.Location = new System.Drawing.Point(375, 116);
-            this.tbemail.Name = "tbemail";
-            this.tbemail.Size = new System.Drawing.Size(132, 20);
-            this.tbemail.TabIndex = 22;
             // 
             // txtTelef
             // 
@@ -77,16 +68,6 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(131, 20);
             this.txtNombre.TabIndex = 17;
-            // 
-            // mail
-            // 
-            this.mail.AutoSize = true;
-            this.mail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mail.Location = new System.Drawing.Point(284, 113);
-            this.mail.Name = "mail";
-            this.mail.Size = new System.Drawing.Size(85, 39);
-            this.mail.TabIndex = 15;
-            this.mail.Text = "Email";
             // 
             // tb
             // 
@@ -173,6 +154,7 @@
             this.btnCancelar.TabIndex = 24;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -182,12 +164,10 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.21622F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.78378F));
             this.tableLayoutPanel1.Controls.Add(this.cbxTipo, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.tbLegajo, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tbemail, 3, 4);
+            this.tableLayoutPanel1.Controls.Add(this.txtLegajo, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtTelef, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtApellido, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtNombre, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.mail, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.tb, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.Email, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.Tasd, 0, 3);
@@ -198,7 +178,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 5);
             this.tableLayoutPanel1.Controls.Add(this.label2, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtFechaNac, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.dtpFechaNacimiento, 1, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -212,6 +192,24 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(565, 200);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
+            // cbxTipo
+            // 
+            this.cbxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTipo.FormattingEnabled = true;
+            this.cbxTipo.Location = new System.Drawing.Point(94, 84);
+            this.cbxTipo.Name = "cbxTipo";
+            this.cbxTipo.Size = new System.Drawing.Size(131, 21);
+            this.cbxTipo.TabIndex = 51;
+            this.cbxTipo.SelectedIndexChanged += new System.EventHandler(this.cbxTipo_SelectedIndexChanged);
+            // 
+            // txtLegajo
+            // 
+            this.txtLegajo.Location = new System.Drawing.Point(375, 23);
+            this.txtLegajo.Name = "txtLegajo";
+            this.txtLegajo.ReadOnly = true;
+            this.txtLegajo.Size = new System.Drawing.Size(131, 20);
+            this.txtLegajo.TabIndex = 26;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -221,29 +219,14 @@
             this.label2.TabIndex = 25;
             this.label2.Text = "Legajo";
             // 
-            // tbLegajo
+            // dtpFechaNacimiento
             // 
-            this.tbLegajo.Location = new System.Drawing.Point(375, 23);
-            this.tbLegajo.Name = "tbLegajo";
-            this.tbLegajo.ReadOnly = true;
-            this.tbLegajo.Size = new System.Drawing.Size(131, 20);
-            this.tbLegajo.TabIndex = 26;
-            // 
-            // txtFechaNac
-            // 
-            this.txtFechaNac.Location = new System.Drawing.Point(94, 116);
-            this.txtFechaNac.Name = "txtFechaNac";
-            this.txtFechaNac.Size = new System.Drawing.Size(131, 20);
-            this.txtFechaNac.TabIndex = 44;
-            // 
-            // cbxTipo
-            // 
-            this.cbxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxTipo.FormattingEnabled = true;
-            this.cbxTipo.Location = new System.Drawing.Point(94, 84);
-            this.cbxTipo.Name = "cbxTipo";
-            this.cbxTipo.Size = new System.Drawing.Size(131, 21);
-            this.cbxTipo.TabIndex = 51;
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(94, 116);
+            this.dtpFechaNacimiento.MaxDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
+            this.dtpFechaNacimiento.MinDate = new System.DateTime(1999, 1, 1, 0, 0, 0, 0);
+            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(184, 20);
+            this.dtpFechaNacimiento.TabIndex = 52;
             // 
             // PersonaDesktop
             // 
@@ -253,6 +236,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PersonaDesktop";
             this.Text = "PersonaDesktop";
+            this.Load += new System.EventHandler(this.PersonaDesktop_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -260,12 +244,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tbemail;
         private System.Windows.Forms.TextBox txtTelef;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label mail;
         private System.Windows.Forms.Label tb;
         private System.Windows.Forms.Label Email;
         private System.Windows.Forms.Label Tasd;
@@ -277,8 +258,8 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ComboBox cbxTipo;
-        private System.Windows.Forms.TextBox tbLegajo;
+        private System.Windows.Forms.TextBox txtLegajo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtFechaNac;
+        private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
     }
 }

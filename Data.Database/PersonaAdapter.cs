@@ -53,7 +53,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmPErs = new SqlCommand(" select * from personas WHERE id_persona=@id", SqlConn);
+                SqlCommand cmPErs = new SqlCommand("select * from personas WHERE id_persona=@id", SqlConn);
                 cmPErs.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 SqlDataReader drPersona = cmPErs.ExecuteReader();
 

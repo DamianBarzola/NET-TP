@@ -77,6 +77,7 @@ namespace Data.Database
             }
             return user;
         }
+
         public Usuario GetOne(String username)
         {
             Usuario user = new Usuario();
@@ -84,7 +85,7 @@ namespace Data.Database
             try
             { 
             this.OpenConnection();
-            SqlCommand cmdUsuarios = new SqlCommand(" select * from usuarios where nombre_usuario = @username ", SqlConn);
+            SqlCommand cmdUsuarios = new SqlCommand("SELECT * from usuarios where nombre_usuario=@username ", SqlConn);
             cmdUsuarios.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
             SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
 
@@ -95,6 +96,7 @@ namespace Data.Database
                 user.Clave = (string)drUsuarios["clave"];
                 user.Email = (string)drUsuarios["email"];
                 user.Habilitado = (bool)drUsuarios["habilitado"];
+                
                 }
             drUsuarios.Close();
                 }
@@ -115,13 +117,13 @@ namespace Data.Database
 
        
 
-        public void Delete(Usuario usuario)
+        public void Delete(int id)
         {
             try
             {
                 this.OpenConnection();
                 SqlCommand cmdDelete = new SqlCommand("DELETE from usuarios WHERE id_usuario=@id", SqlConn);
-                cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = usuario.ID;
+                cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = id;
                 cmdDelete.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -217,7 +219,7 @@ namespace Data.Database
         {
             if (usuario.State == BusinessEntity.States.Deleted)
             {
-                this.Delete(usuario);
+                this.Delete(usuario.ID);
             }
             else if (usuario.State == BusinessEntity.States.New)
             {
