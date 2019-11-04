@@ -55,21 +55,21 @@
             this.txtTelef.Location = new System.Drawing.Point(375, 84);
             this.txtTelef.Name = "txtTelef";
             this.txtTelef.Size = new System.Drawing.Size(132, 20);
-            this.txtTelef.TabIndex = 20;
+            this.txtTelef.TabIndex = 6;
             // 
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(375, 54);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(132, 20);
-            this.txtApellido.TabIndex = 18;
+            this.txtApellido.TabIndex = 5;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(94, 54);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(131, 20);
-            this.txtNombre.TabIndex = 17;
+            this.txtNombre.TabIndex = 2;
             // 
             // tb
             // 
@@ -135,16 +135,15 @@
             // 
             this.txtID.Location = new System.Drawing.Point(94, 23);
             this.txtID.Name = "txtID";
-            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(131, 20);
-            this.txtID.TabIndex = 2;
+            this.txtID.TabIndex = 1;
             // 
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(284, 155);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(60, 20);
-            this.btnAceptar.TabIndex = 23;
+            this.btnAceptar.TabIndex = 9;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -154,7 +153,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(375, 155);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 20);
-            this.btnCancelar.TabIndex = 24;
+            this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -204,16 +203,15 @@
             this.cbxTipo.Location = new System.Drawing.Point(94, 84);
             this.cbxTipo.Name = "cbxTipo";
             this.cbxTipo.Size = new System.Drawing.Size(131, 21);
-            this.cbxTipo.TabIndex = 51;
+            this.cbxTipo.TabIndex = 3;
             this.cbxTipo.SelectedIndexChanged += new System.EventHandler(this.cbxTipo_SelectedIndexChanged);
             // 
             // txtLegajo
             // 
             this.txtLegajo.Location = new System.Drawing.Point(375, 23);
             this.txtLegajo.Name = "txtLegajo";
-            this.txtLegajo.ReadOnly = true;
             this.txtLegajo.Size = new System.Drawing.Size(131, 20);
-            this.txtLegajo.TabIndex = 26;
+            this.txtLegajo.TabIndex = 4;
             // 
             // label2
             // 
@@ -231,7 +229,7 @@
             this.dtpFechaNacimiento.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             this.dtpFechaNacimiento.Size = new System.Drawing.Size(184, 20);
-            this.dtpFechaNacimiento.TabIndex = 52;
+            this.dtpFechaNacimiento.TabIndex = 8;
             // 
             // lblDireccion
             // 
@@ -247,7 +245,7 @@
             this.txtDireccion.Location = new System.Drawing.Point(375, 116);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(131, 20);
-            this.txtDireccion.TabIndex = 54;
+            this.txtDireccion.TabIndex = 7;
             // 
             // PersonaDesktop
             // 

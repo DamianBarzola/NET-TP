@@ -27,6 +27,7 @@ namespace UI.Desktop.ABMs
         {
             InitializeComponent();
             this.modoform = modo;
+            cargarCombo();
         }
         public PersonaDesktop(int id, ModoForm modo)
         {
@@ -42,10 +43,11 @@ namespace UI.Desktop.ABMs
        override public void  MapearADatos()
         {
             Persona personaVieja = this.personaActual;
-            personaActual.Tipo = (Persona.TipoPersona)cbxTipo.SelectedValue;
+            
             this.personaActual = new Persona()
             {
-
+                Tipo = (Persona.TipoPersona)cbxTipo.SelectedValue,
+                ID = int.Parse(txtID.Text), //falta autogenerar ID
                 Legajo = int.Parse(txtLegajo.Text),
                 Apellido = txtApellido.Text,
                 Nombre = txtNombre.Text,
