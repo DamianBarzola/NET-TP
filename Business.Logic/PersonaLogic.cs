@@ -39,20 +39,7 @@ namespace Business.Logic
             Pers.Save(pe);
         }
 
-        public DataTable GetListado()
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Id", typeof(int));
-            dt.Columns.Add("Apellido", typeof(string));
-
-            List<Persona> personas = PersonaA.GetAll();
-
-            foreach (Persona Pers in personas)
-            {
-                dt.Rows.Add(new object[] { Pers.ID, Pers.Apellido });
-            }
-            return dt;
-        }
+        
 
     }
 }

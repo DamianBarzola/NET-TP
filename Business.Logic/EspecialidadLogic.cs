@@ -30,25 +30,13 @@ namespace Business.Logic
             return EspecA.GetOne(id);
         }
 
+        public void Delete(Especialidad a) { EspecA.Delete(a); }
 
         public void Save(Especialidad esp)
         {
             EspecA.Save(esp);
         }
 
-        public DataTable GetListado()
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Id", typeof(int));
-            dt.Columns.Add("Descripcion", typeof(string));
-
-            List<Especialidad> especialidades = EspecA.GetAll();
-
-            foreach (Especialidad esp in especialidades)
-            {
-                dt.Rows.Add(new object[] { esp.ID, esp.DescripcionEspecialidad });
-            }
-            return dt;
-        }
+       
     }
 }

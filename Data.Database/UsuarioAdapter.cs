@@ -29,7 +29,7 @@ namespace Data.Database
                     user.Email = (string)drUsuarios["email"];
                     user.Habilitado = (bool)drUsuarios["habilitado"];
                     user.CambiaClave = (bool)drUsuarios["cambia_clave"];
-                    user.IDPersona = (int)drUsuarios["id_persona"];
+                   user.IDPersona = (int)drUsuarios["id_persona"];
                     usuarios.Add(user);
                 }
                 drUsuarios.Close();
@@ -92,7 +92,7 @@ namespace Data.Database
             try
             { 
             this.OpenConnection();
-            SqlCommand cmdUsuarios = new SqlCommand(" select * from usuarios where u.nombre_usuario = @username ", SqlConn);
+            SqlCommand cmdUsuarios = new SqlCommand(" select * from usuarios where nombre_usuario = @username ", SqlConn);
             cmdUsuarios.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
             SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
 

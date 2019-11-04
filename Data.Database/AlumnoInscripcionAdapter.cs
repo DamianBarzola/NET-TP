@@ -27,7 +27,6 @@ namespace Data.Database
                         ID = (int)drAlumnoInscripciones["id_inscripcion"],
                         IDAlumno = (int)drAlumnoInscripciones["id_alumno"],
                         IDCurso = (int)drAlumnoInscripciones["id_curso"],
-                        Habilitado = (bool)drAlumnoInscripciones["ai_hab"],
                         Nota = (drAlumnoInscripciones["nota"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["nota"],
                         Condicion = (AlumnoInscripcion.Condiciones)System.Enum.Parse(typeof(AlumnoInscripcion.Condiciones), (string)drAlumnoInscripciones["condicion"])
                     };
@@ -53,9 +52,8 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdAlumnoInscripciones = new SqlCommand("SELECT * FROM alumnos_inscripciones WHERE id_alumno = @ID AND ai_hab = @ai_hab", SqlConn);
+                SqlCommand cmdAlumnoInscripciones = new SqlCommand("SELECT * FROM alumnos_inscripciones WHERE id_alumno = @ID", SqlConn);
                 cmdAlumnoInscripciones.Parameters.Add("@ID", SqlDbType.Int).Value = IDUsuario;
-                cmdAlumnoInscripciones.Parameters.Add("@ai_hab", SqlDbType.Bit).Value = true;
                 SqlDataReader drAlumnoInscripciones = cmdAlumnoInscripciones.ExecuteReader();
 
                 while (drAlumnoInscripciones.Read())
@@ -65,7 +63,6 @@ namespace Data.Database
                         ID = (int)drAlumnoInscripciones["id_inscripcion"],
                         IDAlumno = (int)drAlumnoInscripciones["id_alumno"],
                         IDCurso = (int)drAlumnoInscripciones["id_curso"],
-                        Habilitado = (bool)drAlumnoInscripciones["ai_hab"],
                         Nota = (drAlumnoInscripciones["nota"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["nota"],
                         Condicion = (AlumnoInscripcion.Condiciones)System.Enum.Parse(typeof(AlumnoInscripcion.Condiciones), (string)drAlumnoInscripciones["condicion"])
                     };
@@ -91,9 +88,8 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdAlumnoInscripciones = new SqlCommand("SELECT * FROM alumnos_inscripciones WHERE id_curso = @ID AND ai_hab = @ai_hab", SqlConn);
+                SqlCommand cmdAlumnoInscripciones = new SqlCommand("SELECT * FROM alumnos_inscripciones WHERE id_curso = @ID ", SqlConn);
                 cmdAlumnoInscripciones.Parameters.Add("@ID", SqlDbType.Int).Value = IDCurso;
-                cmdAlumnoInscripciones.Parameters.Add("@ai_hab", SqlDbType.Bit).Value = true;
                 SqlDataReader drAlumnoInscripciones = cmdAlumnoInscripciones.ExecuteReader();
 
                 while (drAlumnoInscripciones.Read())
@@ -103,7 +99,6 @@ namespace Data.Database
                         ID = (int)drAlumnoInscripciones["id_inscripcion"],
                         IDAlumno = (int)drAlumnoInscripciones["id_alumno"],
                         IDCurso = (int)drAlumnoInscripciones["id_curso"],
-                        Habilitado = (bool)drAlumnoInscripciones["ai_hab"],
                         Nota = (drAlumnoInscripciones["nota"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["nota"],
                         Condicion = (AlumnoInscripcion.Condiciones)System.Enum.Parse(typeof(AlumnoInscripcion.Condiciones), (string)drAlumnoInscripciones["condicion"])
                     };
@@ -138,7 +133,6 @@ namespace Data.Database
                     insc.ID = (int)drAlumnoInscripciones["id_inscripcion"];
                     insc.IDAlumno = (int)drAlumnoInscripciones["id_alumno"];
                     insc.IDCurso = (int)drAlumnoInscripciones["id_curso"];
-                    insc.Habilitado = (bool)drAlumnoInscripciones["ai_hab"];
                     insc.Nota = (drAlumnoInscripciones["nota"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["nota"];
                     insc.Condicion = (AlumnoInscripcion.Condiciones)System.Enum.Parse(typeof(AlumnoInscripcion.Condiciones), (string)drAlumnoInscripciones["condicion"]);
                 }
@@ -182,9 +176,8 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdDelete = new SqlCommand("UPDATE alumnos_inscripciones SET ai_hab@false WHERE id_inscripcion=@id", SqlConn);
+                SqlCommand cmdDelete = new SqlCommand("delete from alumnos_inscripciones WHERE id_inscripcion=@id", SqlConn);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = insc.ID;
-                cmdDelete.Parameters.Add("@false", SqlDbType.Bit).Value = false;
                 cmdDelete.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -203,7 +196,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmUpd = new SqlCommand("UPDATE alumnos_inscripciones SET id_alumno = @id_alumno, " +
-                    "id_curso = @id_curso, nota = @nota, condicion = @condicion, ai_hab = @ai_hab " +
+                    "id_curso = @id_curso, nota = @nota, condicion = @condicion " +
                     "WHERE id_inscripcion=@id", SqlConn);
 
                 cmUpd.Parameters.Add("@id", SqlDbType.Int).Value = insc.ID;
@@ -211,7 +204,6 @@ namespace Data.Database
                 cmUpd.Parameters.Add("@id_curso", SqlDbType.Int).Value = insc.IDCurso;
                 cmUpd.Parameters.Add("@nota", SqlDbType.Int).Value = insc.Nota;
                 cmUpd.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = insc.Condicion.ToString();
-                cmUpd.Parameters.Add("@ai_hab", SqlDbType.Bit).Value = insc.Habilitado;
                 cmUpd.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -229,13 +221,12 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmIns = new SqlCommand("INSERT INTO alumnos_inscripciones(id_alumno, id_curso, condicion, ai_hab) " +
-                    "values(@id_alumno, @id_curso, @condicion, @ai_hab) SELECT @@identity", SqlConn);
+                SqlCommand cmIns = new SqlCommand("INSERT INTO alumnos_inscripciones(id_alumno, id_curso, condicion) " +
+                    "values(@id_alumno, @id_curso, @condicion) SELECT @@identity", SqlConn);
 
                 cmIns.Parameters.Add("@id_alumno", SqlDbType.Int).Value = insc.IDAlumno;
                 cmIns.Parameters.Add("@id_curso", SqlDbType.Int).Value = insc.IDCurso;
                 cmIns.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = insc.Condicion.ToString();
-                cmIns.Parameters.Add("@ai_hab", SqlDbType.Bit).Value = insc.Habilitado;
 
                 insc.ID = Decimal.ToInt32((decimal)cmIns.ExecuteScalar());
             }

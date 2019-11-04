@@ -28,7 +28,6 @@ namespace Data.Database
                     com.Descripcion = (string)drComisiones["desc_comision"];
                     com.AnioEspecialidad = (int)drComisiones["anio_especialidad"];
                     com.IDPlan = (int)drComisiones["id_plan"];
-                    com.Habilitado = (bool)drComisiones["com_hab"];
                     comisiones.Add(com);
                 }
                 drComisiones.Close();
@@ -61,7 +60,6 @@ namespace Data.Database
                     com.Descripcion = (string)drComisiones["desc_comision"];
                     com.AnioEspecialidad = (int)drComisiones["anio_especialidad"];
                     com.IDPlan = (int)drComisiones["id_plan"];
-                    com.Habilitado = (bool)drComisiones["com_hab"];
 
                 }
                 drComisiones.Close();
@@ -83,9 +81,8 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdDelete = new SqlCommand("UPDATE comisiones SET com_hab=@false WHERE id_comision=@id", SqlConn);
+                SqlCommand cmdDelete = new SqlCommand("Delete from comisiones   WHERE id_comision=@id", SqlConn);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = com.ID;
-                cmdDelete.Parameters.Add("@false", SqlDbType.Bit).Value = false;
                 cmdDelete.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -104,14 +101,13 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmUpd = new SqlCommand("UPDATE comisiones SET id_plan = @idplan, " +
-                    "desc_comision = @desc, anio_especialidad = @anio, com_hab = @com_hab " +
+                    "desc_comision = @desc, anio_especialidad = @anio " +
                     "WHERE id_comision=@id", SqlConn);
 
                 cmUpd.Parameters.Add("@id", SqlDbType.Int).Value = com.ID;
                 cmUpd.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = com.Descripcion;
                 cmUpd.Parameters.Add("@anio", SqlDbType.Int).Value = com.AnioEspecialidad;
                 cmUpd.Parameters.Add("@idplan", SqlDbType.Int).Value = com.IDPlan;
-                cmUpd.Parameters.Add("@com_hab", SqlDbType.Bit).Value = com.Habilitado;
                 cmUpd.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -130,12 +126,11 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmIns = new SqlCommand("INSERT INTO comisiones(desc_comision, anio_especialidad, id_plan, com_hab) " +
-                    "values(@desc, @anio, @idplan, @com_hab) SELECT @@identity", SqlConn);
+                SqlCommand cmIns = new SqlCommand("INSERT INTO comisiones(desc_comision, anio_especialidad, id_plan) " +
+                    "values(@desc, @anio, @idplan) SELECT @@identity", SqlConn);
                 cmIns.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = com.Descripcion;
                 cmIns.Parameters.Add("@anio", SqlDbType.Int).Value = com.AnioEspecialidad;
                 cmIns.Parameters.Add("@idplan", SqlDbType.Int).Value = com.IDPlan;
-                cmIns.Parameters.Add("@com_hab", SqlDbType.Bit).Value = com.Habilitado;
 
                 com.ID = Decimal.ToInt32((decimal)cmIns.ExecuteScalar());
             }

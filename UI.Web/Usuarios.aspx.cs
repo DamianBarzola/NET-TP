@@ -4,22 +4,18 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Business.Logic;
 using Business.Entities;
-using System.Data;
+using Business.Logic;
 
 namespace UI.Web
 {
-    public partial class Usuario : System.Web.UI.Page
+    public partial class Usuarios : System.Web.UI.Page
     {
-
-
-        #region Propiedades(tp)
         private Usuario usuarioActual;
         public Usuario UsuarioActual { get => usuarioActual; set => usuarioActual = value; }
-
-        private UsuarioLogic _logic;
-        public UsuarioLogic Logic
+        
+        UsuarioLogic _logic;
+        private UsuarioLogic Logic
         {
             get
             {
@@ -27,38 +23,20 @@ namespace UI.Web
                 return _logic;
             }
         }
-
-        public enum FormModes
+        public enum FormModes { Alta, Baja, Modificacion }
+        public FormModes FormMode
         {
-            Alta,
-            Baja,
-            Modificacion
+            get { return (FormModes)ViewState["FormMode"]; }
+            set { ViewState["FormMode"] = value; }
         }
-
-        private FormModes FormMode
-        {
-            get
-            {
-                return (FormModes)this.ViewState["FormMode"];
-            }
-            set
-            {
-                this.ViewState["FormMode"] = value;
-            }
-        }
-
-        private Usuario Entity
-        {
-            get;
-            set;
-        }
-
         private int SelectedID
         {
             get
             {
                 if (this.ViewState["SelectedID"] != null)
-                { return (int)this.ViewState["SelectedID"]; }
+                {
+                    return (int)this.ViewState["SelectedID"];
+                }
                 else return 0;
             }
             set
@@ -67,29 +45,57 @@ namespace UI.Web
             }
         }
 
+        private void LoadGrid()
+        {
+            this.gridView.DataSource = this.Logic.GetAll();
+            this.gridView.DataBind();
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            
+                if (SelectedID != 0) UsuarioActual = Logic.GetOne(SelectedID);
+                if (!IsPostBack)
+                {
+                    LoadGrid();
+                }
+            
+        }
+       
+
+        
+        private Usuario Entity
+        {
+            get;
+            set;
+        }
+
+        
+
+
         private bool isEntitySelected
         {
             get { return (this.SelectedID != 0); }
         }
-        #endregion
-
-
-    #region Mostrar usuario existente para modificarlo
-
         protected void gvUsuarios_SelectedIndexChanged(object sender, EventArgs e)
-                {
-                    this.SelectedID = (int)this.gvUsuarios.SelectedValue;
-                }
-
+        {
+            this.SelectedID = (int)this.gridView.SelectedValue;
+        }
+       
         private void LoadForm(int id)
-            {
-            this.usuarioActual = this.Logic.GetOne(id);
+        {
+            Entity = Logic.GetOne(id);
+            tbNombre.Text = Entity.Nombre;
+            tbApellido.Text = Entity.Apellido;
+            cbHabilitado.Checked = Entity.Habilitado;
+            tbEmail.Text = Entity.Email;
+            tbNombreUsuario.Text = Entity.NombreUsuario;
 
         }
 
         protected void lbEditar_Click(object sender, EventArgs e)
         {
-            if (this.isEntitySelected)
+            if (gridView.SelectedValue != null)
             {
                 this.formPanel.Visible = true;
                 this.FormMode = FormModes.Modificacion;
@@ -97,19 +103,114 @@ namespace UI.Web
             }
         }
 
-        #endregion
-        private void LoadGrid()
+        private void LoadEntity(Usuario usuario)
         {
-            this.gvUsuarios.DataSource = this.Logic.GetAll();
-            this.gvUsuarios.DataBind();
 
+            usuario.Nombre = tbNombre.Text;
+            usuario.Apellido = tbApellido.Text;
+            usuario.Email = tbEmail.Text;
+            usuario.NombreUsuario = tbNombreUsuario.Text;
+            usuario.Clave = tbClave.Text;
+
+            usuario.Habilitado = cbHabilitado.Checked;
+            
         }
-
-        protected void Page_Load(object sender, EventArgs e)
+        private void SaveEntity(Usuario usuario)
         {
-            this.LoadGrid();
+             Logic.Save(usuario); 
+            
         }
-
        
+        private void EnableForm(bool a)
+        {
+            tbApellido.Enabled = a;
+            tbClave.Enabled = a;
+            tbRepetirClave.Enabled = a;
+            tbNombre.Enabled = a;
+            tbNombreUsuario.Enabled = a;
+            cbHabilitado.Enabled = a;
+            tbEmail.Enabled = a;
+                    }
+        
+        private void DeteleteEntity(Usuario usuario)
+        {
+            Logic.Delete(usuario);
+        }
+        private void ClearForm()
+        {
+            tbApellido.Text = string.Empty;
+            tbNombre.Text = string.Empty;
+            tbEmail.Text = string.Empty;
+            tbNombreUsuario.Text = string.Empty;
+            cbHabilitado.Checked = false;
+            tbClave.Text = string.Empty;
+            tbRepetirClave.Text = string.Empty;
+        }
+        
+
+        protected void lbEliminar_Click(object sender, EventArgs e)
+        {
+            if (gridView.SelectedValue != null)
+            {
+                if(formPanel.Visible == true) formPanel.Visible = false;
+                this.FormMode = FormModes.Baja;
+                EnableForm(false);
+                LoadForm(SelectedID);
+
+            }
+        }
+
+        protected void lbNuevo_Click(object sender, EventArgs e)
+        {
+            formPanel.Visible = true;
+            FormMode = FormModes.Alta;
+            ClearForm();
+            this.EnableForm(true);
+        }
+
+        protected void lbAceptar_Click(object sender, EventArgs e)
+        {
+            switch (FormMode)
+
+            {
+                case FormModes.Baja:
+                    Entity = Logic.GetOne(SelectedID);
+                    Logic.Delete(Entity);
+                    LoadGrid();
+                    break;
+                case FormModes.Modificacion:
+                    Entity = new Usuario();
+                    Entity = Logic.GetOne(SelectedID);
+                    Entity.State = BusinessEntity.States.Modified;
+                    LoadEntity(Entity);
+                    SaveEntity(Entity);
+                    LoadGrid();
+                    formPanel.Visible = false;
+
+                    break;
+                case FormModes.Alta:
+                    Entity = new Usuario();
+                    LoadEntity(Entity);
+                    SaveEntity(Entity);
+                    LoadGrid();
+                    formPanel.Visible = false;
+
+                    break;
+            }
+
+            formPanel.Visible = false;
+        }
+
+        protected void lbCancelar_Click(object sender, EventArgs e)
+        {
+            formPanel.Visible = false;
+            
+        }
+
+        protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectedID = (int)gridView.SelectedValue;
+
+        }
     }
 }

@@ -27,7 +27,6 @@ namespace Data.Database
                         ID = (int)drDocenteCurso["id_dictado"],
                         IDCurso = (int)drDocenteCurso["id_curso"],
                         IDDocente = (int)drDocenteCurso["id_docente"],
-                        Habilitado = (bool)drDocenteCurso["dc_hab"],
                         Cargo = (DocenteCurso.TipoCargos)drDocenteCurso["cargo"]
                     };
 
@@ -53,9 +52,8 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdDocenteCurso = new SqlCommand("SELECT * FROM docentes_cursos WHERE id_docente = @ID AND dc_hab = @dc_hab", SqlConn);
+                SqlCommand cmdDocenteCurso = new SqlCommand("SELECT * FROM docentes_cursos WHERE id_docente = @ID ", SqlConn);
                 cmdDocenteCurso.Parameters.Add("@ID", SqlDbType.Int).Value = IDUsuario;
-                cmdDocenteCurso.Parameters.Add("@dc_hab", SqlDbType.Bit).Value = true;
                 SqlDataReader drDocenteCurso = cmdDocenteCurso.ExecuteReader();
 
                 while (drDocenteCurso.Read())
@@ -65,7 +63,6 @@ namespace Data.Database
                         ID = (int)drDocenteCurso["id_dictado"],
                         IDCurso = (int)drDocenteCurso["id_curso"],
                         IDDocente = (int)drDocenteCurso["id_docente"],
-                        Habilitado = (bool)drDocenteCurso["dc_hab"],
                         Cargo = (DocenteCurso.TipoCargos)drDocenteCurso["cargo"]
                     };
 
@@ -100,7 +97,6 @@ namespace Data.Database
                     dc.ID = (int)drDocenteCurso["id_dictado"];
                     dc.IDCurso = (int)drDocenteCurso["id_curso"];
                     dc.IDDocente = (int)drDocenteCurso["id_docente"];
-                    dc.Habilitado = (bool)drDocenteCurso["dc_hab"];
                     dc.Cargo = (DocenteCurso.TipoCargos)drDocenteCurso["cargo"];
                 }
                 drDocenteCurso.Close();
@@ -133,7 +129,6 @@ namespace Data.Database
                     dc.ID = (int)drDocenteCurso["id_dictado"];
                     dc.IDCurso = (int)drDocenteCurso["id_curso"];
                     dc.IDDocente = (int)drDocenteCurso["id_docente"];
-                    dc.Habilitado = (bool)drDocenteCurso["dc_hab"];
                     dc.Cargo = (DocenteCurso.TipoCargos)drDocenteCurso["cargo"];
                 }
                 drDocenteCurso.Close();
@@ -156,9 +151,8 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdDelete = new SqlCommand("UPDATE docentes_cursos SET dc_hab=@dc_hab WHERE id_dictado=@id", SqlConn);
+                SqlCommand cmdDelete = new SqlCommand("delete from docentes_cursos WHERE id_dictado=@id", SqlConn);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = dc.ID;
-                cmdDelete.Parameters.Add("@dc_hab", SqlDbType.Bit).Value = false;
                 cmdDelete.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -177,14 +171,13 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmUpd = new SqlCommand("UPDATE docentes_cursos SET id_docente = @id_docente, " +
-                    "id_curso = @id_curso, cargo = @cargo, dc_hab = @dc_hab " +
+                    "id_curso = @id_curso, cargo = @cargo " +
                     "WHERE id_dictado=@id", SqlConn);
 
                 cmUpd.Parameters.Add("@id", SqlDbType.Int).Value = dc.ID;
                 cmUpd.Parameters.Add("@id_docente", SqlDbType.Int).Value = dc.IDDocente;
                 cmUpd.Parameters.Add("@id_curso", SqlDbType.Int).Value = dc.IDCurso;
                 cmUpd.Parameters.Add("@cargo", SqlDbType.Int).Value = (int)dc.Cargo;
-                cmUpd.Parameters.Add("@dc_hab", SqlDbType.Bit).Value = dc.Habilitado;
                 cmUpd.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -202,13 +195,12 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmIns = new SqlCommand("INSERT INTO docentes_cursos(id_docente, id_curso, cargo, dc_hab) " +
-                    "values(@id_docente, @id_curso, @cargo, @dc_hab) SELECT @@identity", SqlConn);
+                SqlCommand cmIns = new SqlCommand("INSERT INTO docentes_cursos(id_docente, id_curso, cargo) " +
+                    "values(@id_docente, @id_curso, @cargo) SELECT @@identity", SqlConn);
 
                 cmIns.Parameters.Add("@id_docente", SqlDbType.Int).Value = dc.IDDocente;
                 cmIns.Parameters.Add("@id_curso", SqlDbType.Int).Value = dc.IDCurso;
                 cmIns.Parameters.Add("@cargo", SqlDbType.Int, 50).Value = dc.Cargo;
-                cmIns.Parameters.Add("@dc_hab", SqlDbType.Bit).Value = dc.Habilitado;
 
                 dc.ID = Decimal.ToInt32((decimal)cmIns.ExecuteScalar());
             }

@@ -94,9 +94,8 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdDelete = new SqlCommand("UPDATE personas SET pers_hab=@false WHERE id_persona=@id", SqlConn);
+                SqlCommand cmdDelete = new SqlCommand("delete from personas  WHERE id_persona=@id", SqlConn);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = persona.ID;
-                cmdDelete.Parameters.Add("@false", SqlDbType.Bit).Value = false;
                 cmdDelete.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -117,7 +116,7 @@ namespace Data.Database
                 this.OpenConnection();
                 SqlCommand cmUpd = new SqlCommand("UPDATE personas SET nombre=@nombre,apellido=@apellido,direccion=@direccion,email=@email," +
                     "telefono=@telefono,fecha_nac=@fecha_nac," +
-                    "tipo_persona=@tipo_persona,pers_hab=@pers_hab,id_plan=@id_plan WHERE id_persona=@id", SqlConn);
+                    "tipo_persona=@tipo_persona,id_plan=@id_plan WHERE id_persona=@id", SqlConn);
 
                 cmUpd.Parameters.Add("@id", SqlDbType.Int).Value = persona.ID;
                 cmUpd.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = persona.Nombre;
@@ -127,7 +126,6 @@ namespace Data.Database
                 cmUpd.Parameters.Add("@telefono", SqlDbType.VarChar, 50).Value = persona.Telefono;
                 cmUpd.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = persona.FechaNacimiento;
                 cmUpd.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = (int)persona.Tipo;
-                cmUpd.Parameters.Add("@pers_hab", SqlDbType.Bit).Value = persona.Habilitado;
                 cmUpd.Parameters.Add("@id_plan", SqlDbType.Int).Value = persona.IDPlan;
                 cmUpd.ExecuteNonQuery();
             }
@@ -150,8 +148,8 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmIns = new SqlCommand("INSERT INTO personas(nombre,apellido,direccion,email,telefono,fecha_nac,legajo," +
-                    "tipo_persona,pers_hab,id_plan) " +
-                    "values(@nombre,@apellido,@direccion,@email,@telefono,@fecha_nac,@legajo,@tipo_persona,@pers_hab,@id_plan) SELECT @@identity", SqlConn);
+                    "tipo_persona,id_plan) " +
+                    "values(@nombre,@apellido,@direccion,@email,@telefono,@fecha_nac,@legajo,@tipo_persona,@id_plan) SELECT @@identity", SqlConn);
 
                 cmIns.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = persona.Nombre;
                 cmIns.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = persona.Apellido;
@@ -161,7 +159,6 @@ namespace Data.Database
                 cmIns.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = persona.FechaNacimiento;
                 cmIns.Parameters.Add("@legajo", SqlDbType.Int).Value = persona.Legajo;
                 cmIns.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = (int)persona.Tipo;
-                cmIns.Parameters.Add("@pers_hab", SqlDbType.Bit).Value = persona.Habilitado;
                 cmIns.Parameters.Add("@id_plan", SqlDbType.Int).Value = persona.IDPlan;
                 persona.ID = Decimal.ToInt32((decimal)cmIns.ExecuteScalar());
             }

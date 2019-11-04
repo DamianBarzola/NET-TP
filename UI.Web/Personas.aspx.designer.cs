@@ -10,16 +10,16 @@
 namespace UI.Web {
     
     
-    public partial class Usuarios {
+    public partial class Personas {
         
         /// <summary>
-        /// Control formActionsPanel.
+        /// Control gridPanel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel formActionsPanel;
+        protected global::System.Web.UI.WebControls.Panel gridPanel;
         
         /// <summary>
         /// Control lbEditar.
@@ -67,139 +67,139 @@ namespace UI.Web {
         protected global::System.Web.UI.WebControls.Panel formPanel;
         
         /// <summary>
-        /// Control nombrelbl.
+        /// Control emailLabel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label nombrelbl;
+        protected global::System.Web.UI.WebControls.Label emailLabel;
         
         /// <summary>
-        /// Control tbNombre.
+        /// Control legajoTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbNombre;
+        protected global::System.Web.UI.WebControls.TextBox legajoTextBox;
         
         /// <summary>
-        /// Control apellidolbl.
+        /// Control tipoLabel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label apellidolbl;
+        protected global::System.Web.UI.WebControls.Label tipoLabel;
         
         /// <summary>
-        /// Control tbApellido.
+        /// Control tipoTextBox1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbApellido;
+        protected global::System.Web.UI.WebControls.TextBox tipoTextBox1;
         
         /// <summary>
-        /// Control emaillbl.
+        /// Control nombreLabel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label emaillbl;
+        protected global::System.Web.UI.WebControls.Label nombreLabel;
         
         /// <summary>
-        /// Control tbEmail.
+        /// Control nombreTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbEmail;
+        protected global::System.Web.UI.WebControls.TextBox nombreTextBox;
         
         /// <summary>
-        /// Control habilitadolbl.
+        /// Control apellidoLabel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label habilitadolbl;
+        protected global::System.Web.UI.WebControls.Label apellidoLabel;
         
         /// <summary>
-        /// Control cbHabilitado.
+        /// Control apellidoTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbHabilitado;
+        protected global::System.Web.UI.WebControls.TextBox apellidoTextBox;
         
         /// <summary>
-        /// Control nombreusuariolbl.
+        /// Control TelefonoLabel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label nombreusuariolbl;
+        protected global::System.Web.UI.WebControls.Label TelefonoLabel;
         
         /// <summary>
-        /// Control tbNombreUsuario.
+        /// Control TelefonoTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbNombreUsuario;
+        protected global::System.Web.UI.WebControls.TextBox TelefonoTextBox;
         
         /// <summary>
-        /// Control clavelbl.
+        /// Control DireccionLabel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label clavelbl;
+        protected global::System.Web.UI.WebControls.Label DireccionLabel;
         
         /// <summary>
-        /// Control tbClave.
+        /// Control DireccionTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbClave;
+        protected global::System.Web.UI.WebControls.TextBox DireccionTextBox;
         
         /// <summary>
-        /// Control repetirclavelbl.
+        /// Control FechaNacLabel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label repetirclavelbl;
+        protected global::System.Web.UI.WebControls.Label FechaNacLabel;
         
         /// <summary>
-        /// Control tbRepetirClave.
+        /// Control FechaNacTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbRepetirClave;
+        protected global::System.Web.UI.WebControls.TextBox FechaNacTextBox;
         
         /// <summary>
-        /// Control gridActionsPanel.
+        /// Control planTextBox1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel gridActionsPanel;
+        protected global::System.Web.UI.WebControls.TextBox planTextBox1;
         
         /// <summary>
         /// Control lbAceptar.
