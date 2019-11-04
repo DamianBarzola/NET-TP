@@ -45,6 +45,8 @@
             this.txtLegajo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.lblDireccion = new System.Windows.Forms.Label();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,6 +147,7 @@
             this.btnAceptar.TabIndex = 23;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
@@ -179,6 +182,8 @@
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 5);
             this.tableLayoutPanel1.Controls.Add(this.label2, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.dtpFechaNacimiento, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.lblDireccion, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.txtDireccion, 3, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -223,10 +228,26 @@
             // 
             this.dtpFechaNacimiento.Location = new System.Drawing.Point(94, 116);
             this.dtpFechaNacimiento.MaxDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
-            this.dtpFechaNacimiento.MinDate = new System.DateTime(1999, 1, 1, 0, 0, 0, 0);
+            this.dtpFechaNacimiento.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             this.dtpFechaNacimiento.Size = new System.Drawing.Size(184, 20);
             this.dtpFechaNacimiento.TabIndex = 52;
+            // 
+            // lblDireccion
+            // 
+            this.lblDireccion.AutoSize = true;
+            this.lblDireccion.Location = new System.Drawing.Point(284, 113);
+            this.lblDireccion.Name = "lblDireccion";
+            this.lblDireccion.Size = new System.Drawing.Size(55, 13);
+            this.lblDireccion.TabIndex = 53;
+            this.lblDireccion.Text = "Direccion:";
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.Location = new System.Drawing.Point(375, 116);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(131, 20);
+            this.txtDireccion.TabIndex = 54;
             // 
             // PersonaDesktop
             // 
@@ -261,5 +282,7 @@
         private System.Windows.Forms.TextBox txtLegajo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
+        private System.Windows.Forms.Label lblDireccion;
+        private System.Windows.Forms.TextBox txtDireccion;
     }
 }
