@@ -98,14 +98,6 @@ namespace UI.Desktop.ABMs
             }
         }
 
-
-        #region no usado
-        private void cbxTipo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        #endregion
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             this.GuardarCambios();
@@ -135,8 +127,6 @@ namespace UI.Desktop.ABMs
 
 
         }
-
-
 
         override public bool Validar()
         {
@@ -204,5 +194,13 @@ namespace UI.Desktop.ABMs
             }
             return valid;
         }
+
+        #region no usado
+        private void cbxTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
     }
 }

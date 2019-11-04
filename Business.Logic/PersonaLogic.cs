@@ -34,6 +34,12 @@ namespace Business.Logic
             Pers.Delete(a);
         }
 
+        public void Delete(int id)
+        {
+            Pers.Delete(id);
+        }
+
+
         public void Save(Persona pe)
         {
             Pers.Save(pe);

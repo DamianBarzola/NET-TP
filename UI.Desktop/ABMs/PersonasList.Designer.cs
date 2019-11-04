@@ -260,6 +260,7 @@
             this.Controls.Add(this.tcUsuarios);
             this.Name = "PersonasList";
             this.Text = "Personas";
+            this.Load += new System.EventHandler(this.PersonasList_Load);
             this.tlUsuario.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonas)).EndInit();
             this.tcUsuarios.ContentPanel.ResumeLayout(false);
