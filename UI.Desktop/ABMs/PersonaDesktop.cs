@@ -47,7 +47,6 @@ namespace UI.Desktop.ABMs
             this.personaActual = new Persona()
             {
                 Tipo = (Persona.TipoPersona)cbxTipo.SelectedValue,
-                ID = int.Parse(txtID.Text), //falta autogenerar ID
                 Legajo = int.Parse(txtLegajo.Text),
                 Apellido = txtApellido.Text,
                 Nombre = txtNombre.Text,

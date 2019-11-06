@@ -159,10 +159,9 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmIns = new SqlCommand("INSERT INTO personas(nombre,apellido,direccion,telefono,fecha_nac,legajo," +
-                    "tipo_persona,id_persona) " +
-                    "values(@nombre,@apellido,@direccion,@telefono,@fecha_nac,@legajo,@tipo_persona, @id_persona)", SqlConn);
+                    "tipo_persona) " +
+                    "values(@nombre,@apellido,@direccion,@telefono,@fecha_nac,@legajo,@tipo_persona) SELECT @@identity", SqlConn);
 
-                cmIns.Parameters.Add("@id_persona", SqlDbType.Int).Value = persona.ID;
                 cmIns.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = persona.Nombre;
                 cmIns.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = persona.Apellido;
                 cmIns.Parameters.Add("@direccion", SqlDbType.VarChar, 50).Value = persona.Direccion;
@@ -170,7 +169,7 @@ namespace Data.Database
                 cmIns.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = persona.FechaNacimiento;
                 cmIns.Parameters.Add("@legajo", SqlDbType.Int).Value = persona.Legajo;
                 cmIns.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = (int)persona.Tipo;
-               // persona.ID = Decimal.ToInt32((decimal)cmIns.ExecuteScalar());
+                persona.ID = Decimal.ToInt32((decimal)cmIns.ExecuteScalar());
             }
             catch (Exception Ex)
             {

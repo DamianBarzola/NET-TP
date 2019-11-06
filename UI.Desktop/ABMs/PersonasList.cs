@@ -38,6 +38,7 @@ namespace UI.Desktop.ABMs
         {
             PersonaDesktop pd = new PersonaDesktop(ApplicationForm.ModoForm.Alta);
             pd.ShowDialog();
+            Listar();
 
         }
         private void tsEditar_Click(object sender, EventArgs e)
