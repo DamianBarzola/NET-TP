@@ -28,8 +28,8 @@ namespace UI.Desktop
         {
             this.Enabled = false;
 
-           // try
-           // {
+            try
+            {
                 UsuarioLogic ul = new UsuarioLogic();
                 Usuario user = ul.GetOne(txtUsuario.Text);
                 if (txtUsuario.Text.Equals(user.NombreUsuario) && txtPass.Text.Equals(user.Clave))
@@ -44,11 +44,11 @@ namespace UI.Desktop
                     MessageBox.Show("Usuario y/o contraseña incorrectos", "Login"
                         , MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            //  }
-           //   catch (Exception ex)
-           //   {
-           //       MessageBox.Show("Error del servidor. /n" + ex.Message);
-           //  }
+              }
+              catch (Exception ex)
+              {
+                  MessageBox.Show("Error del servidor. /n" + ex.Message);
+             }
 
 
             txtPass.Text = string.Empty;
@@ -59,7 +59,6 @@ namespace UI.Desktop
 
         private void txtUsuario_TextChanged(object sender, EventArgs e) {}
 
-        // Terminado creo (hay q hacerlo ? sino hacemos desde adentro del usuario el cambio de pass)
         private void LnkOlvidaPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show("Es Ud. un usuario muy descuidado, haga memoria", "Olvidé mi contraseña",
