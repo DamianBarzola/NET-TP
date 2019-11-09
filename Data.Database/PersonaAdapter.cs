@@ -199,5 +199,39 @@ namespace Data.Database
             persona.State = BusinessEntity.States.Unmodified;
         }
 
+        public List<Persona> GetPersonasSinUsuario()
+        {
+            List<Persona> personas = new List<Persona>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmPErsona = new SqlCommand("select p.id_persona , p.nombre, " + 
+               " p.apellido from personas p where p.id_persona not in " + 
+               " ( select distinct p.id_persona from personas p inner join usuarios u " + 
+               " on u.id_persona = p.id_persona) ", SqlConn);
+                SqlDataReader drPersona = cmPErsona.ExecuteReader();
+
+                while (drPersona.Read())
+                {
+                    Persona pers = new Persona();
+                    pers.ID = (int)drPersona["id_persona"];
+                    pers.Nombre = (string)drPersona["nombre"];
+                    pers.Apellido = (string)drPersona["apellido"];
+                    personas.Add(pers);
+                }
+                drPersona.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar lista de personas", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return personas;
+        }
     }
 }

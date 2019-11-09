@@ -26,6 +26,7 @@ namespace Data.Database
                     user.Clave = (string)drUsuarios["clave"];
                     user.Email = (string)drUsuarios["email"];
                     user.Habilitado = (bool)drUsuarios["habilitado"];
+                    user.Id_persona = (int)drUsuarios["id_persona"];
                     usuarios.Add(user);
                 }
                 drUsuarios.Close();

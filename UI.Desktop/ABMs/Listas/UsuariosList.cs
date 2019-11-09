@@ -12,16 +12,18 @@ using Business.Entities;
 
 namespace UI.Desktop
 {
-    public partial class Usuarios : Form
+    public partial class UsuariosList : Form
     {
-        public Usuarios()
+        private UsuarioLogic ul = new UsuarioLogic();
+
+        public UsuariosList()
         {
             InitializeComponent();
+            dgvUsuarios.AutoGenerateColumns = false;
         }
 
         public void Listar()
         {
-            UsuarioLogic ul = new UsuarioLogic();
             this.dgvUsuarios.DataSource = ul.GetAll();
         }
 
@@ -33,12 +35,32 @@ namespace UI.Desktop
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             Listar();
-
         }
+
+        private void btnActualizar_Click_1(object sender, EventArgs e)
+        {
+            Listar();
+        }
+
+        private void btnSalir_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void tsNuevo_Click(object sender, EventArgs e)
+        {
+            PersonaSinUsuarioList personaSinUsuarioList = new PersonaSinUsuarioList();
+            personaSinUsuarioList.ShowDialog();
+        }
+
+
+        //no 
+
+        private void tsOpciones_Click(object sender, EventArgs e) {   }
+
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-           this.Close();
 
         }
 

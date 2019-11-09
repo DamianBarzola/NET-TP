@@ -60,5 +60,11 @@ namespace Business.Logic
             return dt;
         }
 
+        public List<Persona> GetPersonasSinUsuario()
+        {
+            return Pers.GetPersonasSinUsuario();
+        }
+
+
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace UI.Desktop.ABMs
+﻿namespace UI.Desktop
 {
     partial class PersonaDesktop
     {

@@ -102,6 +102,7 @@ namespace UI.Desktop
             Login login = new Login();
             login.ShowDialog();
         }
+
         public void Logout()
         {
             UsuarioLogueado = null;
@@ -128,15 +129,14 @@ namespace UI.Desktop
 
         }
 
-
-
-
-        #region No usado
-    private void tsmUsuarios_Click(object sender, EventArgs e)
+   private void tsmUsuarios_Click(object sender, EventArgs e)
         {
-
+            UsuariosList ul = new UsuariosList();
+            ul.ShowDialog();
         }
-        #endregion
+
+
+ 
 
         private void tsmAdministrarPersonas_Click(object sender, EventArgs e)
         {
