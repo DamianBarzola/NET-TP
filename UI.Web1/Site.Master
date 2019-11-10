@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="UI.Web.Site" %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Academia</title>
+</head>
+<body>
+
+    <form id="bodyForm" runat="server" style="border: 2px groove #000080; font-family: Arial" >
+        &nbsp;
+        &nbsp;<asp:LinkButton runat="server" id="lbInicio" href="/Default.aspx">Inicio</asp:LinkButton>
+            
+            <br />
+        <br />
+&nbsp; Usuario:
+        <asp:Label ID="nombreUsu" runat="server" Text="Label"></asp:Label>
+        <br />
+&nbsp;<asp:LinkButton runat="server" id="lbCerrarSesion" OnClick="lbCerrarSesion_Click1">Cerrar Sesión</asp:LinkButton>
+        <asp:ContentPlaceHolder ID="chABM" runat="server">
+            <p style="border-style: double none double none; border-width: 1px; border-color: #000080">
+                &nbsp;&nbsp; ABM<br />&nbsp;
+                <asp:LinkButton runat="server" href="/Especialidades.aspx" id="lbEsp">Especialidad</asp:LinkButton>
+                &nbsp;&nbsp;&nbsp;
+                <asp:LinkButton runat="server" href="/Planes.aspx" ID="lbPlanes">Planes</asp:LinkButton>
+                &nbsp; &nbsp;<asp:LinkButton runat="server" href="/Comisiones.aspx" id="lbComisiones">Comisiones</asp:LinkButton>
+                &nbsp;&nbsp;&nbsp;
+                <asp:LinkButton runat="server" href="/Materias.aspx" id="lbMateria">Materias</asp:LinkButton>
+                &nbsp;&nbsp;&nbsp;
+                <asp:LinkButton runat="server" href="/Cursos.aspx" id="lbCursos">Cursos</asp:LinkButton>
+                &nbsp;&nbsp;&nbsp;
+                <asp:LinkButton runat="server" href="/Usuarios.aspx" id="lbUsuarios">Usuarios</asp:LinkButton>
+                &nbsp;&nbsp;&nbsp; &nbsp;<asp:LinkButton runat="server" ID="lbPersona" href="/Personas.aspx">Persona</asp:LinkButton>
+&nbsp;&nbsp;&nbsp;
+                <asp:LinkButton runat="server" href="/Inscripciones.aspx" id="lbAgregInscrip">Inscripciones</asp:LinkButton>
+            </p>
+        </asp:ContentPlaceHolder>
+
+        <asp:ContentPlaceHolder ID="chMaterias" runat="server">
+            <p style="border-top-style: double; border-width: 1px; border-color: #000080; border-bottom-style: double">
+                &nbsp;&nbsp; Materias<br />&nbsp;
+                <asp:LinkButton runat="server" href="/MisInscripciones.aspx" id="lbVerInscrip">Mis Inscripciones</asp:LinkButton>
+                &nbsp;&nbsp;&nbsp;
+                <asp:LinkButton runat="server" href="/InscripcionNueva.aspx" id="lbInscACursoado">Inscribirse a Cursado</asp:LinkButton>
+                &nbsp;&nbsp;&nbsp;
+            </p>
+            <p style="border-top-style: double; border-width: 1px; border-color: #000080; border-bottom-style: double">
+                <asp:ContentPlaceHolder ID="chMisCursos" runat="server">
+                    <asp:LinkButton runat="server" id="isMisCursos" href="javascript:__doPostBack('ctl00$LinkButton2','')">Mis Cursos</asp:LinkButton>
+                </asp:ContentPlaceHolder>
+            </p>
+        </asp:ContentPlaceHolder>
+
+        <asp:ContentPlaceHolder ID="chReportes" runat="server">
+            <p style="border-style: double none double none; border-width: 1px; border-color: #000080; margin-bottom: 19px">
+                &nbsp;
+                <asp:LinkButton runat="server" href="javascript:__doPostBack('ctl00$LinkButton4','')" id="lbReportes">Reportes</asp:LinkButton>
+            </p>
+        </asp:ContentPlaceHolder>
+
+        <br />
+        <br />
+        <div>
+            <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <p>
+        Damian Barzola - Agustin Etcheverry
+   </html>
