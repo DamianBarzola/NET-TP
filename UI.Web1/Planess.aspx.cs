@@ -6,9 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
-namespace UI.Web
+
+namespace UI.Web1
 {
-    public partial class Planes : System.Web.UI.Page
+    public partial class asd : System.Web.UI.Page
     {
         private Plan Entity { get; set; }
 
@@ -46,20 +47,36 @@ namespace UI.Web
             }
         }
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
             LoadGrid();
-        }
 
+        }
         private void LoadGrid()
         {
             gridView.DataSource = planes.GetAll();
             gridView.DataBind();
         }
 
+
+
+
+
+
+        protected void lbEditar_Click(object sender, EventArgs e)
+        {
+
+            if (gridView != null)
+            {
+                this.formPanel.Visible = true;
+                this.FormMode = FormModes.Modificacion;
+                this.LoadForm(this.SelectedID);
+            }
+        }
+
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             SelectedID = (int)gridView.SelectedValue;
             if (formPanel.Visible)
             {
@@ -67,28 +84,17 @@ namespace UI.Web
             }
         }
 
-
         private void LoadForm(int id)
         {
             Entity = planes.GetOne(id);
-            descripcionTextBox.Text = Entity.DescripcionPlan;
+            descripcionTextBoxa.Text = Entity.DescripcionPlan;
             ideso.Text = Entity.IDEspecialidad.ToString();
 
         }
         private void ClearForm()
         {
             Entity = null;
-            descripcionTextBox.Text = string.Empty;
-        }
-
-        protected void lbEditar_Click(object sender, EventArgs e)
-        {
-            if (gridView.SelectedValue != null)
-            {
-                this.formPanel.Visible = true;
-                this.FormMode = FormModes.Modificacion;
-                this.LoadForm(this.SelectedID);
-            }
+            descripcionTextBoxa.Text = string.Empty;
         }
 
         protected void lbEliminar_Click(object sender, EventArgs e)
@@ -107,12 +113,12 @@ namespace UI.Web
             FormMode = FormModes.Alta;
             ClearForm();
         }
-
         private void LoadEntity(Plan plan)
         {
-            plan.DescripcionPlan = descripcionTextBox.Text;
+            plan.DescripcionPlan = descripcionTextBoxa.Text;
             plan.IDEspecialidad = Convert.ToInt32(ideso.Text);
         }
+
 
         private void SaveEntity(Plan plan)
         {

@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace UI.Web {
+namespace UI.Web1 {
     
     
-    public partial class Persona {
+    public partial class asd {
         
         /// <summary>
         /// Control gridPanel.
@@ -76,13 +76,13 @@ namespace UI.Web {
         protected global::System.Web.UI.WebControls.Label descripcionLabel;
         
         /// <summary>
-        /// Control descripcionTextBox.
+        /// Control descripcionTextBoxa.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox descripcionTextBox;
+        protected global::System.Web.UI.WebControls.TextBox descripcionTextBoxa;
         
         /// <summary>
         /// Control EspecialidadLabel.

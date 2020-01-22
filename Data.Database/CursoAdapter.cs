@@ -177,5 +177,43 @@ namespace Data.Database
             }
             curso.State = BusinessEntity.States.Unmodified;
         }
+
+
+        public List<Curso> GetPorAnio(int a)
+        {
+            List<Curso> cursos = new List<Curso>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdCursos = new SqlCommand("SELECT * FROM cursos where anio_calendario=@an ", SqlConn);
+                cmdCursos.Parameters.Add("@an", SqlDbType.Int).Value = a;
+                SqlDataReader drCursos = cmdCursos.ExecuteReader();
+
+                while (drCursos.Read())
+                {
+                    Curso curso = new Curso();
+
+                    curso.ID = (int)drCursos["id_curso"];
+                    curso.Cupo = (int)drCursos["cupo"];
+                    curso.AnioCalendario = (int)drCursos["anio_calendario"];
+                    curso.IDComision = (int)drCursos["id_comision"];
+                    curso.IDMateria = (int)drCursos["id_materia"];
+                    curso.Habilitado = (bool)drCursos["curso_hab"];
+                    cursos.Add(curso);
+                }
+                drCursos.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar lista de cursos", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return cursos;
+        }
     }
 }

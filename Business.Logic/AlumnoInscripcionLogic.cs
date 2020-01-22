@@ -45,6 +45,10 @@ namespace Business.Logic
         {
             AlumnoInscA.Save(insc);
         }
+        public void Delete(AlumnoInscripcion insc)
+        {
+            AlumnoInscA.Delete(insc);
+        }
 
         public DataTable GetListado()
         {

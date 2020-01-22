@@ -36,6 +36,10 @@ namespace Business.Logic
             return PlanA.GetOne(id);
         }
 
+        public void Delete(Plan plan)
+        {
+            PlanA.Delete(plan);
+        }
 
         public void Save(Plan plan)
         {

@@ -42,6 +42,10 @@ namespace Business.Logic
         {
             DocenteCursoA.Save(dc);
         }
+        public void Delete(DocenteCurso dc)
+        {
+            DocenteCursoA.Delete(dc);
+        }
 
         public DataTable GetListado()
         {

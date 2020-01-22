@@ -39,6 +39,11 @@ namespace Business.Logic
         {
             MateriaA.Save(mat);
         }
+        public void Delete(Materia mat)
+        {
+            MateriaA.Delete(mat);
+        }
+
         public DataTable GetListado()
         {
 

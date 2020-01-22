@@ -34,7 +34,7 @@ namespace UI.Web
                 if (txtUsuario.Text.Equals(user.NombreUsuario) && txtPass.Text.Equals(user.Clave))
                 {
                     Session["username"] = user.NombreUsuario;
-                    Session["idPersona"] = user.IDPersona;
+                    Session["idPersona"] = user.Id_persona;
                     Response.Redirect("/Default.aspx");
                 }
                 else

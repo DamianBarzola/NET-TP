@@ -29,6 +29,10 @@ namespace Business.Logic
             return ComisionA.GetOne(id);
         }
 
+        public void Delete(Comision com)
+        {
+            ComisionA.Delete(com);
+        }
 
         public void Save(Comision com)
         {

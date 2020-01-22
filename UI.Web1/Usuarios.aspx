@@ -23,17 +23,7 @@ DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" >
               
             <asp:Panel ID="formPanel" runat="server" Visible="false" Height="323px">
                 <br />
-                Completar:<br />
-                <br />
-                <asp:Label ID="nombrelbl" runat="server" Text="Nombre:"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="tbNombre" runat="server"></asp:TextBox>
-                <br />
-                <br />
-                <asp:Label ID="apellidolbl" runat="server" Text="Apellido:"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="tbApellido" runat="server"></asp:TextBox>
-                <br />
+                Completa<br />
                 <br />
                 <asp:Label ID="emaillbl" runat="server" Text="Email:"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

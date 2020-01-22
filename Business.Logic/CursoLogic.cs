@@ -30,6 +30,7 @@ namespace Business.Logic
 
         }
 
+
         public Curso GetOne(int id)
         {
             return CursoA.GetOne(id);
@@ -40,7 +41,16 @@ namespace Business.Logic
             CursoA.Save(crs);
         }
 
-        public DataTable GetListado(Persona user)
+        public void Delete(Curso crs)
+        {
+            CursoA.Delete(crs);
+        }
+        public List<Curso> GetPorAnio(int a)
+        {
+            return CursoA.GetPorAnio(a);
+        }
+
+            public DataTable GetListado(Persona user)
         {
 
             List<Curso> cursos = new List<Curso>();

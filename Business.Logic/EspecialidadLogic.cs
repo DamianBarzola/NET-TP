@@ -30,6 +30,10 @@ namespace Business.Logic
             return EspecA.GetOne(id);
         }
 
+        public void Delete(Especialidad esp)
+        {
+            EspecA.Delete(esp);
+        }
 
         public void Save(Especialidad esp)
         {

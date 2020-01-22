@@ -85,8 +85,7 @@ namespace UI.Web
         private void LoadForm(int id)
         {
             Entity = Logic.GetOne(id);
-            tbNombre.Text = Entity.Nombre;
-            tbApellido.Text = Entity.Apellido;
+           
             cbHabilitado.Checked = Entity.Habilitado;
             tbEmail.Text = Entity.Email;
             tbNombreUsuario.Text = Entity.NombreUsuario;
@@ -106,8 +105,7 @@ namespace UI.Web
         private void LoadEntity(Usuario usuario)
         {
 
-            usuario.Nombre = tbNombre.Text;
-            usuario.Apellido = tbApellido.Text;
+           
             usuario.Email = tbEmail.Text;
             usuario.NombreUsuario = tbNombreUsuario.Text;
             usuario.Clave = tbClave.Text;
@@ -123,10 +121,10 @@ namespace UI.Web
 
         private void EnableForm(bool a)
         {
-            tbApellido.Enabled = a;
+          
             tbClave.Enabled = a;
             tbRepetirClave.Enabled = a;
-            tbNombre.Enabled = a;
+            
             tbNombreUsuario.Enabled = a;
             cbHabilitado.Enabled = a;
             tbEmail.Enabled = a;
@@ -134,18 +132,18 @@ namespace UI.Web
 
         private void DeteleteEntity(Usuario usuario)
         {
-            Logic.Delete(usuario);
+            Logic.Delete(usuario.ID);
         }
         private void ClearForm()
         {
-            tbApellido.Text = string.Empty;
-            tbNombre.Text = string.Empty;
+         
             tbEmail.Text = string.Empty;
             tbNombreUsuario.Text = string.Empty;
             cbHabilitado.Checked = false;
             tbClave.Text = string.Empty;
             tbRepetirClave.Text = string.Empty;
         }
+
 
 
         protected void lbEliminar_Click(object sender, EventArgs e)
