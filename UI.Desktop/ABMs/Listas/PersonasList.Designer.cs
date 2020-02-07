@@ -31,13 +31,13 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.tlUsuario = new System.Windows.Forms.TableLayoutPanel();
             this.dgvPersonas = new System.Windows.Forms.DataGridView();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.tcUsuarios = new System.Windows.Forms.ToolStripContainer();
             this.msPersonas = new System.Windows.Forms.MenuStrip();
             this.tsOpciones = new System.Windows.Forms.ToolStripMenuItem();
             this.tsNuevo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsEditar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsEliminar = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.id_persona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -110,6 +110,16 @@
             this.dgvPersonas.TabIndex = 0;
             this.dgvPersonas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
             // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(3, 273);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar.TabIndex = 2;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.button1_Click);
+            // 
             // tcUsuarios
             // 
             // 
@@ -159,26 +169,16 @@
             // tsEditar
             // 
             this.tsEditar.Name = "tsEditar";
-            this.tsEditar.Size = new System.Drawing.Size(180, 22);
+            this.tsEditar.Size = new System.Drawing.Size(117, 22);
             this.tsEditar.Text = "Editar";
             this.tsEditar.Click += new System.EventHandler(this.tsEditar_Click);
             // 
             // tsEliminar
             // 
             this.tsEliminar.Name = "tsEliminar";
-            this.tsEliminar.Size = new System.Drawing.Size(180, 22);
+            this.tsEliminar.Size = new System.Drawing.Size(117, 22);
             this.tsEliminar.Text = "Eliminar";
             this.tsEliminar.Click += new System.EventHandler(this.tsEliminar_Click);
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Location = new System.Drawing.Point(3, 273);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
-            this.btnActualizar.TabIndex = 2;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.button1_Click);
             // 
             // id_persona
             // 
@@ -242,12 +242,14 @@
             // 
             // fecha_nac
             // 
+            this.fecha_nac.DataPropertyName = "Fecha Nacimiento";
             this.fecha_nac.HeaderText = "Fecha Nacimiento";
             this.fecha_nac.Name = "fecha_nac";
             this.fecha_nac.ReadOnly = true;
             // 
             // tipo_persona
             // 
+            this.tipo_persona.DataPropertyName = "tipo_persona";
             this.tipo_persona.HeaderText = "Tipo de Persona";
             this.tipo_persona.Name = "tipo_persona";
             this.tipo_persona.ReadOnly = true;
