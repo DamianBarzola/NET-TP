@@ -170,10 +170,8 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmIns = new SqlCommand("INSERT INTO usuarios(email," +
-                    "nombre_usuario,habilitado) " +
-                    "values(@email,@nombre_usuario," +
-                    "@clave,@habilitado) SELECT @@identity", SqlConn);
+                SqlCommand cmIns = new SqlCommand("INSERT INTO usuarios(email, nombre_usuario, clave, habilitado) " +
+                    "values(@email,@nombre_usuario, @clave,@habilitado) SELECT @@identity", SqlConn);
 
                 cmIns.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.Email;
                 cmIns.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;

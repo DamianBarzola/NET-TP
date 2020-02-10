@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dvgPersonasSinUsuario = new System.Windows.Forms.DataGridView();
-            this.lblElijaPersona = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.id_persona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblElijaPersona = new System.Windows.Forms.Label();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvgPersonasSinUsuario)).BeginInit();
             this.SuspendLayout();
             // 
             // dvgPersonasSinUsuario
             // 
+            this.dvgPersonasSinUsuario.AllowUserToAddRows = false;
+            this.dvgPersonasSinUsuario.AllowUserToDeleteRows = false;
             this.dvgPersonasSinUsuario.BackgroundColor = System.Drawing.Color.White;
             this.dvgPersonasSinUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgPersonasSinUsuario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -50,8 +50,31 @@
             this.apellido});
             this.dvgPersonasSinUsuario.Location = new System.Drawing.Point(16, 31);
             this.dvgPersonasSinUsuario.Name = "dvgPersonasSinUsuario";
+            this.dvgPersonasSinUsuario.ReadOnly = true;
+            this.dvgPersonasSinUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dvgPersonasSinUsuario.Size = new System.Drawing.Size(345, 250);
             this.dvgPersonasSinUsuario.TabIndex = 0;
+            // 
+            // id_persona
+            // 
+            this.id_persona.DataPropertyName = "ID";
+            this.id_persona.HeaderText = "ID";
+            this.id_persona.Name = "id_persona";
+            this.id_persona.ReadOnly = true;
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "Nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            // 
+            // apellido
+            // 
+            this.apellido.DataPropertyName = "Apellido";
+            this.apellido.HeaderText = "Apellido";
+            this.apellido.Name = "apellido";
+            this.apellido.ReadOnly = true;
             // 
             // lblElijaPersona
             // 
@@ -62,11 +85,6 @@
             this.lblElijaPersona.TabIndex = 1;
             this.lblElijaPersona.Text = "Elija una persona a la que agregar un usuario:";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(302, 287);
@@ -75,6 +93,7 @@
             this.btnAceptar.TabIndex = 3;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnSalir
             // 
@@ -84,24 +103,7 @@
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
-            // 
-            // id_persona
-            // 
-            this.id_persona.HeaderText = "ID";
-            this.id_persona.Name = "id_persona";
-            this.id_persona.ReadOnly = true;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            // 
-            // apellido
-            // 
-            this.apellido.HeaderText = "Apellido";
-            this.apellido.Name = "apellido";
-            this.apellido.ReadOnly = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // PersonaSinUsuarioList
             // 
@@ -124,7 +126,6 @@
 
         private System.Windows.Forms.DataGridView dvgPersonasSinUsuario;
         private System.Windows.Forms.Label lblElijaPersona;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_persona;

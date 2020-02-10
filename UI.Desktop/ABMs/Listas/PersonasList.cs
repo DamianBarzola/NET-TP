@@ -16,7 +16,6 @@ namespace UI.Desktop
     {
         private PersonaLogic personas = new PersonaLogic();
 
-
         public PersonasList()
         {
             InitializeComponent();
@@ -32,7 +31,6 @@ namespace UI.Desktop
         {
             this.dgvPersonas.DataSource = personas.GetAll();
         }
-
 
         private void tsNuevo_Click(object sender, EventArgs e)
         {

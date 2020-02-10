@@ -53,6 +53,27 @@ namespace UI.Desktop
             personaSinUsuarioList.ShowDialog();
         }
 
+        private void tsEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult confirm = MessageBox.Show("¿Está seguro de que desea eliminar el usuario?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+            if (confirm == DialogResult.Yes)
+            {
+                int ID = ((Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
+                try
+                {
+                    ul.Delete(ID);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se ha podido eliminar el elemento ya que está referenciado por otro elemento", "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
+                }
+                finally
+                {
+                    Listar();
+                }
+            }
+
+        }
 
         //no 
 
@@ -68,5 +89,7 @@ namespace UI.Desktop
         {
 
         }
+
+       
     }
 }

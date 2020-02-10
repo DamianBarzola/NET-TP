@@ -34,14 +34,14 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.chkHabilitado = new System.Windows.Forms.CheckBox();
             this.txtID = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,6 +115,26 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(407, 152);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label13.Location = new System.Drawing.Point(206, 76);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(60, 38);
+            this.label13.TabIndex = 15;
+            this.label13.Text = "Confirmar Clave";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.Location = new System.Drawing.Point(206, 38);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 38);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Usuario";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -161,6 +181,7 @@
             this.btnAceptar.TabIndex = 23;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click_1);
             // 
             // btnCancelar
             // 
@@ -170,26 +191,7 @@
             this.btnCancelar.TabIndex = 24;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label13.Location = new System.Drawing.Point(206, 76);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(60, 38);
-            this.label13.TabIndex = 15;
-            this.label13.Text = "Confirmar Clave";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Location = new System.Drawing.Point(206, 38);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 38);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "Usuario";
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
             // 
             // UsuarioDesktop
             // 
@@ -200,6 +202,7 @@
             this.Name = "UsuarioDesktop";
             this.RightToLeftLayout = true;
             this.Text = "Datos Usuario";
+            this.Load += new System.EventHandler(this.UsuarioDesktop_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
