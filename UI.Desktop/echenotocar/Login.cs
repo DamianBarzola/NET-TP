@@ -32,30 +32,39 @@ namespace UI.Desktop
             {
                 UsuarioLogic ul = new UsuarioLogic();
                 Usuario user = ul.GetOne(txtUsuario.Text);
-                if (txtUsuario.Text.Equals(user.NombreUsuario) && txtPass.Text.Equals(user.Clave))
+                if (user.Habilitado)
                 {
-                    this.Visible = false;
-                    Main Menu = new Main(user);
-                    Menu.ShowDialog();
-                    this.Visible = true;
+                    if (txtUsuario.Text.Equals(user.NombreUsuario) && txtPass.Text.Equals(user.Clave))
+                    {
+                        this.Visible = false;
+                        Main Menu = new Main(user);
+                        Menu.ShowDialog();
+                        this.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario y/o contraseña incorrectos", "Login"
+                            , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Usuario y/o contraseña incorrectos", "Login"
-                        , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Usuario no habilitado", "Login"
+                          , MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-              }
-              catch (Exception ex)
-              {
-                  MessageBox.Show("Error del servidor. /n" + ex.Message);
-             }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error del servidor. /n" + ex.Message);
+            }
 
 
             txtPass.Text = string.Empty;
             this.Enabled = true;
         }
 
-        
+
 
         private void txtUsuario_TextChanged(object sender, EventArgs e) {}
 
