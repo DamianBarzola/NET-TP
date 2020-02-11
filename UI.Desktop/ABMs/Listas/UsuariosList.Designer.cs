@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
+            this.id_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.habilitado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_persona = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcUsuarios = new System.Windows.Forms.ToolStripContainer();
             this.tlUsuarios = new System.Windows.Forms.TableLayoutPanel();
             this.btnActualizar = new System.Windows.Forms.Button();
@@ -38,11 +43,6 @@
             this.tsNuevo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsEditar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsEliminar = new System.Windows.Forms.ToolStripMenuItem();
-            this.id_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.habilitado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_persona = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.tcUsuarios.ContentPanel.SuspendLayout();
             this.tcUsuarios.TopToolStripPanel.SuspendLayout();
@@ -73,6 +73,41 @@
             this.dgvUsuarios.Size = new System.Drawing.Size(506, 255);
             this.dgvUsuarios.TabIndex = 0;
             this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
+            // 
+            // id_usuario
+            // 
+            this.id_usuario.DataPropertyName = "ID";
+            this.id_usuario.HeaderText = "ID";
+            this.id_usuario.Name = "id_usuario";
+            this.id_usuario.ReadOnly = true;
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "email";
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            // 
+            // habilitado
+            // 
+            this.habilitado.DataPropertyName = "habilitado";
+            this.habilitado.HeaderText = "Habilitado";
+            this.habilitado.Name = "habilitado";
+            this.habilitado.ReadOnly = true;
+            // 
+            // id_persona
+            // 
+            this.id_persona.DataPropertyName = "id_persona";
+            this.id_persona.HeaderText = "ID Persona";
+            this.id_persona.Name = "id_persona";
+            this.id_persona.ReadOnly = true;
+            // 
+            // nombre_usuario
+            // 
+            this.nombre_usuario.DataPropertyName = "nombre_usuario";
+            this.nombre_usuario.HeaderText = "Usuario";
+            this.nombre_usuario.Name = "nombre_usuario";
+            this.nombre_usuario.ReadOnly = true;
             // 
             // tcUsuarios
             // 
@@ -155,15 +190,16 @@
             // tsNuevo
             // 
             this.tsNuevo.Name = "tsNuevo";
-            this.tsNuevo.Size = new System.Drawing.Size(117, 22);
+            this.tsNuevo.Size = new System.Drawing.Size(180, 22);
             this.tsNuevo.Text = "Nuevo";
             this.tsNuevo.Click += new System.EventHandler(this.tsNuevo_Click);
             // 
             // tsEditar
             // 
             this.tsEditar.Name = "tsEditar";
-            this.tsEditar.Size = new System.Drawing.Size(117, 22);
+            this.tsEditar.Size = new System.Drawing.Size(180, 22);
             this.tsEditar.Text = "Editar";
+            this.tsEditar.Click += new System.EventHandler(this.tsEditar_Click);
             // 
             // tsEliminar
             // 
@@ -171,41 +207,6 @@
             this.tsEliminar.Size = new System.Drawing.Size(180, 22);
             this.tsEliminar.Text = "Eliminar";
             this.tsEliminar.Click += new System.EventHandler(this.tsEliminar_Click);
-            // 
-            // id_usuario
-            // 
-            this.id_usuario.DataPropertyName = "ID";
-            this.id_usuario.HeaderText = "ID";
-            this.id_usuario.Name = "id_usuario";
-            this.id_usuario.ReadOnly = true;
-            // 
-            // email
-            // 
-            this.email.DataPropertyName = "email";
-            this.email.HeaderText = "Email";
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            // 
-            // habilitado
-            // 
-            this.habilitado.DataPropertyName = "habilitado";
-            this.habilitado.HeaderText = "Habilitado";
-            this.habilitado.Name = "habilitado";
-            this.habilitado.ReadOnly = true;
-            // 
-            // id_persona
-            // 
-            this.id_persona.DataPropertyName = "id_persona";
-            this.id_persona.HeaderText = "ID Persona";
-            this.id_persona.Name = "id_persona";
-            this.id_persona.ReadOnly = true;
-            // 
-            // nombre_usuario
-            // 
-            this.nombre_usuario.DataPropertyName = "nombre_usuario";
-            this.nombre_usuario.HeaderText = "Usuario";
-            this.nombre_usuario.Name = "nombre_usuario";
-            this.nombre_usuario.ReadOnly = true;
             // 
             // UsuariosList
             // 

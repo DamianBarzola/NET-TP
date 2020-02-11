@@ -74,6 +74,24 @@ namespace UI.Desktop
             }
 
         }
+        private void tsEditar_Click(object sender, EventArgs e)
+        {
+            if (this.dgvUsuarios.SelectedRows.Count != 0)
+            {
+                Usuario usuarioaux = new Usuario();
+                int ID = ((Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
+                usuarioaux = ul.GetOne(ID);
+                UsuarioDesktop ud = new UsuarioDesktop(usuarioaux, ApplicationForm.ModoForm.Modificacion);
+                ud.ShowDialog();
+                Listar();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una fila a editar");
+            }
+        }
+
+
 
         //no 
 
@@ -90,6 +108,6 @@ namespace UI.Desktop
 
         }
 
-       
+
     }
 }

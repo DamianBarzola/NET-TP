@@ -51,6 +51,7 @@
             this.txtConfirmarClave.Name = "txtConfirmarClave";
             this.txtConfirmarClave.Size = new System.Drawing.Size(132, 20);
             this.txtConfirmarClave.TabIndex = 22;
+            this.txtConfirmarClave.UseSystemPasswordChar = true;
             // 
             // txtClave
             // 
@@ -58,6 +59,7 @@
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(131, 20);
             this.txtClave.TabIndex = 21;
+            this.txtClave.UseSystemPasswordChar = true;
             // 
             // txtUsuario
             // 

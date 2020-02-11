@@ -38,33 +38,25 @@ namespace UI.Desktop
             UsuarioActual.Id_persona = ID;
         }
         
-        /*  //Constructor: Recibe ID Usuario y modo de formulario.
-          public UsuarioDesktop(int ID, ModoForm modo) : this()
+          //Constructor: Recibe Usuario y modo de formulario.
+          public UsuarioDesktop(Usuario user, ModoForm modo) : this()
           {
-              _Modo = modo;
-
-
-              if (_Modo.Equals(ModoForm.Alta))
-              {
-
-                  UsuarioActual.Id_persona = ID;
-              }
-              else if (_Modo.Equals(ModoForm.Modificacion)) {
-
-                  UsuarioActual = usuarioLogic.GetOne(ID);  
-              }
-              MapearDeDatos();
-
-          }*/
+            _Modo = modo;
+             UsuarioActual = user;
+            MapearDeDatos();
+            InitializeComponent();
+        }
         #endregion
 
         #region mapeos
         public override void MapearDeDatos()
         {
-            this.txtEmail.Text = UsuarioActual.Email;
-            this.txtUsuario.Text = UsuarioActual.NombreUsuario;
-            this.txtClave.Text = UsuarioActual.Clave;
-            this.chkHabilitado.Checked = UsuarioActual.Habilitado;
+            txtEmail.Text = UsuarioActual.Email;
+            txtUsuario.Text = UsuarioActual.NombreUsuario;
+            txtClave.Text = UsuarioActual.Clave;
+            txtConfirmarClave.Text = UsuarioActual.Clave;
+            chkHabilitado.Checked = UsuarioActual.Habilitado;
+            if(_Modo == ModoForm.Modificacion) { txtID.Text = UsuarioActual.ID.ToString(); }
         }
 
         public override void MapearADatos()
@@ -100,18 +92,22 @@ namespace UI.Desktop
         #region Validar y guardar
         public override bool Validar()
         {
+            string texto ="";
             Boolean EsValido = true;
             string mensaje = "";
-            
+            texto += txtClave;
+            texto += txtConfirmarClave;
+            texto += txtEmail;
+            texto += txtUsuario;
             if (!(txtClave.Text.Equals(txtConfirmarClave.Text)))
             {
                 EsValido = false;
                 mensaje += "/nLa clave no coincide con la confirmacion de la misma";
             }
-            if (this.txtClave.Text.Length < 4 || this.txtClave.Text.Length == 0)
+            if (this.txtClave.Text.Length < 2 || this.txtClave.Text.Length == 0)
             {
                 EsValido = false;
-                mensaje += "/nLa clave debe tener al menos 4 caracteres";
+                mensaje += "/nLa clave debe tener al menos 2 caracteres";
             }
             if (!EsValido) { MessageBox.Show("Error" + mensaje); }
             return EsValido;
