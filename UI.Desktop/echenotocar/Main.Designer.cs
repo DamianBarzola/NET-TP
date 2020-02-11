@@ -71,20 +71,20 @@
             // tsmIniciarSesion
             // 
             this.tsmIniciarSesion.Name = "tsmIniciarSesion";
-            this.tsmIniciarSesion.Size = new System.Drawing.Size(143, 22);
+            this.tsmIniciarSesion.Size = new System.Drawing.Size(180, 22);
             this.tsmIniciarSesion.Text = "Iniciar Sesion";
             // 
             // tsmCerrarSesion
             // 
             this.tsmCerrarSesion.Name = "tsmCerrarSesion";
-            this.tsmCerrarSesion.Size = new System.Drawing.Size(143, 22);
+            this.tsmCerrarSesion.Size = new System.Drawing.Size(180, 22);
             this.tsmCerrarSesion.Text = "Cerrar Sesion";
             this.tsmCerrarSesion.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
             // tsmSalir
             // 
             this.tsmSalir.Name = "tsmSalir";
-            this.tsmSalir.Size = new System.Drawing.Size(143, 22);
+            this.tsmSalir.Size = new System.Drawing.Size(180, 22);
             this.tsmSalir.Text = "Salir";
             this.tsmSalir.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -129,7 +129,7 @@
             // tsmReportesDocentes
             // 
             this.tsmReportesDocentes.Name = "tsmReportesDocentes";
-            this.tsmReportesDocentes.Size = new System.Drawing.Size(172, 22);
+            this.tsmReportesDocentes.Size = new System.Drawing.Size(180, 22);
             this.tsmReportesDocentes.Text = "Reportes Docentes";
             // 
             // tsmAlumnos
@@ -144,14 +144,14 @@
             // tsmMateriasInscripto
             // 
             this.tsmMateriasInscripto.Name = "tsmMateriasInscripto";
-            this.tsmMateriasInscripto.Size = new System.Drawing.Size(179, 22);
+            this.tsmMateriasInscripto.Size = new System.Drawing.Size(180, 22);
             this.tsmMateriasInscripto.Text = "Materias Inscripto";
             this.tsmMateriasInscripto.Click += new System.EventHandler(this.tsmMateriasInscripto_Click);
             // 
             // tsmInscribirseAMateria
             // 
             this.tsmInscribirseAMateria.Name = "tsmInscribirseAMateria";
-            this.tsmInscribirseAMateria.Size = new System.Drawing.Size(179, 22);
+            this.tsmInscribirseAMateria.Size = new System.Drawing.Size(180, 22);
             this.tsmInscribirseAMateria.Text = "Inscribirse a materia";
             this.tsmInscribirseAMateria.Click += new System.EventHandler(this.tsmInscribirseAMateria_Click);
             // 
