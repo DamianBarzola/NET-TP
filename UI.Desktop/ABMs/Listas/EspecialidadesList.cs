@@ -14,11 +14,13 @@ using Util;
 
 namespace UI.Desktop.ABMs
 {
-    public partial class Especialidades : ApplicationForm
+    public partial class EspecialidadesList : ApplicationForm
     {
-        public Especialidades()
+        EspecialidadLogic eLogic = new EspecialidadLogic();
+        public EspecialidadesList()
         {
             InitializeComponent();
+            dgvEspecialidades.AutoGenerateColumns = false;
             dgvEspecialidades.DataSource = null;
         }
 
@@ -26,27 +28,34 @@ namespace UI.Desktop.ABMs
         {
             this.Close();
         }
+
+        #region Listar
         public void Listar()
         {
             dgvEspecialidades.DataSource = null;
             dgvEspecialidades.Refresh();
-            EspecialidadLogic esp = new EspecialidadLogic();
-            List<Especialidad> especialidades = esp.GetAll().Where(x => x.Habilitado == true).ToList(); ;
-            if (especialidades.Count() == 0)
+            EspecialidadLogic eLogic = new EspecialidadLogic();
+            List<Especialidad> especialidades = eLogic.GetAll();
+            if (especialidades.Count == 0)
             {
                 MessageBox.Show("No hay especialidades cargadas!");
             }
-            this.dgvEspecialidades.DataSource = especialidades;
+            else
+            {
+                this.dgvEspecialidades.DataSource = especialidades;
+            }
         }
-
         private void Especialidades_Load(object sender, EventArgs e)
         {
             Listar();
         }
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            Listar();
+        }
+        #endregion
 
-        
 
-        
         private void tsNuevo_Click(object sender, EventArgs e)
         {
             EspecialidadDesktop especialidadDesktop = new EspecialidadDesktop(ApplicationForm.ModoForm.Alta);
@@ -66,11 +75,38 @@ namespace UI.Desktop.ABMs
         {
             if (this.dgvEspecialidades.SelectedRows.Count != 0)
             {
+                DialogResult confirm = MessageBox.Show("¿Está seguro de que desea eliminar la persona?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                if (confirm == DialogResult.Yes)
+                {
+                    int ID = ((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
+                    try
+                    {
+                        eLogic.Delete(ID);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se ha podido eliminar el elemento ya que está referenciado por otro elemento", "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
+                    }
+                    finally
+                    {
+                        Listar();
+                    }
+                }
+            }
+        }
+
+
+        /* ASI DEBERIAN SER TODAS LAS BAJAS
+        private void tsEliminar_Click(object sender, EventArgs e)
+        {
+            if (this.dgvEspecialidades.SelectedRows.Count != 0)
+            {
                 int ID = ((Business.Entities.Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
                 EspecialidadDesktop especialidadDesktop = new EspecialidadDesktop(ID, ApplicationForm.ModoForm.Baja);
                 especialidadDesktop.ShowDialog();
                 this.Listar();
             }
         }
+        */
     }        
 }

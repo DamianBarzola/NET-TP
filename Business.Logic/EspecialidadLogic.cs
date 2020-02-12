@@ -35,6 +35,11 @@ namespace Business.Logic
             EspecA.Delete(esp);
         }
 
+        public void Delete(int id)
+        {
+            EspecA.Delete(id);
+        }
+
         public void Save(Especialidad esp)
         {
             EspecA.Save(esp);

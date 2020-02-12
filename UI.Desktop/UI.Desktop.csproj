@@ -103,17 +103,17 @@
     <Compile Include="ABMs\DoncentesCursosDesktop.Designer.cs">
       <DependentUpon>DoncentesCursosDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABMs\EspecialidadDesktop.cs">
+    <Compile Include="ABMs\Formularios\EspecialidadDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMs\EspecialidadDesktop.Designer.cs">
+    <Compile Include="ABMs\Formularios\EspecialidadDesktop.Designer.cs">
       <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABMs\Especialidades.cs">
+    <Compile Include="ABMs\Listas\EspecialidadesList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMs\Especialidades.Designer.cs">
-      <DependentUpon>Especialidades.cs</DependentUpon>
+    <Compile Include="ABMs\Listas\EspecialidadesList.Designer.cs">
+      <DependentUpon>EspecialidadesList.cs</DependentUpon>
     </Compile>
     <Compile Include="ABMs\MateriaDesktop.cs">
       <SubType>Form</SubType>
@@ -246,11 +246,11 @@
     <EmbeddedResource Include="ABMs\DoncentesCursosDesktop.resx">
       <DependentUpon>DoncentesCursosDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABMs\EspecialidadDesktop.resx">
+    <EmbeddedResource Include="ABMs\Formularios\EspecialidadDesktop.resx">
       <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABMs\Especialidades.resx">
-      <DependentUpon>Especialidades.cs</DependentUpon>
+    <EmbeddedResource Include="ABMs\Listas\EspecialidadesList.resx">
+      <DependentUpon>EspecialidadesList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABMs\MateriaDesktop.resx">
       <DependentUpon>MateriaDesktop.cs</DependentUpon>

@@ -143,5 +143,26 @@ namespace UI.Desktop
             PersonasList personasList = new PersonasList();
             personasList.ShowDialog();
         }
+
+        private void aBMEspecialidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EspecialidadesList especialidadeslist = new EspecialidadesList();
+            especialidadeslist.ShowDialog();
+        }
+
+
+
+
+
+
+
+        //no
+
+        private void administrarCursadasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

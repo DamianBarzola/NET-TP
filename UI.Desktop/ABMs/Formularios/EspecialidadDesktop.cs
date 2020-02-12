@@ -19,7 +19,6 @@ namespace UI.Desktop.ABMs
         private Especialidad _EspecialidadActual;
         public Especialidad EspecActual { get => _EspecialidadActual; set => _EspecialidadActual = value; }
 
-
         public EspecialidadDesktop()
         {
             InitializeComponent();
@@ -28,18 +27,25 @@ namespace UI.Desktop.ABMs
         //baja y modificacion
         public EspecialidadDesktop(int ID, ModoForm modo)
         {
+            InitializeComponent();
             Modo = modo;
             EspecialidadLogic Espec = new EspecialidadLogic();
             EspecActual = Espec.GetOne(ID);
             MapearDeDatos();
+            lblID.Visible = true;
+
         }
 
         //alta
         public EspecialidadDesktop(ModoForm modo)
         {
             Modo = modo;
-        }
+            InitializeComponent();
+            lblID.Visible = false;
 
+        }
+        //falta mapear a datos
+        #region mapeos
         public override void MapearDeDatos()
         {
             lblID.Text = EspecActual.ID.ToString();
@@ -69,7 +75,35 @@ namespace UI.Desktop.ABMs
             }
 
         }
-         
+
+        public override void MapearADatos()
+        {
+            EspecActual = new Especialidad();
+            switch (this.Modo)
+            {
+                case ModoForm.Baja:
+                    EspecActual.State = Usuario.States.Deleted;
+                    break;
+                case ModoForm.Consulta:
+                    EspecActual.State = Usuario.States.Unmodified;
+                    break;
+                case ModoForm.Alta:
+                    EspecActual.State = Usuario.States.New;
+                    break;
+                case ModoForm.Modificacion:
+                    EspecActual.State = Usuario.States.Modified;
+                    break;
+            }
+            if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
+            {
+                this.EspecActual.DescripcionEspecialidad = txtDescripcion.Text;
+                if(Modo == ModoForm.Modificacion)
+                {
+                    this.EspecActual.ID = Convert.ToInt32(lblID.Text);
+                }
+            }
+        }
+        #endregion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
