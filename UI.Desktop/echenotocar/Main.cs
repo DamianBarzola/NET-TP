@@ -129,11 +129,11 @@ namespace UI.Desktop
 
         }
 
-   private void tsmUsuarios_Click(object sender, EventArgs e)
-        {
-            UsuariosList ul = new UsuariosList();
-            ul.ShowDialog();
-        }
+       private void tsmUsuarios_Click(object sender, EventArgs e)
+       {
+                UsuariosList ul = new UsuariosList();
+                ul.ShowDialog();
+       }
 
 
  
@@ -150,7 +150,11 @@ namespace UI.Desktop
             especialidadeslist.ShowDialog();
         }
 
-
+        private void aBMPlanesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PlanesList planesList = new PlanesList();
+            planesList.ShowDialog();
+        }
 
 
 

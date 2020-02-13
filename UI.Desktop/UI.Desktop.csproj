@@ -139,17 +139,17 @@
     <Compile Include="ABMs\Listas\PersonasList.Designer.cs">
       <DependentUpon>PersonasList.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABMs\Planes.cs">
+    <Compile Include="ABMs\Listas\PlanesList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMs\Planes.Designer.cs">
-      <DependentUpon>Planes.cs</DependentUpon>
+    <Compile Include="ABMs\Listas\PlanesList.Designer.cs">
+      <DependentUpon>PlanesList.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABMs\PlanesDesktop.cs">
+    <Compile Include="ABMs\Formularios\PlanDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMs\PlanesDesktop.Designer.cs">
-      <DependentUpon>PlanesDesktop.cs</DependentUpon>
+    <Compile Include="ABMs\Formularios\PlanDesktop.Designer.cs">
+      <DependentUpon>PlanDesktop.cs</DependentUpon>
     </Compile>
     <Compile Include="ApplicationForm.cs">
       <SubType>Form</SubType>
@@ -264,11 +264,11 @@
     <EmbeddedResource Include="ABMs\Listas\PersonasList.resx">
       <DependentUpon>PersonasList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABMs\Planes.resx">
-      <DependentUpon>Planes.cs</DependentUpon>
+    <EmbeddedResource Include="ABMs\Listas\PlanesList.resx">
+      <DependentUpon>PlanesList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABMs\PlanesDesktop.resx">
-      <DependentUpon>PlanesDesktop.cs</DependentUpon>
+    <EmbeddedResource Include="ABMs\Formularios\PlanDesktop.resx">
+      <DependentUpon>PlanDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABMs\Listas\UsuariosList.resx">
       <DependentUpon>UsuariosList.cs</DependentUpon>

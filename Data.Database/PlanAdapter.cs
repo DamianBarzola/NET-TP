@@ -11,27 +11,26 @@ namespace Data.Database
 {
     public class PlanAdapter : Adapter
     {
+
         public List<Plan> GetAll()
         {
             List<Plan> planes = new List<Plan>();
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdPlanes = new SqlCommand("SELECT * FROM planes", SqlConn);
+                SqlCommand cmdPlanes = new SqlCommand(" SELECT * FROM [plan] ", SqlConn);
                 SqlDataReader drPlanes = cmdPlanes.ExecuteReader();
 
                 while (drPlanes.Read())
                 {
                     Plan plan = new Plan();
-
                     plan.ID = (int)drPlanes["id_plan"];
-                    plan.DescripcionPlan = (string)drPlanes["desc_plan"];
+                    plan.DescripcionPlan = (string)drPlanes["descripcion"];
                     plan.IDEspecialidad = (int)drPlanes["id_especialidad"];
-                    plan.Habilitado = (bool)drPlanes["plan_hab"];
-
                     planes.Add(plan);
                 }
                 drPlanes.Close();
+                return planes;
             }
             catch (Exception Ex)
             {
@@ -43,8 +42,11 @@ namespace Data.Database
             {
                 this.CloseConnection();
             }
-            return planes;
+
         }
+
+
+
 
         public Business.Entities.Plan GetOne(int ID)
         {
@@ -52,16 +54,15 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdPlanes = new SqlCommand("SELECT * FROM planes WHERE id_plan=@id", SqlConn);
+                SqlCommand cmdPlanes = new SqlCommand("SELECT * FROM [plan] WHERE id_plan=@id", SqlConn);
                 cmdPlanes.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 SqlDataReader drPlanes = cmdPlanes.ExecuteReader();
 
                 if (drPlanes.Read())
                 {
                     plan.ID = (int)drPlanes["id_plan"];
-                    plan.DescripcionPlan = (string)drPlanes["desc_plan"];
+                    plan.DescripcionPlan = (string)drPlanes["descripcion"];
                     plan.IDEspecialidad = (int)drPlanes["id_especialidad"];
-                    plan.Habilitado = (bool)drPlanes["plan_hab"];
                 }
                 drPlanes.Close();
             }
@@ -83,9 +84,28 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdDelete = new SqlCommand("UPDATE planes SET plan_hab=@false WHERE id_plan=@id", SqlConn);
+                SqlCommand cmdDelete = new SqlCommand("DELETE from [plan] WHERE id_plan=@id", SqlConn);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = plan.ID;
-                cmdDelete.Parameters.Add("@false", SqlDbType.Bit).Value = false;
+                cmdDelete.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Exception excepcionManejada = new Exception("Error al eliminar plan", ex);
+                throw excepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+
+        public void Delete(int id)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdDelete = new SqlCommand("DELETE from [plan] WHERE id_plan=@id", SqlConn);
+                cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = id;
                 cmdDelete.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -104,13 +124,12 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdUpd = new SqlCommand("UPDATE planes SET desc_plan = @desc, id_especialidad = @id_e, plan_hab = @plan_hab " +
+                SqlCommand cmdUpd = new SqlCommand("UPDATE [plan] SET descripcion = @desc, id_especialidad = @id_e " +
                     "WHERE id_plan=@id", SqlConn);
 
                 cmdUpd.Parameters.Add("@id", SqlDbType.Int).Value = plan.ID;
                 cmdUpd.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = plan.DescripcionPlan;
                 cmdUpd.Parameters.Add("@id_e", SqlDbType.Int).Value = plan.IDEspecialidad;
-                cmdUpd.Parameters.Add("@plan_hab", SqlDbType.Bit).Value = plan.Habilitado;
                 cmdUpd.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -130,11 +149,10 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmAgregar = new SqlCommand("INSERT INTO planes(desc_plan,id_especialidad,plan_hab) " +
-                    "values(@desc,@id_e,@plan_hab) SELECT @@identity", SqlConn);
+                SqlCommand cmAgregar = new SqlCommand("INSERT INTO [plan] (descripcion,id_especialidad) " +
+                    "values(@desc, @id_e) SELECT @@identity", SqlConn);
                 cmAgregar.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = plan.DescripcionPlan;
                 cmAgregar.Parameters.Add("@id_e", SqlDbType.Int).Value = plan.IDEspecialidad;
-                cmAgregar.Parameters.Add("@plan_hab", SqlDbType.Bit).Value = plan.Habilitado;
                 plan.ID = Decimal.ToInt32((decimal)cmAgregar.ExecuteScalar());
             }
             catch (Exception Ex)

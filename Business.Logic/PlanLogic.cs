@@ -40,6 +40,10 @@ namespace Business.Logic
         {
             PlanA.Delete(plan);
         }
+        public void Delete(int id)
+        {
+            PlanA.Delete(id);
+        }
 
         public void Save(Plan plan)
         {

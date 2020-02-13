@@ -46,6 +46,7 @@ namespace Data.Database
 
         }
 
+
         public Especialidad GetOne(int ID)
         {
             Especialidad especiali = new Especialidad();

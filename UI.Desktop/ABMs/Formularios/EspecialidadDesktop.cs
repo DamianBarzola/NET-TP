@@ -11,7 +11,7 @@ using Business.Logic;
 using Business.Entities;
 using Util;
 
-namespace UI.Desktop.ABMs
+namespace UI.Desktop
 {
     public partial class EspecialidadDesktop : ApplicationForm
     {
@@ -19,6 +19,7 @@ namespace UI.Desktop.ABMs
         private Especialidad _EspecialidadActual;
         public Especialidad EspecActual { get => _EspecialidadActual; set => _EspecialidadActual = value; }
 
+        #region constructores
         public EspecialidadDesktop()
         {
             InitializeComponent();
@@ -44,7 +45,8 @@ namespace UI.Desktop.ABMs
             lblID.Visible = false;
 
         }
-        //falta mapear a datos
+        #endregion
+
         #region mapeos
         public override void MapearDeDatos()
         {

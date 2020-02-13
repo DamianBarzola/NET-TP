@@ -37,16 +37,16 @@
             this.tsmAdministrarPersonas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAdministrarUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAdministrarDocentes = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmDocentes = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmReportesDocentes = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmAlumnos = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmMateriasInscripto = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmInscribirseAMateria = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarCursadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMEspecialidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMPlanesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMMateriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMCursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmDocentes = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmReportesDocentes = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAlumnos = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmMateriasInscripto = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmInscribirseAMateria = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,43 +124,6 @@
             this.tsmAdministrarDocentes.Size = new System.Drawing.Size(188, 22);
             this.tsmAdministrarDocentes.Text = "Administrar Docentes";
             // 
-            // tsmDocentes
-            // 
-            this.tsmDocentes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmReportesDocentes});
-            this.tsmDocentes.Name = "tsmDocentes";
-            this.tsmDocentes.Size = new System.Drawing.Size(68, 20);
-            this.tsmDocentes.Text = "Docentes";
-            // 
-            // tsmReportesDocentes
-            // 
-            this.tsmReportesDocentes.Name = "tsmReportesDocentes";
-            this.tsmReportesDocentes.Size = new System.Drawing.Size(180, 22);
-            this.tsmReportesDocentes.Text = "Reportes Docentes";
-            // 
-            // tsmAlumnos
-            // 
-            this.tsmAlumnos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmMateriasInscripto,
-            this.tsmInscribirseAMateria});
-            this.tsmAlumnos.Name = "tsmAlumnos";
-            this.tsmAlumnos.Size = new System.Drawing.Size(67, 20);
-            this.tsmAlumnos.Text = "Alumnos";
-            // 
-            // tsmMateriasInscripto
-            // 
-            this.tsmMateriasInscripto.Name = "tsmMateriasInscripto";
-            this.tsmMateriasInscripto.Size = new System.Drawing.Size(180, 22);
-            this.tsmMateriasInscripto.Text = "Materias Inscripto";
-            this.tsmMateriasInscripto.Click += new System.EventHandler(this.tsmMateriasInscripto_Click);
-            // 
-            // tsmInscribirseAMateria
-            // 
-            this.tsmInscribirseAMateria.Name = "tsmInscribirseAMateria";
-            this.tsmInscribirseAMateria.Size = new System.Drawing.Size(180, 22);
-            this.tsmInscribirseAMateria.Text = "Inscribirse a materia";
-            this.tsmInscribirseAMateria.Click += new System.EventHandler(this.tsmInscribirseAMateria_Click);
-            // 
             // administrarCursadasToolStripMenuItem
             // 
             this.administrarCursadasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -185,6 +148,7 @@
             this.aBMPlanesToolStripMenuItem.Name = "aBMPlanesToolStripMenuItem";
             this.aBMPlanesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aBMPlanesToolStripMenuItem.Text = "ABM Planes";
+            this.aBMPlanesToolStripMenuItem.Click += new System.EventHandler(this.aBMPlanesToolStripMenuItem_Click);
             // 
             // aBMMateriasToolStripMenuItem
             // 
@@ -197,6 +161,43 @@
             this.aBMCursosToolStripMenuItem.Name = "aBMCursosToolStripMenuItem";
             this.aBMCursosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aBMCursosToolStripMenuItem.Text = "ABM Cursos";
+            // 
+            // tsmDocentes
+            // 
+            this.tsmDocentes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmReportesDocentes});
+            this.tsmDocentes.Name = "tsmDocentes";
+            this.tsmDocentes.Size = new System.Drawing.Size(68, 20);
+            this.tsmDocentes.Text = "Docentes";
+            // 
+            // tsmReportesDocentes
+            // 
+            this.tsmReportesDocentes.Name = "tsmReportesDocentes";
+            this.tsmReportesDocentes.Size = new System.Drawing.Size(172, 22);
+            this.tsmReportesDocentes.Text = "Reportes Docentes";
+            // 
+            // tsmAlumnos
+            // 
+            this.tsmAlumnos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmMateriasInscripto,
+            this.tsmInscribirseAMateria});
+            this.tsmAlumnos.Name = "tsmAlumnos";
+            this.tsmAlumnos.Size = new System.Drawing.Size(67, 20);
+            this.tsmAlumnos.Text = "Alumnos";
+            // 
+            // tsmMateriasInscripto
+            // 
+            this.tsmMateriasInscripto.Name = "tsmMateriasInscripto";
+            this.tsmMateriasInscripto.Size = new System.Drawing.Size(179, 22);
+            this.tsmMateriasInscripto.Text = "Materias Inscripto";
+            this.tsmMateriasInscripto.Click += new System.EventHandler(this.tsmMateriasInscripto_Click);
+            // 
+            // tsmInscribirseAMateria
+            // 
+            this.tsmInscribirseAMateria.Name = "tsmInscribirseAMateria";
+            this.tsmInscribirseAMateria.Size = new System.Drawing.Size(179, 22);
+            this.tsmInscribirseAMateria.Text = "Inscribirse a materia";
+            this.tsmInscribirseAMateria.Click += new System.EventHandler(this.tsmInscribirseAMateria_Click);
             // 
             // Main
             // 

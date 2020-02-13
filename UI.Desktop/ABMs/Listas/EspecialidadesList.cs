@@ -12,7 +12,7 @@ using Business.Entities;
 using Util;
 
 
-namespace UI.Desktop.ABMs
+namespace UI.Desktop
 {
     public partial class EspecialidadesList : ApplicationForm
     {
@@ -34,7 +34,7 @@ namespace UI.Desktop.ABMs
         {
             dgvEspecialidades.DataSource = null;
             dgvEspecialidades.Refresh();
-            EspecialidadLogic eLogic = new EspecialidadLogic();
+         // EspecialidadLogic eLogic = new EspecialidadLogic();
             List<Especialidad> especialidades = eLogic.GetAll();
             if (especialidades.Count == 0)
             {
@@ -45,7 +45,7 @@ namespace UI.Desktop.ABMs
                 this.dgvEspecialidades.DataSource = especialidades;
             }
         }
-        private void Especialidades_Load(object sender, EventArgs e)
+        private void EspecialidadesList_Load(object sender, EventArgs e)
         {
             Listar();
         }
@@ -75,7 +75,7 @@ namespace UI.Desktop.ABMs
         {
             if (this.dgvEspecialidades.SelectedRows.Count != 0)
             {
-                DialogResult confirm = MessageBox.Show("¿Está seguro de que desea eliminar la persona?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                DialogResult confirm = MessageBox.Show("¿Está seguro de que desea eliminar la especialidad?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 if (confirm == DialogResult.Yes)
                 {
                     int ID = ((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
@@ -85,7 +85,7 @@ namespace UI.Desktop.ABMs
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("No se ha podido eliminar el elemento ya que está referenciado por otro elemento", "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
+                        MessageBox.Show("No se ha podido eliminar el elemento", "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
                     }
                     finally
                     {
@@ -94,6 +94,8 @@ namespace UI.Desktop.ABMs
                 }
             }
         }
+
+        
 
 
         /* ASI DEBERIAN SER TODAS LAS BAJAS
