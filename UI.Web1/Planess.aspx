@@ -5,6 +5,7 @@
         &nbsp;<asp:LinkButton ID="lbEliminar" runat="server" OnClick="lbEliminar_Click">Eliminar</asp:LinkButton>
         &nbsp;<asp:LinkButton ID="lbNuevo" runat="server" OnClick="lbNuevo_Click">Nuevo</asp:LinkButton>
         <br />
+        <br />
         <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" CssClass="table table-striped" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" SelectedRowStyle-BackColor="LightGray">
             <Columns>
                 <asp:BoundField DataField="ID" HeaderText="ID" />

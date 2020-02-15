@@ -19,14 +19,17 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdEspecialidades = new SqlCommand("select * from especialidad", SqlConn);
+                SqlCommand cmdEspecialidades = new SqlCommand("SELECT * from especialidad", SqlConn);
                 SqlDataReader drEspecialidades = cmdEspecialidades.ExecuteReader();
 
                 while (drEspecialidades.Read())
                 {
-                    Especialidad esp = new Especialidad();
-                    esp.ID = (int)drEspecialidades["id_especialidad"];
-                    esp.DescripcionEspecialidad = (string)drEspecialidades["descripcion"];
+
+                    Especialidad esp = new Especialidad
+                    {
+                        ID = (int)drEspecialidades["id_especialidad"],
+                        DescripcionEspecialidad = (string)drEspecialidades["descripcion"]
+                    };
 
                     especialidades.Add(esp);
                 }

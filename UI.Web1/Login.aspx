@@ -30,7 +30,6 @@ Contraseña
                     </div>
 
              <br />
-            <asp:Button ID="btSalir" runat="server" Text="Salir" TabIndex="3" Width="103px" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="btIngresar" runat="server" OnClick="btIngresar_Click" Text="Ingresar" style="margin-left: 0px" TabIndex="4" Width="104px" />
              <br />

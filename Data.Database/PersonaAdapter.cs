@@ -25,10 +25,12 @@ namespace Data.Database
                     pers.Nombre = (string)drPersona["nombre"];
                     pers.Apellido = (string)drPersona["apellido"];
                     pers.Direccion = (string)drPersona["direccion"];
+                    pers.Id_especialidad = (int)drPersona["id_especialidad"];
                     pers.Telefono = (string)drPersona["telefono"];
                     pers.FechaNacimiento = (DateTime)drPersona["fecha_nac"];
                     pers.Legajo = (int)drPersona["legajo"];
                     pers.Tipo = (Persona.TipoPersona)drPersona["tipo_persona"];
+
                     personas.Add(pers);
                 }
                 drPersona.Close();
@@ -60,6 +62,7 @@ namespace Data.Database
                 if (drPersona.Read())
                 {
                     pers.ID = (int)drPersona["id_persona"];
+                    pers.Id_especialidad = (int)drPersona["id_especialidad"];
                     pers.Nombre = (string)drPersona["nombre"];
                     pers.Apellido = (string)drPersona["apellido"];
                     pers.Direccion = (string)drPersona["direccion"];
@@ -128,10 +131,10 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmUpd = new SqlCommand("UPDATE personas SET nombre=@nombre,apellido=@apellido,direccion=@direccion," +
+                SqlCommand cmUpd = new SqlCommand("UPDATE personas SET id_especialidad=@id_especialidad,nombre=@nombre,apellido=@apellido,direccion=@direccion," +
                     "telefono=@telefono,fecha_nac=@fecha_nac," +
                     "tipo_persona=@tipo_persona WHERE id_persona=@id", SqlConn);
-
+                cmUpd.Parameters.Add("@id_especialidad", SqlDbType.Int).Value = persona.Id_especialidad;
                 cmUpd.Parameters.Add("@id", SqlDbType.Int).Value = persona.ID;
                 cmUpd.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = persona.Nombre;
                 cmUpd.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = persona.Apellido;
@@ -159,9 +162,9 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmIns = new SqlCommand("INSERT INTO personas(nombre,apellido,direccion,telefono,fecha_nac,legajo," +
-                    "tipo_persona) " +
-                    "values(@nombre,@apellido,@direccion,@telefono,@fecha_nac,@legajo,@tipo_persona) SELECT @@identity", SqlConn);
-
+                    "tipo_persona,id_especialidad) " +
+                    "values(@nombre,@apellido,@direccion,@telefono,@fecha_nac,@legajo,@tipo_persona,@id_especialidad) SELECT @@identity", SqlConn);
+                cmIns.Parameters.Add("@id_especialidad", SqlDbType.Int).Value = persona.Id_especialidad;
                 cmIns.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = persona.Nombre;
                 cmIns.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = persona.Apellido;
                 cmIns.Parameters.Add("@direccion", SqlDbType.VarChar, 50).Value = persona.Direccion;

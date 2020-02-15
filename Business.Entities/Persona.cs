@@ -10,13 +10,15 @@ namespace Business.Entities
         public class Persona : BusinessEntity
         {
             
-        private TipoPersona tipo;
-        private int legajo;
-        private string apellido;
-        private string nombre;
-        private string direccion;
-        private string telefono;
-        private DateTime fechaNacimiento;
+        private TipoPersona tipo;//
+        private int legajo;//
+        private string apellido;//
+        private string nombre;//
+        private string direccion;//
+
+        private string telefono;//
+        private DateTime fechaNacimiento;//
+        private int id_especialidad;
 
         public enum TipoPersona
         {
@@ -32,6 +34,7 @@ namespace Business.Entities
         public string Direccion { get => direccion; set => direccion = value; }
         public DateTime FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
         public string Telefono { get => telefono; set => telefono = value; }
+        public int Id_especialidad { get => id_especialidad; set => id_especialidad = value; }
     }
 
     }

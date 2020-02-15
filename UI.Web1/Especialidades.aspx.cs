@@ -76,10 +76,10 @@ namespace UI.Web
             descripcionTextBox.Text = string.Empty;
         }
 
-        private void LoadEntity(Especialidad especialidad)
+       /* private void LoadEntity(Especialidad especialidad)
         {
             especialidad.DescripcionEspecialidad = descripcionTextBox.Text;
-        }
+        }*/
 
         protected void lbEditar_Click(object sender, EventArgs e)
         {
@@ -92,9 +92,17 @@ namespace UI.Web
         {
             if (gridView.SelectedValue != null)
             {
+
                 if (formPanel.Visible) formPanel.Visible = false;
+
                 FormMode = FormModes.Baja;
+                Entity = new Especialidad();
+                Entity = especialidades.GetOne(SelectedID);
+
+                Entity.State = BusinessEntity.States.Deleted;
+                especialidades.Delete(Entity.ID);
                 LoadGrid();
+                
             }
 
         }
@@ -105,10 +113,10 @@ namespace UI.Web
             FormMode = FormModes.Alta;
             ClearForm();
         }
-        private void SaveEntity(Especialidad especialidad)
+       /* private void SaveEntity(Especialidad especialidad)
         {
             especialidades.Save(especialidad);
-        }
+        }*/
 
         protected void lbAceptar_Click(object sender, EventArgs e)
         {
@@ -116,26 +124,39 @@ namespace UI.Web
 
             {
                 case FormModes.Baja:
+                    Entity = new Especialidad();
                     Entity = especialidades.GetOne(SelectedID);
-                    especialidades.Delete(Entity);
+
+                    Entity.State = BusinessEntity.States.Deleted;
+                    especialidades.Delete(Entity.ID);
                     LoadGrid();
+                    /*EspecialidadActual.ID = SelectedID;
+                    EspecialidadActual.State = BusinessEntity.States.Deleted;*/
                     break;
+
                 case FormModes.Modificacion:
                     Entity = new Especialidad();
                     Entity = especialidades.GetOne(SelectedID);
                     Entity.State = BusinessEntity.States.Modified;
-                    LoadEntity(Entity);
-                    SaveEntity(Entity);
+                    Entity.DescripcionEspecialidad = descripcionTextBox.Text;
+                    especialidades.Save(Entity);
+
+                    /*LoadEntity(Entity);
+                    SaveEntity(Entity);*/
                     LoadGrid();
                     formPanel.Visible = false;
 
                     break;
                 case FormModes.Alta:
                     Entity = new Especialidad();
-                    LoadEntity(Entity);
-                    SaveEntity(Entity);
+                    Entity.State = BusinessEntity.States.New;
+                    //LoadEntity(Entity);
+                    Entity.DescripcionEspecialidad = descripcionTextBox.Text;
+                   // SaveEntity(Entity);
+                    especialidades.Save(Entity);
                     LoadGrid();
                     formPanel.Visible = false;
+                   
 
                     break;
             }

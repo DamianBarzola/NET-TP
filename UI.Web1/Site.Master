@@ -21,12 +21,13 @@
                 <asp:LinkButton runat="server" href="/Especialidades.aspx" id="lbEsp">Especialidad</asp:LinkButton>
                 &nbsp;&nbsp;&nbsp;
                 <asp:LinkButton runat="server" href="/Planess.aspx" ID="lbPlanes">Planes</asp:LinkButton>
-                &nbsp; &nbsp;<asp:LinkButton runat="server" href="/Comisiones.aspx" id="lbComisiones">Comisiones</asp:LinkButton>
+                &nbsp; &nbsp; <!--  -->
+                <asp:LinkButton runat="server" href="/Comisiones.aspx" id="lbComisiones">Comisiones</asp:LinkButton>
                 &nbsp;&nbsp;&nbsp;
                 <asp:LinkButton runat="server" href="/Materias.aspx" id="lbMateria">Materias</asp:LinkButton>
                 &nbsp;&nbsp;&nbsp;
-                <asp:LinkButton runat="server" href="/Cursos.aspx" id="lbCursos">Cursos</asp:LinkButton>
-                &nbsp;&nbsp;&nbsp;
+               <!-- <asp:LinkButton runat="server" href="/Cursos.aspx" id="lbCursos">Cursos</asp:LinkButton>
+                &nbsp;&nbsp;&nbsp;-->
                 <asp:LinkButton runat="server" href="/Usuarios.aspx" id="lbUsuarios">Usuarios</asp:LinkButton>
                 &nbsp;&nbsp;&nbsp; &nbsp;<asp:LinkButton runat="server" ID="lbPersona" href="/Personas.aspx">Persona</asp:LinkButton>
 &nbsp;&nbsp;&nbsp;
@@ -52,6 +53,7 @@
         <asp:ContentPlaceHolder ID="chReportes" runat="server">
             <p style="border-style: double none double none; border-width: 1px; border-color: #000080; margin-bottom: 19px">
                 &nbsp;
+                 Reportes<br />&nbsp;
                 <asp:LinkButton runat="server" href="javascript:__doPostBack('ctl00$LinkButton4','')" id="lbReportes">Reportes</asp:LinkButton>
             </p>
         </asp:ContentPlaceHolder>

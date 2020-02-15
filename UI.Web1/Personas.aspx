@@ -45,8 +45,6 @@
         <asp:Label ID="FechaNacLabel" runat="server" Text="Fecha Nacimiento:"></asp:Label>
         <asp:TextBox CssClass="form-control" ID="FechaNacTextBox" runat="server" TextMode="Date"></asp:TextBox>
         <br />
-        IdPlan<asp:TextBox ID="planTextBox1" runat="server"></asp:TextBox>
-        <br />
         <br />
         <asp:LinkButton ID="lbAceptar" runat="server" OnClick="lbAceptar_Click">Aceptar</asp:LinkButton>
         &nbsp;<asp:LinkButton ID="lbCancelar" runat="server" OnClick="lbCancelar_Click">Cancelar</asp:LinkButton>

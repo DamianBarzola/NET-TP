@@ -75,7 +75,7 @@ namespace UI.Web
             apellidoTextBox.Text = string.Empty;
             DireccionTextBox.Text = string.Empty;
             tipoTextBox1.Text = string.Empty;
-            planTextBox1.Text = string.Empty;
+            //planTextBox1.Text = string.Empty;
         }
 
         protected void lbEditar_Click(object sender, EventArgs e)

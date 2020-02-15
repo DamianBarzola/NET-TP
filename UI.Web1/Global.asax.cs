@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
-
-namespace UI.Web
+using System.Web.UI;
+namespace UI.Web1
 {
     public class Global : System.Web.HttpApplication
     {

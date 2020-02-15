@@ -103,6 +103,11 @@ namespace UI.Web1
             {
                 if (formPanel.Visible) formPanel.Visible = false;
                 FormMode = FormModes.Baja;
+                Entity = new Plan();
+                Entity = planes.GetOne(SelectedID);
+
+                Entity.State = BusinessEntity.States.Deleted;
+                planes.Delete(Entity.ID);
                 LoadGrid();
             }
         }
@@ -147,6 +152,7 @@ namespace UI.Web1
                     break;
                 case FormModes.Alta:
                     Entity = new Plan();
+                    Entity.State = BusinessEntity.States.New;
                     LoadEntity(Entity);
                     SaveEntity(Entity);
                     LoadGrid();
