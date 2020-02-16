@@ -144,10 +144,13 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmUpd = new SqlCommand("UPDATE usuarios SET email=@email," +
-                    "nombre_usuario=@nombre_usuario," +
+                    "nombre_usuario=@nombre_usuario, clave=@clave,id_persona=@id_persona, " +
                     "habilitado=@habilitado WHERE id_usuario=@id", SqlConn);
 
+                cmUpd.Parameters.Add("@id", SqlDbType.Int).Value = usuario.ID;
                 cmUpd.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.Email;
+                cmUpd.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
+                cmUpd.Parameters.Add("@id_persona", SqlDbType.Int).Value = usuario.Id_persona;
                 cmUpd.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmUpd.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
                 cmUpd.ExecuteNonQuery();

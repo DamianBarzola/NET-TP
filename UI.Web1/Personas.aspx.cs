@@ -62,6 +62,7 @@ namespace UI.Web
             apellidoTextBox.Text = Entity.Apellido;
             FechaNacTextBox.Text = Entity.FechaNacimiento.ToString("yyyy-MM-dd");
             TelefonoTextBox.Text = Entity.Telefono;
+            tbidesp.Text = Entity.Id_especialidad.ToString();
            // planTextBox1.Text = Entity.IDPlan.ToString();
             tipoTextBox1.Text = Entity.Tipo.ToString();
         }
@@ -69,6 +70,7 @@ namespace UI.Web
         {
             Entity = null;
             nombreTextBox.Text = string.Empty;
+            tbidesp.Text = string.Empty;
             TelefonoTextBox.Text = string.Empty;
             FechaNacTextBox.Text = string.Empty;
             legajoTextBox.Text = string.Empty;
@@ -93,8 +95,13 @@ namespace UI.Web
             if (gridView.SelectedValue != null)
             {
                 if (formPanel.Visible) formPanel.Visible = false;
-
-                this.FormMode = FormModes.Alta;
+                this.FormMode = FormModes.Baja;
+                Entity = new Business.Entities.Persona();
+                Entity = personas.GetOne(SelectedID);
+                Entity.State = BusinessEntity.States.Deleted;
+                personas.Delete(Entity);
+                LoadGrid();
+                
             }
         }
 
@@ -110,6 +117,7 @@ namespace UI.Web
             persona.Apellido = apellidoTextBox.Text;
             persona.Direccion = DireccionTextBox.Text;
             persona.Telefono = TelefonoTextBox.Text;
+            persona.Id_especialidad = Convert.ToInt32(tbidesp.Text);
             persona.FechaNacimiento = DateTime.Parse(FechaNacTextBox.Text);
             persona.Legajo = Convert.ToInt32(legajoTextBox.Text);
             if (tipoTextBox1.Text == "1") persona.Tipo = Business.Entities.Persona.TipoPersona.Alumno;
@@ -128,7 +136,9 @@ namespace UI.Web
 
             {
                 case FormModes.Baja:
+                    Entity = new Business.Entities.Persona();
                     Entity = personas.GetOne(SelectedID);
+                    Entity.State = BusinessEntity.States.Deleted;
                     personas.Delete(Entity);
                     LoadGrid();
                     break;
@@ -144,6 +154,7 @@ namespace UI.Web
                     break;
                 case FormModes.Alta:
                     Entity = new Business.Entities.Persona();
+                    Entity.State = BusinessEntity.States.New;
                     LoadEntity(Entity);
                     SaveEntity(Entity);
                     LoadGrid();

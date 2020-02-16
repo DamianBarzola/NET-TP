@@ -80,6 +80,10 @@ namespace UI.Web
         protected void gvUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.SelectedID = (int)this.gridView.SelectedValue;
+            if (formPanel.Visible)
+            {
+                LoadForm(SelectedID);
+            }
         }
 
         private void LoadForm(int id)
@@ -88,6 +92,7 @@ namespace UI.Web
            
             cbHabilitado.Checked = Entity.Habilitado;
             tbEmail.Text = Entity.Email;
+            tbId_persona.Text = Entity.Id_persona.ToString();
             tbNombreUsuario.Text = Entity.NombreUsuario;
 
         }
@@ -105,13 +110,14 @@ namespace UI.Web
         private void LoadEntity(Usuario usuario)
         {
 
-           
-            usuario.Email = tbEmail.Text;
-            usuario.NombreUsuario = tbNombreUsuario.Text;
-            usuario.Clave = tbClave.Text;
-
-            usuario.Habilitado = cbHabilitado.Checked;
-
+            if (tbEmail.Text.Length > 0 && tbNombreUsuario.Text.Length > 0 && tbClave.Text.Length > 0 && tbId_persona.Text.Length > 0)
+            {
+                usuario.Email = tbEmail.Text;
+                usuario.NombreUsuario = tbNombreUsuario.Text;
+                usuario.Clave = tbClave.Text;
+                usuario.Id_persona = Convert.ToInt32(tbId_persona.Text);
+                usuario.Habilitado = cbHabilitado.Checked;
+            }
         }
         private void SaveEntity(Usuario usuario)
         {
@@ -123,8 +129,7 @@ namespace UI.Web
         {
           
             tbClave.Enabled = a;
-            tbRepetirClave.Enabled = a;
-            
+            tbId_persona.Enabled = a;
             tbNombreUsuario.Enabled = a;
             cbHabilitado.Enabled = a;
             tbEmail.Enabled = a;
@@ -141,7 +146,6 @@ namespace UI.Web
             tbNombreUsuario.Text = string.Empty;
             cbHabilitado.Checked = false;
             tbClave.Text = string.Empty;
-            tbRepetirClave.Text = string.Empty;
         }
 
 
@@ -152,8 +156,14 @@ namespace UI.Web
             {
                 if (formPanel.Visible == true) formPanel.Visible = false;
                 this.FormMode = FormModes.Baja;
+                Entity = new Usuario();
+                Entity = Logic.GetOne(SelectedID);
+                Entity.State = BusinessEntity.States.Deleted;
+                Logic.Delete(Entity.ID);
+                
                 EnableForm(false);
                 LoadForm(SelectedID);
+                LoadGrid();
 
             }
         }
@@ -173,6 +183,7 @@ namespace UI.Web
             {
                 case FormModes.Baja:
                     Entity = Logic.GetOne(SelectedID);
+                    Entity.State = BusinessEntity.States.Deleted;
                     Logic.Delete(Entity.ID);
                     LoadGrid();
                     break;
@@ -188,6 +199,7 @@ namespace UI.Web
                     break;
                 case FormModes.Alta:
                     Entity = new Usuario();
+                    Entity.State = BusinessEntity.States.New;
                     LoadEntity(Entity);
                     SaveEntity(Entity);
                     LoadGrid();

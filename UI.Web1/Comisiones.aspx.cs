@@ -59,16 +59,16 @@ namespace UI.Web
         private void LoadForm(int id)
         {
             Entity = com.GetOne(id);
-            tbidplan.Text = Entity.IDPlan.ToString();
-            descripcionTextBox.Text = Entity.Descripcion;
+            tbidprofesor.Text = Entity.IdProfesor.ToString();
+            tbidMateria.Text = Entity.IDMateria.ToString();
             añoEspecialidadTextBox.Text = Entity.AnioEspecialidad.ToString();
         }
         private void ClearForm()
         {
             Entity = null;
             añoEspecialidadTextBox.Text = string.Empty;
-            descripcionTextBox.Text = string.Empty;
-            tbidplan.Text = string.Empty;
+            tbidprofesor.Text = string.Empty;
+            tbidMateria.Text = string.Empty;
         }
 
         protected void lbEditar_Click(object sender, EventArgs e)
@@ -88,6 +88,11 @@ namespace UI.Web
                 if (formPanel.Visible) formPanel.Visible = false;
 
                 this.FormMode = FormModes.Baja;
+                Entity = new Comision();
+                Entity = com.GetOne(SelectedID);
+                Entity.State = BusinessEntity.States.Deleted;
+                com.Delete(Entity);
+                LoadGrid();
 
             }
         }
@@ -101,10 +106,10 @@ namespace UI.Web
 
         private void LoadEntity(Comision comision)
         {
-            if (descripcionTextBox.Text.Length > 0 && añoEspecialidadTextBox.Text.Length > 0 && tbidplan.Text.Length > 0)
-                comision.Descripcion = descripcionTextBox.Text;
+            if (tbidprofesor.Text.Length > 0 && añoEspecialidadTextBox.Text.Length > 0 && tbidMateria.Text.Length > 0)
+                comision.IDMateria = int.Parse(tbidMateria.Text);
             comision.AnioEspecialidad = int.Parse(añoEspecialidadTextBox.Text);
-            comision.IDPlan = int.Parse(tbidplan.Text);
+            comision.IDMateria = int.Parse(tbidprofesor.Text);
         }
         private void SaveEntity(Comision comision)
         {
@@ -117,7 +122,9 @@ namespace UI.Web
 
             {
                 case FormModes.Baja:
+                    Entity = new Comision();
                     Entity = com.GetOne(SelectedID);
+                    Entity.State = BusinessEntity.States.Deleted;
                     com.Delete(Entity);
                     LoadGrid();
                     break;
@@ -133,6 +140,7 @@ namespace UI.Web
                     break;
                 case FormModes.Alta:
                     Entity = new Comision();
+                    Entity.State = BusinessEntity.States.New;
                     LoadEntity(Entity);
                     SaveEntity(Entity);
                     LoadGrid();

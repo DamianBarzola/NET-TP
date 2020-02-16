@@ -8,6 +8,7 @@
             OnSelectedIndexChanged="gridView_SelectedIndexChanged" SelectedRowStyle-BackColor="LightGray">
             <SelectedRowStyle BackColor="LightGray" />
             <Columns>
+                 <asp:BoundField HeaderText="ID" DataField="ID" />
                 <asp:BoundField DataField="Legajo" HeaderText="Legajo" />
                 <asp:BoundField DataField="Tipo" HeaderText="Tipo" />
                 <asp:BoundField HeaderText="Apellido" DataField="Apellido" />
@@ -15,8 +16,8 @@
                 <asp:BoundField HeaderText="Dirección" DataField="Direccion" />
                 <asp:BoundField HeaderText="Teléfono" DataField="Telefono" />
                 <asp:BoundField HeaderText="Fecha de Nacimiento" DataField="FechaNacimiento" />
-                <asp:BoundField HeaderText="ID" DataField="ID" />
-                <asp:BoundField HeaderText="IDPlan" DataField="IDPlan" />
+               
+                <asp:BoundField HeaderText="IDEspecialidad" DataField="Id_especialidad" />
                 <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" />
             </Columns>
         </asp:GridView>
@@ -44,6 +45,10 @@
         <br />
         <asp:Label ID="FechaNacLabel" runat="server" Text="Fecha Nacimiento:"></asp:Label>
         <asp:TextBox CssClass="form-control" ID="FechaNacTextBox" runat="server" TextMode="Date"></asp:TextBox>
+        <br />
+        <asp:Label ID="idesp" runat="server" Text="IDEspecialidad:"></asp:Label>
+         <asp:TextBox CssClass="form-control" ID="tbidesp" runat="server"></asp:TextBox>
+        <br />
         <br />
         <br />
         <asp:LinkButton ID="lbAceptar" runat="server" OnClick="lbAceptar_Click">Aceptar</asp:LinkButton>

@@ -124,12 +124,12 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmUpd = new SqlCommand("UPDATE materia SET id_plan = @id_plan, " +
-                    "descripcion = @descripcion" +
+                    "descripcion = @descripcion " +
                     "WHERE id_materia=@id", SqlConn);
 
                 cmUpd.Parameters.Add("@id", SqlDbType.Int).Value = materia.ID;
-                cmUpd.Parameters.Add("@id_plan", SqlDbType.VarChar, 50).Value = materia.IDPlan;
-                cmUpd.Parameters.Add("@descripcion", SqlDbType.Int).Value = materia.Descripcion;
+                cmUpd.Parameters.Add("@id_plan", SqlDbType.Int).Value = materia.IDPlan;
+                cmUpd.Parameters.Add("@descripcion", SqlDbType.VarChar, 50).Value = materia.Descripcion;
                 
                 cmUpd.ExecuteNonQuery();
             }

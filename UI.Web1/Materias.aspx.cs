@@ -63,15 +63,13 @@ namespace UI.Web
             Entity = materias.GetOne(id);
             tbidplan.Text = Entity.IDPlan.ToString();
             descripcionTextBox.Text = Entity.Descripcion;
-            hsSemanalesTextBox.Text = Entity.HSSemanales.ToString();
-            hsTotalesTextBox.Text = Entity.HSTotales.ToString();
+            //hsSemanalesTextBox.Text = Entity.HSSemanales.ToString();
+            //hsTotalesTextBox.Text = Entity.HSTotales.ToString();
         }
         private void ClearForm()
         {
-            Entity = null;
-            hsSemanalesTextBox.Text = string.Empty;
+            Entity = null;            
             descripcionTextBox.Text = string.Empty;
-            hsTotalesTextBox.Text = string.Empty;
             tbidplan.Text = string.Empty;
         }
 
@@ -90,7 +88,13 @@ namespace UI.Web
             if (gridView.SelectedValue != null)
             {
                 this.FormMode = FormModes.Baja;
+                Entity = new Materia();
+                Entity = materias.GetOne(SelectedID);
+                Entity.State = BusinessEntity.States.Deleted;
+                materias.Delete(Entity);
+                LoadGrid();
                 if (formPanel.Visible) formPanel.Visible = false;
+                
                 LoadGrid();
             }
         }
@@ -104,10 +108,10 @@ namespace UI.Web
 
         private void LoadEntity(Materia materia)
         {
-            if (descripcionTextBox.Text.Length > 0 && hsSemanalesTextBox.Text.Length > 0 && hsTotalesTextBox.Text.Length > 0 && tbidplan.Text.Length > 0)
+            if (descripcionTextBox.Text.Length > 0  && tbidplan.Text.Length > 0)
                 materia.Descripcion = descripcionTextBox.Text;
-            materia.HSSemanales = int.Parse(hsSemanalesTextBox.Text);
-            materia.HSTotales = int.Parse(hsTotalesTextBox.Text);
+          //  materia.HSSemanales = int.Parse(hsSemanalesTextBox.Text);
+            //materia.HSTotales = int.Parse(hsTotalesTextBox.Text);
             materia.IDPlan = int.Parse(tbidplan.Text);
 
         }
@@ -122,7 +126,9 @@ namespace UI.Web
 
             {
                 case FormModes.Baja:
+                    Entity = new Materia();
                     Entity = materias.GetOne(SelectedID);
+                    Entity.State = BusinessEntity.States.Deleted;
                     materias.Delete(Entity);
                     LoadGrid();
                     break;
@@ -138,6 +144,7 @@ namespace UI.Web
                     break;
                 case FormModes.Alta:
                     Entity = new Materia();
+                    Entity.State = BusinessEntity.States.New;
                     LoadEntity(Entity);
                     SaveEntity(Entity);
                     LoadGrid();

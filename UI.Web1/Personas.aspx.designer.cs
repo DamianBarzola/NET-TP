@@ -193,6 +193,24 @@ namespace UI.Web {
         protected global::System.Web.UI.WebControls.TextBox FechaNacTextBox;
         
         /// <summary>
+        /// Control idesp.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label idesp;
+        
+        /// <summary>
+        /// Control tbidesp.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbidesp;
+        
+        /// <summary>
         /// Control lbAceptar.
         /// </summary>
         /// <remarks>

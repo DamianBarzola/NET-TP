@@ -11,9 +11,10 @@
             OnSelectedIndexChanged="gridView_SelectedIndexChanged"
             SelectedRowStyle-BackColor="LightGray">
             <Columns>
-                <asp:BoundField DataField="Descripcion" HeaderText="Comision" ReadOnly="True" SortExpression="Descripcion" />
+                <asp:BoundField DataField="ID" HeaderText="Comision" ReadOnly="True" SortExpression="ID" />
                 <asp:BoundField DataField="AnioEspecialidad" HeaderText="Año de Especialidad" ReadOnly="True" SortExpression="AñoEspecialidad" />
-                <asp:BoundField DataField="IDPlan" HeaderText="Plan" ReadOnly="True" SortExpression="Plan" />
+                <asp:BoundField DataField="IDMateria" HeaderText="Materia" ReadOnly="True" SortExpression="IDMateria" />
+                <asp:BoundField DataField="IdProfesor" HeaderText="Profesor" ReadOnly="True" SortExpression="IdProfesor" />
                 <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" />
             </Columns>
             <SelectedRowStyle BackColor="LightGray" />
@@ -21,14 +22,12 @@
         <br />
         <asp:Panel ID="formPanel" runat="server" Visible="false">
             Completar:<br />
-            <asp:Label ID="descripcionLabel" runat="server" Text="Descripcion: "></asp:Label>
-            <asp:TextBox ID="descripcionTextBox" runat="server" CssClass="form-control"></asp:TextBox>
+            Materia<asp:TextBox ID="tbidMateria" runat="server" CssClass="form-control"></asp:TextBox>
             <br />
             <asp:Label ID="añoEspecialidadLabel" runat="server" Text="Año Especialidad: "></asp:Label>
             <asp:TextBox ID="añoEspecialidadTextBox" runat="server" CssClass="form-control"></asp:TextBox>
             <br />
-            <asp:Label ID="planLabel" runat="server" Text="Plan: "></asp:Label>
-            &nbsp;<asp:TextBox ID="tbidplan" runat="server"></asp:TextBox>
+            Profesor&nbsp;<asp:TextBox ID="tbidprofesor" runat="server"></asp:TextBox>
             <br />
             <br />
             <asp:LinkButton ID="lbAceptar" runat="server" OnClick="lbAceptar_Click">Aceptar</asp:LinkButton>

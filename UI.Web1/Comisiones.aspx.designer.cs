@@ -67,22 +67,13 @@ namespace UI.Web {
         protected global::System.Web.UI.WebControls.Panel formPanel;
         
         /// <summary>
-        /// Control descripcionLabel.
+        /// Control tbidMateria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label descripcionLabel;
-        
-        /// <summary>
-        /// Control descripcionTextBox.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox descripcionTextBox;
+        protected global::System.Web.UI.WebControls.TextBox tbidMateria;
         
         /// <summary>
         /// Control añoEspecialidadLabel.
@@ -103,22 +94,13 @@ namespace UI.Web {
         protected global::System.Web.UI.WebControls.TextBox añoEspecialidadTextBox;
         
         /// <summary>
-        /// Control planLabel.
+        /// Control tbidprofesor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label planLabel;
-        
-        /// <summary>
-        /// Control tbidplan.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbidplan;
+        protected global::System.Web.UI.WebControls.TextBox tbidprofesor;
         
         /// <summary>
         /// Control lbAceptar.

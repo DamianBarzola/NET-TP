@@ -10,8 +10,8 @@
 SelectedRowStyle-ForeColor="White"
 DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" >
             <Columns>
-                <asp:BoundField  HeaderText="Nombre" DataField="Nombre" />
-                <asp:BoundField HeaderText="Persona" DataField="IDPersona" />
+                <asp:BoundField  HeaderText="ID" DataField="ID" />
+                <asp:BoundField HeaderText="Persona" DataField="Id_persona" />
                 <asp:BoundField HeaderText="Email" DataField="Email" />
 		<asp:BoundField  HeaderText="Usuario" DataField="NombreUsuario" />
                 <asp:BoundField HeaderText="Habilitado" DataField="Habilitado" />
@@ -43,15 +43,17 @@ DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" >
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="tbClave" runat="server"></asp:TextBox>
                 <br />
-                <br />
-                <asp:Label ID="repetirclavelbl" runat="server" Text="Repetir clave:"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="tbRepetirClave" runat="server"></asp:TextBox>
                 <br />
+                <asp:Label ID="tbId_perasdsona" runat="server" Text="PersonaID:"></asp:Label>
+                <asp:TextBox ID="tbId_persona" runat="server"></asp:TextBox>
+                <br />
+
+                <br />
+                <asp:LinkButton ID="lbAceptar" runat="server" OnClick="lbAceptar_Click">Aceptar</asp:LinkButton>
+                &nbsp;<asp:LinkButton ID="lbCancelar" runat="server" OnClick="lbCancelar_Click">Cancelar</asp:LinkButton>
 
         </asp:Panel>
             <asp:Panel ID="gridActionsPanel" runat="server" Height="40px">
-                <asp:LinkButton ID="lbAceptar" runat="server" OnClick="lbAceptar_Click">Aceptar</asp:LinkButton>
-                &nbsp;<asp:LinkButton ID="lbCancelar" runat="server" OnClick="lbCancelar_Click">Cancelar</asp:LinkButton>
             </asp:Panel>
 </asp:Content>
