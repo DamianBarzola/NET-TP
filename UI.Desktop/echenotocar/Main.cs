@@ -162,6 +162,11 @@ namespace UI.Desktop
             materiasList.ShowDialog();
         }
 
+        private void aBMCursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ComisionesList comisionList = new ComisionesList();
+            comisionList.ShowDialog();
+        }
 
 
         //no

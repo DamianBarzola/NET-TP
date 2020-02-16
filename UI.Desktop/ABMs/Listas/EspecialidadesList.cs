@@ -55,7 +55,7 @@ namespace UI.Desktop
         }
         #endregion
 
-
+        #region Botones opciones
         private void tsNuevo_Click(object sender, EventArgs e)
         {
             EspecialidadDesktop especialidadDesktop = new EspecialidadDesktop(ApplicationForm.ModoForm.Alta);
@@ -95,7 +95,7 @@ namespace UI.Desktop
             }
         }
 
-        
+        #endregion
 
 
         /* ASI DEBERIAN SER TODAS LAS BAJAS
@@ -110,5 +110,5 @@ namespace UI.Desktop
             }
         }
         */
-    }        
+    }
 }

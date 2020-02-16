@@ -67,16 +67,16 @@
     <Compile Include="ABMs\AlumnoInscripcion.Designer.cs">
       <DependentUpon>AlumnoInscripcion.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABMs\Comision.cs">
+    <Compile Include="ABMs\Listas\ComisionesList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMs\Comision.Designer.cs">
-      <DependentUpon>Comision.cs</DependentUpon>
+    <Compile Include="ABMs\Listas\ComisionesList.Designer.cs">
+      <DependentUpon>ComisionesList.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABMs\ComisionDesktop.cs">
+    <Compile Include="ABMs\Formularios\ComisionDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMs\ComisionDesktop.Designer.cs">
+    <Compile Include="ABMs\Formularios\ComisionDesktop.Designer.cs">
       <DependentUpon>ComisionDesktop.cs</DependentUpon>
     </Compile>
     <Compile Include="ABMs\Cursos.cs">
@@ -228,10 +228,10 @@
     <EmbeddedResource Include="ABMs\AlumnoInscripcion.resx">
       <DependentUpon>AlumnoInscripcion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABMs\Comision.resx">
-      <DependentUpon>Comision.cs</DependentUpon>
+    <EmbeddedResource Include="ABMs\Listas\ComisionesList.resx">
+      <DependentUpon>ComisionesList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABMs\ComisionDesktop.resx">
+    <EmbeddedResource Include="ABMs\Formularios\ComisionDesktop.resx">
       <DependentUpon>ComisionDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABMs\Cursos.resx">

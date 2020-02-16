@@ -118,6 +118,26 @@ namespace Data.Database
             }
         }
 
+        public void Delete(int id)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdDelete = new SqlCommand("DELETE FROM comision WHERE id_comision=@id", SqlConn);
+                cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                cmdDelete.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Exception excepcionManejada = new Exception("Error al eliminar Comision", ex);
+                throw excepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+
         protected void Update(Comision com)
         {
             try

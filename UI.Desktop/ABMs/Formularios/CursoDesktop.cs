@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business.Entities;
+using Business.Logic;
 
-namespace UI.Desktop.ABMs
+namespace UI.Desktop
 {
-    public partial class ComisionDesktop : Form
+    public partial class CursoDesktop : ApplicationForm
     {
-        public ComisionDesktop()
+        public CursoDesktop()
         {
             InitializeComponent();
         }

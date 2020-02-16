@@ -33,6 +33,10 @@ namespace Business.Logic
         {
             ComisionA.Delete(com);
         }
+        public void Delete(int id)
+        {
+            ComisionA.Delete(id);
+        }
 
         public void Save(Comision com)
         {

@@ -161,7 +161,8 @@
             // 
             this.aBMCursosToolStripMenuItem.Name = "aBMCursosToolStripMenuItem";
             this.aBMCursosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.aBMCursosToolStripMenuItem.Text = "ABM Cursos";
+            this.aBMCursosToolStripMenuItem.Text = "ABM Comision";
+            this.aBMCursosToolStripMenuItem.Click += new System.EventHandler(this.aBMCursosToolStripMenuItem_Click);
             // 
             // tsmDocentes
             // 
