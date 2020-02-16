@@ -1,4 +1,4 @@
-﻿namespace UI.Desktop.ABMs
+﻿namespace UI.Desktop
 {
     partial class MateriaDesktop
     {
@@ -32,17 +32,10 @@
             this.DescLabel = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.PlanIDLabel = new System.Windows.Forms.Label();
-            this.HSSemanalesLabel = new System.Windows.Forms.Label();
-            this.HSTotalesLabel = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.labelID = new System.Windows.Forms.Label();
-            this.cbPlan = new System.Windows.Forms.ComboBox();
-            this.cbEsp = new System.Windows.Forms.ComboBox();
-            this.nudHSSem = new System.Windows.Forms.NumericUpDown();
-            this.nudHSTot = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.nudHSSem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudHSTot)).BeginInit();
+            this.txtIDPlan = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,28 +82,6 @@
             this.PlanIDLabel.Text = "Plan";
             this.PlanIDLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // HSSemanalesLabel
-            // 
-            this.HSSemanalesLabel.AutoSize = true;
-            this.HSSemanalesLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HSSemanalesLabel.Location = new System.Drawing.Point(13, 65);
-            this.HSSemanalesLabel.Name = "HSSemanalesLabel";
-            this.HSSemanalesLabel.Size = new System.Drawing.Size(75, 25);
-            this.HSSemanalesLabel.TabIndex = 23;
-            this.HSSemanalesLabel.Text = "Hs Semanales";
-            this.HSSemanalesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // HSTotalesLabel
-            // 
-            this.HSTotalesLabel.AutoSize = true;
-            this.HSTotalesLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HSTotalesLabel.Location = new System.Drawing.Point(13, 90);
-            this.HSTotalesLabel.Name = "HSTotalesLabel";
-            this.HSTotalesLabel.Size = new System.Drawing.Size(75, 25);
-            this.HSTotalesLabel.TabIndex = 24;
-            this.HSTotalesLabel.Text = "Hs Totales";
-            this.HSTotalesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // btnAceptar
             // 
             this.btnAceptar.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -120,6 +91,7 @@
             this.btnAceptar.TabIndex = 31;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // labelID
             // 
@@ -131,52 +103,6 @@
             this.labelID.TabIndex = 27;
             this.labelID.Text = " -";
             this.labelID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cbPlan
-            // 
-            this.cbPlan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbPlan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPlan.FormattingEnabled = true;
-            this.cbPlan.Location = new System.Drawing.Point(220, 118);
-            this.cbPlan.Name = "cbPlan";
-            this.cbPlan.Size = new System.Drawing.Size(110, 21);
-            this.cbPlan.TabIndex = 20;
-            // 
-            // cbEsp
-            // 
-            this.cbEsp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbEsp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbEsp.FormattingEnabled = true;
-            this.cbEsp.Location = new System.Drawing.Point(104, 118);
-            this.cbEsp.Name = "cbEsp";
-            this.cbEsp.Size = new System.Drawing.Size(110, 21);
-            this.cbEsp.TabIndex = 19;
-            // 
-            // nudHSSem
-            // 
-            this.nudHSSem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nudHSSem.Location = new System.Drawing.Point(104, 68);
-            this.nudHSSem.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nudHSSem.Name = "nudHSSem";
-            this.nudHSSem.Size = new System.Drawing.Size(110, 20);
-            this.nudHSSem.TabIndex = 17;
-            // 
-            // nudHSTot
-            // 
-            this.nudHSTot.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nudHSTot.Location = new System.Drawing.Point(104, 93);
-            this.nudHSTot.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nudHSTot.Name = "nudHSTot";
-            this.nudHSTot.Size = new System.Drawing.Size(110, 20);
-            this.nudHSTot.TabIndex = 18;
             // 
             // tableLayoutPanel1
             // 
@@ -193,14 +119,9 @@
             this.tableLayoutPanel1.Controls.Add(this.DescLabel, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtDescripcion, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.PlanIDLabel, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.HSSemanalesLabel, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.HSTotalesLabel, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 4, 7);
             this.tableLayoutPanel1.Controls.Add(this.labelID, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.cbPlan, 4, 5);
-            this.tableLayoutPanel1.Controls.Add(this.cbEsp, 3, 5);
-            this.tableLayoutPanel1.Controls.Add(this.nudHSSem, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.nudHSTot, 3, 4);
+            this.tableLayoutPanel1.Controls.Add(this.txtIDPlan, 3, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -217,6 +138,13 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(353, 201);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
+            // txtIDPlan
+            // 
+            this.txtIDPlan.Location = new System.Drawing.Point(104, 118);
+            this.txtIDPlan.Name = "txtIDPlan";
+            this.txtIDPlan.Size = new System.Drawing.Size(100, 20);
+            this.txtIDPlan.TabIndex = 32;
+            // 
             // MateriaDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,8 +153,6 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MateriaDesktop";
             this.Text = "MateriaDesktop";
-            ((System.ComponentModel.ISupportInitialize)(this.nudHSSem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudHSTot)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -241,13 +167,8 @@
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label PlanIDLabel;
-        private System.Windows.Forms.Label HSSemanalesLabel;
-        private System.Windows.Forms.Label HSTotalesLabel;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Label labelID;
-        private System.Windows.Forms.ComboBox cbPlan;
-        private System.Windows.Forms.ComboBox cbEsp;
-        private System.Windows.Forms.NumericUpDown nudHSSem;
-        private System.Windows.Forms.NumericUpDown nudHSTot;
+        private System.Windows.Forms.TextBox txtIDPlan;
     }
 }

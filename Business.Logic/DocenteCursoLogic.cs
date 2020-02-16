@@ -77,7 +77,10 @@ namespace Business.Logic
                 Materia materia = materias.FirstOrDefault(x => x.ID == curso.IDMateria);
                 Comision comision = comisiones.FirstOrDefault(x => x.ID == curso.IDComision);
                 Usuario docente = usuarios.FirstOrDefault(x => x.ID == dc.IDDocente);
-                Linea["Curso"] = comision.Descripcion + " - " + materia.Descripcion;
+                //Linea["Curso"] = comision.Descripcion + " - " + materia.Descripcion;
+                // igual que en el otro
+                Linea["Curso"] =  materia.Descripcion;
+
                 Linea["Docente"] = docente.ID.ToString() + " - " + docente.Persona.Apellido + " " + docente.Persona.Nombre;
 
                 Listado.Rows.Add(Linea);

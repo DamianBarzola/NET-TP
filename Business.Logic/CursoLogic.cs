@@ -49,7 +49,7 @@ namespace Business.Logic
         {
             return CursoA.GetPorAnio(a);
         }
-
+/*
             public DataTable GetListado(Persona user)
         {
 
@@ -111,6 +111,6 @@ namespace Business.Logic
                 Listado.Rows.Add(Linea);
             }
             return Listado;
-        }
+        }*/
     }
 }

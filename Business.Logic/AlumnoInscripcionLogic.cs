@@ -84,7 +84,9 @@ namespace Business.Logic
                 Curso curso = cursos.FirstOrDefault(x => x.ID == ai.IDCurso);
                 Materia materia = materias.FirstOrDefault(x => x.ID == curso.IDMateria);
                 Comision comision = comisiones.FirstOrDefault(x => x.ID == curso.IDComision);
-                Linea["Curso"] = comision.Descripcion + " - " + materia.Descripcion;
+                //Linea["Curso"] = comision.Descripcion + " - " + materia.Descripcion;
+                //dami te comente esto para q me corra sin errores (le saque  comision.Descripcion + " - " )
+                Linea["Curso"] =  materia.Descripcion;
 
                 Listado.Rows.Add(Linea);
             }

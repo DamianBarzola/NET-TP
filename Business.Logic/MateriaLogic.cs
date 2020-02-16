@@ -43,6 +43,10 @@ namespace Business.Logic
         {
             MateriaA.Delete(mat);
         }
+        public void Delete(int id)
+        {
+            MateriaA.Delete(id);
+        }
 
         public DataTable GetListado()
         {
@@ -68,8 +72,8 @@ namespace Business.Logic
 
                 Linea["ID"] = mat.ID;
                 Linea["Descripcion"] = mat.Descripcion;
-                Linea["HSSemanales"] = mat.HSSemanales;
-                Linea["HSTotales"] = mat.HSTotales;
+               // Linea["HSSemanales"] = mat.HSSemanales;
+               // Linea["HSTotales"] = mat.HSTotales;
 
                 Plan plan = planes.FirstOrDefault(x => x.ID == mat.IDPlan);
                 Especialidad esp = especialidades.FirstOrDefault(x => x.ID == plan.IDEspecialidad);

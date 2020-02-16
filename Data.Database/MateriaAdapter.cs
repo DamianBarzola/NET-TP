@@ -98,6 +98,25 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
+        public void Delete(int id)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdDelete = new SqlCommand("DELETE FROM materia WHERE id_materia=@id", SqlConn);
+                cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                cmdDelete.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Exception excepcionManejada = new Exception("Error al eliminar Materia", ex);
+                throw excepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
 
         protected void Update(Materia materia)
         {
@@ -132,10 +151,10 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmInsert = new SqlCommand("INSERT INTO materia(id_plan, descripcion) " +
-                    "values(@@id_plan, @descripcion) SELECT @@identity", SqlConn);
+                    "values(@id_plan, @descripcion) SELECT @@identity", SqlConn);
                 // cmUpd.Parameters.Add("@id", SqlDbType.Int).Value = materia.ID;
-                cmInsert.Parameters.Add("@id_plan", SqlDbType.VarChar, 50).Value = materia.IDPlan;
-                cmInsert.Parameters.Add("@descripcion", SqlDbType.Int).Value = materia.Descripcion;
+                cmInsert.Parameters.Add("@id_plan", SqlDbType.Int).Value = materia.IDPlan;
+                cmInsert.Parameters.Add("@descripcion", SqlDbType.VarChar, 50).Value = materia.Descripcion;
                 materia.ID = Decimal.ToInt32((decimal)cmInsert.ExecuteScalar());
             }
             catch (Exception Ex)

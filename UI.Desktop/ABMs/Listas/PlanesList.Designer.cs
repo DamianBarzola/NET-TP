@@ -38,7 +38,7 @@
             this.tsNuevo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsEditar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsEliminar = new System.Windows.Forms.ToolStripMenuItem();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlanes)).BeginInit();
@@ -58,7 +58,7 @@
             this.dgvPlanes.BackgroundColor = System.Drawing.Color.White;
             this.dgvPlanes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPlanes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
+            this.id_plan,
             this.descripcion,
             this.id_especialidad});
             this.tlPlanes.SetColumnSpan(this.dgvPlanes, 2);
@@ -170,15 +170,15 @@
             this.tsEliminar.Text = "Eliminar";
             this.tsEliminar.Click += new System.EventHandler(this.tsEliminar_Click);
             // 
-            // id
+            // id_plan
             // 
-            this.id.DataPropertyName = "ID";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 65;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.id.Width = 65;
+            this.id_plan.DataPropertyName = "ID";
+            this.id_plan.HeaderText = "ID Plan";
+            this.id_plan.MinimumWidth = 65;
+            this.id_plan.Name = "id_plan";
+            this.id_plan.ReadOnly = true;
+            this.id_plan.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.id_plan.Width = 65;
             // 
             // descripcion
             // 
@@ -229,7 +229,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsEditar;
         private System.Windows.Forms.ToolStripMenuItem tsNuevo;
         private System.Windows.Forms.ToolStripMenuItem tsEliminar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_plan;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_especialidad;
     }

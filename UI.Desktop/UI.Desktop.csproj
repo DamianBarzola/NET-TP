@@ -115,17 +115,17 @@
     <Compile Include="ABMs\Listas\EspecialidadesList.Designer.cs">
       <DependentUpon>EspecialidadesList.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABMs\MateriaDesktop.cs">
+    <Compile Include="ABMs\Formularios\MateriaDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMs\MateriaDesktop.Designer.cs">
+    <Compile Include="ABMs\Formularios\MateriaDesktop.Designer.cs">
       <DependentUpon>MateriaDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABMs\Materias.cs">
+    <Compile Include="ABMs\Listas\MateriasList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMs\Materias.Designer.cs">
-      <DependentUpon>Materias.cs</DependentUpon>
+    <Compile Include="ABMs\Listas\MateriasList.Designer.cs">
+      <DependentUpon>MateriasList.cs</DependentUpon>
     </Compile>
     <Compile Include="ABMs\Formularios\PersonaDesktop.cs">
       <SubType>Form</SubType>
@@ -252,11 +252,11 @@
     <EmbeddedResource Include="ABMs\Listas\EspecialidadesList.resx">
       <DependentUpon>EspecialidadesList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABMs\MateriaDesktop.resx">
+    <EmbeddedResource Include="ABMs\Formularios\MateriaDesktop.resx">
       <DependentUpon>MateriaDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABMs\Materias.resx">
-      <DependentUpon>Materias.cs</DependentUpon>
+    <EmbeddedResource Include="ABMs\Listas\MateriasList.resx">
+      <DependentUpon>MateriasList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABMs\Formularios\PersonaDesktop.resx">
       <DependentUpon>PersonaDesktop.cs</DependentUpon>

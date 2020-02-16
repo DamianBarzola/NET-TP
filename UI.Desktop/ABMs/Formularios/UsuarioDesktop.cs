@@ -56,7 +56,7 @@ namespace UI.Desktop
             txtClave.Text = UsuarioActual.Clave;
             txtConfirmarClave.Text = UsuarioActual.Clave;
             chkHabilitado.Checked = UsuarioActual.Habilitado;
-            if(_Modo == ModoForm.Modificacion) { txtID.Text = UsuarioActual.ID.ToString(); }
+            if(_Modo == ModoForm.Modificacion || _Modo == ModoForm.Baja) { txtID.Text = UsuarioActual.ID.ToString(); }
         }
 
         public override void MapearADatos()
@@ -132,7 +132,6 @@ namespace UI.Desktop
                 MessageBox.Show("Compruebe los datos ingresados.");
             }
         }
-
         private void btnAceptar_Click_1(object sender, EventArgs e)
         {
             if (Validar() == true)

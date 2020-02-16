@@ -119,7 +119,10 @@ namespace UI.Desktop
                 valida = false;
                 mensaje += "/nDebe ingresar una descripcion de plan";
             }
-
+            if (valida)
+            {
+                MessageBox.Show(mensaje);
+            }
             return valida;
         }
 

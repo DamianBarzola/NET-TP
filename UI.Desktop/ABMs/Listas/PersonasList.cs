@@ -32,6 +32,7 @@ namespace UI.Desktop
             this.dgvPersonas.DataSource = personas.GetAll();
         }
 
+        #region botones opciones
         private void tsNuevo_Click(object sender, EventArgs e)
         {
             PersonaDesktop pd = new PersonaDesktop(ApplicationForm.ModoForm.Alta);
@@ -76,22 +77,15 @@ namespace UI.Desktop
             }
 
         }
+        #endregion
 
 
-
-
+        #region botones simples
         //click actualizar (no se xq carajo no se le cambia el nombre)
         private void button1_Click(object sender, EventArgs e)
         {
             Listar();
         }
-
-
-        
-
-
-
-
 
         private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -102,5 +96,6 @@ namespace UI.Desktop
         {
             Listar();
         }
+        #endregion
     }
 }

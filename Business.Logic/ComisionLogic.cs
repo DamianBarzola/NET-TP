@@ -38,7 +38,7 @@ namespace Business.Logic
         {
             ComisionA.Save(com);
         }
-
+/*
         public DataTable GetListado()
         {
             List<Comision> comisiones = ComisionA.GetAll();
@@ -62,7 +62,7 @@ namespace Business.Logic
                 DataRow Linea = Listado.NewRow();
 
                 Linea["ID"] = com.ID;
-                Linea["Descripcion"] = com.Descripcion;
+               // Linea["Descripcion"] = com.Descripcion;
                 Linea["AnioEspecialidad"] = com.AnioEspecialidad;
 
                 Plan plan = planes.FirstOrDefault(x => x.ID == com.IDPlan);
@@ -73,6 +73,6 @@ namespace Business.Logic
             }
 
             return Listado;
-        }
+        }*/
     }
 }

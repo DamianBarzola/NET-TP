@@ -156,7 +156,11 @@ namespace UI.Desktop
             planesList.ShowDialog();
         }
 
-
+        private void aBMMateriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MateriasList materiasList = new MateriasList();
+            materiasList.ShowDialog();
+        }
 
 
 
