@@ -59,5 +59,10 @@ namespace UI.Web
         {
             Response.Redirect("/Default.aspx");
         }
+
+        protected void lbAgregInscrip_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

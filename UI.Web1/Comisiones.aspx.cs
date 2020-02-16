@@ -59,7 +59,7 @@ namespace UI.Web
         private void LoadForm(int id)
         {
             Entity = com.GetOne(id);
-            tbidprofesor.Text = Entity.IdProfesor.ToString();
+            tbidprof.Text = Entity.IdProfesor.ToString();
             tbidMateria.Text = Entity.IDMateria.ToString();
             añoEspecialidadTextBox.Text = Entity.AnioEspecialidad.ToString();
         }
@@ -67,7 +67,7 @@ namespace UI.Web
         {
             Entity = null;
             añoEspecialidadTextBox.Text = string.Empty;
-            tbidprofesor.Text = string.Empty;
+            tbidprof.Text = string.Empty;
             tbidMateria.Text = string.Empty;
         }
 
@@ -106,10 +106,10 @@ namespace UI.Web
 
         private void LoadEntity(Comision comision)
         {
-            if (tbidprofesor.Text.Length > 0 && añoEspecialidadTextBox.Text.Length > 0 && tbidMateria.Text.Length > 0)
+            if (tbidprof.Text.Length > 0 && añoEspecialidadTextBox.Text.Length > 0 && tbidMateria.Text.Length > 0)
                 comision.IDMateria = int.Parse(tbidMateria.Text);
             comision.AnioEspecialidad = int.Parse(añoEspecialidadTextBox.Text);
-            comision.IDMateria = int.Parse(tbidprofesor.Text);
+            comision.IdProfesor = int.Parse(tbidprof.Text);
         }
         private void SaveEntity(Comision comision)
         {

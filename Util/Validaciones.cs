@@ -55,10 +55,10 @@ namespace Util
                 return Enum.IsDefined(typeof(DocenteCurso.TipoCargos), cargo);
             }
 
-        public static bool ValCondicion(int cond)
+       /* public static bool ValCondicion(int cond)
             {
                 return Enum.IsDefined(typeof(AlumnoInscripcion.Condiciones), cond);
-            }
+            }*/
 
         public static bool ValNota(int nota)
             {

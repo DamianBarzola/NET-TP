@@ -17,9 +17,9 @@
             CssClass="table table-bordered table-sm table-responsive table-hover">
         <Columns>
             <asp:BoundField HeaderText="ID" DataField="ID" />
-            <asp:BoundField HeaderText="Curso" DataField="IDCurso" />
-            <asp:BoundField HeaderText="Nota" DataField="Nota" />
-            <asp:BoundField HeaderText="Condicion" DataField="Condicion" />
+            <asp:BoundField HeaderText="Año" DataField="AnioEspecialidad" />
+            <asp:BoundField HeaderText="Materia" DataField="IDMateria" />
+            <asp:BoundField HeaderText="Profesor" DataField="IdProfesor" />
         </Columns>
         </asp:GridView>
     </div>

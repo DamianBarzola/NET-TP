@@ -8,16 +8,16 @@ namespace Business.Entities
 {
     public class AlumnoInscripcion : BusinessEntity
     {
-        private Condiciones _Condicion;
+       // private Condiciones _Condicion;
         private int _IDAlumno;
-        private int _IDCurso;
-        private int _Nota;
+        private int _IDComision;
+        //private int _Nota;
 
-        public enum Condiciones { Regular = 1, Aprobado = 2, Cursando = 3, Libre = 4 }
+      //  public enum Condiciones { Regular = 1, Aprobado = 2, Cursando = 3, Libre = 4 }
 
-        public Condiciones Condicion { get => _Condicion; set => _Condicion = value; }
+        //public Condiciones Condicion { get => _Condicion; set => _Condicion = value; }
         public int IDAlumno { get => _IDAlumno; set => _IDAlumno = value; }
-        public int IDCurso { get => _IDCurso; set => _IDCurso = value; }
-        public int Nota { get => _Nota; set => _Nota = value; }
+        public int IDComision { get => _IDComision; set => _IDComision = value; }
+       // public int Nota { get => _Nota; set => _Nota = value; }
     }
 }

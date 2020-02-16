@@ -26,7 +26,7 @@
             <br />
             <br />
             <asp:Label ID="planLabel" runat="server" Text="Plan: "></asp:Label>
-            <asp:TextBox ID="tbidplan" runat="server"></asp:TextBox>
+            <asp:TextBox ID="tbidplana" runat="server"></asp:TextBox>
             <br />
             <br />
             <asp:LinkButton ID="lbAceptar" runat="server" OnClick="lbAceptar_Click">Aceptar</asp:LinkButton>

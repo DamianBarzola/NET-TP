@@ -3,7 +3,7 @@
 <head runat="server">
     <title>Academia</title>
 </head>
-<body>
+
 
     <form id="bodyForm" runat="server" style="border: 2px groove #000080; font-family: Arial" >
         &nbsp;
@@ -31,8 +31,8 @@
                 <asp:LinkButton runat="server" href="/Usuarios.aspx" id="lbUsuarios">Usuarios</asp:LinkButton>
                 &nbsp;&nbsp;&nbsp; &nbsp;<asp:LinkButton runat="server" ID="lbPersona" href="/Personas.aspx">Persona</asp:LinkButton>
 &nbsp;&nbsp;&nbsp;
-                <asp:LinkButton runat="server" href="/Inscripciones.aspx" id="lbAgregInscrip">Inscripciones</asp:LinkButton>
-            </p>
+               <!-- <asp:LinkButton runat="server" href="/Inscripciones.aspx" id="lbAgregInscrip">Inscripciones a Comisiones</asp:LinkButton>
+            </p>-->
         </asp:ContentPlaceHolder>
 
         <asp:ContentPlaceHolder ID="chMaterias" runat="server">

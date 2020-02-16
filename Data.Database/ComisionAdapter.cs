@@ -156,16 +156,16 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmIns = new SqlCommand("INSERT INTO comision(id_profesor, id_materia, anio) " +
-                    "values(@id_profesor, @id_materia, @anio) SELECT @@identity", SqlConn);
-               /* cmIns.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = com.Descripcion;
-                cmIns.Parameters.Add("@anio", SqlDbType.Int).Value = com.AnioEspecialidad;
-                cmIns.Parameters.Add("@idplan", SqlDbType.Int).Value = com.IDPlan;
-                cmIns.Parameters.Add("@com_hab", SqlDbType.Bit).Value = com.Habilitado;
-                */
-                //cmIns.Parameters.Add("@id", SqlDbType.Int).Value = com.ID;
-                cmIns.Parameters.Add("@id_profesor", SqlDbType.Int).Value = com.IdProfesor;
-                cmIns.Parameters.Add("@anio", SqlDbType.Int).Value = com.AnioEspecialidad;
-                cmIns.Parameters.Add("@id_materia", SqlDbType.Int).Value = com.IDMateria;
+                    "values(@profesor, @materia, @an) SELECT @@identity", SqlConn);
+                /* cmIns.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = com.Descripcion;
+                 cmIns.Parameters.Add("@anio", SqlDbType.Int).Value = com.AnioEspecialidad;
+                 cmIns.Parameters.Add("@idplan", SqlDbType.Int).Value = com.IDPlan;
+                 cmIns.Parameters.Add("@com_hab", SqlDbType.Bit).Value = com.Habilitado;
+                 */
+                cmIns.Parameters.Add("@profesor", SqlDbType.Int).Value = com.IdProfesor;
+                cmIns.Parameters.Add("@materia", SqlDbType.Int).Value = com.IDMateria;
+                cmIns.Parameters.Add("@an", SqlDbType.Int).Value = com.AnioEspecialidad;
+
                 com.ID = Decimal.ToInt32((decimal)cmIns.ExecuteScalar());
             }
             catch (Exception Ex)

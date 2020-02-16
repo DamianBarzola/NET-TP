@@ -92,7 +92,7 @@ namespace UI.Web
            
             cbHabilitado.Checked = Entity.Habilitado;
             tbEmail.Text = Entity.Email;
-            tbId_persona.Text = Entity.Id_persona.ToString();
+            tbidPers.Text = Entity.Id_persona.ToString();
             tbNombreUsuario.Text = Entity.NombreUsuario;
 
         }
@@ -110,12 +110,13 @@ namespace UI.Web
         private void LoadEntity(Usuario usuario)
         {
 
-            if (tbEmail.Text.Length > 0 && tbNombreUsuario.Text.Length > 0 && tbClave.Text.Length > 0 && tbId_persona.Text.Length > 0)
+            if (tbEmail.Text.Length > 0 && tbNombreUsuario.Text.Length > 0 && tbClave.Text.Length > 0 && tbidPers.Text.Length > 0)
             {
                 usuario.Email = tbEmail.Text;
-                usuario.NombreUsuario = tbNombreUsuario.Text;
+                usuario.Id_persona = int.Parse(tbidPers.Text);
+                 usuario.NombreUsuario = tbNombreUsuario.Text;
                 usuario.Clave = tbClave.Text;
-                usuario.Id_persona = Convert.ToInt32(tbId_persona.Text);
+                //usuario.Id_persona = Convert.ToInt32(tbId_persona.Text);
                 usuario.Habilitado = cbHabilitado.Checked;
             }
         }
@@ -124,7 +125,7 @@ namespace UI.Web
             Logic.Save(usuario);
 
         }
-
+        /*
         private void EnableForm(bool a)
         {
           
@@ -133,7 +134,7 @@ namespace UI.Web
             tbNombreUsuario.Enabled = a;
             cbHabilitado.Enabled = a;
             tbEmail.Enabled = a;
-        }
+        }*/
 
         private void DeteleteEntity(Usuario usuario)
         {
@@ -146,6 +147,7 @@ namespace UI.Web
             tbNombreUsuario.Text = string.Empty;
             cbHabilitado.Checked = false;
             tbClave.Text = string.Empty;
+            tbidPers.Text = string.Empty;
         }
 
 
@@ -161,7 +163,7 @@ namespace UI.Web
                 Entity.State = BusinessEntity.States.Deleted;
                 Logic.Delete(Entity.ID);
                 
-                EnableForm(false);
+                //EnableForm(false);
                 LoadForm(SelectedID);
                 LoadGrid();
 
@@ -173,7 +175,7 @@ namespace UI.Web
             formPanel.Visible = true;
             FormMode = FormModes.Alta;
             ClearForm();
-            this.EnableForm(true);
+           // this.EnableForm(true);
         }
 
         protected void lbAceptar_Click(object sender, EventArgs e)

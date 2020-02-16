@@ -27,7 +27,7 @@
             <asp:Label ID="añoEspecialidadLabel" runat="server" Text="Año Especialidad: "></asp:Label>
             <asp:TextBox ID="añoEspecialidadTextBox" runat="server" CssClass="form-control"></asp:TextBox>
             <br />
-            Profesor&nbsp;<asp:TextBox ID="tbidprofesor" runat="server"></asp:TextBox>
+            Profesor&nbsp;<asp:TextBox ID="tbidprof" runat="server"></asp:TextBox>
             <br />
             <br />
             <asp:LinkButton ID="lbAceptar" runat="server" OnClick="lbAceptar_Click">Aceptar</asp:LinkButton>

@@ -61,7 +61,7 @@ namespace UI.Web
         private void LoadForm(int id)
         {
             Entity = materias.GetOne(id);
-            tbidplan.Text = Entity.IDPlan.ToString();
+            tbidplana.Text = Entity.IDPlan.ToString();
             descripcionTextBox.Text = Entity.Descripcion;
             //hsSemanalesTextBox.Text = Entity.HSSemanales.ToString();
             //hsTotalesTextBox.Text = Entity.HSTotales.ToString();
@@ -70,7 +70,7 @@ namespace UI.Web
         {
             Entity = null;            
             descripcionTextBox.Text = string.Empty;
-            tbidplan.Text = string.Empty;
+            tbidplana.Text = string.Empty;
         }
 
         protected void lbEditar_Click(object sender, EventArgs e)
@@ -108,11 +108,11 @@ namespace UI.Web
 
         private void LoadEntity(Materia materia)
         {
-            if (descripcionTextBox.Text.Length > 0  && tbidplan.Text.Length > 0)
+            if (descripcionTextBox.Text.Length > 0  && tbidplana.Text.Length > 0)
                 materia.Descripcion = descripcionTextBox.Text;
           //  materia.HSSemanales = int.Parse(hsSemanalesTextBox.Text);
             //materia.HSTotales = int.Parse(hsTotalesTextBox.Text);
-            materia.IDPlan = int.Parse(tbidplan.Text);
+            materia.IDPlan = int.Parse(tbidplana.Text);
 
         }
         private void SaveEntity(Materia materia)

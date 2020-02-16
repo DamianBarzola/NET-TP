@@ -21,16 +21,29 @@ namespace UI.Web
             UsuarioLogic ul = new UsuarioLogic();
             Usuario user = ul.GetOne(Session["username"].ToString());
 
-            List<AlumnoInscripcion> inscripciones = insl.GetAll().Where(x => x.IDAlumno == user.ID).ToList();
+           
+
+            List<AlumnoInscripcion> inscripciones = insl.GetAll().Where(x => x.IDAlumno == user.Id_persona).ToList();
             if (inscripciones.Count == 0)
             {
                 divSinIns.Visible = true;
             }
             else
             {
-                this.gvMisIns.DataSource = inscripciones;
+                List<Comision> asd = new List<Comision>();
+                ComisionLogic a = new ComisionLogic();
+                inscripciones.ForEach(delegate (AlumnoInscripcion alum)
+                    {
+                       
+                        
+                        asd.Add(a.GetOne(alum.IDComision));
+
+                    });
+                this.gvMisIns.DataSource = asd;
                 gvMisIns.DataBind();
             }
+
+
 
 
         }

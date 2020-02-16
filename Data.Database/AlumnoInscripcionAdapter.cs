@@ -17,19 +17,19 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdAlumnoInscripciones = new SqlCommand("SELECT * FROM alumnos_inscripciones", SqlConn);
+                SqlCommand cmdAlumnoInscripciones = new SqlCommand("SELECT * FROM comision_alumnos", SqlConn);
                 SqlDataReader drAlumnoInscripciones = cmdAlumnoInscripciones.ExecuteReader();
 
                 while (drAlumnoInscripciones.Read())
                 {
                     AlumnoInscripcion insc = new AlumnoInscripcion
                     {
-                        ID = (int)drAlumnoInscripciones["id_inscripcion"],
-                        IDAlumno = (int)drAlumnoInscripciones["id_alumno"],
-                        IDCurso = (int)drAlumnoInscripciones["id_curso"],
-                        Habilitado = (bool)drAlumnoInscripciones["ai_hab"],
-                        Nota = (drAlumnoInscripciones["nota"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["nota"],
-                        Condicion = (AlumnoInscripcion.Condiciones)System.Enum.Parse(typeof(AlumnoInscripcion.Condiciones), (string)drAlumnoInscripciones["condicion"])
+                        //ID = (int)drAlumnoInscripciones["id_inscripcion"],
+                        IDAlumno = (int)drAlumnoInscripciones["id_persona"],
+                        IDComision = (int)drAlumnoInscripciones["id_comision"],
+                       // Habilitado = (bool)drAlumnoInscripciones["ai_hab"],
+                        //Nota = (drAlumnoInscripciones["nota"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["nota"],
+                        //Condicion = (AlumnoInscripcion.Condiciones)System.Enum.Parse(typeof(AlumnoInscripcion.Condiciones), (string)drAlumnoInscripciones["condicion"])
                     };
                     alumnoInscripciones.Add(insc);
                 }
@@ -47,13 +47,14 @@ namespace Data.Database
             }
             return alumnoInscripciones;
         }
+        /*
         public List<AlumnoInscripcion> GetAllFromUser(int IDUsuario)
         {
             List<AlumnoInscripcion> alumnoInscripciones = new List<AlumnoInscripcion>();
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdAlumnoInscripciones = new SqlCommand("SELECT * FROM alumnos_inscripciones WHERE id_alumno = @ID AND ai_hab = @ai_hab", SqlConn);
+                SqlCommand cmdAlumnoInscripciones = new SqlCommand("SELECT * FROM comision_alumnos WHERE id_persona = @ID AND ai_hab = @ai_hab", SqlConn);
                 cmdAlumnoInscripciones.Parameters.Add("@ID", SqlDbType.Int).Value = IDUsuario;
                 cmdAlumnoInscripciones.Parameters.Add("@ai_hab", SqlDbType.Bit).Value = true;
                 SqlDataReader drAlumnoInscripciones = cmdAlumnoInscripciones.ExecuteReader();
@@ -62,12 +63,14 @@ namespace Data.Database
                 {
                     AlumnoInscripcion insc = new AlumnoInscripcion
                     {
-                        ID = (int)drAlumnoInscripciones["id_inscripcion"],
-                        IDAlumno = (int)drAlumnoInscripciones["id_alumno"],
-                        IDCurso = (int)drAlumnoInscripciones["id_curso"],
-                        Habilitado = (bool)drAlumnoInscripciones["ai_hab"],
-                        Nota = (drAlumnoInscripciones["nota"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["nota"],
-                        Condicion = (AlumnoInscripcion.Condiciones)System.Enum.Parse(typeof(AlumnoInscripcion.Condiciones), (string)drAlumnoInscripciones["condicion"])
+                        IDAlumno = (int)drAlumnoInscripciones["id_persona"],
+                        IDComision = (int)drAlumnoInscripciones["id_comision"],
+                        /* ID = (int)drAlumnoInscripciones["id_inscripcion"],
+                         IDAlumno = (int)drAlumnoInscripciones["id_alumno"],
+                         IDCurso = (int)drAlumnoInscripciones["id_curso"],
+                         Habilitado = (bool)drAlumnoInscripciones["ai_hab"],
+                         Nota = (drAlumnoInscripciones["nota"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["nota"]
+                         Condicion = (AlumnoInscripcion.Condiciones)System.Enum.Parse(typeof(AlumnoInscripcion.Condiciones), (string)drAlumnoInscripciones["condicion"])
                     };
                     alumnoInscripciones.Add(insc);
                 }
@@ -85,6 +88,7 @@ namespace Data.Database
             }
             return alumnoInscripciones;
         }
+
         public List<AlumnoInscripcion> GetAllFromCurso(int IDCurso)
         {
             List<AlumnoInscripcion> alumnoInscripciones = new List<AlumnoInscripcion>();
@@ -122,25 +126,28 @@ namespace Data.Database
                 this.CloseConnection();
             }
             return alumnoInscripciones;
-        }
-        public AlumnoInscripcion GetOne(int ID)
+        }*/
+        public AlumnoInscripcion GetOne(AlumnoInscripcion alumnocom)
         {
             AlumnoInscripcion insc = new AlumnoInscripcion();
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdAlumnoInscripciones = new SqlCommand("SELECT * FROM alumnos_inscripciones WHERE id_inscripcion =@id", SqlConn);
-                cmdAlumnoInscripciones.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+                SqlCommand cmdAlumnoInscripciones = new SqlCommand("SELECT * FROM comision_alumnos WHERE id_persona =@idAlumn and id_comision=@idcom", SqlConn);
+                cmdAlumnoInscripciones.Parameters.Add("@idAlumn", SqlDbType.Int).Value = alumnocom.IDAlumno;
+                cmdAlumnoInscripciones.Parameters.Add("@idcom", SqlDbType.Int).Value = alumnocom.IDComision;
+
                 SqlDataReader drAlumnoInscripciones = cmdAlumnoInscripciones.ExecuteReader();
 
                 if (drAlumnoInscripciones.Read())
                 {
-                    insc.ID = (int)drAlumnoInscripciones["id_inscripcion"];
-                    insc.IDAlumno = (int)drAlumnoInscripciones["id_alumno"];
-                    insc.IDCurso = (int)drAlumnoInscripciones["id_curso"];
-                    insc.Habilitado = (bool)drAlumnoInscripciones["ai_hab"];
-                    insc.Nota = (drAlumnoInscripciones["nota"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["nota"];
-                    insc.Condicion = (AlumnoInscripcion.Condiciones)System.Enum.Parse(typeof(AlumnoInscripcion.Condiciones), (string)drAlumnoInscripciones["condicion"]);
+
+                    //insc.ID = (int)drAlumnoInscripciones["id_inscripcion"];
+                    insc.IDAlumno = (int)drAlumnoInscripciones["id_persona"];
+                    insc.IDComision = (int)drAlumnoInscripciones["id_comision"];
+                    //insc.Habilitado = (bool)drAlumnoInscripciones["ai_hab"];
+                    //insc.Nota = (drAlumnoInscripciones["nota"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["nota"];
+                    //insc.Condicion = (AlumnoInscripcion.Condiciones)System.Enum.Parse(typeof(AlumnoInscripcion.Condiciones), (string)drAlumnoInscripciones["condicion"]);
                 }
                 drAlumnoInscripciones.Close();
             }
@@ -156,6 +163,7 @@ namespace Data.Database
             }
             return insc;
         }
+        /*
         public int GetCupo(int IDCurso)
         {
             try
@@ -176,15 +184,16 @@ namespace Data.Database
             {
                 this.CloseConnection();
             }
-        }
-        public void Delete(AlumnoInscripcion insc)
+        }*/
+
+        public void Delete(AlumnoInscripcion alumcom)
         {
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdDelete = new SqlCommand("UPDATE alumnos_inscripciones SET ai_hab@false WHERE id_inscripcion=@id", SqlConn);
-                cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = insc.ID;
-                cmdDelete.Parameters.Add("@false", SqlDbType.Bit).Value = false;
+                SqlCommand cmdDelete = new SqlCommand("DELETE FROM comision_alumnos WHERE id_persona = @ida and id_comision=@idcom", SqlConn);
+                cmdDelete.Parameters.Add("@ida", SqlDbType.Int).Value = alumcom.IDAlumno;
+                cmdDelete.Parameters.Add("@idcom", SqlDbType.Bit).Value = alumcom.IDComision;
                 cmdDelete.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -197,7 +206,8 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
-        protected void Update(AlumnoInscripcion insc)
+        //Hay que modificar a nueva base
+      /*  protected void Update(AlumnoInscripcion insc)
         {
             try
             {
@@ -223,7 +233,10 @@ namespace Data.Database
             {
                 this.CloseConnection();
             }
-        }
+        }*/
+
+        //Hay que modificar a nueva base
+       /*
         protected void Insert(AlumnoInscripcion insc)
         {
             try
@@ -248,7 +261,7 @@ namespace Data.Database
             {
                 this.CloseConnection();
             }
-        }
+        }*/
         public void Save(AlumnoInscripcion insc)
         {
             if (insc.State == BusinessEntity.States.Deleted)
@@ -257,11 +270,11 @@ namespace Data.Database
             }
             else if (insc.State == BusinessEntity.States.New)
             {
-                this.Insert(insc);
+               // this.Insert(insc);
             }
             else if (insc.State == BusinessEntity.States.Modified)
             {
-                this.Update(insc);
+                //this.Update(insc);
             }
             insc.State = BusinessEntity.States.Unmodified;
         }

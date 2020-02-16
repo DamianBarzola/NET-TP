@@ -41,6 +41,23 @@ namespace UI.Web
                 if (this.ViewState["SelectedID"] != null)
                 {
                     return (int)this.ViewState["SelectedID"];
+
+                }
+                else return 0;
+            }
+            set
+            {
+                this.ViewState["SelectedID"] = value;
+            }
+        }
+        private int SelectedID2
+        {
+            get
+            {
+                if (this.ViewState["SelectedID"] != null)
+                {
+                    return (int)this.ViewState["SelectedID"];
+
                 }
                 else return 0;
             }
@@ -53,28 +70,28 @@ namespace UI.Web
         protected void gvIns_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectedID = (int)gvIns.SelectedValue;
-            if (formPanel.Visible)
-            {
-                LoadForm(SelectedID);
-            }
+          
+               
+            
         }
 
 
         private void LoadGrid()
         {
-            gvIns.DataSource = alins.GetAllFromUser(Convert.ToInt32(Session["id"].ToString()));
+           // gvIns.DataSource = alins.GetAllFromUser(Convert.ToInt32(Session["id"].ToString()));
             gvIns.DataBind();
         }
 
-        private void LoadForm(int id)
+        /*private void LoadForm(int id)
         {
             Entity = alins.GetOne(id);
-
-            txAlumno.Text = Entity.IDAlumno.ToString();
-            txCondi.Text = Entity.Condicion.ToString();
-            txCurso.Text = Entity.IDCurso.ToString();
+             
+            txA.Text = Entity.IDAlumno.ToString();
+           txCondi.Text = Entity.Condicion.ToString();
+           txCurso.Text = Entity.IDCurso.ToString();
             txNota.Text = Entity.Nota.ToString();
         }
+
         private void ClearForm()
         {
             Entity = null;
@@ -83,15 +100,14 @@ namespace UI.Web
             txCurso.Text = string.Empty;
             txNota.Text = string.Empty;
 
-        }
+        }*/
 
         protected void lbEditar_Click(object sender, EventArgs e)
         {
             if (gvIns.SelectedValue != null)
             {
-                this.formPanel.Visible = true;
                 this.FormMode = FormModes.Modificacion;
-                this.LoadForm(this.SelectedID);
+              //this.LoadForm(this.SelectedID);
             }
         }
 
@@ -99,13 +115,17 @@ namespace UI.Web
         {
             if (gvIns.SelectedValue != null)
             {
-                if (formPanel.Visible) formPanel.Visible = false;
-
+                
                 this.FormMode = FormModes.Alta;
+                Entity.State = BusinessEntity.States.Deleted;
+                // Entity = alins.GetOne(SelectedID);
+                alins.Delete(Entity);
+                LoadGrid();
+               
             }
         }
 
-        private void LoadEntity(AlumnoInscripcion al)
+      /*  private void LoadEntity(AlumnoInscripcion al)
         {
             al.Nota = Convert.ToInt32(txNota.Text);
             al.IDAlumno = Convert.ToInt32(txAlumno.Text);
@@ -116,40 +136,12 @@ namespace UI.Web
             if (txCondi.Text == "3") al.Condicion = AlumnoInscripcion.Condiciones.Cursando;
             if (txCondi.Text == "4") al.Condicion = AlumnoInscripcion.Condiciones.Libre;
 
-        }
+        }*/
         private void SaveEntity(AlumnoInscripcion al)
         {
             alins.Save(al);
         }
 
-        protected void lbAceptar_Click(object sender, EventArgs e)
-        {
-            switch (FormMode)
-
-            {
-                case FormModes.Baja:
-                    Entity = alins.GetOne(SelectedID);
-                    alins.Delete(Entity);
-                    LoadGrid();
-                    break;
-                case FormModes.Modificacion:
-                    Entity = new AlumnoInscripcion();
-                    Entity = alins.GetOne(SelectedID);
-                    Entity.State = BusinessEntity.States.Modified;
-                    LoadEntity(Entity);
-                    SaveEntity(Entity);
-                    LoadGrid();
-                    formPanel.Visible = false;
-
-                    break;
-            }
-
-            formPanel.Visible = false;
-        }
-
-        protected void lbCancelar_Click(object sender, EventArgs e)
-        {
-            formPanel.Visible = false;
-        }
+      
     }
 }

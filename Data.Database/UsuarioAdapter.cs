@@ -63,6 +63,7 @@ namespace Data.Database
                     user.Clave = (string)drUsuarios["clave"];
                     user.Email = (string)drUsuarios["email"];
                     user.Habilitado = (bool)drUsuarios["habilitado"];
+                    user.Id_persona = (int)drUsuarios["id_persona"];
                 }
                 drUsuarios.Close();
             }
@@ -92,12 +93,13 @@ namespace Data.Database
 
                 if (drUsuarios.Read())
                 {
-                user.ID = (int)drUsuarios["id_usuario"];
-                user.NombreUsuario = (string)drUsuarios["nombre_usuario"];
-                user.Clave = (string)drUsuarios["clave"];
-                user.Email = (string)drUsuarios["email"];
-                user.Habilitado = (bool)drUsuarios["habilitado"];
-                
+                    user.ID = (int)drUsuarios["id_usuario"];
+                    user.NombreUsuario = (string)drUsuarios["nombre_usuario"];
+                    user.Clave = (string)drUsuarios["clave"];
+                    user.Email = (string)drUsuarios["email"];
+                    user.Habilitado = (bool)drUsuarios["habilitado"];
+                    user.Id_persona = (int)drUsuarios["id_persona"];
+
                 }
             drUsuarios.Close();
                 }
@@ -173,12 +175,13 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmIns = new SqlCommand("INSERT INTO usuarios(email, nombre_usuario, clave, habilitado) " +
-                    "values(@email,@nombre_usuario, @clave,@habilitado) SELECT @@identity", SqlConn);
+                SqlCommand cmIns = new SqlCommand("INSERT INTO usuarios(email, nombre_usuario, clave, habilitado,id_persona) " +
+                    "values(@email,@nombre_usuario, @clave,@habilitado,@id_persona) SELECT @@identity", SqlConn);
 
                 cmIns.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.Email;
                 cmIns.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmIns.Parameters.Add("@clave", SqlDbType.Char, 60).Value = usuario.Clave;
+                cmIns.Parameters.Add("@id_persona", SqlDbType.Int).Value = usuario.Id_persona;
                 cmIns.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
                 usuario.ID = Decimal.ToInt32((decimal)cmIns.ExecuteScalar());
             }

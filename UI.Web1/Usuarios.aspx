@@ -46,7 +46,7 @@ DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" >
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <br />
                 <asp:Label ID="tbId_perasdsona" runat="server" Text="PersonaID:"></asp:Label>
-                <asp:TextBox ID="tbId_persona" runat="server"></asp:TextBox>
+                 <asp:TextBox ID="tbidPers" runat="server"></asp:TextBox>
                 <br />
 
                 <br />

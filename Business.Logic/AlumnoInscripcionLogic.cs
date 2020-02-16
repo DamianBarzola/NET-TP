@@ -24,22 +24,23 @@ namespace Business.Logic
             return AlumnoInscA.GetAll();
         }
 
-        public List<AlumnoInscripcion> GetAllFromUser(int IDUsuario)
+      /*  public List<AlumnoInscripcion> GetAllFromUser(int IDUsuario)
         {
             return AlumnoInscA.GetAllFromUser(IDUsuario);
         }
         public List<AlumnoInscripcion> GetAllFromCurso(int IDCurso)
         {
             return AlumnoInscA.GetAllFromCurso(IDCurso);
-        }
-        public AlumnoInscripcion GetOne(int id)
+        }*/
+
+        public AlumnoInscripcion GetOne(AlumnoInscripcion id)
         {
             return AlumnoInscA.GetOne(id);
-        }
+        }/*
         public int GetCantCupo(int IDCurso)
         {
             return AlumnoInscA.GetCupo(IDCurso);
-        }
+        }*/
 
         public void Save(AlumnoInscripcion insc)
         {
@@ -75,18 +76,18 @@ namespace Business.Logic
                 DataRow Linea = Listado.NewRow();
 
                 Linea["ID"] = ai.ID;
-                Linea["Nota"] = (ai.Nota == 0) ? "-" : ai.Nota.ToString();
-                Linea["Condicion"] = ai.Condicion.ToString();
+               // Linea["Nota"] = (ai.Nota == 0) ? "-" : ai.Nota.ToString();
+  //              Linea["Condicion"] = ai.Condicion.ToString();
 
                 Usuario user = usuarios.FirstOrDefault(x => x.ID == ai.IDAlumno);
                 Linea["Alumno"] = user.ID + " - " + user.Persona.Apellido + ", " + user.Persona.Nombre;
                 
-                Curso curso = cursos.FirstOrDefault(x => x.ID == ai.IDCurso);
-                Materia materia = materias.FirstOrDefault(x => x.ID == curso.IDMateria);
-                Comision comision = comisiones.FirstOrDefault(x => x.ID == curso.IDComision);
+    //            Curso curso = cursos.FirstOrDefault(x => x.ID == ai.IDCurso);
+              //  Materia materia = materias.FirstOrDefault(x => x.ID == curso.IDMateria);
+                //Comision comision = comisiones.FirstOrDefault(x => x.ID == curso.IDComision);
                 //Linea["Curso"] = comision.Descripcion + " - " + materia.Descripcion;
                 //dami te comente esto para q me corra sin errores (le saque  comision.Descripcion + " - " )
-                Linea["Curso"] =  materia.Descripcion;
+            //    Linea["Curso"] =  materia.Descripcion;
 
                 Listado.Rows.Add(Linea);
             }
