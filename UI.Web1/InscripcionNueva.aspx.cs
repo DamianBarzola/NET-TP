@@ -10,11 +10,13 @@ namespace UI.Web
 {
     public partial class InscripcionNueva : System.Web.UI.Page
     {
-        CursoLogic cursos = new CursoLogic();
-        MateriaLogic materias = new MateriaLogic();
-        PlanLogic planes = new PlanLogic();
-        AlumnoInscripcionLogic alumnos = new AlumnoInscripcionLogic();
+        ComisionLogic com = new ComisionLogic();
+      
 
+        AlumnoInscripcion al = new AlumnoInscripcion();
+
+        AlumnoInscripcionLogic alumnos = new AlumnoInscripcionLogic();
+        private Comision Entity { get; set; }
         protected int SelectedID
         {
             get
@@ -37,8 +39,20 @@ namespace UI.Web
         }
         public void LoadGrid()
         {
-            gridView.DataSource = cursos.GetPorAnio(Convert.ToInt32(DateTime.Now.Year));
-            gridView.DataBind();
+            List<Comision> a = new List<Comision>();
+            a = com.GetPorAnio();
+            if (a.Count == 0)
+            {
+                Panel1.Visible = true;
+                lbaceptar.Visible = false;
+            }
+            else {
+                lbaceptar.Visible = true;
+                Panel1.Visible = false;
+                gridView.DataSource = com.GetPorAnio();
+                gridView.DataBind();
+            }
+
         }
 
         protected void gridView_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -47,9 +61,33 @@ namespace UI.Web
 
         }
 
-        protected void gridView_RowCommand(object sender, GridViewCommandEventArgs e)
+     
+
+        protected void lbNuevo_Click(object sender, EventArgs e)
         {
+
+            Entity = new Comision();
+            Entity.State = BusinessEntity.States.New;
+
+
+           
+            Entity = com.GetOne(SelectedID);
+            if (Entity != null)
+            {
+                
+
+                al.IDAlumno = Convert.ToInt32(Session["idPersona"]);
+                al.IDComision = Entity.ID;
+                alumnos.Insert(al);
+            } 
+            
+            
         }
 
+        protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectedID = (int)gridView.SelectedValue;
+            
+        }
     }
 }

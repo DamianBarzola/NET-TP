@@ -42,7 +42,13 @@ namespace Business.Logic
             return AlumnoInscA.GetCupo(IDCurso);
         }*/
 
-        public void Save(AlumnoInscripcion insc)
+        public void Insert(AlumnoInscripcion insc)
+        {
+            AlumnoInscA.Insert(insc);
+        }
+
+
+            public void Save(AlumnoInscripcion insc)
         {
             AlumnoInscA.Save(insc);
         }

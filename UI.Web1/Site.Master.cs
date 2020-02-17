@@ -29,7 +29,7 @@ namespace UI.Web
                 if ((int)Session["tipo"] == 3)
                 {
                     chABM.Visible = true;
-                    //chMisCursos.Visible = false;
+                    chMisCursos.Visible = false;
                     chMaterias.Visible = false;
 
                 }
@@ -37,12 +37,13 @@ namespace UI.Web
                 {
                     chABM.Visible = false;
                     chMaterias.Visible = false;
-                    //chMisCursos.Visible = true;
+                    chMisCursos.Visible = true;
                 }
                 else if ((int)Session["tipo"] == 1)
                 {
                     chABM.Visible = false;
-                    chMaterias.Visible = true; //chMisCursos.Visible = false;
+                    chMaterias.Visible = true;
+                    chMisCursos.Visible = false;
                 }
 
             }

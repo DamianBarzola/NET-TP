@@ -30,7 +30,7 @@
                 &nbsp;&nbsp;&nbsp;-->
                 <asp:LinkButton runat="server" href="/Usuarios.aspx" id="lbUsuarios">Usuarios</asp:LinkButton>
                 &nbsp;&nbsp;&nbsp; &nbsp;<asp:LinkButton runat="server" ID="lbPersona" href="/Personas.aspx">Persona</asp:LinkButton>
-&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;
                <!-- <asp:LinkButton runat="server" href="/Inscripciones.aspx" id="lbAgregInscrip">Inscripciones a Comisiones</asp:LinkButton>
             </p>-->
         </asp:ContentPlaceHolder>
@@ -40,22 +40,18 @@
                 &nbsp;&nbsp; Materias<br />&nbsp;
                 <asp:LinkButton runat="server" href="/MisInscripciones.aspx" id="lbVerInscrip">Mis Inscripciones</asp:LinkButton>
                 &nbsp;&nbsp;&nbsp;
-                <asp:LinkButton runat="server" href="/InscripcionNueva.aspx" id="lbInscACursoado">Inscribirse a Cursado</asp:LinkButton>
+                <asp:LinkButton runat="server" href="/InscripcionNueva.aspx" id="lbInscACursoado">Inscribirse a Comision</asp:LinkButton>
                 &nbsp;&nbsp;&nbsp;
             </p>
             <p style="border-top-style: double; border-width: 1px; border-color: #000080; border-bottom-style: double">
                 <asp:ContentPlaceHolder ID="chMisCursos" runat="server">
                     <asp:LinkButton runat="server" id="isMisCursos" href="javascript:__doPostBack('ctl00$LinkButton2','')">Mis Cursos</asp:LinkButton>
+                    (Reporte)
                 </asp:ContentPlaceHolder>
             </p>
         </asp:ContentPlaceHolder>
 
         <asp:ContentPlaceHolder ID="chReportes" runat="server">
-            <p style="border-style: double none double none; border-width: 1px; border-color: #000080; margin-bottom: 19px">
-                &nbsp;
-                 Reportes<br />&nbsp;
-                <asp:LinkButton runat="server" href="javascript:__doPostBack('ctl00$LinkButton4','')" id="lbReportes">Reportes</asp:LinkButton>
-            </p>
         </asp:ContentPlaceHolder>
 
         <br />

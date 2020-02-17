@@ -14,6 +14,10 @@ namespace Business.Logic
         private ComisionAdapter comision;
         public ComisionAdapter ComisionA { get => comision; set => comision = value; }
 
+        public List<Comision> GetPorAnio()
+        {
+            return ComisionA.GetPorAnio();
+        }
         public ComisionLogic()
         {
             ComisionA = new ComisionAdapter();

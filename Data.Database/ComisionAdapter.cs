@@ -192,6 +192,42 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
+
+
+        public List<Comision> GetPorAnio()
+        {
+            List<Comision> cursos = new List<Comision>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdCursos = new SqlCommand("SELECT * FROM comision where anio=@an ", SqlConn);
+                cmdCursos.Parameters.Add("@an", SqlDbType.Int).Value = Convert.ToInt32(DateTime.Now.Year);
+                SqlDataReader drComisiones = cmdCursos.ExecuteReader();
+
+                while (drComisiones.Read())
+                {
+                    Comision com = new Comision();
+
+                    com.ID = (int)drComisiones["id_comision"];
+                    com.AnioEspecialidad = (int)drComisiones["anio"];
+                    com.IDMateria = (int)drComisiones["id_materia"];
+                    com.IdProfesor = (int)drComisiones["id_profesor"];
+                    cursos.Add(com);
+                }
+                drComisiones.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar lista de cursos", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return cursos;
+        }
         public void Save(Comision com)
         {
             if (com.State == BusinessEntity.States.Deleted)

@@ -207,50 +207,48 @@ namespace Data.Database
             }
         }
         //Hay que modificar a nueva base
-      /*  protected void Update(AlumnoInscripcion insc)
-        {
-            try
-            {
-                this.OpenConnection();
-                SqlCommand cmUpd = new SqlCommand("UPDATE alumnos_inscripciones SET id_alumno = @id_alumno, " +
-                    "id_curso = @id_curso, nota = @nota, condicion = @condicion, ai_hab = @ai_hab " +
-                    "WHERE id_inscripcion=@id", SqlConn);
+        /*  protected void Update(AlumnoInscripcion insc)
+          {
+              try
+              {
+                  this.OpenConnection();
+                  SqlCommand cmUpd = new SqlCommand("UPDATE alumnos_inscripciones SET id_alumno = @id_alumno, " +
+                      "id_curso = @id_curso, nota = @nota, condicion = @condicion, ai_hab = @ai_hab " +
+                      "WHERE id_inscripcion=@id", SqlConn);
 
-                cmUpd.Parameters.Add("@id", SqlDbType.Int).Value = insc.ID;
-                cmUpd.Parameters.Add("@id_alumno", SqlDbType.Int).Value = insc.IDAlumno;
-                cmUpd.Parameters.Add("@id_curso", SqlDbType.Int).Value = insc.IDCurso;
-                cmUpd.Parameters.Add("@nota", SqlDbType.Int).Value = insc.Nota;
-                cmUpd.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = insc.Condicion.ToString();
-                cmUpd.Parameters.Add("@ai_hab", SqlDbType.Bit).Value = insc.Habilitado;
-                cmUpd.ExecuteNonQuery();
-            }
-            catch (Exception Ex)
-            {
-                Exception ExcepcionManejada = new Exception("Error al modificar datos de Inscripcion", Ex);
-                throw ExcepcionManejada;
-            }
-            finally
-            {
-                this.CloseConnection();
-            }
-        }*/
+                  cmUpd.Parameters.Add("@id", SqlDbType.Int).Value = insc.ID;
+                  cmUpd.Parameters.Add("@id_alumno", SqlDbType.Int).Value = insc.IDAlumno;
+                  cmUpd.Parameters.Add("@id_curso", SqlDbType.Int).Value = insc.IDCurso;
+                  cmUpd.Parameters.Add("@nota", SqlDbType.Int).Value = insc.Nota;
+                  cmUpd.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = insc.Condicion.ToString();
+                  cmUpd.Parameters.Add("@ai_hab", SqlDbType.Bit).Value = insc.Habilitado;
+                  cmUpd.ExecuteNonQuery();
+              }
+              catch (Exception Ex)
+              {
+                  Exception ExcepcionManejada = new Exception("Error al modificar datos de Inscripcion", Ex);
+                  throw ExcepcionManejada;
+              }
+              finally
+              {
+                  this.CloseConnection();
+              }
+          }*/
 
         //Hay que modificar a nueva base
-       /*
-        protected void Insert(AlumnoInscripcion insc)
+
+        public void Insert(AlumnoInscripcion insc)
         {
             try
             {
                 this.OpenConnection();
-                SqlCommand cmIns = new SqlCommand("INSERT INTO alumnos_inscripciones(id_alumno, id_curso, condicion, ai_hab) " +
-                    "values(@id_alumno, @id_curso, @condicion, @ai_hab) SELECT @@identity", SqlConn);
+                SqlCommand cmIns = new SqlCommand("INSERT INTO comision_alumnos(id_persona, id_comision) " +
+                    "values(@com, @asd ) ", SqlConn);
 
-                cmIns.Parameters.Add("@id_alumno", SqlDbType.Int).Value = insc.IDAlumno;
-                cmIns.Parameters.Add("@id_curso", SqlDbType.Int).Value = insc.IDCurso;
-                cmIns.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = insc.Condicion.ToString();
-                cmIns.Parameters.Add("@ai_hab", SqlDbType.Bit).Value = insc.Habilitado;
+                cmIns.Parameters.Add("@com", SqlDbType.Int).Value = insc.IDComision;
+                cmIns.Parameters.Add("@asd", SqlDbType.Int).Value = insc.IDAlumno;
 
-                insc.ID = Decimal.ToInt32((decimal)cmIns.ExecuteScalar());
+               
             }
             catch (Exception Ex)
             {
@@ -261,7 +259,7 @@ namespace Data.Database
             {
                 this.CloseConnection();
             }
-        }*/
+        }
         public void Save(AlumnoInscripcion insc)
         {
             if (insc.State == BusinessEntity.States.Deleted)
