@@ -116,7 +116,20 @@ namespace UI.Desktop
             if (Validar())
             {
                 this.MapearADatos();
+                switch (this.modoform)
+                {
+                    case ModoForm.Alta:
+                        comisionActual.State = BusinessEntity.States.New;
+                        break;
+                    case ModoForm.Baja:
+                        comisionActual.State = BusinessEntity.States.Deleted;
+                        break;
+                    case ModoForm.Modificacion:
+                        comisionActual.State = BusinessEntity.States.Modified;
+                        break;
+                }
                 cLogic.Save(comisionActual);
+                this.Close();
             }
         }
 
@@ -124,6 +137,54 @@ namespace UI.Desktop
         {
             string mensaje = "";
             bool valid = true;
+            MateriaLogic materiaLogic = new MateriaLogic();
+            PersonaLogic personaLogic = new PersonaLogic();
+
+            if (txtanio.Text.Length == 0){
+                mensaje += "/n Debe ingresar un anio";
+                valid = false;
+            }
+            else
+            {
+                try
+                {
+                    int.Parse(txtanio.Text);
+                }
+                catch (FormatException ef)
+                {
+                    valid = false;
+                    mensaje += "\nEl anio debe ser un número entero.";
+                }
+            }
+            if (materiaLogic.GetOne(Convert.ToInt32(txtid_materia.Text)) == null || txtid_materia.Text.Length == 0)
+            {
+                mensaje += "/n Debe ingresar una materia valida";
+                valid = false;
+            }
+
+            if (txtid_profesor.Text.Length == 0)
+            {
+                mensaje += "/n Debe ingresar un profesor ";
+                valid = false;
+            }
+                    else
+                    {
+                        if (personaLogic.GetOne(Convert.ToInt32(txtid_profesor.Text)) == null)
+                        {
+                            mensaje += "/n Debe ingresar una persona valida ";
+                            valid = false;
+                        }
+                                else if (personaLogic.GetOne(Convert.ToInt32(txtid_profesor.Text)).Tipo != Persona.TipoPersona.Docente)
+                                {
+                                    mensaje += "/n Debe ingresar una persona que sea profesor ";
+                                    valid = false;
+                                }
+                    }
+
+            if (!valid)
+            {
+                MessageBox.Show(mensaje);
+            }
 
             return valid;
         }

@@ -66,7 +66,7 @@ namespace UI.Desktop
         private void tsEditar_Click(object sender, EventArgs e)
         {
             int ID = ((Business.Entities.Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID;
-            ComisionDesktop comisionDesktop = new ComisionDesktop(int id, ModoForm.Modificacion);
+            ComisionDesktop comisionDesktop = new ComisionDesktop(ID, ModoForm.Modificacion);
             comisionDesktop.ShowDialog();
             this.Listar();
         }

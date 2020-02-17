@@ -145,12 +145,6 @@ namespace Data.Database
                 this.OpenConnection();
                 SqlCommand cmUpd = new SqlCommand("UPDATE comision SET anio = @an, id_profesor = @profesor, id_materia = @materia  " +                    
                     "WHERE id_comision=@id", SqlConn);
-                /*
-                com.ID = (int)drComisiones["id_comision"];
-                com.AnioEspecialidad = (int)drComisiones["anio"];
-                com.IDMateria = (int)drComisiones["id_materia"];
-                com.IdProfesor = (int)drComisiones["id_profesor"];
-                */
 
                 cmUpd.Parameters.Add("@id", SqlDbType.Int).Value = com.ID;
                 cmUpd.Parameters.Add("@profesor", SqlDbType.Int).Value = com.IdProfesor;                
