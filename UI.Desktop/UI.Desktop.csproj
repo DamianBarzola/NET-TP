@@ -79,10 +79,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ABMs\AlumnoInscripcion.cs">
+    <Compile Include="borrar\AlumnoInscripcion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMs\AlumnoInscripcion.Designer.cs">
+    <Compile Include="borrar\AlumnoInscripcion.Designer.cs">
       <DependentUpon>AlumnoInscripcion.cs</DependentUpon>
     </Compile>
     <Compile Include="ABMs\Listas\ComisionesList.cs">
@@ -97,28 +97,28 @@
     <Compile Include="ABMs\Formularios\ComisionDesktop.Designer.cs">
       <DependentUpon>ComisionDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABMs\Cursos.cs">
+    <Compile Include="borrar\Cursos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMs\Cursos.Designer.cs">
+    <Compile Include="borrar\Cursos.Designer.cs">
       <DependentUpon>Cursos.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABMs\CursosDesktop.cs">
+    <Compile Include="borrar\CursosDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMs\CursosDesktop.Designer.cs">
+    <Compile Include="borrar\CursosDesktop.Designer.cs">
       <DependentUpon>CursosDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABMs\DocenteCurso.cs">
+    <Compile Include="borrar\DocenteCurso.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMs\DocenteCurso.Designer.cs">
+    <Compile Include="borrar\DocenteCurso.Designer.cs">
       <DependentUpon>DocenteCurso.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABMs\DoncentesCursosDesktop.cs">
+    <Compile Include="borrar\DoncentesCursosDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMs\DoncentesCursosDesktop.Designer.cs">
+    <Compile Include="borrar\DoncentesCursosDesktop.Designer.cs">
       <DependentUpon>DoncentesCursosDesktop.cs</DependentUpon>
     </Compile>
     <Compile Include="ABMs\Formularios\EspecialidadDesktop.cs">
@@ -175,16 +175,16 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CambiarPass.cs">
+    <Compile Include="borrar\CambiarPass.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CambiarPass.Designer.cs">
+    <Compile Include="borrar\CambiarPass.Designer.cs">
       <DependentUpon>CambiarPass.cs</DependentUpon>
     </Compile>
-    <Compile Include="CargarNotas.cs">
+    <Compile Include="borrar\CargarNotas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CargarNotas.Designer.cs">
+    <Compile Include="borrar\CargarNotas.Designer.cs">
       <DependentUpon>CargarNotas.cs</DependentUpon>
     </Compile>
     <Compile Include="echenotocar\Main.cs">
@@ -193,10 +193,10 @@
     <Compile Include="echenotocar\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="InscribirCurso.cs">
+    <Compile Include="borrar\InscribirCurso.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InscribirCurso.Designer.cs">
+    <Compile Include="borrar\InscribirCurso.Designer.cs">
       <DependentUpon>InscribirCurso.cs</DependentUpon>
     </Compile>
     <Compile Include="borrar\DatosUsuario.cs">
@@ -223,22 +223,28 @@
     <Compile Include="ABMs\Listas\UsuariosList.Designer.cs">
       <DependentUpon>UsuariosList.cs</DependentUpon>
     </Compile>
+    <Compile Include="InscribirComisionDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InscribirComisionDesktop.Designer.cs">
+      <DependentUpon>InscribirComisionDesktop.cs</DependentUpon>
+    </Compile>
     <Compile Include="MateriasInscriptoForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MateriasInscriptoForm.Designer.cs">
       <DependentUpon>MateriasInscriptoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MisCursos.cs">
+    <Compile Include="borrar\MisCursos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MisCursos.Designer.cs">
+    <Compile Include="borrar\MisCursos.Designer.cs">
       <DependentUpon>MisCursos.cs</DependentUpon>
     </Compile>
-    <Compile Include="MisInscripciones.cs">
+    <Compile Include="borrar\MisInscripciones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MisInscripciones.Designer.cs">
+    <Compile Include="borrar\MisInscripciones.Designer.cs">
       <DependentUpon>MisInscripciones.cs</DependentUpon>
     </Compile>
     <Compile Include="ABMs\Listas\PersonaSinUsuarioList.cs">
@@ -255,7 +261,7 @@
       <DependentUpon>Reporte.xsd</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <EmbeddedResource Include="ABMs\AlumnoInscripcion.resx">
+    <EmbeddedResource Include="borrar\AlumnoInscripcion.resx">
       <DependentUpon>AlumnoInscripcion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABMs\Listas\ComisionesList.resx">
@@ -264,16 +270,16 @@
     <EmbeddedResource Include="ABMs\Formularios\ComisionDesktop.resx">
       <DependentUpon>ComisionDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABMs\Cursos.resx">
+    <EmbeddedResource Include="borrar\Cursos.resx">
       <DependentUpon>Cursos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABMs\CursosDesktop.resx">
+    <EmbeddedResource Include="borrar\CursosDesktop.resx">
       <DependentUpon>CursosDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABMs\DocenteCurso.resx">
+    <EmbeddedResource Include="borrar\DocenteCurso.resx">
       <DependentUpon>DocenteCurso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABMs\DoncentesCursosDesktop.resx">
+    <EmbeddedResource Include="borrar\DoncentesCursosDesktop.resx">
       <DependentUpon>DoncentesCursosDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABMs\Formularios\EspecialidadDesktop.resx">
@@ -306,16 +312,16 @@
     <EmbeddedResource Include="ApplicationForm.resx">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CambiarPass.resx">
+    <EmbeddedResource Include="borrar\CambiarPass.resx">
       <DependentUpon>CambiarPass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CargarNotas.resx">
+    <EmbeddedResource Include="borrar\CargarNotas.resx">
       <DependentUpon>CargarNotas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="echenotocar\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InscribirCurso.resx">
+    <EmbeddedResource Include="borrar\InscribirCurso.resx">
       <DependentUpon>InscribirCurso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="borrar\DatosUsuario.resx">
@@ -327,13 +333,16 @@
     <EmbeddedResource Include="ABMs\Formularios\UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InscribirComisionDesktop.resx">
+      <DependentUpon>InscribirComisionDesktop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MateriasInscriptoForm.resx">
       <DependentUpon>MateriasInscriptoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MisCursos.resx">
+    <EmbeddedResource Include="borrar\MisCursos.resx">
       <DependentUpon>MisCursos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MisInscripciones.resx">
+    <EmbeddedResource Include="borrar\MisInscripciones.resx">
       <DependentUpon>MisInscripciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABMs\Listas\PersonaSinUsuarioList.resx">

@@ -43,6 +43,7 @@
     <Compile Include="AlumnoInscripcionLogic.cs" />
     <Compile Include="BusinessLogic.cs" />
     <Compile Include="ComisionLogic.cs" />
+    <Compile Include="Comision_AlumnoLogic.cs" />
     <Compile Include="CursoLogic.cs" />
     <Compile Include="DocenteCursoLogic.cs" />
     <Compile Include="EspecialidadLogic.cs" />
