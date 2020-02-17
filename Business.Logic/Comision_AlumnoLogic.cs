@@ -9,8 +9,20 @@ using System.Data;
 
 namespace Business.Logic
 {
-    class Comision_AlumnoLogic : BusinessLogic
+    public class Comision_AlumnoLogic : BusinessLogic
     {
+        private Comision_AlumnoAdapter comAdap;
+        public Comision_AlumnoAdapter Com { get => comAdap; set => comAdap = value; }
 
+
+        public Comision_AlumnoLogic()
+        {
+            Com = new Comision_AlumnoAdapter(); 
+        }
+
+        public void Insert(Comision_Alumno comal)
+        {
+            Com.Insert(comal);
+        }
     }
 }

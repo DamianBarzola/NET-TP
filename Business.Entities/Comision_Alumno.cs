@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Business.Entities
 {
-    class Comision_Alumno : BusinessEntity
+    public class Comision_Alumno : BusinessEntity
     {
         private int _idpersona;
         public int IDPersona { get => _idpersona; set => _idpersona = value; }

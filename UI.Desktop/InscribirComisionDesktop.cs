@@ -14,6 +14,12 @@ namespace UI.Desktop
 {
     public partial class InscribirComisionDesktop : ApplicationForm
     {
+        //Comision_Alumno comision_alumno;
+        //Comision_AlumnoLogic calLogic = new Comision_AlumnoLogic();
+
+        AlumnoInscripcion al ;
+        AlumnoInscripcionLogic alogic = new AlumnoInscripcionLogic();
+
         public InscribirComisionDesktop()
         {
             InitializeComponent();
@@ -26,8 +32,43 @@ namespace UI.Desktop
 
         public override void MapearADatos()
         {
-           comision
+            al = new AlumnoInscripcion();
+            al.IDAlumno = Convert.ToInt32(txtIDPersona.Text);
+            al.IDComision = Convert.ToInt32(txtIDComision.Text);
         }
+
+        public override bool Validar()
+        {
+            bool valid= true;
+            /*string mensaje = "";
+            Comision com = new Comision();
+            ComisionLogic cLogic = new ComisionLogic();
+            com = cLogic.GetOne(Convert.ToInt32(txtIDComision));
+            if (com.ID !=)
+            //{
+
+            }
+
+            if (!valid)
+            {
+                MessageBox.Show(mensaje);
+            }*/
+
+            return valid;
+        }
+
+        public override void GuardarCambios()
+        {
+            if (Validar())
+            {
+                this.MapearADatos();
+                alogic.Insert(al);
+                this.Close();
+            }
+        }
+
+
+
 
     }
 }

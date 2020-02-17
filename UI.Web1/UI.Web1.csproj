@@ -77,7 +77,6 @@
     <Content Include="Materias.aspx" />
     <Content Include="MisInscripciones.aspx" />
     <Content Include="Personas.aspx" />
-    <Content Include="ReporteAlumno.aspx" />
     <Content Include="Usuarios.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -158,13 +157,6 @@
       <DependentUpon>Personas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReporteAlumno.aspx.cs">
-      <DependentUpon>ReporteAlumno.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ReporteAlumno.aspx.designer.cs">
-      <DependentUpon>ReporteAlumno.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
