@@ -21,4 +21,7 @@
         <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:LinkButton ID="lbaceptar" runat="server" OnClick="lbNuevo_Click">Aceptar</asp:LinkButton>
         
+    <asp:Panel ID="Panel2" runat="server">
+        INSCRIPCION EXITOSA</asp:Panel>
+        
     </asp:Content>

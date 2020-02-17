@@ -47,6 +47,7 @@ namespace UI.Web
                 lbaceptar.Visible = false;
             }
             else {
+                
                 lbaceptar.Visible = true;
                 Panel1.Visible = false;
                 gridView.DataSource = com.GetPorAnio();
@@ -79,8 +80,11 @@ namespace UI.Web
                 al.IDAlumno = Convert.ToInt32(Session["idPersona"]);
                 al.IDComision = Entity.ID;
                 alumnos.Insert(al);
-            } 
-            
+                gridView.visible = false;
+                lbaceptar.Visible = false;
+                Panel2.visible = true;
+            }
+           
             
         }
 

@@ -16,7 +16,7 @@
  Por favor digite su información de Ingreso.<br />
 
             <br />
-Usuario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Usuario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
             <asp:TextBox ID="txtUsuario" type="text" runat="server" TabIndex="1"></asp:TextBox>
              <br />
 Contraseña
