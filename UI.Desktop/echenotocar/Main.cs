@@ -28,13 +28,13 @@ namespace UI.Desktop
         {
             InitializeComponent();
             UsuarioLogueado = user;
-            ActualizarVista();
+            //ActualizarVista();
 
         }
         #endregion
 
 
-        public void ActualizarVista()
+       /* public void ActualizarVista()
         {
             if(UsuarioLogueado ==null)
             {
@@ -66,7 +66,7 @@ namespace UI.Desktop
                             MenuAlumno();
                             break;
 
-                    }*/
+                    }
 
                 }
 
@@ -75,10 +75,9 @@ namespace UI.Desktop
 
 
 
-        }
+        }*/
 
-
-        #region Menu
+     /*   #region Menu
         private void MenuAlumno()
         {
             tsmAlumnos.Visible = true;
@@ -96,6 +95,7 @@ namespace UI.Desktop
                 
         }
         #endregion
+    */
 
         public void Login()
         {

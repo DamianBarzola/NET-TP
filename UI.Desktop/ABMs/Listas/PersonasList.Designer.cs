@@ -242,14 +242,14 @@
             // 
             // FechaNacimiento
             // 
-            this.FechaNacimiento.DataPropertyName = "fecha_nac";
+            this.FechaNacimiento.DataPropertyName = "FechaNacimiento";
             this.FechaNacimiento.HeaderText = "Fecha Nacimiento";
             this.FechaNacimiento.Name = "FechaNacimiento";
             this.FechaNacimiento.ReadOnly = true;
             // 
             // tip
             // 
-            this.tip.DataPropertyName = "tipo_persona";
+            this.tip.DataPropertyName = "Tipo";
             this.tip.HeaderText = "Tipo de Persona";
             this.tip.Name = "tip";
             this.tip.ReadOnly = true;

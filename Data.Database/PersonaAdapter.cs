@@ -164,7 +164,7 @@ namespace Data.Database
                 SqlCommand cmIns = new SqlCommand("INSERT INTO personas(nombre,apellido,direccion,telefono,fecha_nac,legajo," +
                     "tipo_persona,id_especialidad) " +
                     "values(@nombre,@apellido,@direccion,@telefono,@fecha_nac,@legajo,@tipo_persona,@id_especialidad) SELECT @@identity", SqlConn);
-                cmIns.Parameters.Add("@id_especialidad", SqlDbType.Int).Value = persona.Id_especialidad;
+                cmIns.Parameters.Add("@id_especialidad", SqlDbType.Int).Value = 9;
                 cmIns.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = persona.Nombre;
                 cmIns.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = persona.Apellido;
                 cmIns.Parameters.Add("@direccion", SqlDbType.VarChar, 50).Value = persona.Direccion;

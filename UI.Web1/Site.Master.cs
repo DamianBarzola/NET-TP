@@ -12,9 +12,10 @@ namespace UI.Web
 {
     public partial class Site : System.Web.UI.MasterPage
     {
+        PersonaLogic persLog = new PersonaLogic();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            PersonaLogic persLog = new PersonaLogic();
             Business.Entities.Persona a = persLog.GetOne((int)Session["idPersona"]);
             Session["tipo"] = a.Tipo;
             Session["id"] = a.ID;
@@ -31,6 +32,8 @@ namespace UI.Web
                     chABM.Visible = true;
                     chMisCursos.Visible = false;
                     chMaterias.Visible = false;
+                    //Profesor.Visible = false;
+                    chReportes.Visible = false;
 
                 }
                 else if ((int)Session["tipo"] == 2)
@@ -38,12 +41,16 @@ namespace UI.Web
                     chABM.Visible = false;
                     chMaterias.Visible = false;
                     chMisCursos.Visible = true;
+                    //Profesor.Visible = true;
+                    chReportes.Visible = true;
                 }
                 else if ((int)Session["tipo"] == 1)
                 {
                     chABM.Visible = false;
                     chMaterias.Visible = true;
                     chMisCursos.Visible = false;
+                    // Profesor.Visible = false;
+                    chReportes.Visible = false;
                 }
 
             }
@@ -64,6 +71,17 @@ namespace UI.Web
         protected void lbAgregInscrip_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+            Business.Entities.Persona a = persLog.GetOne((int)Session["idPersona"]);
+            if (txtEspecialidad.Text.Length != 0)
+            {
+                a.Id_especialidad = Convert.ToInt32(txtEspecialidad.Text);
+                a.State = BusinessEntity.States.Modified;
+                persLog.Save(a);
+            }
         }
     }
 }

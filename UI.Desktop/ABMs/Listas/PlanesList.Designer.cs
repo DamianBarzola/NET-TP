@@ -183,14 +183,14 @@
             // descripcion
             // 
             this.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.descripcion.DataPropertyName = "descripcion";
+            this.descripcion.DataPropertyName = "DescripcionPlan";
             this.descripcion.HeaderText = "Descripcion";
             this.descripcion.Name = "descripcion";
             this.descripcion.ReadOnly = true;
             // 
             // id_especialidad
             // 
-            this.id_especialidad.DataPropertyName = "id_especialidad";
+            this.id_especialidad.DataPropertyName = "IDEspecialidad";
             this.id_especialidad.HeaderText = "Especialidad";
             this.id_especialidad.Name = "id_especialidad";
             this.id_especialidad.ReadOnly = true;

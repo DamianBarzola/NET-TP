@@ -3,9 +3,6 @@
 
     <div>
         <br />
-        <p class="text-center">No hay inscripciones disponibles</p>
-        <p class="text-left h5">
-            &nbsp;</p>
     </div>
 
     <hr />

@@ -94,6 +94,7 @@ namespace UI.Desktop
         {
             bool valid = true;
             string mensaje = "";
+        //   mensaje += txtClave.Text;
 
             if (txtClave.Text.Length == 0)
             {

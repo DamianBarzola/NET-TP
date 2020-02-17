@@ -190,7 +190,7 @@
             // 
             // Plan
             // 
-            this.Plan.DataPropertyName = "id_plan";
+            this.Plan.DataPropertyName = "IDPlan";
             this.Plan.HeaderText = "Plan";
             this.Plan.Name = "Plan";
             this.Plan.ReadOnly = true;

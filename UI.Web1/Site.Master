@@ -1,5 +1,4 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="UI.Web.Site" %>
-<%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Academia</title>
@@ -47,11 +46,17 @@
             <p style="border-top-style: double; border-width: 1px; border-color: #000080; border-bottom-style: double">
                 <asp:ContentPlaceHolder ID="chMisCursos" runat="server">
                 </asp:ContentPlaceHolder>
-            </p>
         </asp:ContentPlaceHolder>
+
+        <br />
 
         <asp:ContentPlaceHolder ID="chReportes" runat="server">
         </asp:ContentPlaceHolder>
+        Ingrese especialidad actual del profesor:
+        <asp:TextBox ID="txtEspecialidad" runat="server"></asp:TextBox>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" OnClick="btnAceptar_Click" />
 
         <br />
         <br />

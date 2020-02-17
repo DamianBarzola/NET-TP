@@ -203,7 +203,7 @@
             // 
             // nombreusuario
             // 
-            this.nombreusuario.DataPropertyName = "nombre_usuario";
+            this.nombreusuario.DataPropertyName = "NombreUsuario";
             this.nombreusuario.HeaderText = "Nombre Usuario";
             this.nombreusuario.Name = "nombreusuario";
             this.nombreusuario.ReadOnly = true;

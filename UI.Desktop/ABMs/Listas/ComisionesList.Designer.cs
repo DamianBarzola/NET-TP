@@ -35,8 +35,8 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.msComision = new System.Windows.Forms.MenuStrip();
             this.tsOpciones = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsEditar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsNuevo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsEditar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsEliminar = new System.Windows.Forms.ToolStripMenuItem();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.anio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -151,24 +151,24 @@
             this.tsOpciones.Size = new System.Drawing.Size(69, 20);
             this.tsOpciones.Text = "Opciones";
             // 
-            // tsEditar
-            // 
-            this.tsEditar.Name = "tsEditar";
-            this.tsEditar.Size = new System.Drawing.Size(180, 22);
-            this.tsEditar.Text = "Editar";
-            this.tsEditar.Click += new System.EventHandler(this.tsEditar_Click);
-            // 
             // tsNuevo
             // 
             this.tsNuevo.Name = "tsNuevo";
-            this.tsNuevo.Size = new System.Drawing.Size(180, 22);
+            this.tsNuevo.Size = new System.Drawing.Size(117, 22);
             this.tsNuevo.Text = "Nuevo";
             this.tsNuevo.Click += new System.EventHandler(this.tsNuevo_Click);
+            // 
+            // tsEditar
+            // 
+            this.tsEditar.Name = "tsEditar";
+            this.tsEditar.Size = new System.Drawing.Size(117, 22);
+            this.tsEditar.Text = "Editar";
+            this.tsEditar.Click += new System.EventHandler(this.tsEditar_Click);
             // 
             // tsEliminar
             // 
             this.tsEliminar.Name = "tsEliminar";
-            this.tsEliminar.Size = new System.Drawing.Size(180, 22);
+            this.tsEliminar.Size = new System.Drawing.Size(117, 22);
             this.tsEliminar.Text = "Eliminar";
             this.tsEliminar.Click += new System.EventHandler(this.tsEliminar_Click);
             // 
@@ -185,7 +185,7 @@
             // anio
             // 
             this.anio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.anio.DataPropertyName = "anio";
+            this.anio.DataPropertyName = "AnioEspecialidad";
             this.anio.HeaderText = "Año";
             this.anio.MinimumWidth = 65;
             this.anio.Name = "anio";
@@ -195,12 +195,14 @@
             // 
             // id_materia
             // 
+            this.id_materia.DataPropertyName = "IDMateria";
             this.id_materia.HeaderText = "ID Materia";
             this.id_materia.Name = "id_materia";
             this.id_materia.ReadOnly = true;
             // 
             // id_profesor
             // 
+            this.id_profesor.DataPropertyName = "IdProfesor";
             this.id_profesor.HeaderText = "ID Profesor";
             this.id_profesor.Name = "id_profesor";
             this.id_profesor.ReadOnly = true;

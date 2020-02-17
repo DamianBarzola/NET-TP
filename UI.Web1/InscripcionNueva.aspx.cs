@@ -43,13 +43,13 @@ namespace UI.Web
             a = com.GetPorAnio();
             if (a.Count == 0)
             {
-                Panel1.Visible = true;
+               // Panel1.Visible = true;
                 lbaceptar.Visible = false;
             }
             else {
                 
                 lbaceptar.Visible = true;
-                Panel1.Visible = false;
+                //Panel1.Visible = false;
                 gridView.DataSource = com.GetPorAnio();
                 gridView.DataBind();
             }
@@ -80,9 +80,9 @@ namespace UI.Web
                 al.IDAlumno = Convert.ToInt32(Session["idPersona"]);
                 al.IDComision = Entity.ID;
                 alumnos.Insert(al);
-                gridView.visible = false;
+                //gridView.visible = false;
                 lbaceptar.Visible = false;
-                Panel2.visible = true;
+                //Panel2.visible = true;
             }
            
             

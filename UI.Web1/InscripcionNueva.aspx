@@ -1,9 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="InscripcionNueva.aspx.cs" Inherits="UI.Web.InscripcionNueva" %>
 <asp:Content ID="bodyContent" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
 
-    <asp:Panel ID="Panel1" runat="server">
-        NO HAY COMISIONES DISPONIBLES</asp:Panel>
-
     <br />
         <asp:GridView CssClass="table table-striped" ID="gridView" runat="server" 
             AutoGenerateColumns="False" DataKeyNames="ID" 
@@ -20,8 +17,5 @@
         </asp:GridView>
         <br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:LinkButton ID="lbaceptar" runat="server" OnClick="lbNuevo_Click">Aceptar</asp:LinkButton>
-        
-    <asp:Panel ID="Panel2" runat="server">
-        INSCRIPCION EXITOSA</asp:Panel>
         
     </asp:Content>
