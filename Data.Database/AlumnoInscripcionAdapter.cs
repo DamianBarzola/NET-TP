@@ -243,12 +243,12 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmIns = new SqlCommand("INSERT INTO comision_alumnos(id_persona, id_comision) " +
-                    "values(@com, @asd ) ", SqlConn);
+                    "values(@a, @asd ) ", SqlConn);
 
-                cmIns.Parameters.Add("@com", SqlDbType.Int).Value = insc.IDComision;
-                cmIns.Parameters.Add("@asd", SqlDbType.Int).Value = insc.IDAlumno;
+                cmIns.Parameters.Add("@a", SqlDbType.Int).Value = insc.IDAlumno;
+                cmIns.Parameters.Add("@asd", SqlDbType.Int).Value = insc.IDComision;
 
-               
+                cmIns.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
