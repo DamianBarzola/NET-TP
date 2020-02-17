@@ -108,8 +108,10 @@ namespace UI.Desktop
         {
             bool valida = true;
             string mensaje = "";
-            EspecialidadLogic elogic = new EspecialidadLogic();  
-            if (elogic.GetOne(Convert.ToInt32(txtEspecialidad.Text)) == null)
+            EspecialidadLogic elogic = new EspecialidadLogic();
+            Especialidad e = new Especialidad();
+            e = elogic.GetOne(Convert.ToInt32(txtEspecialidad.Text));
+            if ( e.DescripcionEspecialidad == null || txtEspecialidad.Text.Length == 0)
             {
                 valida = false;
                 mensaje += "/nEspecialidad no existente";      
@@ -119,7 +121,7 @@ namespace UI.Desktop
                 valida = false;
                 mensaje += "/nDebe ingresar una descripcion de plan";
             }
-            if (valida)
+            if (!valida)
             {
                 MessageBox.Show(mensaje);
             }
@@ -145,7 +147,6 @@ namespace UI.Desktop
                 }
                 plogic.Save(PlanActual);
                 this.Close();
-
             }
         }
 

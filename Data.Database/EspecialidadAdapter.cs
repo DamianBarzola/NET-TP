@@ -71,7 +71,6 @@ namespace Data.Database
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al recuperar especialidad", Ex);
-                throw ExcepcionManejada;
             }
             finally
             {

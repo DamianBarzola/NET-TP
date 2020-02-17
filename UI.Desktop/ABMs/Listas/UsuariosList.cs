@@ -23,10 +23,10 @@ namespace UI.Desktop
         }
 
         public void Listar()
-        {
+        {            
             this.dgvUsuarios.DataSource = ul.GetAll();
         }
-
+        #region Botones simples
         private void Usuarios_Load(object sender, EventArgs e)
         {
             Listar();
@@ -47,6 +47,9 @@ namespace UI.Desktop
             this.Close();
         }
 
+        #endregion
+
+        #region Botones opciones
         private void tsNuevo_Click(object sender, EventArgs e)
         {
             PersonaSinUsuarioList personaSinUsuarioList = new PersonaSinUsuarioList();
@@ -91,7 +94,7 @@ namespace UI.Desktop
             }
         }
 
-
+        #endregion
 
         //no 
 

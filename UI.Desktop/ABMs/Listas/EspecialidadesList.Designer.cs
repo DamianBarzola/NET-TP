@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvEspecialidades = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcUsuarios = new System.Windows.Forms.ToolStripContainer();
             this.tlEspecialidades = new System.Windows.Forms.TableLayoutPanel();
             this.btnActualizar = new System.Windows.Forms.Button();
@@ -40,6 +38,8 @@
             this.tsNuevo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsEditar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsEliminar = new System.Windows.Forms.ToolStripMenuItem();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).BeginInit();
             this.tcUsuarios.ContentPanel.SuspendLayout();
             this.tcUsuarios.TopToolStripPanel.SuspendLayout();
@@ -58,7 +58,7 @@
             this.dgvEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEspecialidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.descripcion});
+            this.descEspecialidad});
             this.tlEspecialidades.SetColumnSpan(this.dgvEspecialidades, 2);
             this.dgvEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEspecialidades.Location = new System.Drawing.Point(3, 3);
@@ -69,24 +69,6 @@
             this.dgvEspecialidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEspecialidades.Size = new System.Drawing.Size(712, 168);
             this.dgvEspecialidades.TabIndex = 0;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "ID";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 65;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.id.Width = 65;
-            // 
-            // descripcion
-            // 
-            this.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.descripcion.DataPropertyName = "descripcion";
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
             // 
             // tcUsuarios
             // 
@@ -186,6 +168,24 @@
             this.tsEliminar.Text = "Eliminar";
             this.tsEliminar.Click += new System.EventHandler(this.tsEliminar_Click);
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "ID";
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 65;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.id.Width = 65;
+            // 
+            // descEspecialidad
+            // 
+            this.descEspecialidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.descEspecialidad.DataPropertyName = "Descripcion";
+            this.descEspecialidad.HeaderText = "Descripcion";
+            this.descEspecialidad.Name = "descEspecialidad";
+            this.descEspecialidad.ReadOnly = true;
+            // 
             // EspecialidadesList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,6 +221,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsNuevo;
         private System.Windows.Forms.ToolStripMenuItem tsEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descEspecialidad;
     }
 }

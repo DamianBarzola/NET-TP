@@ -106,7 +106,9 @@ namespace UI.Desktop
             bool valid = true ;
             string mensaje = "";
             PlanLogic plogic = new PlanLogic();
-            if (plogic.GetOne(Convert.ToInt32(txtIDPlan.Text)) == null || txtIDPlan.Text.Length == 0)
+            Plan p = new Plan();
+            p = plogic.GetOne(Convert.ToInt32(txtIDPlan.Text));
+            if ( p.DescripcionPlan == null || txtIDPlan.Text.Length == 0)
             {
                 valid = false;
                 mensaje += "/Plan no existente";

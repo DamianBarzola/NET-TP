@@ -137,9 +137,8 @@ namespace UI.Desktop
         {
             string mensaje = "";
             bool valid = true;
-            MateriaLogic materiaLogic = new MateriaLogic();
-            PersonaLogic personaLogic = new PersonaLogic();
 
+            //Valida anio
             if (txtanio.Text.Length == 0){
                 mensaje += "/n Debe ingresar un anio";
                 valid = false;
@@ -156,12 +155,20 @@ namespace UI.Desktop
                     mensaje += "\nEl anio debe ser un número entero.";
                 }
             }
-            if (materiaLogic.GetOne(Convert.ToInt32(txtid_materia.Text)) == null || txtid_materia.Text.Length == 0)
+            //Valida materia
+            MateriaLogic materiaLogic = new MateriaLogic();
+            Materia m = new Materia();
+            m = materiaLogic.GetOne(Convert.ToInt32(txtid_materia.Text));
+            if (m.Descripcion == null || txtid_materia.Text.Length == 0)
             {
                 mensaje += "/n Debe ingresar una materia valida";
                 valid = false;
             }
 
+            //Valida profesor
+            PersonaLogic personaLogic = new PersonaLogic();
+            Persona p = new Persona();
+            p = personaLogic.GetOne(Convert.ToInt32(txtid_profesor.Text));
             if (txtid_profesor.Text.Length == 0)
             {
                 mensaje += "/n Debe ingresar un profesor ";
@@ -169,12 +176,12 @@ namespace UI.Desktop
             }
                     else
                     {
-                        if (personaLogic.GetOne(Convert.ToInt32(txtid_profesor.Text)) == null)
+                        if ( p.Nombre == null)
                         {
                             mensaje += "/n Debe ingresar una persona valida ";
                             valid = false;
                         }
-                                else if (personaLogic.GetOne(Convert.ToInt32(txtid_profesor.Text)).Tipo != Persona.TipoPersona.Docente)
+                                else if (p.Tipo != Persona.TipoPersona.Docente)
                                 {
                                     mensaje += "/n Debe ingresar una persona que sea profesor ";
                                     valid = false;

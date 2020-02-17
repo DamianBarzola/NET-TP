@@ -25,11 +25,11 @@ namespace Data.Database
                     pers.Nombre = (string)drPersona["nombre"];
                     pers.Apellido = (string)drPersona["apellido"];
                     pers.Direccion = (string)drPersona["direccion"];
-                    pers.Id_especialidad = (int)drPersona["id_especialidad"];
                     pers.Telefono = (string)drPersona["telefono"];
                     pers.FechaNacimiento = (DateTime)drPersona["fecha_nac"];
                     pers.Legajo = (int)drPersona["legajo"];
                     pers.Tipo = (Persona.TipoPersona)drPersona["tipo_persona"];
+                    pers.Id_especialidad = (int)drPersona["id_especialidad"];
 
                     personas.Add(pers);
                 }

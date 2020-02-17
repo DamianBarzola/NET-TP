@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvMaterias = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcUsuarios = new System.Windows.Forms.ToolStripContainer();
             this.tlMaterias = new System.Windows.Forms.TableLayoutPanel();
             this.btnActualizar = new System.Windows.Forms.Button();
@@ -41,6 +38,9 @@
             this.tsNuevo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsEditar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsEliminar = new System.Windows.Forms.ToolStripMenuItem();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterias)).BeginInit();
             this.tcUsuarios.ContentPanel.SuspendLayout();
             this.tcUsuarios.TopToolStripPanel.SuspendLayout();
@@ -60,7 +60,7 @@
             this.dgvMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.descripcion,
-            this.id_plan});
+            this.Plan});
             this.tlMaterias.SetColumnSpan(this.dgvMaterias, 2);
             this.dgvMaterias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMaterias.Location = new System.Drawing.Point(3, 3);
@@ -71,31 +71,6 @@
             this.dgvMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMaterias.Size = new System.Drawing.Size(794, 391);
             this.dgvMaterias.TabIndex = 0;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "ID";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 65;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.id.Width = 65;
-            // 
-            // descripcion
-            // 
-            this.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.descripcion.DataPropertyName = "Descripcion";
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
-            // id_plan
-            // 
-            this.id_plan.DataPropertyName = "id_plan";
-            this.id_plan.HeaderText = "Plan";
-            this.id_plan.Name = "id_plan";
-            this.id_plan.ReadOnly = true;
             // 
             // tcUsuarios
             // 
@@ -177,23 +152,48 @@
             // tsNuevo
             // 
             this.tsNuevo.Name = "tsNuevo";
-            this.tsNuevo.Size = new System.Drawing.Size(180, 22);
+            this.tsNuevo.Size = new System.Drawing.Size(117, 22);
             this.tsNuevo.Text = "Nuevo";
             this.tsNuevo.Click += new System.EventHandler(this.tsNuevo_Click);
             // 
             // tsEditar
             // 
             this.tsEditar.Name = "tsEditar";
-            this.tsEditar.Size = new System.Drawing.Size(180, 22);
+            this.tsEditar.Size = new System.Drawing.Size(117, 22);
             this.tsEditar.Text = "Editar";
             this.tsEditar.Click += new System.EventHandler(this.tsEditar_Click);
             // 
             // tsEliminar
             // 
             this.tsEliminar.Name = "tsEliminar";
-            this.tsEliminar.Size = new System.Drawing.Size(180, 22);
+            this.tsEliminar.Size = new System.Drawing.Size(117, 22);
             this.tsEliminar.Text = "Eliminar";
             this.tsEliminar.Click += new System.EventHandler(this.tsEliminar_Click);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "ID";
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 65;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.id.Width = 65;
+            // 
+            // descripcion
+            // 
+            this.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.descripcion.DataPropertyName = "Descripcion";
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
+            // Plan
+            // 
+            this.Plan.DataPropertyName = "id_plan";
+            this.Plan.HeaderText = "Plan";
+            this.Plan.Name = "Plan";
+            this.Plan.ReadOnly = true;
             // 
             // MateriasList
             // 
@@ -231,6 +231,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_plan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Plan;
     }
 }

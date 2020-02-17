@@ -44,8 +44,8 @@
             this.direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha_nac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo_persona = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tip = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonas)).BeginInit();
             this.tcUsuarios.ContentPanel.SuspendLayout();
@@ -96,8 +96,8 @@
             this.direccion,
             this.telefono,
             this.legajo,
-            this.fecha_nac,
-            this.tipo_persona});
+            this.FechaNacimiento,
+            this.tip});
             this.tlUsuario.SetColumnSpan(this.dgvPersonas, 2);
             this.dgvPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPersonas.Location = new System.Drawing.Point(3, 3);
@@ -240,19 +240,19 @@
             this.legajo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.legajo.Width = 45;
             // 
-            // fecha_nac
+            // FechaNacimiento
             // 
-            this.fecha_nac.DataPropertyName = "Fecha Nacimiento";
-            this.fecha_nac.HeaderText = "Fecha Nacimiento";
-            this.fecha_nac.Name = "fecha_nac";
-            this.fecha_nac.ReadOnly = true;
+            this.FechaNacimiento.DataPropertyName = "fecha_nac";
+            this.FechaNacimiento.HeaderText = "Fecha Nacimiento";
+            this.FechaNacimiento.Name = "FechaNacimiento";
+            this.FechaNacimiento.ReadOnly = true;
             // 
-            // tipo_persona
+            // tip
             // 
-            this.tipo_persona.DataPropertyName = "tipo_persona";
-            this.tipo_persona.HeaderText = "Tipo de Persona";
-            this.tipo_persona.Name = "tipo_persona";
-            this.tipo_persona.ReadOnly = true;
+            this.tip.DataPropertyName = "tipo_persona";
+            this.tip.HeaderText = "Tipo de Persona";
+            this.tip.Name = "tip";
+            this.tip.ReadOnly = true;
             // 
             // PersonasList
             // 
@@ -293,7 +293,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn direccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn legajo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fecha_nac;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipo_persona;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaNacimiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tip;
     }
 }
