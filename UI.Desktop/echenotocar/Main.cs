@@ -121,7 +121,8 @@ namespace UI.Desktop
 
         private void tsmMateriasInscripto_Click(object sender, EventArgs e)
         {
-
+            MateriasInscriptoForm materiasInscriptoForm = new MateriasInscriptoForm();
+            materiasInscriptoForm.ShowDialog();
         }
 
         private void tsmInscribirseAMateria_Click(object sender, EventArgs e)

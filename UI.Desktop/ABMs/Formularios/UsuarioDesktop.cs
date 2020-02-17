@@ -61,6 +61,7 @@ namespace UI.Desktop
 
         public override void MapearADatos()
         {
+            Usuario UsuarioActual = new Usuario();
             switch (this._Modo)
             {
                 case ModoForm.Baja:
@@ -78,8 +79,7 @@ namespace UI.Desktop
             }
             if (_Modo == ModoForm.Alta || _Modo == ModoForm.Modificacion)
             {
-                if (_Modo == ModoForm.Modificacion)
-                UsuarioActual.ID = Convert.ToInt32(this.txtID.Text);
+                if (_Modo == ModoForm.Modificacion) { UsuarioActual.ID = Convert.ToInt32(this.txtID.Text); }
                 UsuarioActual.Email = this.txtEmail.Text;
                 UsuarioActual.NombreUsuario = this.txtUsuario.Text;
                 UsuarioActual.Clave = this.txtClave.Text;
@@ -92,57 +92,45 @@ namespace UI.Desktop
         #region Validar y guardar
         public override bool Validar()
         {
-            string texto ="";
-            Boolean EsValido = true;
+            bool valid = true;
             string mensaje = "";
-            texto += txtClave;
-            texto += txtConfirmarClave;
-            texto += txtEmail;
-            texto += txtUsuario;
-            if (!(txtClave.Text.Equals(txtConfirmarClave.Text)))
+
+            if (txtClave.Text.Length == 0)
             {
-                EsValido = false;
-                mensaje += "/nLa clave no coincide con la confirmacion de la misma";
+                valid = false;
+                mensaje += "/nDebe ingresar una clave";
             }
-            if (this.txtClave.Text.Length < 2 || this.txtClave.Text.Length == 0)
+
+            if (!(txtConfirmarClave.Text.Equals(txtClave)) )
             {
-                EsValido = false;
-                mensaje += "/nLa clave debe tener al menos 2 caracteres";
+                valid = false;
+                mensaje += "/nLas claves deben ser iguales";
             }
-            if (!EsValido) { MessageBox.Show("Error" + mensaje); }
-            return EsValido;
+            if (!valid)
+            {
+                MessageBox.Show(mensaje);
+            }
+
+            return valid;
         }
 
         public override void GuardarCambios()
         {
-            this.MapearADatos();
-            UsuarioLogic userlogic = new UsuarioLogic();
-            userlogic.Save(UsuarioActual);
+            if (Validar())
+            { 
+                this.MapearADatos();
+                usuarioLogic.Save(UsuarioActual);
+                this.Close();
+            }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (Validar() == true)
-            {
                 GuardarCambios();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Compruebe los datos ingresados.");
-            }
         }
         private void btnAceptar_Click_1(object sender, EventArgs e)
         {
-            if (Validar() == true)
-            {
-                GuardarCambios();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Compruebe los datos ingresados.");
-            }
+            GuardarCambios();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

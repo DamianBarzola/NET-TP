@@ -33,5 +33,16 @@ namespace UI.Desktop.Properties {
                 return ((string)(this["TP_NetConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=AGUSTINETCH2499\\SQLEXPRESS;Initial Catalog=TP-Net;Integrated Security" +
+            "=True")]
+        public string TP_NetConnectionString1 {
+            get {
+                return ((string)(this["TP_NetConnectionString1"]));
+            }
+        }
     }
 }

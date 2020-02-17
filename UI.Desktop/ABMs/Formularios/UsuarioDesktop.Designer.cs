@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtConfirmarClave = new System.Windows.Forms.TextBox();
-            this.txtClave = new System.Windows.Forms.TextBox();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label13 = new System.Windows.Forms.Label();
@@ -42,38 +38,12 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtClave = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtConfirmarClave = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txtConfirmarClave
-            // 
-            this.txtConfirmarClave.Location = new System.Drawing.Point(272, 79);
-            this.txtConfirmarClave.Name = "txtConfirmarClave";
-            this.txtConfirmarClave.Size = new System.Drawing.Size(132, 20);
-            this.txtConfirmarClave.TabIndex = 22;
-            this.txtConfirmarClave.UseSystemPasswordChar = true;
-            // 
-            // txtClave
-            // 
-            this.txtClave.Location = new System.Drawing.Point(69, 79);
-            this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(131, 20);
-            this.txtClave.TabIndex = 21;
-            this.txtClave.UseSystemPasswordChar = true;
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.Location = new System.Drawing.Point(272, 41);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(132, 20);
-            this.txtUsuario.TabIndex = 20;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(69, 41);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(131, 20);
-            this.txtEmail.TabIndex = 19;
             // 
             // label11
             // 
@@ -92,10 +62,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.78378F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.21622F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.78378F));
-            this.tableLayoutPanel1.Controls.Add(this.txtConfirmarClave, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtClave, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtUsuario, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtEmail, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label13, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.label11, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label9, 2, 1);
@@ -105,6 +71,10 @@
             this.tableLayoutPanel1.Controls.Add(this.txtID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.txtEmail, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtClave, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtUsuario, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtConfirmarClave, 3, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -180,7 +150,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(206, 117);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(60, 20);
-            this.btnAceptar.TabIndex = 23;
+            this.btnAceptar.TabIndex = 5;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click_1);
@@ -190,10 +160,40 @@
             this.btnCancelar.Location = new System.Drawing.Point(272, 117);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 20);
-            this.btnCancelar.TabIndex = 24;
+            this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(69, 41);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(131, 20);
+            this.txtEmail.TabIndex = 1;
+            // 
+            // txtClave
+            // 
+            this.txtClave.Location = new System.Drawing.Point(69, 79);
+            this.txtClave.Name = "txtClave";
+            this.txtClave.PasswordChar = '*';
+            this.txtClave.Size = new System.Drawing.Size(131, 20);
+            this.txtClave.TabIndex = 3;
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Location = new System.Drawing.Point(272, 41);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(131, 20);
+            this.txtUsuario.TabIndex = 2;
+            // 
+            // txtConfirmarClave
+            // 
+            this.txtConfirmarClave.Location = new System.Drawing.Point(272, 79);
+            this.txtConfirmarClave.Name = "txtConfirmarClave";
+            this.txtConfirmarClave.PasswordChar = '*';
+            this.txtConfirmarClave.Size = new System.Drawing.Size(131, 20);
+            this.txtConfirmarClave.TabIndex = 4;
             // 
             // UsuarioDesktop
             // 
@@ -212,11 +212,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtConfirmarClave;
-        private System.Windows.Forms.TextBox txtClave;
-        private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label7;
@@ -227,5 +222,9 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtClave;
+        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtConfirmarClave;
     }
 }
