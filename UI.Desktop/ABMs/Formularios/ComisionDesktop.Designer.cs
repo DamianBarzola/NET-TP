@@ -33,11 +33,11 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.lblid_materia = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
-            this.txtid_materia = new System.Windows.Forms.TextBox();
-            this.txtid_profesor = new System.Windows.Forms.TextBox();
             this.lblanio = new System.Windows.Forms.Label();
             this.lblId_profesor = new System.Windows.Forms.Label();
             this.txtanio = new System.Windows.Forms.TextBox();
+            this.cbMateria = new System.Windows.Forms.ComboBox();
+            this.cbProfesor = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,11 +56,11 @@
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 4, 6);
             this.tableLayoutPanel1.Controls.Add(this.lblid_materia, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.lblID, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtid_materia, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txtid_profesor, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.lblanio, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblId_profesor, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtanio, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cbMateria, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.cbProfesor, 3, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -121,20 +121,6 @@
             this.lblID.Text = "-";
             this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txtid_materia
-            // 
-            this.txtid_materia.Location = new System.Drawing.Point(109, 68);
-            this.txtid_materia.Name = "txtid_materia";
-            this.txtid_materia.Size = new System.Drawing.Size(115, 20);
-            this.txtid_materia.TabIndex = 24;
-            // 
-            // txtid_profesor
-            // 
-            this.txtid_profesor.Location = new System.Drawing.Point(109, 93);
-            this.txtid_profesor.Name = "txtid_profesor";
-            this.txtid_profesor.Size = new System.Drawing.Size(115, 20);
-            this.txtid_profesor.TabIndex = 26;
-            // 
             // lblanio
             // 
             this.lblanio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -170,6 +156,22 @@
             this.txtanio.Size = new System.Drawing.Size(115, 20);
             this.txtanio.TabIndex = 29;
             // 
+            // cbMateria
+            // 
+            this.cbMateria.FormattingEnabled = true;
+            this.cbMateria.Location = new System.Drawing.Point(109, 68);
+            this.cbMateria.Name = "cbMateria";
+            this.cbMateria.Size = new System.Drawing.Size(115, 21);
+            this.cbMateria.TabIndex = 30;
+            // 
+            // cbProfesor
+            // 
+            this.cbProfesor.FormattingEnabled = true;
+            this.cbProfesor.Location = new System.Drawing.Point(109, 93);
+            this.cbProfesor.Name = "cbProfesor";
+            this.cbProfesor.Size = new System.Drawing.Size(115, 21);
+            this.cbProfesor.TabIndex = 31;
+            // 
             // ComisionDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,10 +194,10 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Label lblid_materia;
         private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.TextBox txtid_materia;
-        private System.Windows.Forms.TextBox txtid_profesor;
         private System.Windows.Forms.Label lblanio;
         private System.Windows.Forms.Label lblId_profesor;
         private System.Windows.Forms.TextBox txtanio;
+        private System.Windows.Forms.ComboBox cbMateria;
+        private System.Windows.Forms.ComboBox cbProfesor;
     }
 }

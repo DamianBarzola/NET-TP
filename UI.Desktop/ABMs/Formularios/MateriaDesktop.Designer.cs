@@ -35,7 +35,7 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.labelID = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtIDPlan = new System.Windows.Forms.TextBox();
+            this.cbPlanes = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,7 +121,7 @@
             this.tableLayoutPanel1.Controls.Add(this.PlanIDLabel, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 4, 7);
             this.tableLayoutPanel1.Controls.Add(this.labelID, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtIDPlan, 3, 5);
+            this.tableLayoutPanel1.Controls.Add(this.cbPlanes, 3, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -138,12 +138,13 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(353, 201);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
-            // txtIDPlan
+            // cbPlanes
             // 
-            this.txtIDPlan.Location = new System.Drawing.Point(104, 118);
-            this.txtIDPlan.Name = "txtIDPlan";
-            this.txtIDPlan.Size = new System.Drawing.Size(100, 20);
-            this.txtIDPlan.TabIndex = 32;
+            this.cbPlanes.FormattingEnabled = true;
+            this.cbPlanes.Location = new System.Drawing.Point(104, 118);
+            this.cbPlanes.Name = "cbPlanes";
+            this.cbPlanes.Size = new System.Drawing.Size(110, 21);
+            this.cbPlanes.TabIndex = 33;
             // 
             // MateriaDesktop
             // 
@@ -169,6 +170,6 @@
         private System.Windows.Forms.Label PlanIDLabel;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Label labelID;
-        private System.Windows.Forms.TextBox txtIDPlan;
+        private System.Windows.Forms.ComboBox cbPlanes;
     }
 }

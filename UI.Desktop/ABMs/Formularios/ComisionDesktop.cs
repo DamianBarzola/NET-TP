@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
+using Util;
 
 namespace UI.Desktop
 {
@@ -24,20 +25,19 @@ namespace UI.Desktop
             InitializeComponent();
         }
         //alta
-        public ComisionDesktop(ModoForm modo)
+        public ComisionDesktop(ModoForm modo) : this()
         {
-            InitializeComponent();
             modoform = modo;
             lblID.Visible = false;
-
+            CargarCombo();
         }
 
         //baja y modificacion
-        public ComisionDesktop(int id, ModoForm modo)
+        public ComisionDesktop(int id, ModoForm modo) : this()
         {
-            InitializeComponent();
             lblID.Visible = true;
             comisionActual = cLogic.GetOne(id);
+            CargarCombo();
             MapearDeDatos();
 
         }
@@ -49,16 +49,11 @@ namespace UI.Desktop
         {
             lblID.Text = comisionActual.ID.ToString();
             txtanio.Text = comisionActual.AnioEspecialidad.ToString();
-            txtid_materia.Text = comisionActual.IDMateria.ToString();
-            txtid_profesor.Text = comisionActual.IdProfesor.ToString();
+            cbProfesor.SelectedValue = comisionActual.IdProfesor;
+            cbMateria.SelectedValue = comisionActual.IDMateria;
 
             switch (Modo)
             {
-                case ModoForm.Alta:
-                    btnAceptar.Text = "Guardar";
-                    comisionActual.State = BusinessEntity.States.New;
-                    ; break;
-
                 case ModoForm.Modificacion:
                     btnAceptar.Text = "Guardar";
                     comisionActual.State = BusinessEntity.States.Modified;
@@ -73,121 +68,77 @@ namespace UI.Desktop
 
         public override void MapearADatos()
         {
-            comisionActual = new Comision();
             switch (this.Modo)
             {
+                case ModoForm.Alta:
+                    comisionActual = new Comision()
+                    {
+                        IDMateria = (int)cbMateria.SelectedValue,
+                        IdProfesor = (int)cbProfesor.SelectedValue,
+                        AnioEspecialidad = Convert.ToInt32(txtanio.Text),
+                        State = Usuario.States.New,
+                    };
+                    break;
+
+                case ModoForm.Modificacion:
+                    comisionActual.AnioEspecialidad = Convert.ToInt32(txtanio.Text);
+                    comisionActual.IDMateria = (int)cbMateria.SelectedValue;
+                    comisionActual.IdProfesor = (int)cbProfesor.SelectedValue;
+                    comisionActual.State = Usuario.States.Modified;
+                    break;
+
                 case ModoForm.Baja:
                     comisionActual.State = Usuario.States.Deleted;
                     break;
-                case ModoForm.Consulta:
-                    comisionActual.State = Usuario.States.Unmodified;
-                    break;
-                case ModoForm.Alta:
-                    comisionActual.State = Usuario.States.New;
-                    break;
-                case ModoForm.Modificacion:
-                    comisionActual.State = Usuario.States.Modified;
-                    break;
-            }
-            if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
-            {
-                this.comisionActual.AnioEspecialidad = Convert.ToInt32(txtanio.Text) ;
-                this.comisionActual.IDMateria = Convert.ToInt32(txtid_materia.Text);
-                this.comisionActual.IdProfesor = Convert.ToInt32(txtid_materia.Text);
-                if (Modo == ModoForm.Modificacion)
-                {
-                    this.comisionActual.ID = Convert.ToInt32(lblID.Text);
-                }
+
             }
         }
-
-
-
 
         #endregion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            this.GuardarCambios();
+            if (Validar())
+            {
+                this.GuardarCambios();
+            }
         }
 
         public override void GuardarCambios()
         {
-            if (Validar())
-            {
                 this.MapearADatos();
-                switch (this.modoform)
-                {
-                    case ModoForm.Alta:
-                        comisionActual.State = BusinessEntity.States.New;
-                        break;
-                    case ModoForm.Baja:
-                        comisionActual.State = BusinessEntity.States.Deleted;
-                        break;
-                    case ModoForm.Modificacion:
-                        comisionActual.State = BusinessEntity.States.Modified;
-                        break;
-                }
                 cLogic.Save(comisionActual);
                 this.Close();
-            }
         }
 
         public override bool Validar()
         {
-            string mensaje = "";
             bool valid = true;
-
-            //Valida anio
-            if (txtanio.Text.Length == 0){
-                mensaje += "/n Debe ingresar un anio";
-                valid = false;
+            string mensaje = "";
+            if (txtanio.Text.Length > 0)
+            {
+                if (!Validaciones.ValAnio(Convert.ToInt32(txtanio.Text)))
+                {
+                    valid = false;
+                    mensaje += "/nIngrese un anio valido";
+                }
             }
             else
             {
-                try
-                {
-                    int.Parse(txtanio.Text);
-                }
-                catch (FormatException ef)
-                {
-                    valid = false;
-                    mensaje += "\nEl anio debe ser un número entero.";
-                }
-            }
-            //Valida materia
-            MateriaLogic materiaLogic = new MateriaLogic();
-            Materia m = new Materia();
-            m = materiaLogic.GetOne(Convert.ToInt32(txtid_materia.Text));
-            if (m.Descripcion == null || txtid_materia.Text.Length == 0)
-            {
-                mensaje += "/n Debe ingresar una materia valida";
-                valid = false;
+                mensaje += "/n debe ingresar un anio";
             }
 
-            //Valida profesor
-            PersonaLogic personaLogic = new PersonaLogic();
-            Persona p = new Persona();
-            p = personaLogic.GetOne(Convert.ToInt32(txtid_profesor.Text));
-            if (txtid_profesor.Text.Length == 0)
+            if (cbMateria.SelectedValue == null || (int)cbMateria.SelectedValue == 0)
             {
-                mensaje += "/n Debe ingresar un profesor ";
                 valid = false;
+                mensaje += "/nIngrese una materia valido";
             }
-                    else
-                    {
-                        if ( p.Nombre == null)
-                        {
-                            mensaje += "/n Debe ingresar una persona valida ";
-                            valid = false;
-                        }
-                                else if (p.Tipo != Persona.TipoPersona.Docente)
-                                {
-                                    mensaje += "/n Debe ingresar una persona que sea profesor ";
-                                    valid = false;
-                                }
-                    }
 
+            if (cbProfesor.SelectedValue == null || (int)cbProfesor.SelectedValue == 0)
+            {
+                valid = false;
+                mensaje += "/nIngrese un profesor valido";
+            }
             if (!valid)
             {
                 MessageBox.Show(mensaje);
@@ -195,5 +146,26 @@ namespace UI.Desktop
 
             return valid;
         }
+
+        public void CargarComboMaterias()
+        {
+            cbMateria.ValueMember = "id_materia";
+            cbMateria.DisplayMember = "descripcion";
+            cbMateria.DataSource = GenerarCombo.getMaterias();
+        }
+
+        public void CargarComboProfesores()
+        {
+            cbProfesor.ValueMember = "id_persona";
+            cbProfesor.DisplayMember = "apellido";
+            cbProfesor.DataSource = GenerarCombo.getProfesores();
+        }
+        
+        public void CargarCombo()
+        {
+            this.CargarComboMaterias();
+            this.CargarComboProfesores();
+        }
+
     }
 }

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
+using Util;
+
 namespace UI.Desktop
 {
     public partial class MateriaDesktop : ApplicationForm
@@ -23,71 +25,69 @@ namespace UI.Desktop
             InitializeComponent();
         }
         //alta
-        public MateriaDesktop(ModoForm modo)
+        public MateriaDesktop(ModoForm modo) : this()
         {
-            InitializeComponent();
             this.modoform = modo;
             labelID.Visible = false;
+            CargarCombo();
         }
         //baja y modif
-        public MateriaDesktop(int id, ModoForm modo)
+        public MateriaDesktop(int id, ModoForm modo) : this()
         {
-            InitializeComponent();
             this.modoform = modo;
             labelID.Visible = true;
             materiaActual = mlogic.GetOne(id);
+            CargarCombo();
             MapearDeDatos();
-
         }
-
-
-
         #endregion
 
         #region Mapeos
         override public void MapearADatos()
-        {
-            materiaActual = new Materia();
+        { 
             switch (this.modoform)
             {
+                case ModoForm.Alta:
+                    materiaActual = new Materia()
+                    {
+                        IDPlan = (int)cbPlanes.SelectedValue,
+                        Descripcion = txtDescripcion.Text,
+                        State = Usuario.States.New,
+                    };
+                    
+                    break;
+
+                case ModoForm.Modificacion:
+                    materiaActual.IDPlan = (int)cbPlanes.SelectedValue;
+                    materiaActual.Descripcion = txtDescripcion.Text;
+                    materiaActual.ID = Convert.ToInt32(this.labelID.Text);
+
+                    materiaActual.State = Usuario.States.Modified;
+                    break;
+
                 case ModoForm.Baja:
                     materiaActual.State = Usuario.States.Deleted;
                     break;
-                case ModoForm.Consulta:
-                    materiaActual.State = Usuario.States.Unmodified;
-                    break;
-                case ModoForm.Alta:
-                    materiaActual.State = Usuario.States.New;
-                    break;
-                case ModoForm.Modificacion:
-                    materiaActual.State = Usuario.States.Modified;
-                    break;
             }
-            if (modoform == ModoForm.Alta || modoform == ModoForm.Modificacion)
-            {
-                if (_Modo == ModoForm.Modificacion)
-                {
-                    materiaActual.ID = Convert.ToInt32(this.labelID.Text);
-                }
-                materiaActual.Descripcion = this.txtDescripcion.Text;
-                materiaActual.IDPlan = Convert.ToInt32(this.txtIDPlan.Text);
-            }
-
         }
 
         public override void MapearDeDatos()
         {
-            
-            txtIDPlan.Text = materiaActual.IDPlan.ToString();
+            cbPlanes.SelectedValue = materiaActual.IDPlan;
             txtDescripcion.Text = materiaActual.Descripcion;
-
-            if (modoform == ModoForm.Modificacion || modoform == ModoForm.Baja)
+            labelID.Text = materiaActual.ID.ToString();
+            switch (Modo)
             {
-                labelID.Text = materiaActual.ID.ToString();
+                case ModoForm.Modificacion:
+                    btnAceptar.Text = "Guardar";
+                    break;
+                case ModoForm.Baja:
+                    btnAceptar.Text = "Eliminar";
+                    txtDescripcion.ReadOnly = true;
+                    cbPlanes.Enabled = false;
+                    break;
             }
-
         }
-
         #endregion
 
         #region Guardar cambios y validar
@@ -105,18 +105,16 @@ namespace UI.Desktop
         {
             bool valid = true ;
             string mensaje = "";
-            PlanLogic plogic = new PlanLogic();
-            Plan p = new Plan();
-            p = plogic.GetOne(Convert.ToInt32(txtIDPlan.Text));
-            if ( p.DescripcionPlan == null || txtIDPlan.Text.Length == 0)
+
+            if (!Validaciones.ValTexto(txtDescripcion.Text))
             {
                 valid = false;
-                mensaje += "/Plan no existente";
+                mensaje += "/Debe ingresar una descripcion";
             }
-            if (txtDescripcion.Text.Length == 0)
+            if (cbPlanes.SelectedValue == null || (int)cbPlanes.SelectedValue == 0)
             {
                 valid = false;
-                mensaje += "/nDebe ingresar una descripcion de plan";
+                mensaje += "/nDebe ingresar un plan";
             }
                 if (!valid)
             {
@@ -130,6 +128,13 @@ namespace UI.Desktop
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             this.GuardarCambios();
+        }
+
+        public void CargarCombo()
+        {
+            cbPlanes.ValueMember = "id_plan";
+            cbPlanes.DisplayMember = "descripcion";
+            cbPlanes.DataSource = GenerarCombo.getPlanes();
         }
     }
 }
