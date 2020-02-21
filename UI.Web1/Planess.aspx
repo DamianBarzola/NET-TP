@@ -21,7 +21,8 @@
             &nbsp;<asp:TextBox ID="descripcionTextBoxa" runat="server" CssClass="form-control"></asp:TextBox>
             <br />
             <asp:Label ID="EspecialidadLabel" runat="server" Text="Especialidad:"></asp:Label>
-            <asp:TextBox ID="ideso" runat="server"></asp:TextBox>
+            <asp:DropDownList ID="dpespe" runat="server" Height="19px" Width="122px" >
+            </asp:DropDownList>
             <br />
             <br />
             <asp:LinkButton ID="lbAceptar" runat="server" OnClick="lbAceptar_Click">Aceptar</asp:LinkButton>

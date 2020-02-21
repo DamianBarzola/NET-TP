@@ -26,28 +26,39 @@
     <asp:Panel ID="formPanel" Visible="false" runat="server">
         Completar:<br />
         <asp:Label ID="emailLabel" runat="server" Text="Legajo: "></asp:Label>
-        <asp:TextBox CssClass="form-control" ID="legajoTextBox" runat="server"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="legajoTextBox" runat="server" CssClass="form-control"></asp:TextBox>
         <br />
         <asp:Label ID="tipoLabel" runat="server" Text="Tipo:"></asp:Label>
-        <asp:TextBox ID="tipoTextBox1" runat="server"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:DropDownList ID="dTipo" runat="server">
+            <asp:ListItem Value="2">Alumno</asp:ListItem>
+            <asp:ListItem Value="2">Docente</asp:ListItem>
+            <asp:ListItem Value="3">Admin</asp:ListItem>
+        </asp:DropDownList>
         &nbsp;(1-Alumno 2-Docente 3-Admin)<br />
         <asp:Label ID="nombreLabel" runat="server" Text="Nombre:"></asp:Label>
-        <asp:TextBox ID="nombreTextBox" CssClass="form-control" runat="server"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="nombreTextBox" runat="server" CssClass="form-control"></asp:TextBox>
         <br />
         <asp:Label ID="apellidoLabel" runat="server" Text="Apellido:"></asp:Label>
-        <asp:TextBox ID="apellidoTextBox" CssClass="form-control" runat="server"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="apellidoTextBox" runat="server" CssClass="form-control"></asp:TextBox>
         <br />
         <asp:Label ID="TelefonoLabel" runat="server" Text="Telefono:"></asp:Label>
-        <asp:TextBox CssClass="form-control" ID="TelefonoTextBox" runat="server" TextMode="Phone"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TelefonoTextBox" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
         <br />
         <asp:Label ID="DireccionLabel" runat="server" Text="Dirección:"></asp:Label>
-        <asp:TextBox CssClass="form-control" ID="DireccionTextBox" runat="server"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="DireccionTextBox" runat="server" CssClass="form-control"></asp:TextBox>
         <br />
         <asp:Label ID="FechaNacLabel" runat="server" Text="Fecha Nacimiento:"></asp:Label>
-        <asp:TextBox CssClass="form-control" ID="FechaNacTextBox" runat="server" TextMode="Date"></asp:TextBox>
+        <asp:TextBox ID="FechaNacTextBox" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
         <br />
         <asp:Label ID="idesp" runat="server" Text="IDEspecialidad:"></asp:Label>
-         <asp:TextBox CssClass="form-control" ID="tbidesp" runat="server"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="desp" runat="server">
+        </asp:DropDownList>
         <br />
         <br />
         <br />

@@ -22,12 +22,14 @@
         <br />
         <asp:Panel ID="formPanel" runat="server" Visible="false">
             Completar:<br />
-            Materia<asp:TextBox ID="tbidMateria" runat="server" CssClass="form-control"></asp:TextBox>
+            Materia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="dmate" runat="server" Height="18px" Width="124px">
+            </asp:DropDownList>
             <br />
             <asp:Label ID="añoEspecialidadLabel" runat="server" Text="Año Especialidad: "></asp:Label>
             <asp:TextBox ID="añoEspecialidadTextBox" runat="server" CssClass="form-control"></asp:TextBox>
             <br />
-            Profesor&nbsp;<asp:TextBox ID="tbidprof" runat="server"></asp:TextBox>
+            Profesor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="dprofe" runat="server" Height="18px" Width="126px">
+            </asp:DropDownList>
             <br />
             <br />
             <asp:LinkButton ID="lbAceptar" runat="server" OnClick="lbAceptar_Click">Aceptar</asp:LinkButton>

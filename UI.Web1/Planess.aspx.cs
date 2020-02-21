@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
+using Util;
 
 namespace UI.Web1
 {
@@ -69,8 +70,10 @@ namespace UI.Web1
             if (gridView != null)
             {
                 this.formPanel.Visible = true;
+               
                 this.FormMode = FormModes.Modificacion;
                 this.LoadForm(this.SelectedID);
+                CargarCombo();
             }
         }
 
@@ -88,13 +91,15 @@ namespace UI.Web1
         {
             Entity = planes.GetOne(id);
             descripcionTextBoxa.Text = Entity.DescripcionPlan;
-            ideso.Text = Entity.IDEspecialidad.ToString();
+            CargarCombo();
+            //  ideso.Text = Entity.IDEspecialidad.ToString();
 
         }
         private void ClearForm()
         {
             Entity = null;
             descripcionTextBoxa.Text = string.Empty;
+            dpespe.SelectedValue = 0.ToString();
         }
 
         protected void lbEliminar_Click(object sender, EventArgs e)
@@ -115,13 +120,15 @@ namespace UI.Web1
         protected void lbNuevo_Click(object sender, EventArgs e)
         {
             formPanel.Visible = true;
+            CargarCombo();
             FormMode = FormModes.Alta;
             ClearForm();
         }
         private void LoadEntity(Plan plan)
         {
             plan.DescripcionPlan = descripcionTextBoxa.Text;
-            plan.IDEspecialidad = Convert.ToInt32(ideso.Text);
+            plan.IDEspecialidad =Convert.ToInt32( dpespe.SelectedValue);
+            dpespe.SelectedValue = ((int)Entity.IDEspecialidad).ToString();
         }
 
 
@@ -167,6 +174,15 @@ namespace UI.Web1
         protected void lbCancelar_Click(object sender, EventArgs e)
         {
             formPanel.Visible = false;
+        }
+
+        public void CargarCombo()
+        {
+            dpespe.DataSource = GenerarCombo.getEspecialidades();
+           
+            dpespe.DataValueField = "id_especialidad";
+            dpespe.DataTextField = "descripcion";
+            dpespe.DataBind();
         }
     }
 }

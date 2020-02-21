@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
+using Util;
 
 namespace UI.Web
 {
@@ -61,7 +62,8 @@ namespace UI.Web
         private void LoadForm(int id)
         {
             Entity = materias.GetOne(id);
-            tbidplana.Text = Entity.IDPlan.ToString();
+            //tbidplana.Text = Entity.IDPlan.ToString();
+            dPLan.SelectedValue = ((int)Entity.IDPlan).ToString();
             descripcionTextBox.Text = Entity.Descripcion;
             //hsSemanalesTextBox.Text = Entity.HSSemanales.ToString();
             //hsTotalesTextBox.Text = Entity.HSTotales.ToString();
@@ -70,7 +72,7 @@ namespace UI.Web
         {
             Entity = null;            
             descripcionTextBox.Text = string.Empty;
-            tbidplana.Text = string.Empty;
+            dPLan.SelectedValue = 0.ToString();
         }
 
         protected void lbEditar_Click(object sender, EventArgs e)
@@ -80,6 +82,7 @@ namespace UI.Web
                 this.formPanel.Visible = true;
                 this.FormMode = FormModes.Modificacion;
                 this.LoadForm(this.SelectedID);
+                CargarCombo();
             }
         }
 
@@ -103,16 +106,18 @@ namespace UI.Web
         {
             formPanel.Visible = true;
             FormMode = FormModes.Alta;
-            ClearForm();
+                        ClearForm();
+            CargarCombo();
         }
 
         private void LoadEntity(Materia materia)
         {
-            if (descripcionTextBox.Text.Length > 0  && tbidplana.Text.Length > 0)
+            if (descripcionTextBox.Text.Length > 0  /*&& tbidplana.Text.Length > 0*/)
                 materia.Descripcion = descripcionTextBox.Text;
           //  materia.HSSemanales = int.Parse(hsSemanalesTextBox.Text);
             //materia.HSTotales = int.Parse(hsTotalesTextBox.Text);
-            materia.IDPlan = int.Parse(tbidplana.Text);
+
+            materia.IDPlan = int.Parse(dPLan.SelectedValue);
 
         }
         private void SaveEntity(Materia materia)
@@ -159,6 +164,15 @@ namespace UI.Web
         protected void lbCancelar_Click(object sender, EventArgs e)
         {
             formPanel.Visible = false;
+        }
+
+        public void CargarCombo()
+        {
+            dPLan.DataSource = GenerarCombo.getPlanes();
+
+            dPLan.DataValueField = "id_plan";
+            dPLan.DataTextField = "descripcion";
+            dPLan.DataBind();
         }
     }
 }

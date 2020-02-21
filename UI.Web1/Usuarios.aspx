@@ -14,7 +14,6 @@ DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" >
                 <asp:BoundField HeaderText="Persona" DataField="Id_persona" />
                 <asp:BoundField HeaderText="Email" DataField="Email" />
 		<asp:BoundField  HeaderText="Usuario" DataField="NombreUsuario" />
-                <asp:BoundField HeaderText="Habilitado" DataField="Habilitado" />
                 <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" />
             </Columns>            
         </asp:GridView>
@@ -46,9 +45,10 @@ DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" >
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <br />
                 <asp:Label ID="tbId_perasdsona" runat="server" Text="PersonaID:"></asp:Label>
-                 <asp:TextBox ID="tbidPers" runat="server"></asp:TextBox>
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:DropDownList ID="dpers" runat="server">
+                </asp:DropDownList>
                 <br />
-
                 <br />
                 <asp:LinkButton ID="lbAceptar" runat="server" OnClick="lbAceptar_Click">Aceptar</asp:LinkButton>
                 &nbsp;<asp:LinkButton ID="lbCancelar" runat="server" OnClick="lbCancelar_Click">Cancelar</asp:LinkButton>

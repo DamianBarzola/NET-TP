@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
+using Util;
 
 namespace UI.Web
 {
@@ -62,21 +63,28 @@ namespace UI.Web
             apellidoTextBox.Text = Entity.Apellido;
             FechaNacTextBox.Text = Entity.FechaNacimiento.ToString("yyyy-MM-dd");
             TelefonoTextBox.Text = Entity.Telefono;
-            tbidesp.Text = Entity.Id_especialidad.ToString();
-           // planTextBox1.Text = Entity.IDPlan.ToString();
-            tipoTextBox1.Text = Entity.Tipo.ToString();
+
+
+            desp.SelectedValue = ((int)Entity.Id_especialidad).ToString();
+
+
+            // tbidesp.Text = Entity.Id_especialidad.ToString();
+            // planTextBox1.Text = Entity.IDPlan.ToString();
+            // tipoTextBox1.Text = Entity.Tipo.ToString();
         }
         private void ClearForm()
         {
             Entity = null;
             nombreTextBox.Text = string.Empty;
-            tbidesp.Text = string.Empty;
+          //  tbidesp.Text = string.Empty;
             TelefonoTextBox.Text = string.Empty;
             FechaNacTextBox.Text = string.Empty;
             legajoTextBox.Text = string.Empty;
             apellidoTextBox.Text = string.Empty;
             DireccionTextBox.Text = string.Empty;
-            tipoTextBox1.Text = string.Empty;
+            desp.SelectedValue = 0.ToString();
+
+            //  tipoTextBox1.Text = string.Empty;
             //planTextBox1.Text = string.Empty;
         }
 
@@ -84,9 +92,12 @@ namespace UI.Web
         {
             if (gridView.SelectedValue != null)
             {
+
                 this.formPanel.Visible = true;
+              
                 this.FormMode = FormModes.Modificacion;
                 this.LoadForm(this.SelectedID);
+                CargarCombo();
             }
         }
 
@@ -108,6 +119,7 @@ namespace UI.Web
         protected void lbNuevo_Click(object sender, EventArgs e)
         {
             formPanel.Visible = true;
+            CargarCombo();
             FormMode = FormModes.Alta;
             ClearForm();
         }
@@ -117,12 +129,13 @@ namespace UI.Web
             persona.Apellido = apellidoTextBox.Text;
             persona.Direccion = DireccionTextBox.Text;
             persona.Telefono = TelefonoTextBox.Text;
-            persona.Id_especialidad = Convert.ToInt32(tbidesp.Text);
+            persona.Id_especialidad = Convert.ToInt32(desp.SelectedValue);
             persona.FechaNacimiento = DateTime.Parse(FechaNacTextBox.Text);
             persona.Legajo = Convert.ToInt32(legajoTextBox.Text);
-            if (tipoTextBox1.Text == "1") persona.Tipo = Business.Entities.Persona.TipoPersona.Alumno;
-            if (tipoTextBox1.Text == "2") persona.Tipo = Business.Entities.Persona.TipoPersona.Docente;
-            if (tipoTextBox1.Text == "3") persona.Tipo = Business.Entities.Persona.TipoPersona.Administrador;
+            
+            if (dTipo.SelectedValue == "1") persona.Tipo = Business.Entities.Persona.TipoPersona.Alumno;
+            if (dTipo.SelectedValue == "2") persona.Tipo = Business.Entities.Persona.TipoPersona.Docente;
+            if (dTipo.SelectedValue == "3") persona.Tipo = Business.Entities.Persona.TipoPersona.Administrador;
            // persona.IDPlan = Convert.ToInt32(planTextBox1.Text);
         }
         private void SaveEntity(Business.Entities.Persona persona)
@@ -170,6 +183,14 @@ namespace UI.Web
         {
 
             formPanel.Visible = false;
+        }
+        public void CargarCombo()
+        {
+            desp.DataSource = GenerarCombo.getEspecialidades();
+
+            desp.DataValueField = "id_especialidad";
+            desp.DataTextField = "descripcion";
+            desp.DataBind();
         }
     }
 }

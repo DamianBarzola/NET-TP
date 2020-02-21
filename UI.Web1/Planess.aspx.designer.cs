@@ -94,13 +94,13 @@ namespace UI.Web1 {
         protected global::System.Web.UI.WebControls.Label EspecialidadLabel;
         
         /// <summary>
-        /// Control ideso.
+        /// Control dpespe.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ideso;
+        protected global::System.Web.UI.WebControls.DropDownList dpespe;
         
         /// <summary>
         /// Control lbAceptar.

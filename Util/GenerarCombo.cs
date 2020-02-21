@@ -27,6 +27,7 @@ namespace Util
             return dtEspecialidades;
         }
 
+
         public static DataTable getPlanes()
         {
             DataTable dtPlanes = new DataTable();
@@ -72,6 +73,20 @@ namespace Util
             return dtProfesores;
         }
 
+        public static DataTable getPersona()
+        {
+            DataTable dtProfesores = new DataTable();
+            dtProfesores.Columns.Add("id_persona", typeof(int));
+            dtProfesores.Columns.Add("apellido", typeof(string));
+            PersonaLogic pl = new PersonaLogic();
+            List<Persona> personas = pl.GetAll();
+            dtProfesores.Rows.Add(new object[] { 0, string.Empty });
+            foreach (Persona p in personas)
+            {
+                dtProfesores.Rows.Add(new object[] { p.ID, p.Apellido });
+            }
+            return dtProfesores;
+        }
 
 
 

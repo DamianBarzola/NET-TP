@@ -10,9 +10,10 @@ namespace Data.Database
     public class Adapter
     { 
         //Yo puse express vos lo vas a tener que cambiar a local
-        //const string consKeyDefaultCnnString = "ConnStringExpress2";
+        const string consKeyDefaultCnnString = "ConnStringExpress3";
      //   const string consKeyDefaultCnnString = "ConnStringExpress";
-          const string consKeyDefaultCnnString = "ConnStringExpress2"; 
+         // const string consKeyDefaultCnnString = "ConnStringExpress2"; 
+    
 
         private SqlConnection sqlConn;
           public SqlConnection SqlConn { get => sqlConn; set => sqlConn = value; }

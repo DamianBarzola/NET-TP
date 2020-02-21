@@ -94,13 +94,13 @@ namespace UI.Web {
         protected global::System.Web.UI.WebControls.Label tipoLabel;
         
         /// <summary>
-        /// Control tipoTextBox1.
+        /// Control dTipo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tipoTextBox1;
+        protected global::System.Web.UI.WebControls.DropDownList dTipo;
         
         /// <summary>
         /// Control nombreLabel.
@@ -202,13 +202,13 @@ namespace UI.Web {
         protected global::System.Web.UI.WebControls.Label idesp;
         
         /// <summary>
-        /// Control tbidesp.
+        /// Control desp.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbidesp;
+        protected global::System.Web.UI.WebControls.DropDownList desp;
         
         /// <summary>
         /// Control lbAceptar.

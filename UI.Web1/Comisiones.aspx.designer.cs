@@ -67,13 +67,13 @@ namespace UI.Web {
         protected global::System.Web.UI.WebControls.Panel formPanel;
         
         /// <summary>
-        /// Control tbidMateria.
+        /// Control dmate.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbidMateria;
+        protected global::System.Web.UI.WebControls.DropDownList dmate;
         
         /// <summary>
         /// Control añoEspecialidadLabel.
@@ -94,13 +94,13 @@ namespace UI.Web {
         protected global::System.Web.UI.WebControls.TextBox añoEspecialidadTextBox;
         
         /// <summary>
-        /// Control tbidprof.
+        /// Control dprofe.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbidprof;
+        protected global::System.Web.UI.WebControls.DropDownList dprofe;
         
         /// <summary>
         /// Control lbAceptar.

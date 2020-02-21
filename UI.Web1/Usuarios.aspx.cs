@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
-
+using Util;
 namespace UI.Web
 {
     public partial class Usuarios : System.Web.UI.Page
@@ -92,7 +92,9 @@ namespace UI.Web
            
             cbHabilitado.Checked = Entity.Habilitado;
             tbEmail.Text = Entity.Email;
-            tbidPers.Text = Entity.Id_persona.ToString();
+            tbClave.Text = Entity.Clave;
+            dpers.SelectedValue = ((int)Entity.Id_persona).ToString();
+           // tbidPers.Text = Entity.Id_persona.ToString();
             tbNombreUsuario.Text = Entity.NombreUsuario;
 
         }
@@ -104,18 +106,20 @@ namespace UI.Web
                 this.formPanel.Visible = true;
                 this.FormMode = FormModes.Modificacion;
                 this.LoadForm(this.SelectedID);
+                CargarCombo();
             }
         }
 
         private void LoadEntity(Usuario usuario)
         {
 
-            if (tbEmail.Text.Length > 0 && tbNombreUsuario.Text.Length > 0 && tbClave.Text.Length > 0 && tbidPers.Text.Length > 0)
+            if (tbEmail.Text.Length > 0 && tbNombreUsuario.Text.Length > 0 && tbClave.Text.Length > 0 /*&& tbidPers.Text.Length > 0*/)
             {
                 usuario.Email = tbEmail.Text;
-                usuario.Id_persona = int.Parse(tbidPers.Text);
+                usuario.Id_persona = int.Parse(dpers.SelectedValue);
                  usuario.NombreUsuario = tbNombreUsuario.Text;
                 usuario.Clave = tbClave.Text;
+               
                 //usuario.Id_persona = Convert.ToInt32(tbId_persona.Text);
                 usuario.Habilitado = cbHabilitado.Checked;
             }
@@ -147,7 +151,8 @@ namespace UI.Web
             tbNombreUsuario.Text = string.Empty;
             cbHabilitado.Checked = false;
             tbClave.Text = string.Empty;
-            tbidPers.Text = string.Empty;
+            dpers.SelectedValue = 0.ToString();
+
         }
 
 
@@ -175,7 +180,8 @@ namespace UI.Web
             formPanel.Visible = true;
             FormMode = FormModes.Alta;
             ClearForm();
-           // this.EnableForm(true);
+            CargarCombo();
+            // this.EnableForm(true);
         }
 
         protected void lbAceptar_Click(object sender, EventArgs e)
@@ -223,6 +229,14 @@ namespace UI.Web
         {
             SelectedID = (int)gridView.SelectedValue;
 
+        }
+        public void CargarCombo()
+        {
+            dpers.DataSource = GenerarCombo.getPersona();
+
+            dpers.DataValueField = "id_persona";
+            dpers.DataTextField = "apellido";
+            dpers.DataBind();
         }
     }
 }
