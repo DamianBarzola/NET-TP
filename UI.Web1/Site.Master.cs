@@ -30,27 +30,25 @@ namespace UI.Web
                 if ((int)Session["tipo"] == 3)
                 {
                     chABM.Visible = true;
-                    chMisCursos.Visible = false;
+                    chProfesor.Visible = false;
                     chMaterias.Visible = false;
-                    //Profesor.Visible = false;
-                    chReportes.Visible = false;
+                   
 
                 }
                 else if ((int)Session["tipo"] == 2)
                 {
                     chABM.Visible = false;
                     chMaterias.Visible = false;
-                    chMisCursos.Visible = true;
-                    //Profesor.Visible = true;
-                    chReportes.Visible = true;
+                    chProfesor.Visible = true;
+                    
+                  
                 }
                 else if ((int)Session["tipo"] == 1)
                 {
                     chABM.Visible = false;
                     chMaterias.Visible = true;
-                    chMisCursos.Visible = false;
-                    // Profesor.Visible = false;
-                    chReportes.Visible = false;
+                    chProfesor.Visible = false;
+                   
                 }
 
             }
@@ -73,7 +71,7 @@ namespace UI.Web
 
         }
 
-        protected void btnAceptar_Click(object sender, EventArgs e)
+      /*  protected void btnAceptar_Click(object sender, EventArgs e)
         {
             Business.Entities.Persona a = persLog.GetOne((int)Session["idPersona"]);
             if (txtEspecialidad.Text.Length != 0)
@@ -82,6 +80,6 @@ namespace UI.Web
                 a.State = BusinessEntity.States.Modified;
                 persLog.Save(a);
             }
-        }
+        }*/
     }
 }
