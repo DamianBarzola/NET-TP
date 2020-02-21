@@ -53,23 +53,12 @@ namespace UI.Desktop
 
         private void tsEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult confirm = MessageBox.Show("¿Está seguro de que desea eliminar la materia?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-            if (confirm == DialogResult.Yes)
+            if (this.dgvMaterias.SelectedRows.Count != 0)
             {
-                int ID = ((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
-                try
-                {
-                    mLogic.Delete(ID);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("No se ha podido eliminar el elemento ya que está referenciado por otro elemento", "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
-                }
-                finally
-                {
-                    Listar();
-                }
-
+                int ID = ((Business.Entities.Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
+                MateriaDesktop materiaDesktop = new MateriaDesktop(ID, ApplicationForm.ModoForm.Baja);
+                materiaDesktop.ShowDialog();
+                this.Listar();
             }
         }
 

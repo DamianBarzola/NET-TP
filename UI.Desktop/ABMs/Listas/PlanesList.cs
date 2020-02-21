@@ -14,9 +14,6 @@ namespace UI.Desktop
 {
     public partial class PlanesList : ApplicationForm
     {
-
-        PlanLogic pLogic = new PlanLogic();
-
         public PlanesList()
         {
             InitializeComponent();
@@ -30,7 +27,7 @@ namespace UI.Desktop
         {
             dgvPlanes.DataSource = null;
             dgvPlanes.Refresh();
-      //    PlanLogic pLogic = new PlanLogic();
+            PlanLogic pLogic = new PlanLogic();
             List<Plan> planes = pLogic.GetAll();
             if (planes.Count == 0)
             {
@@ -64,12 +61,7 @@ namespace UI.Desktop
 
         #endregion
 
-        #region Nuevo, editar y actualizar
-
-
-
-
-        #endregion
+        #region botones opciones
 
         private void tsNuevo_Click(object sender, EventArgs e)
         {
@@ -88,26 +80,18 @@ namespace UI.Desktop
 
         private void tsEliminar_Click(object sender, EventArgs e)
         {
-            if (this.dgvPlanes.SelectedRows.Count != 0)
+           if (this.dgvPlanes.SelectedRows.Count != 0)
             {
-                DialogResult confirm = MessageBox.Show("¿Está seguro de que desea eliminar el plan?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-                if (confirm == DialogResult.Yes)
-                {
-                    int ID = ((Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID;
-                    try
-                    {
-                        pLogic.Delete(ID);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("No se ha podido eliminar el elemento", "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
-                    }
-                    finally
-                    {
-                        Listar();
-                    }
-                }
+                int ID = ((Business.Entities.Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID;
+                PlanDesktop plandEsktop = new PlanDesktop(ID, ApplicationForm.ModoForm.Baja);
+                plandEsktop.ShowDialog();
+                this.Listar();
             }
         }
+
+
+        #endregion
+
+
     }
 }

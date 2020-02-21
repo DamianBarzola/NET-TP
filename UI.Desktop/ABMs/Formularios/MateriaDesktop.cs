@@ -61,7 +61,6 @@ namespace UI.Desktop
                     materiaActual.IDPlan = (int)cbPlanes.SelectedValue;
                     materiaActual.Descripcion = txtDescripcion.Text;
                     materiaActual.ID = Convert.ToInt32(this.labelID.Text);
-
                     materiaActual.State = Usuario.States.Modified;
                     break;
 

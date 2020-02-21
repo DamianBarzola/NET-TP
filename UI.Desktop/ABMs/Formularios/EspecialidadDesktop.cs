@@ -80,44 +80,48 @@ namespace UI.Desktop
 
         public override void MapearADatos()
         {
-            EspecActual = new Especialidad();
             switch (this.Modo)
             {
                 case ModoForm.Baja:
                     EspecActual.State = Usuario.States.Deleted;
                     break;
-                case ModoForm.Consulta:
-                    EspecActual.State = Usuario.States.Unmodified;
-                    break;
                 case ModoForm.Alta:
+                    EspecActual = new Especialidad()
+                    {
+                        DescripcionEspecialidad = txtDescripcion.Text
+                    };
                     EspecActual.State = Usuario.States.New;
                     break;
                 case ModoForm.Modificacion:
+                    EspecActual.DescripcionEspecialidad = txtDescripcion.Text;
+                    EspecActual.ID = Convert.ToInt32(lblID.Text);
                     EspecActual.State = Usuario.States.Modified;
                     break;
             }
-            if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
-            {
-                this.EspecActual.DescripcionEspecialidad = txtDescripcion.Text;
-                if(Modo == ModoForm.Modificacion)
-                {
-                    this.EspecActual.ID = Convert.ToInt32(lblID.Text);
-                }
-            }
+
         }
         #endregion
+        public override bool Validar()
+        {
+            bool valid = true;
+            string mensaje = "";
+            if (Validaciones.ValTexto(txtDescripcion.Text))
+            {
+                valid = false;
+                mensaje += "Debe ingresar una descripcion";
+            }
+            if (!valid)
+            {
+                MessageBox.Show(mensaje);
+            }
+            return valid;
+        }
+
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (Validaciones.ValTexto(txtDescripcion.Text))
-            {
                 GuardarCambios();
                 this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Complete todos los casilleros.");
-            }
         }
         public override void GuardarCambios()
         {

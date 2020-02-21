@@ -53,29 +53,17 @@ namespace UI.Desktop
             {
                 MessageBox.Show("Seleccione una fila a editar");
             }
-
         }
 
         private void tsEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult confirm = MessageBox.Show("¿Está seguro de que desea eliminar la persona?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-            if (confirm == DialogResult.Yes)
-            {
-                int ID = ((Persona)this.dgvPersonas.SelectedRows[0].DataBoundItem).ID;
-                try
+                if (this.dgvPersonas.SelectedRows.Count != 0)
                 {
-                    personas.Delete(ID);
+                    int ID = ((Business.Entities.Persona)this.dgvPersonas.SelectedRows[0].DataBoundItem).ID;
+                    PersonaDesktop personaDesktop = new PersonaDesktop(ID, ApplicationForm.ModoForm.Baja);
+                    personaDesktop.ShowDialog();
+                    this.Listar();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("No se ha podido eliminar el elemento ya que está referenciado por otro elemento", "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
-                }
-                finally
-                {
-                    Listar();
-                }
-            }
-
         }
         #endregion
 

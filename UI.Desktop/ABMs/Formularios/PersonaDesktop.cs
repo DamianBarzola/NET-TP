@@ -24,15 +24,15 @@ namespace UI.Desktop
         {
             InitializeComponent();
         }
-        public PersonaDesktop(ModoForm modo)
+        //alta
+        public PersonaDesktop(ModoForm modo) : this()
         {
-            InitializeComponent();
             this.modoform = modo;
             cargarCombo();
         }
-        public PersonaDesktop(int id, ModoForm modo)
+        //baja y modif
+        public PersonaDesktop(int id, ModoForm modo) : this()
         {
-            InitializeComponent();
             this.personaActual = plogic.GetOne(id);
             this.modoform = modo;
             this.MapearDeDatos();
@@ -43,21 +43,34 @@ namespace UI.Desktop
         #region Mapeos
        override public void  MapearADatos()
         {
-            Persona personaVieja = this.personaActual;
-            
-            this.personaActual = new Persona()
+            switch (this.modoform)
             {
-                Tipo = (Persona.TipoPersona)cbxTipo.SelectedValue,
-                Legajo = int.Parse(txtLegajo.Text),
-                Apellido = txtApellido.Text,
-                Nombre = txtNombre.Text,
-                Telefono = txtTelef.Text,
-                Direccion = txtDireccion.Text,
-                FechaNacimiento = dtpFechaNacimiento.Value.Date
-            };
-            if (personaVieja != null)
-            {
-                this.personaActual.ID = personaVieja.ID;
+                case ModoForm.Alta:
+                    personaActual = new Persona
+                    {
+                        Tipo = (Persona.TipoPersona)cbxTipo.SelectedValue,
+                        Legajo = int.Parse(txtLegajo.Text),
+                        Apellido = txtApellido.Text,
+                        Nombre = txtNombre.Text,
+                        Telefono = txtTelef.Text,
+                        Direccion = txtDireccion.Text,
+                        FechaNacimiento = dtpFechaNacimiento.Value.Date,
+                        State = Usuario.States.New
+                    };
+            break;
+                case ModoForm.Modificacion:
+                    personaActual.Tipo = (Persona.TipoPersona)cbxTipo.SelectedValue;
+                    personaActual.Legajo = int.Parse(txtLegajo.Text);
+                    personaActual.Apellido = txtApellido.Text;
+                    personaActual.Nombre = txtNombre.Text;
+                    personaActual.Telefono = txtTelef.Text;
+                    personaActual.Direccion = txtDireccion.Text;
+                    personaActual.FechaNacimiento = dtpFechaNacimiento.Value.Date;
+                    personaActual.State = Usuario.States.Modified;
+                    break;
+                case ModoForm.Baja:
+                    personaActual.State = Usuario.States.Deleted;
+                    break;
             }
 
         }
@@ -72,7 +85,24 @@ namespace UI.Desktop
             txtTelef.Text = personaActual.Telefono;
             txtDireccion.Text = personaActual.Direccion;
             dtpFechaNacimiento.Value = personaActual.FechaNacimiento;
-       }
+            switch (this.modoform)
+            {
+                case ModoForm.Modificacion:
+                    btnAceptar.Text = "Guardar";
+                    break;
+                case ModoForm.Baja:
+                    btnAceptar.Text = "Eliminar";
+                    txtID.ReadOnly = true;
+                    txtLegajo.ReadOnly = true;
+                    txtNombre.ReadOnly = true;
+                    txtApellido.ReadOnly = true;
+                    txtTelef.ReadOnly = true;
+                    txtDireccion.ReadOnly = true;
+                    dtpFechaNacimiento.Enabled = false;
+                    cbxTipo.Enabled = false;
+                    break;
+            }
+        }
 
 
         #endregion

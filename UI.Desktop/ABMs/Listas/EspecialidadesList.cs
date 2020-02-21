@@ -71,36 +71,8 @@ namespace UI.Desktop
             this.Listar();
         }
 
-        private void tsEliminar_Click(object sender, EventArgs e)
-        {
-            if (this.dgvEspecialidades.SelectedRows.Count != 0)
-            {
-                DialogResult confirm = MessageBox.Show("¿Está seguro de que desea eliminar la especialidad?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-                if (confirm == DialogResult.Yes)
-                {
-                    int ID = ((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
-                    try
-                    {
-                        eLogic.Delete(ID);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("No se ha podido eliminar el elemento", "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
-                    }
-                    finally
-                    {
-                        Listar();
-                    }
-                }
-            }
-        }
-
-        #endregion
-
-
-        /* ASI DEBERIAN SER TODAS LAS BAJAS
-        private void tsEliminar_Click(object sender, EventArgs e)
-        {
+       private void tsEliminar_Click(object sender, EventArgs e)
+       {
             if (this.dgvEspecialidades.SelectedRows.Count != 0)
             {
                 int ID = ((Business.Entities.Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
@@ -108,7 +80,11 @@ namespace UI.Desktop
                 especialidadDesktop.ShowDialog();
                 this.Listar();
             }
-        }
-        */
+       }
+        #endregion
+
+
+ 
+        
     }
 }

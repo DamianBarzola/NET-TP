@@ -25,8 +25,6 @@ namespace UI.Desktop
         public PlanDesktop()
         {
             InitializeComponent();
-            lblcbespecialidad.Visible = false;
-            lblDesc.Visible = false;
         }
         //alta
         public PlanDesktop(ModoForm modo) : this()
@@ -136,7 +134,7 @@ namespace UI.Desktop
         {
             cbEspecialidades.ValueMember = "id_especialidad";
             cbEspecialidades.DisplayMember = "descripcion";
-            cbEspecialidades.DataSource = GenerarCombo.getPlanes();
+            cbEspecialidades.DataSource = GenerarCombo.getEspecialidades();
         }
 
 
