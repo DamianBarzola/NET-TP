@@ -23,16 +23,54 @@ namespace UI.Desktop
         public Main()
         {
             InitializeComponent();
+            SetearVistas();
         }
-        public Main(Usuario user)
+        public Main(Usuario user) : this()
         {
-            InitializeComponent();
             UsuarioLogueado = user;
-            //ActualizarVista();
-
+            ActualizarVista();
         }
+
         #endregion
 
+        //pone todas las vistas en true
+        public void SetearVistas()
+        {
+            tsmAdministrar.Visible = true;
+            tsmDocentes.Visible = true;
+            tsmAlumnos.Visible = true;
+
+        }
+        public void ActualizarVista()
+        {
+            Persona per = new Persona();
+            PersonaLogic pLogic = new PersonaLogic();
+            per = pLogic.GetOne(UsuarioLogueado.Id_persona);
+            lblNombrePersona.Text = per.Nombre + "-" + per.Apellido;
+
+            switch (per.Tipo)
+            {
+                case Persona.TipoPersona.Alumno:
+                    lblTipoPersona.Text = "Alumno";
+                    tsmAdministrar.Visible = false;
+                    tsmDocentes.Visible = false;
+                    break;
+
+                case Persona.TipoPersona.Docente:
+                    lblTipoPersona.Text = "Docente";
+                    tsmAdministrar.Visible = false;
+                    tsmAlumnos.Visible = false;
+                    break;
+
+                case Persona.TipoPersona.Administrador:
+                    lblTipoPersona.Text = "Administrador";
+                    tsmAlumnos.Visible = false;
+                    tsmDocentes.Visible = false;
+                    break;
+            }
+
+
+        }
 
        /* public void ActualizarVista()
         {

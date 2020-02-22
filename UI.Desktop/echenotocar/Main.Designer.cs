@@ -46,6 +46,10 @@
             this.tsmAlumnos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmMateriasInscripto = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmInscribirseAMateria = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblLogueado = new System.Windows.Forms.Label();
+            this.lblBienvenido = new System.Windows.Forms.Label();
+            this.lblTipoPersona = new System.Windows.Forms.Label();
+            this.lblNombrePersona = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,28 +135,28 @@
             // aBMEspecialidadesToolStripMenuItem
             // 
             this.aBMEspecialidadesToolStripMenuItem.Name = "aBMEspecialidadesToolStripMenuItem";
-            this.aBMEspecialidadesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aBMEspecialidadesToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.aBMEspecialidadesToolStripMenuItem.Text = "ABM Especialidades";
             this.aBMEspecialidadesToolStripMenuItem.Click += new System.EventHandler(this.aBMEspecialidadesToolStripMenuItem_Click);
             // 
             // aBMPlanesToolStripMenuItem
             // 
             this.aBMPlanesToolStripMenuItem.Name = "aBMPlanesToolStripMenuItem";
-            this.aBMPlanesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aBMPlanesToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.aBMPlanesToolStripMenuItem.Text = "ABM Planes";
             this.aBMPlanesToolStripMenuItem.Click += new System.EventHandler(this.aBMPlanesToolStripMenuItem_Click);
             // 
             // aBMMateriasToolStripMenuItem
             // 
             this.aBMMateriasToolStripMenuItem.Name = "aBMMateriasToolStripMenuItem";
-            this.aBMMateriasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aBMMateriasToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.aBMMateriasToolStripMenuItem.Text = "ABM Materias";
             this.aBMMateriasToolStripMenuItem.Click += new System.EventHandler(this.aBMMateriasToolStripMenuItem_Click);
             // 
             // aBMCursosToolStripMenuItem
             // 
             this.aBMCursosToolStripMenuItem.Name = "aBMCursosToolStripMenuItem";
-            this.aBMCursosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aBMCursosToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.aBMCursosToolStripMenuItem.Text = "ABM Comision";
             this.aBMCursosToolStripMenuItem.Click += new System.EventHandler(this.aBMCursosToolStripMenuItem_Click);
             // 
@@ -167,7 +171,7 @@
             // tsmReportesDocentes
             // 
             this.tsmReportesDocentes.Name = "tsmReportesDocentes";
-            this.tsmReportesDocentes.Size = new System.Drawing.Size(180, 22);
+            this.tsmReportesDocentes.Size = new System.Drawing.Size(172, 22);
             this.tsmReportesDocentes.Text = "Reportes Docentes";
             // 
             // tsmAlumnos
@@ -182,22 +186,60 @@
             // tsmMateriasInscripto
             // 
             this.tsmMateriasInscripto.Name = "tsmMateriasInscripto";
-            this.tsmMateriasInscripto.Size = new System.Drawing.Size(180, 22);
+            this.tsmMateriasInscripto.Size = new System.Drawing.Size(179, 22);
             this.tsmMateriasInscripto.Text = "Materias Inscripto";
             this.tsmMateriasInscripto.Click += new System.EventHandler(this.tsmMateriasInscripto_Click);
             // 
             // tsmInscribirseAMateria
             // 
             this.tsmInscribirseAMateria.Name = "tsmInscribirseAMateria";
-            this.tsmInscribirseAMateria.Size = new System.Drawing.Size(180, 22);
+            this.tsmInscribirseAMateria.Size = new System.Drawing.Size(179, 22);
             this.tsmInscribirseAMateria.Text = "Inscribirse a materia";
             this.tsmInscribirseAMateria.Click += new System.EventHandler(this.tsmInscribirseAMateria_Click);
+            // 
+            // lblLogueado
+            // 
+            this.lblLogueado.AutoSize = true;
+            this.lblLogueado.Location = new System.Drawing.Point(72, 66);
+            this.lblLogueado.Name = "lblLogueado";
+            this.lblLogueado.Size = new System.Drawing.Size(154, 13);
+            this.lblLogueado.TabIndex = 1;
+            this.lblLogueado.Text = "Usted ha sido logueado como :";
+            // 
+            // lblBienvenido
+            // 
+            this.lblBienvenido.AutoSize = true;
+            this.lblBienvenido.Location = new System.Drawing.Point(75, 105);
+            this.lblBienvenido.Name = "lblBienvenido";
+            this.lblBienvenido.Size = new System.Drawing.Size(69, 13);
+            this.lblBienvenido.TabIndex = 2;
+            this.lblBienvenido.Text = "Bienvenido : ";
+            // 
+            // lblTipoPersona
+            // 
+            this.lblTipoPersona.AutoSize = true;
+            this.lblTipoPersona.Location = new System.Drawing.Point(253, 66);
+            this.lblTipoPersona.Name = "lblTipoPersona";
+            this.lblTipoPersona.Size = new System.Drawing.Size(0, 13);
+            this.lblTipoPersona.TabIndex = 3;
+            // 
+            // lblNombrePersona
+            // 
+            this.lblNombrePersona.AutoSize = true;
+            this.lblNombrePersona.Location = new System.Drawing.Point(253, 105);
+            this.lblNombrePersona.Name = "lblNombrePersona";
+            this.lblNombrePersona.Size = new System.Drawing.Size(0, 13);
+            this.lblNombrePersona.TabIndex = 4;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblNombrePersona);
+            this.Controls.Add(this.lblTipoPersona);
+            this.Controls.Add(this.lblBienvenido);
+            this.Controls.Add(this.lblLogueado);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
@@ -229,5 +271,9 @@
         private System.Windows.Forms.ToolStripMenuItem aBMPlanesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aBMMateriasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aBMCursosToolStripMenuItem;
+        private System.Windows.Forms.Label lblLogueado;
+        private System.Windows.Forms.Label lblBienvenido;
+        private System.Windows.Forms.Label lblTipoPersona;
+        private System.Windows.Forms.Label lblNombrePersona;
     }
 }
