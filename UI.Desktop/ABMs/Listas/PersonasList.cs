@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Logic;
 using Business.Entities;
+using Util;
 
 namespace UI.Desktop
 {
     public partial class PersonasList : Form
     {
-        private PersonaLogic personas = new PersonaLogic();
+        private PersonaLogic pLogic = new PersonaLogic();
 
         public PersonasList()
         {
@@ -29,7 +30,18 @@ namespace UI.Desktop
 
         public void Listar()
         {
-            this.dgvPersonas.DataSource = personas.GetAll();
+            dgvPersonas.DataSource = null;
+            dgvPersonas.Refresh();
+            List<Persona> personas = pLogic.GetAll();
+            if (personas.Count == 0)
+            {
+                MessageBox.Show("No hay personas cargadas!");
+            }
+            else
+            {
+
+                this.dgvPersonas.DataSource = GenerarListas.GenerarPersona(personas);
+            }
         }
 
         #region botones opciones

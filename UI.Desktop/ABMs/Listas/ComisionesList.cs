@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
+using Util;
 
 namespace UI.Desktop
 {
@@ -21,13 +22,10 @@ namespace UI.Desktop
             InitializeComponent();
             dgvComisiones.AutoGenerateColumns = false;
         }
-
-        #region botones simples y listar
         public void Listar()
         {
             dgvComisiones.DataSource = null;
             dgvComisiones.Refresh();
-            // EspecialidadLogic eLogic = new EspecialidadLogic();
             List<Comision> comisiones = cLogic.GetAll();
             if (comisiones.Count == 0)
             {
@@ -35,9 +33,12 @@ namespace UI.Desktop
             }
             else
             {
-                this.dgvComisiones.DataSource = comisiones;
+                this.dgvComisiones.DataSource = GenerarListas.GenerarComision(comisiones);
             }
         }
+
+        #region botones simples y listar
+
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -56,6 +57,7 @@ namespace UI.Desktop
 
         #endregion
 
+        #region Botones opciones
         private void tsNuevo_Click(object sender, EventArgs e)
         {
             ComisionDesktop comisionDesktop = new ComisionDesktop(ModoForm.Alta);
@@ -94,5 +96,6 @@ namespace UI.Desktop
                 }
             }
         }
+        #endregion
     }
 }

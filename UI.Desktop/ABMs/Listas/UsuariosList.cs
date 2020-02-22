@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Logic;
 using Business.Entities;
+using Util;
 
 namespace UI.Desktop
 {
@@ -23,8 +24,19 @@ namespace UI.Desktop
         }
 
         public void Listar()
-        {            
-            this.dgvUsuarios.DataSource = ul.GetAll();
+        {
+            dgvUsuarios.DataSource = null;
+            dgvUsuarios.Refresh();
+            List<Usuario> usuarios = ul.GetAll();
+            if (usuarios.Count == 0)
+            {
+                MessageBox.Show("No hay usuarios cargados!");
+            }
+            else
+            {
+
+                this.dgvUsuarios.DataSource = GenerarListas.GenerarUsu(usuarios);
+            }
         }
         #region Botones simples
         private void Usuarios_Load(object sender, EventArgs e)

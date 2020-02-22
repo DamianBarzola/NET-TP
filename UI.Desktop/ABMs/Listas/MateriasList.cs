@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
+using Util;
 
 namespace UI.Desktop
 {
@@ -24,7 +25,18 @@ namespace UI.Desktop
 
         public void Listar()
         {
-            dgvMaterias.DataSource = mLogic.GetAll();
+            dgvMaterias.DataSource = null;
+            dgvMaterias.Refresh();
+            List<Materia> materias = mLogic.GetAll();
+            if (materias.Count == 0)
+            {
+                MessageBox.Show("No hay materias cargadas!");
+            }
+            else
+            {
+
+                this.dgvMaterias.DataSource = GenerarListas.GenerarMateria(materias);
+            }
         }
 
         #region botones opciones

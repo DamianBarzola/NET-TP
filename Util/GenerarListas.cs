@@ -33,7 +33,7 @@ namespace Util
             DataTable Listado = new DataTable();
             Listado.Columns.Add("ID", typeof(int));
             Listado.Columns.Add("DescripcionPlan", typeof(string));
-            Listado.Columns.Add("IDEspecialidad", typeof(string));
+            Listado.Columns.Add("IDEspecialidad", typeof(string)); //se muestra descripcion pero no cambiamos el nombre para no tener que modificar todo
 
             List<Especialidad> especialidades = EspLogic.GetAll();
 
@@ -59,7 +59,7 @@ namespace Util
             DataTable Listado = new DataTable();
             Listado.Columns.Add("ID", typeof(int));
             Listado.Columns.Add("NombreUsuario", typeof(string));           
-            Listado.Columns.Add("Id_persona", typeof(string));//apellido
+            Listado.Columns.Add("Id_persona", typeof(string));////se muestra AyN pero no cambiamos el nombre para no tener que modificar todo
             Listado.Columns.Add("Email", typeof(string));
            
 
@@ -87,7 +87,7 @@ namespace Util
             DataTable Listado = new DataTable();
             Listado.Columns.Add("ID", typeof(int));
             Listado.Columns.Add("Descripcion", typeof(string));    
-            Listado.Columns.Add("IDPlan", typeof(string));
+            Listado.Columns.Add("IDPlan", typeof(string));//se muestra descripcion pero no cambiamos el nombre para no tener que modificar todo
 
             List<Plan> planes = PlanLogic.GetAll();
            
@@ -114,8 +114,8 @@ namespace Util
             DataTable Listado = new DataTable();
             Listado.Columns.Add("ID", typeof(int));
             Listado.Columns.Add("AnioEspecialidad", typeof(int));
-            Listado.Columns.Add("IDMateria", typeof(string));
-            Listado.Columns.Add("IdProfesor", typeof(string));
+            Listado.Columns.Add("IDMateria", typeof(string));//se muestra descripcion pero no cambiamos el nombre para no tener que modificar todo
+            Listado.Columns.Add("IdProfesor", typeof(string));//se muestra AyN pero no cambiamos el nombre para no tener que modificar todo
             List<Plan> planes = PlanLogic.GetAll();
             List<Especialidad> especialidades = EspLogic.GetAll();
 
@@ -152,7 +152,7 @@ namespace Util
             Listado.Columns.Add("Direccion", typeof(string));
             Listado.Columns.Add("Telefono", typeof(string));
             Listado.Columns.Add("FechaNacimiento", typeof(string));
-            Listado.Columns.Add("Id_especialidad", typeof(string));
+            Listado.Columns.Add("Id_especialidad", typeof(string));//se muestra descripcion pero no cambiamos el nombre para no tener que modificar todo
 
 
             foreach (Persona per in pers)

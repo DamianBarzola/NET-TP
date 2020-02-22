@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
+using Util;
 
 namespace UI.Desktop
 {
@@ -19,9 +20,6 @@ namespace UI.Desktop
             InitializeComponent();
             dgvPlanes.AutoGenerateColumns = false;
         }
-
-
-
 
         public void Listar()
         {
@@ -35,7 +33,8 @@ namespace UI.Desktop
             }
             else
             {
-                this.dgvPlanes.DataSource = planes;
+
+                this.dgvPlanes.DataSource = GenerarListas.GenerarPlan(planes);
             }
         }
 
