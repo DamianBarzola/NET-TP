@@ -72,69 +72,6 @@ namespace UI.Desktop
 
         }
 
-       /* public void ActualizarVista()
-        {
-            if(UsuarioLogueado ==null)
-            {
-                
-                this.tsmAlumnos.Visible = false;
-                this.tsmDocentes.Visible = false;
-                this.tsmCerrarSesion.Visible = false;
-                this.tsmIniciarSesion.Visible = true;
-
-                this.tsmAdministrar.Visible = false;
-                this.tsmAdministrarDocentes.Visible = false;
-            }
-            else
-            {
-                this.tsmIniciarSesion.Visible = false;
-                this.tsmCerrarSesion.Visible = true;
-                if (UsuarioLogueado != null)
-                {
-                    /*
-                   switch (UsuarioLogueado.Persona.Tipo)
-                    {
-                        case Persona.TipoPersona.Alumno:
-                            MenuAlumno();
-                            break;
-                        case Persona.TipoPersona.Docente:
-                            MenuAlumno();
-                            break;
-                        case Persona.TipoPersona.Administrador:
-                            MenuAlumno();
-                            break;
-
-                    }
-
-                }
-
-            }
-           
-
-
-
-        }*/
-
-     /*   #region Menu
-        private void MenuAlumno()
-        {
-            tsmAlumnos.Visible = true;
-        }
-        private void MenuPersona()
-        {
-            tsmDocentes.Visible = true;
-            tsmAdministrar.Visible = true;
-        }
-
-        private void MenuAdministrador()
-        {
-            tsmAdministrar.Visible = true;
-            tsmAdministrarDocentes.Visible = true;
-                
-        }
-        #endregion
-    */
-
         public void Login()
         {
             Login login = new Login();
@@ -144,6 +81,7 @@ namespace UI.Desktop
         public void Logout()
         {
             UsuarioLogueado = null;
+            this.Close();
             Login();
         }
 
