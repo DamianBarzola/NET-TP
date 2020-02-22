@@ -13,6 +13,7 @@ namespace UI.Web
     public partial class Personas : System.Web.UI.Page
     {
         private Business.Entities.Persona Entity { get; set; }
+
         public enum FormModes { Alta, Baja, Modificacion }
         public FormModes FormMode
         {
@@ -51,7 +52,8 @@ namespace UI.Web
         }
         private void LoadGrid()
         {
-            gridView.DataSource = personas.GetAll();
+            List<Persona> per = personas.GetAll();
+            gridView.DataSource = GenerarListas.GenerarPersona(per);
             gridView.DataBind();
         }
         private void LoadForm(int id)
@@ -63,7 +65,7 @@ namespace UI.Web
             apellidoTextBox.Text = Entity.Apellido;
             FechaNacTextBox.Text = Entity.FechaNacimiento.ToString("yyyy-MM-dd");
             TelefonoTextBox.Text = Entity.Telefono;
-
+            dTipo.SelectedValue= ((int)Entity.Tipo).ToString();
 
             desp.SelectedValue = ((int)Entity.Id_especialidad).ToString();
 
@@ -145,6 +147,7 @@ namespace UI.Web
 
         protected void lbAceptar_Click(object sender, EventArgs e)
         {
+
             switch (FormMode)
 
             {

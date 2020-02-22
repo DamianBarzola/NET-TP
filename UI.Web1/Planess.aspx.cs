@@ -55,7 +55,9 @@ namespace UI.Web1
         }
         private void LoadGrid()
         {
-            gridView.DataSource = planes.GetAll();
+            List<Plan> plan = planes.GetAll();
+            gridView.DataSource = GenerarListas.GenerarPlan(plan);
+
             gridView.DataBind();
         }
 
@@ -67,7 +69,7 @@ namespace UI.Web1
         protected void lbEditar_Click(object sender, EventArgs e)
         {
 
-            if (gridView != null)
+            if (gridView.SelectedValue != null)
             {
                 this.formPanel.Visible = true;
                
@@ -91,10 +93,12 @@ namespace UI.Web1
         {
             Entity = planes.GetOne(id);
             descripcionTextBoxa.Text = Entity.DescripcionPlan;
-            CargarCombo();
+            dpespe.SelectedValue = ((int)Entity.IDEspecialidad).ToString();
+
             //  ideso.Text = Entity.IDEspecialidad.ToString();
 
         }
+
         private void ClearForm()
         {
             Entity = null;
@@ -122,6 +126,7 @@ namespace UI.Web1
             formPanel.Visible = true;
             CargarCombo();
             FormMode = FormModes.Alta;
+            CargarCombo();
             ClearForm();
         }
         private void LoadEntity(Plan plan)

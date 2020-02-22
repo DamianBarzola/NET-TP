@@ -45,8 +45,8 @@ namespace UI.Web
 
         private void LoadGrid()
         {
-
-            gridView.DataSource = materias.GetAll();
+            List<Materia> mat = materias.GetAll();
+            gridView.DataSource = GenerarListas.GenerarMateria(mat);
             gridView.DataBind();
         }
 

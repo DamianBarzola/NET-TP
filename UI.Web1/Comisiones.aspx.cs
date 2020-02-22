@@ -44,8 +44,8 @@ namespace UI.Web
         }
         private void LoadGrid()
         {
-
-            gridView.DataSource = com.GetAll();
+            List<Comision> comi = com.GetAll();
+            gridView.DataSource = GenerarListas.GenerarComision(comi);
             gridView.DataBind();
         }
 
@@ -176,10 +176,10 @@ namespace UI.Web
             dmate.DataBind();
 
 
-            dmate.DataSource = GenerarCombo.getProfesores();
-            dmate.DataValueField = "id_persona";
-            dmate.DataTextField = "apellido";
-            dmate.DataBind();
+            dprofe.DataSource = GenerarCombo.getProfesores();
+            dprofe.DataValueField = "id_persona";
+            dprofe.DataTextField = "apellido";
+            dprofe.DataBind();
 
 
         }

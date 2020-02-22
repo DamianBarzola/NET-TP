@@ -47,7 +47,9 @@ namespace UI.Web
 
         private void LoadGrid()
         {
-            this.gridView.DataSource = this.Logic.GetAll();
+
+            List<Usuario> usu = Logic.GetAll();
+            this.gridView.DataSource = GenerarListas.GenerarUsu(usu);
             this.gridView.DataBind();
         }
 

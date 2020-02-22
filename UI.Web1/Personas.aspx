@@ -36,7 +36,7 @@
             <asp:ListItem Value="2">Docente</asp:ListItem>
             <asp:ListItem Value="3">Admin</asp:ListItem>
         </asp:DropDownList>
-        &nbsp;(1-Alumno 2-Docente 3-Admin)<br />
+        &nbsp;<br />
         <asp:Label ID="nombreLabel" runat="server" Text="Nombre:"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="nombreTextBox" runat="server" CssClass="form-control"></asp:TextBox>

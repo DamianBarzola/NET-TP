@@ -83,9 +83,12 @@ namespace UI.Web
 
         protected void lbEditar_Click(object sender, EventArgs e)
         {
-            this.formPanel.Visible = true;
+            if (gridView.SelectedValue != null)
+            {
+                this.formPanel.Visible = true;
             this.FormMode = FormModes.Modificacion;
-            this.LoadForm(this.SelectedID);
+                this.LoadForm(this.SelectedID);
+                 }
         }
 
         protected void lbEliminar_Click(object sender, EventArgs e)
