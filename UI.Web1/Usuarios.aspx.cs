@@ -144,7 +144,10 @@ namespace UI.Web
 
         private void DeteleteEntity(Usuario usuario)
         {
-            Logic.Delete(usuario.ID);
+            if (gridView.SelectedValue != null)
+            {
+                Logic.Delete(usuario.ID);
+            }
         }
         private void ClearForm()
         {

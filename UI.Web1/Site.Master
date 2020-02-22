@@ -3,7 +3,7 @@
 <head runat="server">
     <title>Academia</title>
 </head>
-
+    <link href="/../Style/Master.css" rel="stylesheet">
 
     <form id="bodyForm" runat="server" style="border: 2px groove #000080; font-family: Arial" >
         &nbsp;

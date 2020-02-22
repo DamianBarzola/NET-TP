@@ -6,9 +6,10 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+     <link href="/../Style/Master.css" rel="stylesheet">
 </head>
 <body class="text-center">
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" class="formlog">
         <div style="border: medium groove #000066; font-family: 'Arial Black'; font-size: medium; color: #000000; text-align: center;">
              <br />
              ¡Bienvenido al Sistema!
@@ -29,9 +30,8 @@ Contraseña
                         <asp:Label ID="lblError" runat="server" Visible="False" BackColor="#CC0000">Error de Servidor</asp:Label>
                     </div>
 
-             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btIngresar" runat="server" OnClick="btIngresar_Click" Text="Ingresar" style="margin-left: 0px" TabIndex="4" Width="104px" />
+            <asp:Button ID="btIngresar" CssClass="asd" runat="server" OnClick="btIngresar_Click" Text="Ingresar" style="margin-left: 0px" TabIndex="4" Width="104px" />
              <br />
              <br />
         </div>
