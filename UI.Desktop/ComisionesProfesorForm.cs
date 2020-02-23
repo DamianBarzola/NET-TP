@@ -28,9 +28,9 @@ namespace UI.Desktop
             Persona per = pLogic.GetOne(id);
             switch (per.Tipo)
             {
-                case Persona.TipoPersona.Alumno:
-                    this.DataTable1TableAdapter.Fill(this.Reporte.DataTable1, id);
-                    this.rvDocentes.RefreshReport();
+                case Persona.TipoPersona.Docente:
+                    this.DataTable1TableAdapter.Fill(this.DSReporteDocentes.DataTable1, id);
+                    this.reportViewer1.RefreshReport();
                     break;
                 case Persona.TipoPersona.Administrador:
                     lblIDProfesor.Visible = true;
@@ -49,8 +49,8 @@ namespace UI.Desktop
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             int ID = Convert.ToInt32(txtIDProfesor.Text);
-            this.DataTable1TableAdapter.Fill(this.Reporte.DataTable1, ID);
-            this.rvDocentes.RefreshReport();
+            this.DataTable1TableAdapter.Fill(this.DSReporteDocentes.DataTable1, ID);
+            this.reportViewer1.RefreshReport();
         }
     }
 }

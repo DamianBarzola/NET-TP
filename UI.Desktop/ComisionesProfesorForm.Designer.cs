@@ -30,30 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.rvDocentes = new Microsoft.Reporting.WinForms.ReportViewer();
             this.lblIDProfesor = new System.Windows.Forms.Label();
             this.txtIDProfesor = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.Reporte = new UI.Desktop.Reporte();
-            this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DataTable1TableAdapter = new UI.Desktop.ReporteTableAdapters.DataTable1TableAdapter();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.DSReporteDocentes = new UI.Desktop.DSReporteDocentes();
-            ((System.ComponentModel.ISupportInitialize)(this.Reporte)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
+            this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DataTable1TableAdapter = new UI.Desktop.DSReporteDocentesTableAdapters.DataTable1TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.DSReporteDocentes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // rvDocentes
-            // 
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.DataTable1BindingSource;
-            this.rvDocentes.LocalReport.DataSources.Add(reportDataSource1);
-            this.rvDocentes.LocalReport.ReportEmbeddedResource = "UI.Desktop.ReporteDocentes.rdlc";
-            this.rvDocentes.Location = new System.Drawing.Point(12, 53);
-            this.rvDocentes.Name = "rvDocentes";
-            this.rvDocentes.ServerReport.BearerToken = null;
-            this.rvDocentes.Size = new System.Drawing.Size(710, 327);
-            this.rvDocentes.TabIndex = 0;
             // 
             // lblIDProfesor
             // 
@@ -81,54 +67,58 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // Reporte
+            // reportViewer1
             // 
-            this.Reporte.DataSetName = "Reporte";
-            this.Reporte.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // DataTable1BindingSource
-            // 
-            this.DataTable1BindingSource.DataMember = "DataTable1";
-            this.DataTable1BindingSource.DataSource = this.Reporte;
-            // 
-            // DataTable1TableAdapter
-            // 
-            this.DataTable1TableAdapter.ClearBeforeFill = true;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.DataTable1BindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "UI.Desktop.ReporteDocentes.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(29, 59);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(709, 323);
+            this.reportViewer1.TabIndex = 4;
             // 
             // DSReporteDocentes
             // 
             this.DSReporteDocentes.DataSetName = "DSReporteDocentes";
             this.DSReporteDocentes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // DataTable1BindingSource
+            // 
+            this.DataTable1BindingSource.DataMember = "DataTable1";
+            this.DataTable1BindingSource.DataSource = this.DSReporteDocentes;
+            // 
+            // DataTable1TableAdapter
+            // 
+            this.DataTable1TableAdapter.ClearBeforeFill = true;
+            // 
             // ComisionesProfesorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(750, 405);
+            this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtIDProfesor);
             this.Controls.Add(this.lblIDProfesor);
-            this.Controls.Add(this.rvDocentes);
             this.Name = "ComisionesProfesorForm";
             this.Text = "ComisionesProfesorForm";
             this.Load += new System.EventHandler(this.ComisionesProfesorForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Reporte)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSReporteDocentes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private Microsoft.Reporting.WinForms.ReportViewer rvDocentes;
         private System.Windows.Forms.Label lblIDProfesor;
         private System.Windows.Forms.TextBox txtIDProfesor;
         private System.Windows.Forms.Button btnBuscar;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource DataTable1BindingSource;
-        private Reporte Reporte;
-        private ReporteTableAdapters.DataTable1TableAdapter DataTable1TableAdapter;
         private DSReporteDocentes DSReporteDocentes;
+        private DSReporteDocentesTableAdapters.DataTable1TableAdapter DataTable1TableAdapter;
     }
 }
