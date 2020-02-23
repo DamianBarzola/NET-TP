@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Logic;
 using Business.Entities;
+using Util;
 
 namespace UI.Desktop
 {
@@ -51,41 +52,58 @@ namespace UI.Desktop
         #region mapeos
         public override void MapearDeDatos()
         {
-            txtEmail.Text = UsuarioActual.Email;
-            txtUsuario.Text = UsuarioActual.NombreUsuario;
-            txtClave.Text = UsuarioActual.Clave;
-            txtConfirmarClave.Text = UsuarioActual.Clave;
-            chkHabilitado.Checked = UsuarioActual.Habilitado;
-            if(_Modo == ModoForm.Modificacion || _Modo == ModoForm.Baja) { txtID.Text = UsuarioActual.ID.ToString(); }
+            txtEmailV2.Text = UsuarioActual.Email;
+            txtUsuarioV2.Text = UsuarioActual.NombreUsuario;
+            txtClaveV2.Text = UsuarioActual.Clave;
+            txtConfirmarClaveV2.Text = UsuarioActual.Clave;
+            chkHabilitadoV2.Checked = UsuarioActual.Habilitado;
+            txtID.Text = UsuarioActual.ID.ToString();
+            switch (_Modo)
+            {
+                case ModoForm.Modificacion:
+                    btnAceptar.Text = "Guardar";
+                    break;
+                case ModoForm.Baja:
+                    btnAceptar.Text = "Eliminar";
+                    txtClaveV2.ReadOnly = true;
+                    txtConfirmarClaveV2.ReadOnly = true;
+                    txtEmailV2.ReadOnly = true;
+                    txtID.ReadOnly = true;
+                    txtUsuarioV2.ReadOnly = true;
+                    chkHabilitadoV2.Enabled = false;
+                    break;
+            }
         }
 
         public override void MapearADatos()
         {
-            Usuario UsuarioActual = new Usuario();
             switch (this._Modo)
             {
+                case ModoForm.Alta:
+
+                    UsuarioActual = new Usuario()
+                    {
+                        State = Usuario.States.New,
+                        Email = txtEmailV2.Text,
+                        NombreUsuario = txtUsuarioV2.Text,
+                        Clave = txtClaveV2.Text,
+                        Habilitado = chkHabilitadoV2.Checked
+                    };
+                    break;
+
+                case ModoForm.Modificacion:
+                    UsuarioActual.State = Usuario.States.Modified;
+                    UsuarioActual.Email = this.txtEmailV2.Text;
+                    UsuarioActual.NombreUsuario = this.txtUsuarioV2.Text;
+                    UsuarioActual.Clave = this.txtClaveV2.Text;
+                    UsuarioActual.Habilitado = this.chkHabilitadoV2.Checked;
+                    UsuarioActual.ID = Convert.ToInt32(this.txtID.Text);
+                    break;
+
                 case ModoForm.Baja:
                     UsuarioActual.State = Usuario.States.Deleted;
                     break;
-                case ModoForm.Consulta:
-                    UsuarioActual.State = Usuario.States.Unmodified;
-                    break;
-                case ModoForm.Alta:
-                    UsuarioActual.State = Usuario.States.New;
-                    break;
-                case ModoForm.Modificacion:
-                    UsuarioActual.State = Usuario.States.Modified;
-                    break;
             }
-            if (_Modo == ModoForm.Alta || _Modo == ModoForm.Modificacion)
-            {
-                if (_Modo == ModoForm.Modificacion) { UsuarioActual.ID = Convert.ToInt32(this.txtID.Text); }
-                UsuarioActual.Email = this.txtEmail.Text;
-                UsuarioActual.NombreUsuario = this.txtUsuario.Text;
-                UsuarioActual.Clave = this.txtClave.Text;
-                UsuarioActual.Habilitado = this.chkHabilitado.Checked;
-            }
-
         }
         #endregion
 
@@ -94,15 +112,14 @@ namespace UI.Desktop
         {
             bool valid = true;
             string mensaje = "";
-        //   mensaje += txtClave.Text;
 
-            if (txtClave.Text.Length == 0)
+            if (!Validaciones.ValClave(txtClaveV2.Text))
             {
                 valid = false;
                 mensaje += "/nDebe ingresar una clave";
             }
 
-            if (!(txtConfirmarClave.Text.Equals(txtClave)) )
+            if (!(txtConfirmarClaveV2.Text.Equals(txtClaveV2)) )
             {
                 valid = false;
                 mensaje += "/nLas claves deben ser iguales";
@@ -117,21 +134,24 @@ namespace UI.Desktop
 
         public override void GuardarCambios()
         {
-            if (Validar())
-            { 
                 this.MapearADatos();
                 usuarioLogic.Save(UsuarioActual);
                 this.Close();
-            }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            if (Validar())
+            {
                 GuardarCambios();
+            }
         }
         private void btnAceptar_Click_1(object sender, EventArgs e)
         {
-            GuardarCambios();
+            if (Validar())
+            {
+                GuardarCambios();
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
