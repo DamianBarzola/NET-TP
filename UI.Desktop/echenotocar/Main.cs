@@ -80,8 +80,8 @@ namespace UI.Desktop
 
         public void Logout()
         {
+            this.Visible = false;
             UsuarioLogueado = null;
-            this.Close();
             Login();
         }
 
@@ -112,9 +112,6 @@ namespace UI.Desktop
                 UsuariosList ul = new UsuariosList();
                 ul.ShowDialog();
        }
-
-
- 
 
         private void tsmAdministrarPersonas_Click(object sender, EventArgs e)
         {
