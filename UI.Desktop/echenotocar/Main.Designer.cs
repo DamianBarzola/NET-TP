@@ -171,8 +171,9 @@
             // tsmReportesDocentes
             // 
             this.tsmReportesDocentes.Name = "tsmReportesDocentes";
-            this.tsmReportesDocentes.Size = new System.Drawing.Size(172, 22);
+            this.tsmReportesDocentes.Size = new System.Drawing.Size(180, 22);
             this.tsmReportesDocentes.Text = "Reportes Docentes";
+            this.tsmReportesDocentes.Click += new System.EventHandler(this.tsmReportesDocentes_Click);
             // 
             // tsmAlumnos
             // 

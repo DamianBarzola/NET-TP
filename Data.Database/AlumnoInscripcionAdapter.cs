@@ -39,7 +39,7 @@ namespace Data.Database
             {
                 Exception ExcepcionManejada =
                 new Exception("Error al recuperar lista de Inscripciones", Ex);
-                throw ExcepcionManejada;
+                //throw ExcepcionManejada;
             }
             finally
             {

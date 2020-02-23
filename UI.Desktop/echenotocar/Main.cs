@@ -65,7 +65,6 @@ namespace UI.Desktop
                 case Persona.TipoPersona.Administrador:
                     lblTipoPersona.Text = "Administrador";
                     tsmInscribirseAMateria.Visible = false;
-                    tsmDocentes.Visible = false;
                     break;
             }
 
@@ -151,6 +150,11 @@ namespace UI.Desktop
 
         }
 
+        private void tsmReportesDocentes_Click(object sender, EventArgs e)
+        {
 
+            ComisionesProfesorForm reportedocente = new ComisionesProfesorForm(UsuarioLogueado.Id_persona);
+            reportedocente.ShowDialog();
+        }
     }
 }

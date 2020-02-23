@@ -187,6 +187,17 @@
     <Compile Include="borrar\CargarNotas.Designer.cs">
       <DependentUpon>CargarNotas.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComisionesProfesorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComisionesProfesorForm.Designer.cs">
+      <DependentUpon>ComisionesProfesorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DSReporteDocentes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSReporteDocentes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="echenotocar\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -318,6 +329,9 @@
     <EmbeddedResource Include="borrar\CargarNotas.resx">
       <DependentUpon>CargarNotas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ComisionesProfesorForm.resx">
+      <DependentUpon>ComisionesProfesorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="echenotocar\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -357,7 +371,19 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReporteDocentes.rdlc" />
     <EmbeddedResource Include="ReporteMaterias_persona.rdlc" />
+    <None Include="DSReporteDocentes.xsc">
+      <DependentUpon>DSReporteDocentes.xsd</DependentUpon>
+    </None>
+    <None Include="DSReporteDocentes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSReporteDocentes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSReporteDocentes.xss">
+      <DependentUpon>DSReporteDocentes.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Business.Entities.AlumnoInscripcion.datasource" />
     <None Include="Properties\DataSources\Business.Entities.BusinessEntity+States.datasource" />
