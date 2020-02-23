@@ -17,6 +17,31 @@ namespace UI.Desktop
         public MateriasInscriptoForm()
         {
             InitializeComponent();
+            lblIngrese.Visible = false;
+            txtIDpersona.Visible = false;
+            btnBuscar.Visible = false;
+            
+        }
+
+        public MateriasInscriptoForm(int id) : this()
+        {
+
+            PersonaLogic pLogic = new PersonaLogic();
+            Persona per = pLogic.GetOne(id);
+            switch (per.Tipo)
+            {
+                case Persona.TipoPersona.Alumno:
+                    this.DataTable1TableAdapter.Fill(this.Reporte.DataTable1, id);
+                    this.reportViewer1.RefreshReport();
+                    break;
+                case Persona.TipoPersona.Administrador:
+                    lblIngrese.Visible = true;
+                    txtIDpersona.Visible = true;
+                    btnBuscar.Visible = true;
+                    break;
+
+            }
+
         }
 
         private void MateriasInscriptoForm_Load(object sender, EventArgs e)
@@ -26,10 +51,8 @@ namespace UI.Desktop
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'Reporte.DataTable1' table. You can move, or remove it, as needed.
-            int id = Convert.ToInt32(txtIDpersona.Text);
-            this.DataTable1TableAdapter.Fill(this.Reporte.DataTable1, id);
-
+            int ID = Convert.ToInt32(txtIDpersona.Text);
+            this.DataTable1TableAdapter.Fill(this.Reporte.DataTable1, ID);
             this.reportViewer1.RefreshReport();
         }
     }

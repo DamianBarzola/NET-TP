@@ -29,39 +29,39 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.Reporte = new UI.Desktop.Reporte();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Reporte = new UI.Desktop.Reporte();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.DataTable1TableAdapter = new UI.Desktop.ReporteTableAdapters.DataTable1TableAdapter();
             this.txtIDpersona = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblIngrese = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.Reporte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Reporte)).BeginInit();
             this.SuspendLayout();
             // 
-            // reportViewer1
+            // DataTable1BindingSource
             // 
-            reportDataSource2.Name = "DataSet1";
-            reportDataSource2.Value = this.DataTable1BindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "UI.Desktop.ReporteMaterias_persona.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(46, 49);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(670, 375);
-            this.reportViewer1.TabIndex = 0;
+            this.DataTable1BindingSource.DataMember = "DataTable1";
+            this.DataTable1BindingSource.DataSource = this.Reporte;
             // 
             // Reporte
             // 
             this.Reporte.DataSetName = "Reporte";
             this.Reporte.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // DataTable1BindingSource
+            // reportViewer1
             // 
-            this.DataTable1BindingSource.DataMember = "DataTable1";
-            this.DataTable1BindingSource.DataSource = this.Reporte;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.DataTable1BindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "UI.Desktop.ReporteMaterias_persona.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(46, 49);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(670, 375);
+            this.reportViewer1.TabIndex = 0;
             // 
             // DataTable1TableAdapter
             // 
@@ -74,14 +74,14 @@
             this.txtIDpersona.Size = new System.Drawing.Size(100, 20);
             this.txtIDpersona.TabIndex = 1;
             // 
-            // label1
+            // lblIngrese
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Ingrese ID persona:";
+            this.lblIngrese.AutoSize = true;
+            this.lblIngrese.Location = new System.Drawing.Point(46, 18);
+            this.lblIngrese.Name = "lblIngrese";
+            this.lblIngrese.Size = new System.Drawing.Size(100, 13);
+            this.lblIngrese.TabIndex = 2;
+            this.lblIngrese.Text = "Ingrese ID persona:";
             // 
             // btnBuscar
             // 
@@ -99,14 +99,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblIngrese);
             this.Controls.Add(this.txtIDpersona);
             this.Controls.Add(this.reportViewer1);
             this.Name = "MateriasInscriptoForm";
             this.Text = "MateriasInscriptoForm";
             this.Load += new System.EventHandler(this.MateriasInscriptoForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Reporte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Reporte)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,7 +119,7 @@
         private Reporte Reporte;
         private ReporteTableAdapters.DataTable1TableAdapter DataTable1TableAdapter;
         private System.Windows.Forms.TextBox txtIDpersona;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblIngrese;
         private System.Windows.Forms.Button btnBuscar;
     }
 }
