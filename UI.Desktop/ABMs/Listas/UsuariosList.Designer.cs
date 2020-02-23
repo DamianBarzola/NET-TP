@@ -40,7 +40,6 @@
             this.tsEliminar = new System.Windows.Forms.ToolStripMenuItem();
             this.id_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.habilitado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_persona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreusuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
@@ -60,7 +59,6 @@
             this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_usuario,
             this.email,
-            this.habilitado,
             this.id_persona,
             this.nombreusuario});
             this.tlUsuarios.SetColumnSpan(this.dgvUsuarios, 2);
@@ -187,13 +185,6 @@
             this.email.Name = "email";
             this.email.ReadOnly = true;
             // 
-            // habilitado
-            // 
-            this.habilitado.DataPropertyName = "habilitado";
-            this.habilitado.HeaderText = "Habilitado";
-            this.habilitado.Name = "habilitado";
-            this.habilitado.ReadOnly = true;
-            // 
             // id_persona
             // 
             this.id_persona.DataPropertyName = "id_persona";
@@ -244,7 +235,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn habilitado;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_persona;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreusuario;
     }
