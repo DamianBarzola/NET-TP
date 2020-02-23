@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
+using Util;
 
 namespace UI.Desktop
 {
@@ -24,22 +25,67 @@ namespace UI.Desktop
         {
             InitializeComponent();
         }
+        public InscribirComisionDesktop(int id) : this()
+        {
+            PersonaLogic pl = new PersonaLogic();
+            Persona personaAct = pl.GetOne(id);
+            CargarCombo();
+            switch (personaAct.Tipo)
+            {
+                case Persona.TipoPersona.Alumno:
+                    cbPersona.SelectedValue = personaAct.ID;
+                    cbPersona.Enabled = false;
+                    break;
+
+                case Persona.TipoPersona.Administrador:
+                    cbPersona.Enabled = true;
+                    break;
+            }
+        }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            this.GuardarCambios();
+            if (Validar())
+            {
+                this.GuardarCambios();
+            }
         }
 
         public override void MapearADatos()
         {
-            al = new AlumnoInscripcion();
-            al.IDAlumno = Convert.ToInt32(txtIDPersona.Text);
-            al.IDComision = Convert.ToInt32(txtIDComision.Text);
+            al = new AlumnoInscripcion
+            {
+                IDAlumno = (int)cbPersona.SelectedValue,
+                IDComision = (int)cbComision.SelectedValue
+            };
         }
 
+        public void CargarComboPersona()
+        {
+            cbPersona.ValueMember = "id_persona";
+            cbPersona.DisplayMember = "Apellido";
+            cbPersona.DataSource = GenerarCombo.getPersona();
+        }
+        public void CargarComboComision()
+        {
+
+        }
+
+        public void CargarCombo()
+        {
+            CargarComboPersona();
+            CargarComboComision();
+        }
+
+        public override void GuardarCambios()
+        {
+            this.MapearADatos();
+            alogic.Insert(al);
+            this.Close();
+        }
         public override bool Validar()
         {
-            bool valid= true;
+            bool valid = true;
             /*string mensaje = "";
             Comision com = new Comision();
             ComisionLogic cLogic = new ComisionLogic();
@@ -56,19 +102,5 @@ namespace UI.Desktop
 
             return valid;
         }
-
-        public override void GuardarCambios()
-        {
-            if (Validar())
-            {
-                this.MapearADatos();
-                alogic.Insert(al);
-                this.Close();
-            }
-        }
-
-
-
-
     }
 }

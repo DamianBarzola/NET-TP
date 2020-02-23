@@ -102,7 +102,7 @@ namespace UI.Desktop
 
         private void tsmInscribirseAMateria_Click(object sender, EventArgs e)
         {
-            InscribirComisionDesktop inscribirComisionDesktop = new InscribirComisionDesktop();
+            InscribirComisionDesktop inscribirComisionDesktop = new InscribirComisionDesktop(UsuarioLogueado.Id_persona);
             inscribirComisionDesktop.ShowDialog();
         }
 

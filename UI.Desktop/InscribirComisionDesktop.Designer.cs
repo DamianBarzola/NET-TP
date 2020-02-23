@@ -33,6 +33,8 @@
             this.txtIDPersona = new System.Windows.Forms.TextBox();
             this.txtIDComision = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.cbPersona = new System.Windows.Forms.ComboBox();
+            this.cbComision = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -55,14 +57,14 @@
             // 
             // txtIDPersona
             // 
-            this.txtIDPersona.Location = new System.Drawing.Point(124, 33);
+            this.txtIDPersona.Location = new System.Drawing.Point(12, 124);
             this.txtIDPersona.Name = "txtIDPersona";
             this.txtIDPersona.Size = new System.Drawing.Size(100, 20);
             this.txtIDPersona.TabIndex = 2;
             // 
             // txtIDComision
             // 
-            this.txtIDComision.Location = new System.Drawing.Point(124, 86);
+            this.txtIDComision.Location = new System.Drawing.Point(12, 150);
             this.txtIDComision.Name = "txtIDComision";
             this.txtIDComision.Size = new System.Drawing.Size(100, 20);
             this.txtIDComision.TabIndex = 3;
@@ -77,11 +79,29 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // cbPersona
+            // 
+            this.cbPersona.FormattingEnabled = true;
+            this.cbPersona.Location = new System.Drawing.Point(124, 30);
+            this.cbPersona.Name = "cbPersona";
+            this.cbPersona.Size = new System.Drawing.Size(100, 21);
+            this.cbPersona.TabIndex = 5;
+            // 
+            // cbComision
+            // 
+            this.cbComision.FormattingEnabled = true;
+            this.cbComision.Location = new System.Drawing.Point(124, 86);
+            this.cbComision.Name = "cbComision";
+            this.cbComision.Size = new System.Drawing.Size(100, 21);
+            this.cbComision.TabIndex = 6;
+            // 
             // InscribirComisionDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(278, 195);
+            this.Controls.Add(this.cbComision);
+            this.Controls.Add(this.cbPersona);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtIDComision);
             this.Controls.Add(this.txtIDPersona);
@@ -101,5 +121,7 @@
         private System.Windows.Forms.TextBox txtIDPersona;
         private System.Windows.Forms.TextBox txtIDComision;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.ComboBox cbPersona;
+        private System.Windows.Forms.ComboBox cbComision;
     }
 }
