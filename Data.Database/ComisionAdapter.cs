@@ -78,6 +78,42 @@ namespace Data.Database
             }
             return com;
         }
+        public List<Comision> GetActuales(int id)
+        {
+            List<Comision> comisiones = new List<Comision>();
+            try
+            {
+                string consulta = "SELECT * FROM comision where comision.anio = 2020 and comision.id_comision not in (select distinct id_comision from comision_alumnos where comision_alumnos.id_persona=@id)";
+                this.OpenConnection();
+                SqlCommand cmdComisiones = new SqlCommand(consulta, SqlConn);
+                cmdComisiones.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                SqlDataReader drComisiones = cmdComisiones.ExecuteReader();
+
+                while (drComisiones.Read())
+                {
+                    Comision com = new Comision();
+
+                    com.ID = (int)drComisiones["id_comision"];
+                    com.AnioEspecialidad = (int)drComisiones["anio"];
+                    com.IDMateria = (int)drComisiones["id_materia"];
+                    com.IdProfesor = (int)drComisiones["id_profesor"];
+
+                    comisiones.Add(com);
+                }
+                drComisiones.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar lista de comisiones", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return comisiones;
+        }
         /*public void Delete(Comision com)
         {
             try

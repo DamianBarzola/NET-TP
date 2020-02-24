@@ -75,20 +75,56 @@ namespace Util
 
         public static DataTable getPersona()
         {
-            DataTable dtProfesores = new DataTable();
-            dtProfesores.Columns.Add("id_persona", typeof(int));
-            dtProfesores.Columns.Add("apellido", typeof(string));
+            DataTable dtPersona = new DataTable();
+            dtPersona.Columns.Add("id_persona", typeof(int));
+            dtPersona.Columns.Add("apellido", typeof(string));
             PersonaLogic pl = new PersonaLogic();
             List<Persona> personas = pl.GetAll();
-            dtProfesores.Rows.Add(new object[] { 0, string.Empty });
+            dtPersona.Rows.Add(new object[] { 0, string.Empty });
             foreach (Persona p in personas)
             {
-                dtProfesores.Rows.Add(new object[] { p.ID, p.Apellido });
+                dtPersona.Rows.Add(new object[] { p.ID, p.Apellido });
             }
-            return dtProfesores;
+            return dtPersona;
+        }
+
+        public static DataTable getAlumno()
+        {
+            DataTable dtAlumno = new DataTable();
+            dtAlumno.Columns.Add("id_persona", typeof(int));
+            dtAlumno.Columns.Add("apellido", typeof(string));
+            PersonaLogic pl = new PersonaLogic();
+            List<Persona> personas = pl.GetAlumnos();
+            dtAlumno.Rows.Add(new object[] { 0, string.Empty });
+            foreach (Persona p in personas)
+            {
+                dtAlumno.Rows.Add(new object[] { p.ID, p.Apellido });
+            }
+            return dtAlumno;
         }
 
 
+        public static DataTable getComisiones(int id)
+        {
+            DataTable dtcomisiones = new DataTable();
+            dtcomisiones.Columns.Add("id_comision", typeof(int));
+            dtcomisiones.Columns.Add("id_materia", typeof(string));
+            MateriaLogic ml = new MateriaLogic();
+            ComisionLogic cl = new ComisionLogic();
+            List <Comision>  comi = cl.GetActuales(id);
+            dtcomisiones.Rows.Add(new object[] { 0, string.Empty });
+
+            foreach (Comision com in comi)
+            {
+                DataRow linea = dtcomisiones.NewRow();
+                linea["id_comision"] = com.ID;
+                Materia mat = ml.GetOne(com.IDMateria);
+                linea["id_materia"] = mat.Descripcion;
+                dtcomisiones.Rows.Add(linea);
+            }
+
+            return dtcomisiones;
+        }
 
     }
 }

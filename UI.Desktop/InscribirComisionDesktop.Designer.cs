@@ -30,8 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtIDPersona = new System.Windows.Forms.TextBox();
-            this.txtIDComision = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.cbPersona = new System.Windows.Forms.ComboBox();
             this.cbComision = new System.Windows.Forms.ComboBox();
@@ -55,20 +53,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "ID Comision :";
             // 
-            // txtIDPersona
-            // 
-            this.txtIDPersona.Location = new System.Drawing.Point(12, 124);
-            this.txtIDPersona.Name = "txtIDPersona";
-            this.txtIDPersona.Size = new System.Drawing.Size(100, 20);
-            this.txtIDPersona.TabIndex = 2;
-            // 
-            // txtIDComision
-            // 
-            this.txtIDComision.Location = new System.Drawing.Point(12, 150);
-            this.txtIDComision.Name = "txtIDComision";
-            this.txtIDComision.Size = new System.Drawing.Size(100, 20);
-            this.txtIDComision.TabIndex = 3;
-            // 
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(149, 147);
@@ -86,6 +70,7 @@
             this.cbPersona.Name = "cbPersona";
             this.cbPersona.Size = new System.Drawing.Size(100, 21);
             this.cbPersona.TabIndex = 5;
+            this.cbPersona.SelectedIndexChanged += new System.EventHandler(this.cbPersona_SelectedIndexChanged);
             // 
             // cbComision
             // 
@@ -103,8 +88,6 @@
             this.Controls.Add(this.cbComision);
             this.Controls.Add(this.cbPersona);
             this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.txtIDComision);
-            this.Controls.Add(this.txtIDPersona);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "InscribirComisionDesktop";
@@ -118,8 +101,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtIDPersona;
-        private System.Windows.Forms.TextBox txtIDComision;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.ComboBox cbPersona;
         private System.Windows.Forms.ComboBox cbComision;

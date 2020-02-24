@@ -27,6 +27,10 @@ namespace Business.Logic
         {
             return ComisionA.GetAll();
         }
+        public List<Comision> GetActuales(int id)
+        {
+            return ComisionA.GetActuales(id);
+        }
 
         public Comision GetOne(int id)
         {

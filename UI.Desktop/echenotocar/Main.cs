@@ -64,7 +64,6 @@ namespace UI.Desktop
 
                 case Persona.TipoPersona.Administrador:
                     lblTipoPersona.Text = "Administrador";
-                    tsmInscribirseAMateria.Visible = false;
                     break;
             }
 

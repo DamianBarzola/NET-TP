@@ -29,7 +29,8 @@ namespace UI.Desktop
         {
             PersonaLogic pl = new PersonaLogic();
             Persona personaAct = pl.GetOne(id);
-            CargarCombo();
+            CargarComboPersona();
+            CargarComboComision(personaAct.ID);
             switch (personaAct.Tipo)
             {
                 case Persona.TipoPersona.Alumno:
@@ -63,18 +64,19 @@ namespace UI.Desktop
         public void CargarComboPersona()
         {
             cbPersona.ValueMember = "id_persona";
-            cbPersona.DisplayMember = "Apellido";
-            cbPersona.DataSource = GenerarCombo.getPersona();
+            cbPersona.DisplayMember = "apellido";
+            cbPersona.DataSource = GenerarCombo.getAlumno();
         }
-        public void CargarComboComision()
+        public void CargarComboComision(int id)
         {
-
+            cbComision.ValueMember = "id_comision";
+            cbComision.DisplayMember = "id_materia";
+            cbComision.DataSource = GenerarCombo.getComisiones(id);
         }
-
-        public void CargarCombo()
+        private void cbPersona_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CargarComboPersona();
-            CargarComboComision();
+            int id = (int)cbPersona.SelectedValue;
+            CargarComboComision(id);
         }
 
         public override void GuardarCambios()
@@ -83,6 +85,7 @@ namespace UI.Desktop
             alogic.Insert(al);
             this.Close();
         }
+
         public override bool Validar()
         {
             bool valid = true;
@@ -102,5 +105,7 @@ namespace UI.Desktop
 
             return valid;
         }
+
+
     }
 }
