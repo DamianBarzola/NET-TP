@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
+using Util;
 namespace UI.Web
 {
     public partial class MisInscripciones : System.Web.UI.Page
@@ -39,7 +40,7 @@ namespace UI.Web
                         asd.Add(a.GetOne(alum.IDComision));
 
                     });
-                this.gvMisIns.DataSource = asd;
+                this.gvMisIns.DataSource = GenerarListas.GenerarComision( asd);
                 gvMisIns.DataBind();
             }
 

@@ -114,12 +114,14 @@ namespace UI.Web
         private void LoadEntity(Comision comision)
         {
             if (//tbidprof.Text.Length > 0 && 
-                añoEspecialidadTextBox.Text.Length > 0 
+                añoEspecialidadTextBox.Text.Length > 0
                 //&& tbidMateria.Text.Length > 0
                 )
+            {
                 comision.IDMateria = int.Parse(dmate.SelectedValue);
-            comision.AnioEspecialidad = int.Parse(añoEspecialidadTextBox.Text);
-            comision.IdProfesor = int.Parse(dprofe.SelectedValue);
+                comision.AnioEspecialidad = int.Parse(añoEspecialidadTextBox.Text);
+                comision.IdProfesor = int.Parse(dprofe.SelectedValue);
+            }
         }
         private void SaveEntity(Comision comision)
         {
@@ -128,42 +130,48 @@ namespace UI.Web
 
         protected void lbAceptar_Click(object sender, EventArgs e)
         {
-            switch (FormMode)
-
+            try
             {
-                case FormModes.Baja:
-                    Entity = new Comision();
-                    Entity = com.GetOne(SelectedID);
-                    Entity.State = BusinessEntity.States.Deleted;
-                    com.Delete(Entity);
-                    LoadGrid();
-                    break;
-                case FormModes.Modificacion:
-                    Entity = new Comision();
-                    Entity = com.GetOne(SelectedID);
-                    Entity.State = BusinessEntity.States.Modified;
-                    LoadEntity(Entity);
-                    SaveEntity(Entity);
-                    LoadGrid();
-                    formPanel.Visible = false;
+                lblError.Visible = false;
+                switch (FormMode)
 
-                    break;
-                case FormModes.Alta:
-                    Entity = new Comision();
-                    Entity.State = BusinessEntity.States.New;
-                    LoadEntity(Entity);
-                    SaveEntity(Entity);
-                    LoadGrid();
-                    formPanel.Visible = false;
+                {
+                    case FormModes.Baja:
+                        Entity = new Comision();
+                        Entity = com.GetOne(SelectedID);
+                        Entity.State = BusinessEntity.States.Deleted;
+                        com.Delete(Entity);
+                        LoadGrid();
+                        break;
+                    case FormModes.Modificacion:
+                        Entity = new Comision();
+                        Entity = com.GetOne(SelectedID);
+                        Entity.State = BusinessEntity.States.Modified;
+                        LoadEntity(Entity);
+                        SaveEntity(Entity);
+                        LoadGrid();
+                        formPanel.Visible = false;
 
-                    break;
+                        break;
+                    case FormModes.Alta:
+                        Entity = new Comision();
+                        Entity.State = BusinessEntity.States.New;
+                        LoadEntity(Entity);
+                        SaveEntity(Entity);
+                        LoadGrid();
+                        formPanel.Visible = false;
+
+                        break;
+                }
+
+                formPanel.Visible = false;
             }
-
-            formPanel.Visible = false;
+            catch (Exception) { lblError.Visible = true; }
         }
 
         protected void lbCancelar_Click(object sender, EventArgs e)
         {
+            lblError.Visible = false;
             formPanel.Visible = false;
 
         }

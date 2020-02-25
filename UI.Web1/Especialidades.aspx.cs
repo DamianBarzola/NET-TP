@@ -123,52 +123,62 @@ namespace UI.Web
 
         protected void lbAceptar_Click(object sender, EventArgs e)
         {
-            switch (FormMode)
-
+            try
             {
-                case FormModes.Baja:
-                    Entity = new Especialidad();
-                    Entity = especialidades.GetOne(SelectedID);
+                lblError.Visible = false;
+                switch (FormMode)
 
-                    Entity.State = BusinessEntity.States.Deleted;
-                    especialidades.Delete(Entity.ID);
-                    LoadGrid();
-                    /*EspecialidadActual.ID = SelectedID;
-                    EspecialidadActual.State = BusinessEntity.States.Deleted;*/
-                    break;
+                {
+                    case FormModes.Baja:
+                        Entity = new Especialidad();
+                        Entity = especialidades.GetOne(SelectedID);
 
-                case FormModes.Modificacion:
-                    Entity = new Especialidad();
-                    Entity = especialidades.GetOne(SelectedID);
-                    Entity.State = BusinessEntity.States.Modified;
-                    Entity.DescripcionEspecialidad = descripcionTextBox.Text;
-                    especialidades.Save(Entity);
+                        Entity.State = BusinessEntity.States.Deleted;
+                        especialidades.Delete(Entity.ID);
+                        LoadGrid();
+                        /*EspecialidadActual.ID = SelectedID;
+                        EspecialidadActual.State = BusinessEntity.States.Deleted;*/
+                        break;
 
-                    /*LoadEntity(Entity);
-                    SaveEntity(Entity);*/
-                    LoadGrid();
-                    formPanel.Visible = false;
+                    case FormModes.Modificacion:
+                        Entity = new Especialidad();
+                        Entity = especialidades.GetOne(SelectedID);
+                        Entity.State = BusinessEntity.States.Modified;
+                        if (descripcionTextBox.Text.Length > 0)
+                        {
+                            Entity.DescripcionEspecialidad = descripcionTextBox.Text;
+                        }
+                        especialidades.Save(Entity);
 
-                    break;
-                case FormModes.Alta:
-                    Entity = new Especialidad();
-                    Entity.State = BusinessEntity.States.New;
-                    //LoadEntity(Entity);
-                    Entity.DescripcionEspecialidad = descripcionTextBox.Text;
-                   // SaveEntity(Entity);
-                    especialidades.Save(Entity);
-                    LoadGrid();
-                    formPanel.Visible = false;
-                   
+                        /*LoadEntity(Entity);
+                        SaveEntity(Entity);*/
+                        LoadGrid();
+                        formPanel.Visible = false;
 
-                    break;
+                        break;
+                    case FormModes.Alta:
+                        Entity = new Especialidad();
+                        Entity.State = BusinessEntity.States.New;
+                        //LoadEntity(Entity);
+                        Entity.DescripcionEspecialidad = descripcionTextBox.Text;
+                        // SaveEntity(Entity);
+                        especialidades.Save(Entity);
+                        LoadGrid();
+                        formPanel.Visible = false;
+
+
+                        break;
+                }
+                formPanel.Visible = false;
             }
+            catch (Exception) { lblError.Visible = true; }
 
-            formPanel.Visible = false;
+          
         }
 
         protected void lbCancelar_Click(object sender, EventArgs e)
         {
+            lblError.Visible = false;
             formPanel.Visible = false;
 
         }

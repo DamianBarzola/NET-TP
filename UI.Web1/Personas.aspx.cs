@@ -127,18 +127,22 @@ namespace UI.Web
         }
         private void LoadEntity(Business.Entities.Persona persona)
         {
-            persona.Nombre = nombreTextBox.Text;
-            persona.Apellido = apellidoTextBox.Text;
-            persona.Direccion = DireccionTextBox.Text;
-            persona.Telefono = TelefonoTextBox.Text;
-            persona.Id_especialidad = Convert.ToInt32(desp.SelectedValue);
-            persona.FechaNacimiento = DateTime.Parse(FechaNacTextBox.Text);
-            persona.Legajo = Convert.ToInt32(legajoTextBox.Text);
-            
-            if (dTipo.SelectedValue == "1") persona.Tipo = Business.Entities.Persona.TipoPersona.Alumno;
-            if (dTipo.SelectedValue == "2") persona.Tipo = Business.Entities.Persona.TipoPersona.Docente;
-            if (dTipo.SelectedValue == "3") persona.Tipo = Business.Entities.Persona.TipoPersona.Administrador;
-           // persona.IDPlan = Convert.ToInt32(planTextBox1.Text);
+            if (nombreTextBox.Text.Length > 0 && apellidoTextBox.Text.Length > 0 && DireccionTextBox.Text.Length > 0 &&
+                TelefonoTextBox.Text.Length > 0 && FechaNacTextBox.Text.Length > 0 && legajoTextBox.Text.Length > 0 )
+            {
+                persona.Nombre = nombreTextBox.Text;
+                persona.Apellido = apellidoTextBox.Text;
+                persona.Direccion = DireccionTextBox.Text;
+                persona.Telefono = TelefonoTextBox.Text;
+                persona.Id_especialidad = Convert.ToInt32(desp.SelectedValue);
+                persona.FechaNacimiento = DateTime.Parse(FechaNacTextBox.Text);
+                persona.Legajo = Convert.ToInt32(legajoTextBox.Text);
+
+                if (dTipo.SelectedValue == "1") persona.Tipo = Business.Entities.Persona.TipoPersona.Alumno;
+                if (dTipo.SelectedValue == "2") persona.Tipo = Business.Entities.Persona.TipoPersona.Docente;
+                if (dTipo.SelectedValue == "3") persona.Tipo = Business.Entities.Persona.TipoPersona.Administrador;
+                // persona.IDPlan = Convert.ToInt32(planTextBox1.Text);
+            }
         }
         private void SaveEntity(Business.Entities.Persona persona)
         {
@@ -147,8 +151,10 @@ namespace UI.Web
 
         protected void lbAceptar_Click(object sender, EventArgs e)
         {
-
-            switch (FormMode)
+            try
+            {
+                lblError.Visible = false;
+                switch (FormMode)
 
             {
                 case FormModes.Baja:
@@ -180,11 +186,13 @@ namespace UI.Web
             }
 
             formPanel.Visible = false;
+            }
+            catch (Exception) { lblError.Visible = true; }
         }
 
         protected void lbCancelar_Click(object sender, EventArgs e)
         {
-
+            lblError.Visible = false;
             formPanel.Visible = false;
         }
         public void CargarCombo()

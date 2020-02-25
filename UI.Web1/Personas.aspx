@@ -21,6 +21,7 @@
                 <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" />
             </Columns>
         </asp:GridView>
+        <asp:Label ID="lblError" runat="server" BackColor="#CC0000" Visible="False">Error de Servidor</asp:Label>
     </asp:Panel>
     <br />
     <asp:Panel ID="formPanel" Visible="false" runat="server">

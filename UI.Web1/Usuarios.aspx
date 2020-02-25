@@ -18,6 +18,8 @@ DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" >
             </Columns>            
         </asp:GridView>
               
+                <asp:Label ID="lblError" runat="server" BackColor="#CC0000" Visible="False">Error de Servidor</asp:Label>
+              
                 <br />
               
             <asp:Panel ID="formPanel" runat="server" Visible="false" Height="323px">

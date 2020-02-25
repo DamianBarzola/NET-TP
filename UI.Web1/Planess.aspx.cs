@@ -131,9 +131,12 @@ namespace UI.Web1
         }
         private void LoadEntity(Plan plan)
         {
-            plan.DescripcionPlan = descripcionTextBoxa.Text;
-            plan.IDEspecialidad =Convert.ToInt32( dpespe.SelectedValue);
-            dpespe.SelectedValue = ((int)Entity.IDEspecialidad).ToString();
+            if (descripcionTextBoxa.Text.Length > 0)
+            {
+                plan.DescripcionPlan = descripcionTextBoxa.Text;
+                plan.IDEspecialidad = Convert.ToInt32(dpespe.SelectedValue);
+                dpespe.SelectedValue = ((int)Entity.IDEspecialidad).ToString();
+            }
         }
 
 
@@ -144,40 +147,46 @@ namespace UI.Web1
 
         protected void lbAceptar_Click(object sender, EventArgs e)
         {
-            switch (FormMode)
-
+            try
             {
-                case FormModes.Baja:
-                    Entity = planes.GetOne(SelectedID);
-                    planes.Delete(Entity);
-                    LoadGrid();
-                    break;
-                case FormModes.Modificacion:
-                    Entity = new Plan();
-                    Entity = planes.GetOne(SelectedID);
-                    Entity.State = BusinessEntity.States.Modified;
-                    LoadEntity(Entity);
-                    SaveEntity(Entity);
-                    LoadGrid();
-                    formPanel.Visible = false;
+                lblError.Visible = false;
+                switch (FormMode)
 
-                    break;
-                case FormModes.Alta:
-                    Entity = new Plan();
-                    Entity.State = BusinessEntity.States.New;
-                    LoadEntity(Entity);
-                    SaveEntity(Entity);
-                    LoadGrid();
-                    formPanel.Visible = false;
+                {
+                    case FormModes.Baja:
+                        Entity = planes.GetOne(SelectedID);
+                        planes.Delete(Entity);
+                        LoadGrid();
+                        break;
+                    case FormModes.Modificacion:
+                        Entity = new Plan();
+                        Entity = planes.GetOne(SelectedID);
+                        Entity.State = BusinessEntity.States.Modified;
+                        LoadEntity(Entity);
+                        SaveEntity(Entity);
+                        LoadGrid();
+                        formPanel.Visible = false;
 
-                    break;
+                        break;
+                    case FormModes.Alta:
+                        Entity = new Plan();
+                        Entity.State = BusinessEntity.States.New;
+                        LoadEntity(Entity);
+                        SaveEntity(Entity);
+                        LoadGrid();
+                        formPanel.Visible = false;
+
+                        break;
+                }
+
+                formPanel.Visible = false;
             }
-
-            formPanel.Visible = false;
+            catch(Exception) { lblError.Visible = true; }
         }
 
         protected void lbCancelar_Click(object sender, EventArgs e)
         {
+            lblError.Visible = false;
             formPanel.Visible = false;
         }
 

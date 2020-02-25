@@ -191,7 +191,10 @@ namespace UI.Web
 
         protected void lbAceptar_Click(object sender, EventArgs e)
         {
-            switch (FormMode)
+            try
+            {
+                lblError.Visible = false;
+                switch (FormMode)
 
             {
                 case FormModes.Baja:
@@ -222,10 +225,13 @@ namespace UI.Web
             }
 
             formPanel.Visible = false;
+            }
+            catch (Exception) { lblError.Visible = true; }
         }
 
         protected void lbCancelar_Click(object sender, EventArgs e)
         {
+            lblError.Visible = false;
             formPanel.Visible = false;
 
         }

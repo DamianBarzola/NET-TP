@@ -50,35 +50,20 @@ namespace UI.Web
                 this.ViewState["SelectedID"] = value;
             }
         }
-        private int SelectedID2
-        {
-            get
-            {
-                if (this.ViewState["SelectedID"] != null)
-                {
-                    return (int)this.ViewState["SelectedID"];
-
-                }
-                else return 0;
-            }
-            set
-            {
-                this.ViewState["SelectedID"] = value;
-            }
-        }
 
         protected void gvIns_SelectedIndexChanged(object sender, EventArgs e)
         {
+            GridViewRow a = gvIns.SelectedRow;
             SelectedID = (int)gvIns.SelectedValue;
-          
-               
+            
             
         }
 
 
         private void LoadGrid()
         {
-           // gvIns.DataSource = alins.GetAllFromUser(Convert.ToInt32(Session["id"].ToString()));
+
+            gvIns.DataSource = alins.GetAllFromUser(Convert.ToInt32(Session["id"]));
             gvIns.DataBind();
         }
 
@@ -106,42 +91,53 @@ namespace UI.Web
         {
             if (gvIns.SelectedValue != null)
             {
+                lblError.Visible = false;
+                Parciales.Visible = true;
+                lbAceptar.Visible = true;
+                lbCancelar.Visible = true;
                 this.FormMode = FormModes.Modificacion;
               //this.LoadForm(this.SelectedID);
             }
         }
 
-        protected void lbEliminar_Click(object sender, EventArgs e)
+        private void LoadEntity(AlumnoInscripcion al)
         {
-            if (gvIns.SelectedValue != null)
-            {
-                
-                this.FormMode = FormModes.Alta;
-                Entity.State = BusinessEntity.States.Deleted;
-                // Entity = alins.GetOne(SelectedID);
-                alins.Delete(Entity);
-                LoadGrid();
-               
-            }
+           
+            al.Parcial1 = Parciales.SelectedID1;
+            al.Parcial2 = Parciales.SelectedID2;
+            al.Parcial3 = Parciales.SelectedID3;
+            al.Notafinal = Parciales.SelectedID4;
+
         }
-
-      /*  private void LoadEntity(AlumnoInscripcion al)
-        {
-            al.Nota = Convert.ToInt32(txNota.Text);
-            al.IDAlumno = Convert.ToInt32(txAlumno.Text);
-            al.IDCurso = Convert.ToInt32(txCurso.Text);
-            //Regular = 1, Aprobado = 2, Cursando = 3, Libre = 4
-            if (txCondi.Text == "1") al.Condicion = AlumnoInscripcion.Condiciones.Regular;
-            if (txCondi.Text == "2") al.Condicion = AlumnoInscripcion.Condiciones.Aprobado;
-            if (txCondi.Text == "3") al.Condicion = AlumnoInscripcion.Condiciones.Cursando;
-            if (txCondi.Text == "4") al.Condicion = AlumnoInscripcion.Condiciones.Libre;
-
-        }*/
         private void SaveEntity(AlumnoInscripcion al)
         {
             alins.Save(al);
         }
 
-      
+        protected void lbCancelar_Click(object sender, EventArgs e)
+        {
+            Parciales.Visible = false;
+            lbAceptar.Visible = false;
+            lbCancelar.Visible = false;
+            lblError.Visible = false;
+        }
+
+        protected void lbAceptar_Click(object sender, EventArgs e)
+        {
+            lblError.Visible = false;
+            try
+            {
+                Entity = new AlumnoInscripcion();
+             //   Entity = alins.GetOne(SelectedID);
+                Entity.State = BusinessEntity.States.Modified;
+                LoadEntity(Entity);
+                SaveEntity(Entity);
+                LoadGrid();
+                Parciales.Visible = false;
+                lbAceptar.Visible = false;
+                lbCancelar.Visible = false;
+            }
+            catch (Exception) { lblError.Visible = true; }
+        }
     }
 }

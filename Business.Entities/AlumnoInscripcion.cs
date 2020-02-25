@@ -9,7 +9,7 @@ namespace Business.Entities
     public class AlumnoInscripcion : BusinessEntity
     {
        // private Condiciones _Condicion;
-        private int _IDAlumno;
+        private int _IDAlumno,parcial1,parcial2,parcial3,notafinal;
         private int _IDComision;
         //private int _Nota;
 
@@ -18,6 +18,11 @@ namespace Business.Entities
         //public Condiciones Condicion { get => _Condicion; set => _Condicion = value; }
         public int IDAlumno { get => _IDAlumno; set => _IDAlumno = value; }
         public int IDComision { get => _IDComision; set => _IDComision = value; }
-       // public int Nota { get => _Nota; set => _Nota = value; }
+        public int Parcial1 { get => parcial1; set => parcial1 = value; }
+        public int Parcial2 { get => parcial2; set => parcial2 = value; }
+        public int Parcial3 { get => parcial3; set => parcial3 = value; }
+        public int Notafinal { get => notafinal; set => notafinal = value; }
+
+        // public int Nota { get => _Nota; set => _Nota = value; }
     }
 }

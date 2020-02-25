@@ -71,15 +71,17 @@ namespace UI.Web
 
         }
 
-      /*  protected void btnAceptar_Click(object sender, EventArgs e)
-        {
-            Business.Entities.Persona a = persLog.GetOne((int)Session["idPersona"]);
-            if (txtEspecialidad.Text.Length != 0)
-            {
-                a.Id_especialidad = Convert.ToInt32(txtEspecialidad.Text);
-                a.State = BusinessEntity.States.Modified;
-                persLog.Save(a);
-            }
-        }*/
+      
+
+        /*  protected void btnAceptar_Click(object sender, EventArgs e)
+          {
+              Business.Entities.Persona a = persLog.GetOne((int)Session["idPersona"]);
+              if (txtEspecialidad.Text.Length != 0)
+              {
+                  a.Id_especialidad = Convert.ToInt32(txtEspecialidad.Text);
+                  a.State = BusinessEntity.States.Modified;
+                  persLog.Save(a);
+              }
+          }*/
     }
 }

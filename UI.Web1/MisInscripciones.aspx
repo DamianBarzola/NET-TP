@@ -11,7 +11,7 @@
         <asp:GridView ID="gvMisIns" runat="server" AutoGenerateColumns="False"
             SelectedRowStyle-BackColor="white"
             DataKeyNames="ID" 
-            CssClass="table table-bordered table-sm table-responsive table-hover">
+            CssClass="table table-bordered table-sm table-responsive table-hover" Width="540px">
         <Columns>
             <asp:BoundField HeaderText="ID" DataField="ID" />
             <asp:BoundField HeaderText="Año" DataField="AnioEspecialidad" />

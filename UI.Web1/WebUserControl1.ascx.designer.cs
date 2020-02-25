@@ -7,81 +7,54 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace UI.Web {
+namespace UI.Web1 {
     
     
-    public partial class Inscripciones {
+    public partial class WebUserControl1 {
         
         /// <summary>
-        /// Control UpdatePanelGrid.
+        /// Control formPanel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanelGrid;
+        protected global::System.Web.UI.WebControls.Panel formPanel;
         
         /// <summary>
-        /// Control lbEditar.
+        /// Control ddl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbEditar;
+        protected global::System.Web.UI.WebControls.DropDownList ddl;
         
         /// <summary>
-        /// Control gvIns.
+        /// Control ddl0.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvIns;
+        protected global::System.Web.UI.WebControls.DropDownList ddl0;
         
         /// <summary>
-        /// Control lblError.
+        /// Control ddl1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
+        protected global::System.Web.UI.WebControls.DropDownList ddl1;
         
         /// <summary>
-        /// Control divSinIns.
+        /// Control ddl2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSinIns;
-        
-        /// <summary>
-        /// Control Parciales.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::UI.Web1.WebUserControl1 Parciales;
-        
-        /// <summary>
-        /// Control lbAceptar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbAceptar;
-        
-        /// <summary>
-        /// Control lbCancelar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbCancelar;
+        protected global::System.Web.UI.WebControls.DropDownList ddl2;
     }
 }

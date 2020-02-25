@@ -24,15 +24,15 @@ namespace Business.Logic
             return AlumnoInscA.GetAll();
         }
 
-      /*  public List<AlumnoInscripcion> GetAllFromUser(int IDUsuario)
-        {
-            return AlumnoInscA.GetAllFromUser(IDUsuario);
-        }
-        public List<AlumnoInscripcion> GetAllFromCurso(int IDCurso)
-        {
-            return AlumnoInscA.GetAllFromCurso(IDCurso);
-        }*/
-
+          public List<AlumnoInscripcion> GetAllFromUser(int IDUsuario)
+          {
+              return AlumnoInscA.GetAllFromUser(IDUsuario);
+          }/*
+          public List<AlumnoInscripcion> GetAllFromCurso(int IDCurso)
+          {
+              return AlumnoInscA.GetAllFromCurso(IDCurso);
+          }*/
+       
         public AlumnoInscripcion GetOne(AlumnoInscripcion id)
         {
             return AlumnoInscA.GetOne(id);

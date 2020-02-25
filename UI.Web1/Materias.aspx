@@ -18,6 +18,7 @@
             </Columns>
             <SelectedRowStyle BackColor="LightGray" />
         </asp:GridView>
+        <asp:Label ID="lblError" runat="server" BackColor="#CC0000" Visible="False">Error de Servidor</asp:Label>
         <asp:Panel ID="formPanel" runat="server" Visible="false">
             <br />
             Completar<br />

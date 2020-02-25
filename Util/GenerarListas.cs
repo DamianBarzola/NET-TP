@@ -137,6 +137,7 @@ namespace Util
 
             return Listado;
         }
+        
 
 
 
@@ -174,6 +175,38 @@ namespace Util
 
                 Listado.Rows.Add(Linea);
             }
+            return Listado;
+        }
+
+        public static DataTable GenerarAlumnoCom(List<AlumnoInscripcion> alcom)
+        {
+            DataTable Listado = new DataTable();
+            Listado.Columns.Add("IDAlumno", typeof(int));
+            Listado.Columns.Add("IDComision", typeof(int));
+            Listado.Columns.Add("Parcial1", typeof(int));
+            Listado.Columns.Add("Parcial2", typeof(int));
+            Listado.Columns.Add("Parcial3", typeof(int));
+            Listado.Columns.Add("Notafinal", typeof(int));
+          
+            List<Persona> per = PerLogic.GetAll();
+            foreach (AlumnoInscripcion ac in alcom)
+            {
+                DataRow Linea = Listado.NewRow();
+
+                Linea["Parcial1"] = ac.Parcial1;
+                Linea["Parcial2"] = ac.Parcial1;
+                Linea["Parcial3"] = ac.Parcial3;
+                Linea["Notafinal"] = ac.Notafinal;
+
+                Persona pers = PerLogic.GetOne(ac.IDAlumno);
+                Linea["IDAlumno"] = pers.Nombre + " " + pers.Apellido;
+                
+                Linea["IDComision"] = ac.IDComision;
+
+
+                Listado.Rows.Add(Linea);
+            }
+
             return Listado;
         }
     }
