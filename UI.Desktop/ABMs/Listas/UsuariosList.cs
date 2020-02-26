@@ -73,7 +73,7 @@ namespace UI.Desktop
             DialogResult confirm = MessageBox.Show("¿Está seguro de que desea eliminar el usuario?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             if (confirm == DialogResult.Yes)
             {
-                int ID = ((Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
+                int ID = (int)this.dgvUsuarios.SelectedRows[0].Cells["id_usuario"].Value;
                 try
                 {
                     ul.Delete(ID);
@@ -94,7 +94,7 @@ namespace UI.Desktop
             if (this.dgvUsuarios.SelectedRows.Count != 0)
             {
                 Usuario usuarioaux = new Usuario();
-                int ID = ((Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
+                int ID = (int)dgvUsuarios.SelectedRows[0].Cells["id_usuario"].Value;
                 usuarioaux = ul.GetOne(ID);
                 UsuarioDesktop ud = new UsuarioDesktop(usuarioaux, ApplicationForm.ModoForm.Modificacion);
                 ud.ShowDialog();

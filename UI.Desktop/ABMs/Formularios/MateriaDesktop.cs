@@ -75,7 +75,7 @@ namespace UI.Desktop
             cbPlanes.SelectedValue = materiaActual.IDPlan;
             txtDescripcion.Text = materiaActual.Descripcion;
             labelID.Text = materiaActual.ID.ToString();
-            switch (Modo)
+            switch (modoform)
             {
                 case ModoForm.Modificacion:
                     btnAceptar.Text = "Guardar";

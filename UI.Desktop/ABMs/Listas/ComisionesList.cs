@@ -67,7 +67,7 @@ namespace UI.Desktop
 
         private void tsEditar_Click(object sender, EventArgs e)
         {
-            int ID = ((Business.Entities.Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID;
+            int ID = (int)this.dgvComisiones.SelectedRows[0].Cells["id"].Value;
             ComisionDesktop comisionDesktop = new ComisionDesktop(ID, ModoForm.Modificacion);
             comisionDesktop.ShowDialog();
             this.Listar();
@@ -80,7 +80,7 @@ namespace UI.Desktop
                 DialogResult confirm = MessageBox.Show("¿Está seguro de que desea eliminar la comision?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 if (confirm == DialogResult.Yes)
                 {
-                    int ID = ((Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID;
+                    int ID = (int)this.dgvComisiones.SelectedRows[0].Cells["id"].Value;
                     try
                     {
                         cLogic.Delete(ID);

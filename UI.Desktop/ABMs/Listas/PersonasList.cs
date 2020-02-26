@@ -56,7 +56,7 @@ namespace UI.Desktop
         {
             if(this.dgvPersonas.SelectedRows.Count != 0)
             {
-                int ID = ((Persona)this.dgvPersonas.SelectedRows[0].DataBoundItem).ID;
+                int ID = (int)this.dgvPersonas.SelectedRows[0].Cells["id_persona"].Value;
                 PersonaDesktop pd = new PersonaDesktop(ID, ApplicationForm.ModoForm.Modificacion);
                 pd.ShowDialog();
                 Listar();
@@ -71,8 +71,8 @@ namespace UI.Desktop
         {
                 if (this.dgvPersonas.SelectedRows.Count != 0)
                 {
-                    int ID = ((Business.Entities.Persona)this.dgvPersonas.SelectedRows[0].DataBoundItem).ID;
-                    PersonaDesktop personaDesktop = new PersonaDesktop(ID, ApplicationForm.ModoForm.Baja);
+                int ID = (int)this.dgvPersonas.SelectedRows[0].Cells["id_persona"].Value;
+                PersonaDesktop personaDesktop = new PersonaDesktop(ID, ApplicationForm.ModoForm.Baja);
                     personaDesktop.ShowDialog();
                     this.Listar();
                 }

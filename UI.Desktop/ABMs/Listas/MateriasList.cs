@@ -52,7 +52,7 @@ namespace UI.Desktop
         {
             if (this.dgvMaterias.SelectedRows.Count != 0)
             {
-                int ID = ((Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
+                int ID = (int)this.dgvMaterias.SelectedRows[0].Cells["id"].Value;
                 MateriaDesktop materiaDesktop = new MateriaDesktop(ID, ApplicationForm.ModoForm.Modificacion);
                 materiaDesktop.ShowDialog();
                 Listar();
@@ -67,7 +67,7 @@ namespace UI.Desktop
         {
             if (this.dgvMaterias.SelectedRows.Count != 0)
             {
-                int ID = ((Business.Entities.Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
+                int ID = (int)this.dgvMaterias.SelectedRows[0].Cells["id"].Value;
                 MateriaDesktop materiaDesktop = new MateriaDesktop(ID, ApplicationForm.ModoForm.Baja);
                 materiaDesktop.ShowDialog();
                 this.Listar();

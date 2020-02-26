@@ -35,6 +35,7 @@ namespace UI.Desktop
         //baja y modificacion
         public ComisionDesktop(int id, ModoForm modo) : this()
         {
+            modoform = modo;
             lblID.Visible = true;
             comisionActual = cLogic.GetOne(id);
             CargarCombo();
@@ -52,7 +53,7 @@ namespace UI.Desktop
             cbProfesor.SelectedValue = comisionActual.IdProfesor;
             cbMateria.SelectedValue = comisionActual.IDMateria;
 
-            switch (Modo)
+            switch (modoform)
             {
                 case ModoForm.Modificacion:
                     btnAceptar.Text = "Guardar";
@@ -68,7 +69,7 @@ namespace UI.Desktop
 
         public override void MapearADatos()
         {
-            switch (this.Modo)
+            switch (modoform)
             {
                 case ModoForm.Alta:
                     comisionActual = new Comision()
