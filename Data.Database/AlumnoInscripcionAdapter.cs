@@ -24,17 +24,13 @@ namespace Data.Database
                 {
                     AlumnoInscripcion insc = new AlumnoInscripcion();
 
-                        //ID = (int)drAlumnoInscripciones["id_inscripcion"],
                     insc.IDAlumno = (int)drAlumnoInscripciones["id_persona"];
                     insc.IDComision = (int)drAlumnoInscripciones["id_comision"];
                     insc.Parcial1 = (drAlumnoInscripciones["parcial1"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["parcial1"];
                     insc.Parcial2 = (drAlumnoInscripciones["parcial2"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["parcial2"];
                     insc.Parcial3 = (drAlumnoInscripciones["parcial3"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["parcial3"];
-                    insc.Notafinal = (drAlumnoInscripciones["notafinal"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["notafinal"];
-                        // Habilitado = (bool)drAlumnoInscripciones["ai_hab"],
-                        //Nota = (drAlumnoInscripciones["nota"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["nota"],
-                        //Condicion = (AlumnoInscripcion.Condiciones)System.Enum.Parse(typeof(AlumnoInscripcion.Condiciones), (string)drAlumnoInscripciones["condicion"])
-                    
+                    insc.Notafinal = (drAlumnoInscripciones["notafinal"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["notafinal"];                       
+                        //Nota = (drAlumnoInscripciones["nota"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["nota"],                     
                     alumnoInscripciones.Add(insc);
                 }
                 drAlumnoInscripciones.Close();
@@ -73,6 +69,45 @@ namespace Data.Database
                         Parcial2 = (int)drAlumnoInscripciones["parcial2"],
                         Parcial3 = (int)drAlumnoInscripciones["parcial3"],
                         Notafinal = (int)drAlumnoInscripciones["notafinal"],
+                    };
+                    alumnoInscripciones.Add(insc);
+                }
+                drAlumnoInscripciones.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar lista de Inscripciones", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return alumnoInscripciones;
+        }
+        public List<AlumnoInscripcion> GetAllProf(int IDProf)
+        {
+            List<AlumnoInscripcion> alumnoInscripciones = new List<AlumnoInscripcion>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdAlumnoInscripciones = new SqlCommand("select c.id_comision,c.id_persona,c.parcial1,c.parcial2,c.parcial2,c.parcial3,c.notafinal from comision co inner join comision_alumnos c on c.id_comision=co.id_comision where co.id_profesor= @ID ", SqlConn);
+                cmdAlumnoInscripciones.Parameters.Add("@ID", SqlDbType.Int).Value = IDProf;
+
+                SqlDataReader drAlumnoInscripciones = cmdAlumnoInscripciones.ExecuteReader();
+
+                while (drAlumnoInscripciones.Read())
+                {
+                    AlumnoInscripcion insc = new AlumnoInscripcion
+                    {
+                        IDAlumno = (int)drAlumnoInscripciones["id_persona"],
+                        IDComision = (int)drAlumnoInscripciones["id_comision"],
+                        Parcial1 = (drAlumnoInscripciones["parcial1"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["parcial1"],
+                        Parcial2 = (drAlumnoInscripciones["parcial2"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["parcial2"],
+                        Parcial3 = (drAlumnoInscripciones["parcial3"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["parcial3"],
+                        Notafinal = (drAlumnoInscripciones["notafinal"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["notafinal"],
+
                     };
                     alumnoInscripciones.Add(insc);
                 }
@@ -169,7 +204,47 @@ namespace Data.Database
             }
             return insc;
         }
+        public AlumnoInscripcion GetOne(int a,int b)
+        {
+            AlumnoInscripcion insc = new AlumnoInscripcion();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdAlumnoInscripciones = new SqlCommand("SELECT * FROM comision_alumnos WHERE id_persona =@idAlumn and id_comision=@idcom", SqlConn);
+                cmdAlumnoInscripciones.Parameters.Add("@idAlumn", SqlDbType.Int).Value = a;
+                cmdAlumnoInscripciones.Parameters.Add("@idcom", SqlDbType.Int).Value = b;
 
+                SqlDataReader drAlumnoInscripciones = cmdAlumnoInscripciones.ExecuteReader();
+
+                if (drAlumnoInscripciones.Read())
+                {
+
+                    //insc.ID = (int)drAlumnoInscripciones["id_inscripcion"];
+                    insc.IDAlumno = (int)drAlumnoInscripciones["id_persona"];
+                    insc.IDComision = (int)drAlumnoInscripciones["id_comision"];
+                    insc.Parcial1 = (drAlumnoInscripciones["parcial1"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["parcial1"];
+                    insc.Parcial2 = (drAlumnoInscripciones["parcial2"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["parcial2"];
+                    insc.Parcial3 = (drAlumnoInscripciones["parcial3"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["parcial3"];
+                    insc.Notafinal = (drAlumnoInscripciones["notafinal"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["notafinal"];
+
+                    //insc.Habilitado = (bool)drAlumnoInscripciones["ai_hab"];
+                    //insc.Nota = (drAlumnoInscripciones["nota"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["nota"];
+                    //insc.Condicion = (AlumnoInscripcion.Condiciones)System.Enum.Parse(typeof(AlumnoInscripcion.Condiciones), (string)drAlumnoInscripciones["condicion"]);
+                }
+                drAlumnoInscripciones.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar Inscripciones", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return insc;
+        }
         /*
         public int GetCupo(int IDCurso)
         {

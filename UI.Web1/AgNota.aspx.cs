@@ -15,6 +15,7 @@ namespace UI.Web1
         public enum FormModes { Alta, Baja, Modificacion }
         private AlumnoInscripcion _AlumnoInscripcionActual;
         private AlumnoInscripcionLogic alins;
+        int a, b, c;
         private AlumnoInscripcion Entity { get; set; }
 
         public FormModes FormMode
@@ -49,6 +50,10 @@ namespace UI.Web1
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+         //   Parciales.Visible = false;
+            lbAceptar.Visible = false;
+            lbCancelar.Visible = false;
+            lblError.Visible = false;
             LoadGrid();
         }
 
@@ -57,7 +62,7 @@ namespace UI.Web1
             if (gvIns.SelectedValue != null)
             {
                 lblError.Visible = false;
-                Parciales.Visible = true;
+            //    Parciales.Visible = true;
                 lbAceptar.Visible = true;
                 lbCancelar.Visible = true;
                 this.FormMode = FormModes.Modificacion;
@@ -77,21 +82,25 @@ namespace UI.Web1
         }
         protected void gvIns_SelectedIndexChanged(object sender, EventArgs e)//
         {
-            GridViewRow a = gvIns.SelectedRow;
-            SelectedID = (int)gvIns.SelectedValue;
+           
+
+            a = (int)gvIns.SelectedIndex;
+            b= Convert.ToInt32(gvIns.Rows[a].Cells[1].Text);
+            c= Convert.ToInt32(gvIns.Rows[a].Cells[2].Text);
+
 
         }
         private void LoadGrid()//
         {
 
             //  gvIns.DataSource = alins.GetAllFromUser(Convert.ToInt32(Session["id"]));
-            gvIns.DataSource = alins.GetAll();
+            gvIns.DataSource = AlumnoInscripcionLogic.GetAllProf(Convert.ToInt32(Session["idPersona"]));
             gvIns.DataBind();
         }
 
         protected void lbCancelar_Click(object sender, EventArgs e)
         {
-            Parciales.Visible = false;
+        //    Parciales.Visible = false;
             lbAceptar.Visible = false;
             lbCancelar.Visible = false;
             lblError.Visible = false;
@@ -103,12 +112,12 @@ namespace UI.Web1
             try
             {
                 Entity = new AlumnoInscripcion();
-                //   Entity = alins.GetOne(SelectedID);
+                Entity = alins.GetOne(b,c);
                 Entity.State = BusinessEntity.States.Modified;
                 LoadEntity(Entity);
                 SaveEntity(Entity);
                 LoadGrid();
-                Parciales.Visible = false;
+             //   Parciales.Visible = false;
                 lbAceptar.Visible = false;
                 lbCancelar.Visible = false;
             }
