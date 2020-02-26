@@ -74,14 +74,11 @@ namespace UI.Web1
         private void LoadEntity(AlumnoInscripcion al)
         {
 
-            /*   al.Parcial1 = Parciales.SelectedID1;
+               al.Parcial1 = Parciales.SelectedID1;
                al.Parcial2 = Parciales.SelectedID2;
                al.Parcial3 = Parciales.SelectedID3;
-               al.Notafinal = Parciales.SelectedID4;*/
-            al.Parcial1 = Convert.ToInt32(ddl.SelectedValue);
-            al.Parcial2 = Convert.ToInt32(ddl0.SelectedValue);
-            al.Parcial3 = Convert.ToInt32(ddl1.SelectedValue);
-            al.Notafinal = Convert.ToInt32(ddl2.SelectedValue);
+               al.Notafinal = Parciales.SelectedID4;
+          
 
         }
         protected void gvIns_SelectedIndexChanged(object sender, EventArgs e)//

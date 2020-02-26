@@ -45,5 +45,9 @@ namespace UI.Web1
            
         }
 
+        protected void formPanel_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

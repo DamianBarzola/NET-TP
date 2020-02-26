@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="WebUserControl1.ascx.cs" Inherits="UI.Web1.WebUserControl1" %>
-        <asp:Panel ID="formPanel" runat="server" Visible="false">
+        <asp:Panel ID="formPanel" runat="server" Visible="true" OnLoad="formPanel_Load">
             1ºParcial&nbsp;
             <asp:DropDownList ID="ddl" runat="server">
                 <asp:ListItem>1</asp:ListItem>
