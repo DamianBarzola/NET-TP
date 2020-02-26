@@ -24,5 +24,15 @@ namespace Business.Logic
         {
             Com.Insert(comal);
         }
+
+        public Comision_Alumno GetOne(int idalumno, int idcomision)
+        {
+            return Com.GetOne(idalumno, idcomision);
+        }
+
+        public void Update(Comision_Alumno comal)
+        {
+            Com.Update(comal);
+        }
     }
 }

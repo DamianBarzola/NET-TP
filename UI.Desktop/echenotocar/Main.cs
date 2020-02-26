@@ -64,6 +64,7 @@ namespace UI.Desktop
 
                 case Persona.TipoPersona.Administrador:
                     lblTipoPersona.Text = "Administrador";
+                    tsmCargarNotasAlumnos.Visible = false;
                     break;
             }
 
@@ -154,6 +155,12 @@ namespace UI.Desktop
 
             ComisionesProfesorForm reportedocente = new ComisionesProfesorForm(UsuarioLogueado.Id_persona);
             reportedocente.ShowDialog();
+        }
+
+        private void cargarNotasAlumnosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CargaNotas cargarNotasDesktop = new CargaNotas();
+            cargarNotasDesktop.ShowDialog();
         }
     }
 }

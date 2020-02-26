@@ -43,6 +43,7 @@
             this.aBMCursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmDocentes = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmReportesDocentes = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCargarNotasAlumnos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAlumnos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmMateriasInscripto = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmInscribirseAMateria = new System.Windows.Forms.ToolStripMenuItem();
@@ -163,7 +164,8 @@
             // tsmDocentes
             // 
             this.tsmDocentes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmReportesDocentes});
+            this.tsmReportesDocentes,
+            this.tsmCargarNotasAlumnos});
             this.tsmDocentes.Name = "tsmDocentes";
             this.tsmDocentes.Size = new System.Drawing.Size(68, 20);
             this.tsmDocentes.Text = "Docentes";
@@ -171,9 +173,16 @@
             // tsmReportesDocentes
             // 
             this.tsmReportesDocentes.Name = "tsmReportesDocentes";
-            this.tsmReportesDocentes.Size = new System.Drawing.Size(180, 22);
+            this.tsmReportesDocentes.Size = new System.Drawing.Size(194, 22);
             this.tsmReportesDocentes.Text = "Reportes Docentes";
             this.tsmReportesDocentes.Click += new System.EventHandler(this.tsmReportesDocentes_Click);
+            // 
+            // tsmCargarNotasAlumnos
+            // 
+            this.tsmCargarNotasAlumnos.Name = "tsmCargarNotasAlumnos";
+            this.tsmCargarNotasAlumnos.Size = new System.Drawing.Size(194, 22);
+            this.tsmCargarNotasAlumnos.Text = "Cargar Notas Alumnos";
+            this.tsmCargarNotasAlumnos.Click += new System.EventHandler(this.cargarNotasAlumnosToolStripMenuItem_Click);
             // 
             // tsmAlumnos
             // 
@@ -276,5 +285,6 @@
         private System.Windows.Forms.Label lblBienvenido;
         private System.Windows.Forms.Label lblTipoPersona;
         private System.Windows.Forms.Label lblNombrePersona;
+        private System.Windows.Forms.ToolStripMenuItem tsmCargarNotasAlumnos;
     }
 }
