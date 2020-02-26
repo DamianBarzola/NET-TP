@@ -295,8 +295,8 @@ namespace Data.Database
               {
                   this.OpenConnection();
                   SqlCommand cmUpd = new SqlCommand("UPDATE comision_alumnos SET " +
-                      " parcial1 = @p1, parcial2 = @p2, parcial3 = @p3,notafinal=@nf" +
-                      "WHERE id_persona=@ido and id_comision=@asd", SqlConn);
+                      " parcial1 = @p1, parcial2 = @p2, parcial3 = @p3,notafinal=@nf " +
+                      "WHERE id_persona=@idp and id_comision=@asd", SqlConn);
 
                   cmUpd.Parameters.Add("@idp", SqlDbType.Int).Value = insc.IDAlumno;
                 cmUpd.Parameters.Add("@asd", SqlDbType.Int).Value = insc.IDComision;
@@ -354,7 +354,7 @@ namespace Data.Database
             }
             else if (insc.State == BusinessEntity.States.Modified)
             {
-                //this.Update(insc);
+                this.Update(insc);
             }
             insc.State = BusinessEntity.States.Unmodified;
         }

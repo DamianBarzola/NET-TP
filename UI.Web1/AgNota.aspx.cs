@@ -50,9 +50,9 @@ namespace UI.Web1
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-         //   Parciales.Visible = false;
-            lbAceptar.Visible = false;
-            lbCancelar.Visible = false;
+            formPanel.Visible = false;
+           
+            
             lblError.Visible = false;
             LoadGrid();
         }
@@ -61,10 +61,10 @@ namespace UI.Web1
         {
             if (gvIns.SelectedValue != null)
             {
+                formPanel.Visible = true;
                 lblError.Visible = false;
             //    Parciales.Visible = true;
-                lbAceptar.Visible = true;
-                lbCancelar.Visible = true;
+              
                 this.FormMode = FormModes.Modificacion;
                 //this.LoadForm(this.SelectedID);
             }
@@ -74,10 +74,14 @@ namespace UI.Web1
         private void LoadEntity(AlumnoInscripcion al)
         {
 
-            al.Parcial1 = Parciales.SelectedID1;
-            al.Parcial2 = Parciales.SelectedID2;
-            al.Parcial3 = Parciales.SelectedID3;
-            al.Notafinal = Parciales.SelectedID4;
+            /*   al.Parcial1 = Parciales.SelectedID1;
+               al.Parcial2 = Parciales.SelectedID2;
+               al.Parcial3 = Parciales.SelectedID3;
+               al.Notafinal = Parciales.SelectedID4;*/
+            al.Parcial1 = Convert.ToInt32(ddl.SelectedValue);
+            al.Parcial2 = Convert.ToInt32(ddl0.SelectedValue);
+            al.Parcial3 = Convert.ToInt32(ddl1.SelectedValue);
+            al.Notafinal = Convert.ToInt32(ddl2.SelectedValue);
 
         }
         protected void gvIns_SelectedIndexChanged(object sender, EventArgs e)//
@@ -101,8 +105,7 @@ namespace UI.Web1
         protected void lbCancelar_Click(object sender, EventArgs e)
         {
         //    Parciales.Visible = false;
-            lbAceptar.Visible = false;
-            lbCancelar.Visible = false;
+
             lblError.Visible = false;
         }
 
@@ -110,18 +113,17 @@ namespace UI.Web1
         {
             lblError.Visible = false;
             try
-            {
+           {
                 Entity = new AlumnoInscripcion();
                 Entity = alins.GetOne(b,c);
                 Entity.State = BusinessEntity.States.Modified;
                 LoadEntity(Entity);
                 SaveEntity(Entity);
                 LoadGrid();
-             //   Parciales.Visible = false;
-                lbAceptar.Visible = false;
-                lbCancelar.Visible = false;
-            }
-            catch (Exception) { lblError.Visible = true; }
+                //   Parciales.Visible = false;
+                formPanel.Visible = false;
+              
+            }            catch (Exception) { lblError.Visible = true; }
         }
         private void SaveEntity(AlumnoInscripcion al)
         {
