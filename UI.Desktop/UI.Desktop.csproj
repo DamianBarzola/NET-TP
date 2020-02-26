@@ -193,6 +193,9 @@
     <Compile Include="ComisionesProfesorForm.Designer.cs">
       <DependentUpon>ComisionesProfesorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DSReporteDocentes.cs">
+      <DependentUpon>DSReporteDocentes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DSReporteDocentes.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

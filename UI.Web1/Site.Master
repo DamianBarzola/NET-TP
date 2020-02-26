@@ -41,13 +41,17 @@
                 <asp:LinkButton runat="server" href="/MisInscripciones.aspx" id="lbVerInscrip">Mis Comisiones</asp:LinkButton>
                 &nbsp;&nbsp;&nbsp;
                 <asp:LinkButton runat="server" href="/InscripcionNueva.aspx" id="lbInscACursoado">Inscribirse a Comision</asp:LinkButton>
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;<asp:LinkButton ID="reoAl" runat="server" href="/ReporteAlumno.aspx">Reporte Comisiones</asp:LinkButton>
+                &nbsp; &nbsp;&nbsp;&nbsp;
             </p>
             </asp:ContentPlaceHolder>
             <asp:ContentPlaceHolder ID="chProfesor" runat="server">
-    <p style="border-top-style: double; border-width: 1px; border-color: #000080; border-bottom-style: double">
-        aaaaaaaaaaaaaaaaaaaaa
-        </p>
+                <p style="border-top-style: double; border-width: 1px; border-color: #000080; border-bottom-style: double">
+&nbsp;&nbsp;
+                    <asp:LinkButton runat="server" href="/AgNota.aspx" ID="AgregarNotas">Notas</asp:LinkButton>
+&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:LinkButton ID="reoCursos" runat="server" href="/RDoc.aspx">Reporte Cursos</asp:LinkButton>
+                    &nbsp;&nbsp;&nbsp;</p>
             
         </asp:ContentPlaceHolder>
 

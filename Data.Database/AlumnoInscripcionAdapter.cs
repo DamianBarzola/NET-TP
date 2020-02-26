@@ -22,19 +22,19 @@ namespace Data.Database
 
                 while (drAlumnoInscripciones.Read())
                 {
-                    AlumnoInscripcion insc = new AlumnoInscripcion
-                    {
+                    AlumnoInscripcion insc = new AlumnoInscripcion();
+
                         //ID = (int)drAlumnoInscripciones["id_inscripcion"],
-                        IDAlumno = (int)drAlumnoInscripciones["id_persona"],
-                        IDComision = (int)drAlumnoInscripciones["id_comision"],
-                        Parcial1 = (int)drAlumnoInscripciones["parcial1"],
-                        Parcial2 = (int)drAlumnoInscripciones["parcial2"],
-                        Parcial3 = (int)drAlumnoInscripciones["parcial3"],
-                        Notafinal = (int)drAlumnoInscripciones["notafinal"],
+                    insc.IDAlumno = (int)drAlumnoInscripciones["id_persona"];
+                    insc.IDComision = (int)drAlumnoInscripciones["id_comision"];
+                    insc.Parcial1 = (drAlumnoInscripciones["parcial1"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["parcial1"];
+                    insc.Parcial2 = (drAlumnoInscripciones["parcial2"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["parcial2"];
+                    insc.Parcial3 = (drAlumnoInscripciones["parcial3"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["parcial3"];
+                    insc.Notafinal = (drAlumnoInscripciones["notafinal"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["notafinal"];
                         // Habilitado = (bool)drAlumnoInscripciones["ai_hab"],
                         //Nota = (drAlumnoInscripciones["nota"] == DBNull.Value) ? 0 : (int)drAlumnoInscripciones["nota"],
                         //Condicion = (AlumnoInscripcion.Condiciones)System.Enum.Parse(typeof(AlumnoInscripcion.Condiciones), (string)drAlumnoInscripciones["condicion"])
-                    };
+                    
                     alumnoInscripciones.Add(insc);
                 }
                 drAlumnoInscripciones.Close();
@@ -214,7 +214,7 @@ namespace Data.Database
             }
         }
         //Hay que modificar a nueva base
-        / protected void Update(AlumnoInscripcion insc)
+         protected void Update(AlumnoInscripcion insc)
           {
               try
               {

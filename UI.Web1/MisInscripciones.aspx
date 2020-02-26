@@ -19,6 +19,7 @@
             <asp:BoundField HeaderText="Profesor" DataField="IdProfesor" />
         </Columns>
         </asp:GridView>
+        <br />
     </div>
     <div runat="server" id="divSinIns" visible="false">
         <br />

@@ -1,16 +1,17 @@
-﻿using System;
+﻿using Business.Entities;
+using Business.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Business.Entities;
-using Business.Logic;
 
-namespace UI.Web
+namespace UI.Web1
 {
-    public partial class Inscripciones : System.Web.UI.Page
+    public partial class AgNota : System.Web.UI.Page
     {
+
         public enum FormModes { Alta, Baja, Modificacion }
         private AlumnoInscripcion _AlumnoInscripcionActual;
         private AlumnoInscripcionLogic alins;
@@ -30,10 +31,6 @@ namespace UI.Web
                 return alins;
             }
         }
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            LoadGrid();
-        }
         private int SelectedID
         {
             get
@@ -50,42 +47,10 @@ namespace UI.Web
                 this.ViewState["SelectedID"] = value;
             }
         }
-
-        protected void gvIns_SelectedIndexChanged(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            GridViewRow a = gvIns.SelectedRow;
-            SelectedID = (int)gvIns.SelectedValue;
-            
-            
+            LoadGrid();
         }
-
-
-        private void LoadGrid()
-        {
-
-            gvIns.DataSource = alins.GetAllFromUser(Convert.ToInt32(Session["id"]));
-            gvIns.DataBind();
-        }
-
-        /*private void LoadForm(int id)
-        {
-            Entity = alins.GetOne(id);
-             
-            txA.Text = Entity.IDAlumno.ToString();
-           txCondi.Text = Entity.Condicion.ToString();
-           txCurso.Text = Entity.IDCurso.ToString();
-            txNota.Text = Entity.Nota.ToString();
-        }
-
-        private void ClearForm()
-        {
-            Entity = null;
-            txAlumno.Text = string.Empty;
-            txCondi.Text = string.Empty;
-            txCurso.Text = string.Empty;
-            txNota.Text = string.Empty;
-
-        }*/
 
         protected void lbEditar_Click(object sender, EventArgs e)
         {
@@ -96,22 +61,32 @@ namespace UI.Web
                 lbAceptar.Visible = true;
                 lbCancelar.Visible = true;
                 this.FormMode = FormModes.Modificacion;
-              //this.LoadForm(this.SelectedID);
+                //this.LoadForm(this.SelectedID);
             }
+
         }
 
         private void LoadEntity(AlumnoInscripcion al)
         {
-           
+
             al.Parcial1 = Parciales.SelectedID1;
             al.Parcial2 = Parciales.SelectedID2;
             al.Parcial3 = Parciales.SelectedID3;
             al.Notafinal = Parciales.SelectedID4;
 
         }
-        private void SaveEntity(AlumnoInscripcion al)
+        protected void gvIns_SelectedIndexChanged(object sender, EventArgs e)//
         {
-            alins.Save(al);
+            GridViewRow a = gvIns.SelectedRow;
+            SelectedID = (int)gvIns.SelectedValue;
+
+        }
+        private void LoadGrid()//
+        {
+
+            //  gvIns.DataSource = alins.GetAllFromUser(Convert.ToInt32(Session["id"]));
+            gvIns.DataSource = alins.GetAll();
+            gvIns.DataBind();
         }
 
         protected void lbCancelar_Click(object sender, EventArgs e)
@@ -128,7 +103,7 @@ namespace UI.Web
             try
             {
                 Entity = new AlumnoInscripcion();
-             //   Entity = alins.GetOne(SelectedID);
+                //   Entity = alins.GetOne(SelectedID);
                 Entity.State = BusinessEntity.States.Modified;
                 LoadEntity(Entity);
                 SaveEntity(Entity);
@@ -138,6 +113,10 @@ namespace UI.Web
                 lbCancelar.Visible = false;
             }
             catch (Exception) { lblError.Visible = true; }
+        }
+        private void SaveEntity(AlumnoInscripcion al)
+        {
+            alins.Save(al);
         }
     }
 }
