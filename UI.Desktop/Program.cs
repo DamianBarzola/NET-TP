@@ -16,8 +16,8 @@ namespace UI.Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new IngresarAlumnoParaNotas());
-            //Application.Run(new Login());
+            //Application.Run(new Main());
+            Application.Run(new Login());
 
         }
     }

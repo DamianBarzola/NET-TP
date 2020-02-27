@@ -134,24 +134,31 @@ namespace UI.Desktop
 
         public override void GuardarCambios()
         {
-                this.MapearADatos();
-                usuarioLogic.Save(UsuarioActual);
-                this.Close();
+            if (Validar())
+            {
+                try
+                {
+                    this.MapearADatos();
+                    usuarioLogic.Save(UsuarioActual);
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ha ocurrido un error modificando el usuario");
+                }
+            }
+
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (Validar())
-            {
                 GuardarCambios();
-            }
+                this.Close();
         }
         private void btnAceptar_Click_1(object sender, EventArgs e)
         {
-            if (Validar())
-            {
                 GuardarCambios();
-            }
+                this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

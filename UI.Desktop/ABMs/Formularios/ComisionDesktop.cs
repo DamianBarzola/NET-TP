@@ -107,9 +107,17 @@ namespace UI.Desktop
 
         public override void GuardarCambios()
         {
+            try
+            {
                 this.MapearADatos();
                 cLogic.Save(comisionActual);
                 this.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error modificando la comision");
+            }
+
         }
 
         public override bool Validar()

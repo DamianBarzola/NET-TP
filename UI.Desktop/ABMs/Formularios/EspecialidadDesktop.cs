@@ -125,9 +125,20 @@ namespace UI.Desktop
         }
         public override void GuardarCambios()
         {
-            MapearADatos();
-            EspecialidadLogic auxEspecialidad = new EspecialidadLogic();
-            auxEspecialidad.Save(EspecActual);
+            if (Validar())
+            {
+                try
+                {
+                    MapearADatos();
+                    EspecialidadLogic auxEspecialidad = new EspecialidadLogic();
+                    auxEspecialidad.Save(EspecActual);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ha ocurrido un error modificando la especialidad");
+                }
+            }
+
         }
     }
 }

@@ -139,22 +139,30 @@ namespace UI.Desktop
         {
             if (Validar())
             {
-                this.MapearADatos();
-                switch (this.modoform)
+                try
                 {
-                    case ModoForm.Alta:
-                        personaActual.State = BusinessEntity.States.New;
-                        break;
-                    case ModoForm.Baja:
-                        personaActual.State = BusinessEntity.States.Deleted;
+                    this.MapearADatos();
+                    switch (this.modoform)
+                    {
+                        case ModoForm.Alta:
+                            personaActual.State = BusinessEntity.States.New;
+                            break;
+                        case ModoForm.Baja:
+                            personaActual.State = BusinessEntity.States.Deleted;
 
-                        break;
-                    case ModoForm.Modificacion:
-                        personaActual.State = BusinessEntity.States.Modified;
-                        break;
+                            break;
+                        case ModoForm.Modificacion:
+                            personaActual.State = BusinessEntity.States.Modified;
+                            break;
+                    }
+                    plogic.Save(personaActual);
+                    this.Close();
                 }
-                plogic.Save(personaActual);
-                this.Close();
+                catch (Exception)
+                {
+                    MessageBox.Show("Ha ocurrido un error modificando la persona");
+                }
+
             }
 
 

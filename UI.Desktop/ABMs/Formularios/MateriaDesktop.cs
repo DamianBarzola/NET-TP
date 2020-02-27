@@ -94,9 +94,17 @@ namespace UI.Desktop
         {
             if (Validar())
             {
-                MapearADatos();
-                mlogic.Save(materiaActual);
-                this.Close();
+                try
+                {
+                    MapearADatos();
+                    mlogic.Save(materiaActual);
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ha ocurrido un error modificando la materia");
+                }
+
             }
         }
 

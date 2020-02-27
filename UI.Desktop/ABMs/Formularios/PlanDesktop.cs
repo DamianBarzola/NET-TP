@@ -116,18 +116,26 @@ namespace UI.Desktop
 
         public override void GuardarCambios()
         {
-                this.MapearADatos();
-                plogic.Save(PlanActual);
-                this.Close();
+            if (Validar())
+            {
+                try
+                {
+                    this.MapearADatos();
+                    plogic.Save(PlanActual);
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ha ocurrido un error modificando el plan");
+                }
+            }
+
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (Validar())
-            {
                 this.GuardarCambios();
                 this.Close();
-            }
         }
 
         public void CargarCombo()
