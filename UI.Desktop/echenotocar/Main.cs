@@ -159,7 +159,7 @@ namespace UI.Desktop
 
         private void cargarNotasAlumnosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CargaNotas cargarNotasDesktop = new CargaNotas();
+            IngresarAlumnoParaNotas cargarNotasDesktop = new IngresarAlumnoParaNotas();
             cargarNotasDesktop.ShowDialog();
         }
     }
