@@ -314,6 +314,45 @@ namespace Data.Database
             }
             return personas;
         }
+        public List<Persona> GetAlumnos(int a)
+        {
+            List<Persona> personas = new List<Persona>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmPErsona = new SqlCommand("select p.* from comision_alumnos c inner join personas p on p.id_persona=c.id_persona where c.id_comision=@aa ", SqlConn);
+                cmPErsona.Parameters.Add("@aa", SqlDbType.Int).Value = a;
+                SqlDataReader drPersona = cmPErsona.ExecuteReader();
+
+                while (drPersona.Read())
+                {
+                    Persona pers = new Persona();
+                   pers.ID = (int)drPersona["id_persona"];
+                    pers.Nombre = (string)drPersona["nombre"];
+                    pers.Apellido = (string)drPersona["apellido"];
+                    pers.Direccion = (string)drPersona["direccion"];
+                    pers.Telefono = (string)drPersona["telefono"];
+                    pers.FechaNacimiento = (DateTime)drPersona["fecha_nac"];
+                    pers.Legajo = (int)drPersona["legajo"];
+                    pers.Tipo = (Persona.TipoPersona)drPersona["tipo_persona"];
+                    pers.Id_especialidad = (int)drPersona["id_especialidad"];
+
+                    personas.Add(pers);
+                }
+                drPersona.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar lista de personas", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return personas;
+        }
     }
 
 }

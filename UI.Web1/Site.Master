@@ -48,7 +48,7 @@
             <asp:ContentPlaceHolder ID="chProfesor" runat="server">
                 <p style="border-top-style: double; border-width: 1px; border-color: #000080; border-bottom-style: double">
 &nbsp;&nbsp;
-                    <asp:LinkButton runat="server" href="/AgNota.aspx" ID="AgregarNotas">Notas</asp:LinkButton>
+                    <asp:LinkButton runat="server" href="/ANota.aspx" ID="AgregarNotas">Agregar Notas</asp:LinkButton>
 &nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:LinkButton ID="reoCursos" runat="server" href="/RDoc.aspx">Reporte Cursos</asp:LinkButton>
                     &nbsp;&nbsp;&nbsp;</p>

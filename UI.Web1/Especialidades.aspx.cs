@@ -48,7 +48,21 @@ namespace UI.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadGrid();
+            if ((int)Session["tipo"] == 3)
+            {
+                LoadGrid();
+
+
+            }
+            else if ((int)Session["tipo"] == 2)
+            {
+                Response.Redirect("/Default.aspx");
+            }
+            else if ((int)Session["tipo"] == 1)
+            {
+                Response.Redirect("/Default.aspx");
+            }
+           
 
         }
         private void LoadGrid()

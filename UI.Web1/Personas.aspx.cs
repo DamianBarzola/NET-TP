@@ -39,7 +39,18 @@ namespace UI.Web
         private PersonaLogic personas = new PersonaLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadGrid();
+            if ((int)Session["tipo"] == 3)
+            {
+                LoadGrid();
+            }
+            else if ((int)Session["tipo"] == 2)
+            {
+                Response.Redirect("/Default.aspx");
+            }
+            else if ((int)Session["tipo"] == 1)
+            {
+                Response.Redirect("/Default.aspx");
+            }
         }
 
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,7 +76,7 @@ namespace UI.Web
             apellidoTextBox.Text = Entity.Apellido;
             FechaNacTextBox.Text = Entity.FechaNacimiento.ToString("yyyy-MM-dd");
             TelefonoTextBox.Text = Entity.Telefono;
-            dTipo.SelectedValue= ((int)Entity.Tipo).ToString();
+           // dTipo.SelectedValue= ((int)Entity.Tipo);
 
             desp.SelectedValue = ((int)Entity.Id_especialidad).ToString();
 

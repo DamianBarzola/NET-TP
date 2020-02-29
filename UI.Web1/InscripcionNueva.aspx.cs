@@ -35,8 +35,20 @@ namespace UI.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblError.Visible = false;
-            LoadGrid();
+            if ((int)Session["tipo"] == 3)
+            {
+                Response.Redirect("/Default.aspx");
+            }
+            else if ((int)Session["tipo"] == 2)
+            {
+                Response.Redirect("/Default.aspx");
+            }
+            else if ((int)Session["tipo"] == 1)
+            {
+                lblError.Visible = false;
+                LoadGrid();
+            }
+          
         }
         public void LoadGrid()
         {
@@ -47,9 +59,10 @@ namespace UI.Web
             {
                // Panel1.Visible = true;
                 lbaceptar.Visible = false;
+                lblCom.Visible = false;
             }
             else {
-                
+                lblCom.Visible = false;
                 lbaceptar.Visible = true;
                 //Panel1.Visible = false;
                 gridView.DataSource = com.GetPorAnio();
@@ -87,9 +100,10 @@ namespace UI.Web
                     //gridView.visible = false;
                     lbaceptar.Visible = false;
                     //Panel2.visible = true;
+                    lblCom.Visible = true;
                 }
             }
-            catch (Exception) { lblError.Visible = true; }
+            catch (Exception) { lblError.Visible = true; lblCom.Visible = false; }
             
         }
 

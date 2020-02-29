@@ -80,7 +80,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AgNota.aspx" />
+    <Content Include="Anota.aspx" />
     <Content Include="Planess.aspx" />
     <Content Include="Comisiones.aspx" />
     <Content Include="Default.aspx" />
@@ -111,15 +111,15 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="WebUserControl1.ascx" />
+    <Content Include="report\WebUserControl1.ascx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgNota.aspx.cs">
-      <DependentUpon>AgNota.aspx</DependentUpon>
+    <Compile Include="Anota.aspx.cs">
+      <DependentUpon>Anota.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AgNota.aspx.designer.cs">
-      <DependentUpon>AgNota.aspx</DependentUpon>
+    <Compile Include="Anota.aspx.designer.cs">
+      <DependentUpon>Anota.aspx</DependentUpon>
     </Compile>
     <Compile Include="Planess.aspx.cs">
       <DependentUpon>Planess.aspx</DependentUpon>
@@ -222,11 +222,11 @@
     <Compile Include="Usuarios.aspx.designer.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebUserControl1.ascx.cs">
+    <Compile Include="report\WebUserControl1.ascx.cs">
       <DependentUpon>WebUserControl1.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebUserControl1.ascx.designer.cs">
+    <Compile Include="report\WebUserControl1.ascx.designer.cs">
       <DependentUpon>WebUserControl1.ascx</DependentUpon>
     </Compile>
   </ItemGroup>

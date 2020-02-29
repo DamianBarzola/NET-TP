@@ -24,7 +24,11 @@ namespace Business.Logic
             return Pers.GetAll();
         }
 
-        public List<Persona> GetAlumnos()
+        public List<Persona> GetAlumnos(int a)
+        {
+            return Pers.GetAlumnos(a);
+        }
+            public List<Persona> GetAlumnos()
         {
             return Pers.GetAlumnos();
         }

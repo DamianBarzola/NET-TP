@@ -104,6 +104,37 @@ namespace Util
         }
 
 
+        public static DataTable getComisiones()
+        {
+            DataTable dtcomisiones = new DataTable();
+            dtcomisiones.Columns.Add("id_comision", typeof(int));          
+            ComisionLogic cl = new ComisionLogic();
+            List<Comision> comi = cl.GetAll();
+            dtcomisiones.Rows.Add(new object[] { 0});
+
+            foreach (Comision com in comi)
+            {
+                dtcomisiones.Rows.Add(new object[] {com.ID});
+            }
+
+            return dtcomisiones;
+        }/*
+        public static DataTable getPlanes()
+        {
+            DataTable dtPlanes = new DataTable();
+            dtPlanes.Columns.Add("id_plan", typeof(int));
+            dtPlanes.Columns.Add("descripcion", typeof(string));
+            PlanLogic pl = new PlanLogic();
+            List<Plan> planes = pl.GetAll();
+            dtPlanes.Rows.Add(new object[] { 0, string.Empty });
+            foreach (Plan plan in planes)
+            {
+                dtPlanes.Rows.Add(new object[] { plan.ID, plan.DescripcionPlan });
+            }
+            return dtPlanes;
+        }*/
+
+
         public static DataTable getComisiones(int id)
         {
             DataTable dtcomisiones = new DataTable();
@@ -124,6 +155,20 @@ namespace Util
             }
 
             return dtcomisiones;
+        }
+        public static DataTable getAlumno(int a)
+        {
+            DataTable dtAlumno = new DataTable();
+            dtAlumno.Columns.Add("id_persona", typeof(int));
+            dtAlumno.Columns.Add("apellido", typeof(string));
+            PersonaLogic pl = new PersonaLogic();
+            List<Persona> personas = pl.GetAlumnos(a);
+            dtAlumno.Rows.Add(new object[] { 0, string.Empty });
+            foreach (Persona p in personas)
+            {
+                dtAlumno.Rows.Add(new object[] { p.ID,p.Apellido });
+            }
+            return dtAlumno;
         }
 
     }

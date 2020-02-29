@@ -10,7 +10,25 @@
 namespace UI.Web1 {
     
     
-    public partial class AgNota {
+    public partial class Anota {
+        
+        /// <summary>
+        /// Control ddComision.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddComision;
+        
+        /// <summary>
+        /// Control ddAlumno.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddAlumno;
         
         /// <summary>
         /// Control lbEditar.
@@ -22,24 +40,6 @@ namespace UI.Web1 {
         protected global::System.Web.UI.WebControls.LinkButton lbEditar;
         
         /// <summary>
-        /// Control gvIns.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvIns;
-        
-        /// <summary>
-        /// Control lblError.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
-        
-        /// <summary>
         /// Control formPanel.
         /// </summary>
         /// <remarks>
@@ -49,13 +49,13 @@ namespace UI.Web1 {
         protected global::System.Web.UI.WebControls.Panel formPanel;
         
         /// <summary>
-        /// Control Parciales.
+        /// Control WebUserControl11.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::UI.Web1.WebUserControl1 Parciales;
+        protected global::UI.Web1.WebUserControl1 WebUserControl11;
         
         /// <summary>
         /// Control lbAceptar.
