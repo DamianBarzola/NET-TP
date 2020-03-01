@@ -7,11 +7,11 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
     <br />
-    Comision&nbsp;<asp:DropDownList ID="ddComision" runat="server" OnSelectedIndexChanged="ddComision_SelectedIndexChanged">
+    Comision&nbsp;<asp:DropDownList ID="ddComision" runat="server" OnSelectedIndexChanged="ddComision_SelectedIndexChanged" AutoPostBack="True">
     </asp:DropDownList>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <br />
-    Alumno&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="ddAlumno" runat="server">
+    Alumno&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="ddAlumno" runat="server" AutoPostBack="True">
     </asp:DropDownList>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;<br />

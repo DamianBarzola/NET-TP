@@ -289,7 +289,7 @@ namespace Data.Database
             }
         }
         //Hay que modificar a nueva base
-         protected void Update(AlumnoInscripcion insc)
+        public void Update(AlumnoInscripcion insc)
           {
               try
               {

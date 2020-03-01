@@ -135,6 +135,21 @@ namespace Util
         }*/
 
 
+        public static DataTable getComProf(int a)
+        {
+            DataTable dtcomisiones = new DataTable();
+            dtcomisiones.Columns.Add("id_comision", typeof(int));
+            ComisionLogic cl = new ComisionLogic();
+            List<Comision> comi = cl.GetAll(a);//Busca materia para un prof
+            dtcomisiones.Rows.Add(new object[] { 0 });
+
+            foreach (Comision com in comi)
+            {
+                dtcomisiones.Rows.Add(new object[] { com.ID });
+            }
+
+            return dtcomisiones;
+        }
         public static DataTable getComisiones(int id)
         {
             DataTable dtcomisiones = new DataTable();

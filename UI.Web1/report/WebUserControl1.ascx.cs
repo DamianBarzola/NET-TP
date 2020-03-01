@@ -19,10 +19,7 @@ namespace UI.Web1
             {
                 return (int)ddl0.SelectedIndex;
             }
-            set
-            {
-                ddl0.SelectedIndex = value;
-            }
+            
 
         }
         public int SelectedID3
@@ -31,10 +28,7 @@ namespace UI.Web1
             {
                 return (int)ddl1.SelectedIndex;
             }
-            set
-            {
-                ddl1.SelectedIndex = value;
-            }
+           
 
         }
         public int SelectedID4
@@ -43,10 +37,7 @@ namespace UI.Web1
             {
                 return (int)ddl2.SelectedIndex;
             }
-            set
-            {
-                ddl2.SelectedIndex = value;
-            }
+           
 
         }
         public int SelectedID1
@@ -54,10 +45,7 @@ namespace UI.Web1
             get
             {  return (int)ddl.SelectedIndex;                
             }
-            set
-            {
-                ddl.SelectedIndex = value;
-            }
+           
 
         }
 

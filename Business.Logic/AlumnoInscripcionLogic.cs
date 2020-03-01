@@ -56,9 +56,12 @@ namespace Business.Logic
         {
             AlumnoInscA.Insert(insc);
         }
+        public void Update(AlumnoInscripcion insc)
+        {
+            AlumnoInscA.Update(insc);
+        }
 
-
-            public void Save(AlumnoInscripcion insc)
+        public void Save(AlumnoInscripcion insc)
         {
             AlumnoInscA.Save(insc);
         }
