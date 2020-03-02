@@ -45,7 +45,6 @@ namespace UI.Desktop
             _Modo = modo;
              UsuarioActual = user;
             MapearDeDatos();
-            InitializeComponent();
         }
         #endregion
 

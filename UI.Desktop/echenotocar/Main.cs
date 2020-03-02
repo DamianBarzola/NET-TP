@@ -142,15 +142,7 @@ namespace UI.Desktop
             comisionList.ShowDialog();
         }
 
-
-        //no
-
-        private void administrarCursadasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tsmReportesDocentes_Click(object sender, EventArgs e)
+       private void tsmReportesDocentes_Click(object sender, EventArgs e)
         {
 
             ComisionesProfesorForm reportedocente = new ComisionesProfesorForm(UsuarioLogueado.Id_persona);
@@ -162,5 +154,14 @@ namespace UI.Desktop
             IngresarAlumnoParaNotas cargarNotasDesktop = new IngresarAlumnoParaNotas();
             cargarNotasDesktop.ShowDialog();
         }
+
+        //no
+
+        private void administrarCursadasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+ 
     }
 }
