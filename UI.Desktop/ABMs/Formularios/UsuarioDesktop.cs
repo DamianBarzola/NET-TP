@@ -33,7 +33,6 @@ namespace UI.Desktop
         //Constructor: Recibe ID PERSONA y el modo (que seria alta siempre)
         public UsuarioDesktop(int ID, ModoForm modo) : this()
         {
-            InitializeComponent();
             this.UsuarioActual = new Usuario();
             _Modo = modo;
             UsuarioActual.Id_persona = ID;
@@ -118,7 +117,7 @@ namespace UI.Desktop
                 mensaje += "/nDebe ingresar una clave";
             }
 
-            if (!(txtConfirmarClaveV2.Text.Equals(txtClaveV2)) )
+            if (!(txtConfirmarClaveV2.Text.Equals(txtClaveV2.Text)) )
             {
                 valid = false;
                 mensaje += "/nLas claves deben ser iguales";
